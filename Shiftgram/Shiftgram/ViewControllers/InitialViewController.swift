@@ -8,18 +8,24 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class InitialViewController: UIViewController {
 
+    @IBOutlet weak var btnStartMessaging: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        self.initControls()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 
-
+    @IBAction func btnStartMessagingPressed(_ sender: Any) {
+    }
+    
+    private func initControls() {
+        btnStartMessaging.layer.cornerRadius = 20
+    }
 }
 

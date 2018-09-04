@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		117D4A18213F11A20072AB88 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 117D4A17213F11A20072AB88 /* AppDelegate.swift */; };
-		117D4A1A213F11A20072AB88 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 117D4A19213F11A20072AB88 /* ViewController.swift */; };
+		117D4A1A213F11A20072AB88 /* InitialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 117D4A19213F11A20072AB88 /* InitialViewController.swift */; };
 		117D4A1D213F11A20072AB88 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 117D4A1B213F11A20072AB88 /* Main.storyboard */; };
 		117D4A20213F11A20072AB88 /* Shiftgram.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 117D4A1E213F11A20072AB88 /* Shiftgram.xcdatamodeld */; };
 		117D4A22213F11A40072AB88 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 117D4A21213F11A40072AB88 /* Assets.xcassets */; };
@@ -37,7 +37,7 @@
 /* Begin PBXFileReference section */
 		117D4A14213F11A20072AB88 /* Shiftgram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Shiftgram.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		117D4A17213F11A20072AB88 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		117D4A19213F11A20072AB88 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		117D4A19213F11A20072AB88 /* InitialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialViewController.swift; sourceTree = "<group>"; };
 		117D4A1C213F11A20072AB88 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		117D4A1F213F11A20072AB88 /* Shiftgram.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Shiftgram.xcdatamodel; sourceTree = "<group>"; };
 		117D4A21213F11A40072AB88 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -101,8 +101,8 @@
 		117D4A16213F11A20072AB88 /* Shiftgram */ = {
 			isa = PBXGroup;
 			children = (
+				117D4A4A213F12480072AB88 /* ViewControllers */,
 				117D4A17213F11A20072AB88 /* AppDelegate.swift */,
-				117D4A19213F11A20072AB88 /* ViewController.swift */,
 				117D4A1B213F11A20072AB88 /* Main.storyboard */,
 				117D4A21213F11A40072AB88 /* Assets.xcassets */,
 				117D4A23213F11A40072AB88 /* LaunchScreen.storyboard */,
@@ -128,6 +128,14 @@
 				117D4A3C213F11A40072AB88 /* Info.plist */,
 			);
 			path = ShiftgramUITests;
+			sourceTree = "<group>";
+		};
+		117D4A4A213F12480072AB88 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				117D4A19213F11A20072AB88 /* InitialViewController.swift */,
+			);
+			path = ViewControllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -262,7 +270,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				117D4A20213F11A20072AB88 /* Shiftgram.xcdatamodeld in Sources */,
-				117D4A1A213F11A20072AB88 /* ViewController.swift in Sources */,
+				117D4A1A213F11A20072AB88 /* InitialViewController.swift in Sources */,
 				117D4A18213F11A20072AB88 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

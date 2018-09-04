@@ -32,6 +32,7 @@
                                 </state>
                                 <connections>
                                     <action selector="btnStartMessagingPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="eWf-G5-Whd"/>
+                                    <segue destination="6ie-nN-s9B" kind="show" id="SKy-m9-FII"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -49,6 +50,76 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="136.80000000000001" y="133.74384236453201"/>
+        </scene>
+        <!--Phone Verify View Controller-->
+        <scene sceneID="oXh-sx-hah">
+            <objects>
+                <viewController id="6ie-nN-s9B" customClass="PhoneVerifyViewController" customModule="Shiftgram" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="sLo-l9-Bqe">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your Phone" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CY1-Ty-msq">
+                                <rect key="frame" x="131" y="44" width="113.66666666666669" height="27.666666666666671"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please confirm your country code and enter your phone number" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oWO-J8-dd5">
+                                <rect key="frame" x="50" y="90.333333333333329" width="275" height="40.666666666666671"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="19c-9f-Nx9">
+                                <rect key="frame" x="0.0" y="203" width="375" height="216"/>
+                            </pickerView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="37r-TH-L8m">
+                                <rect key="frame" x="16" y="438" width="70" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="70" id="DDf-ie-9No"/>
+                                    <constraint firstAttribute="height" constant="40" id="Il1-xC-LbT"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="F1j-qO-qIx">
+                                <rect key="frame" x="94" y="443" width="265" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="14a-uA-Isb"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="oWO-J8-dd5" firstAttribute="leading" secondItem="4uS-Pv-vmS" secondAttribute="leading" constant="50" id="Fjs-sr-W7g"/>
+                            <constraint firstItem="CY1-Ty-msq" firstAttribute="centerX" secondItem="sLo-l9-Bqe" secondAttribute="centerX" id="HPQ-ZE-z1U"/>
+                            <constraint firstItem="19c-9f-Nx9" firstAttribute="top" secondItem="oWO-J8-dd5" secondAttribute="bottom" constant="72" id="MCH-gs-rAM"/>
+                            <constraint firstItem="4uS-Pv-vmS" firstAttribute="trailing" secondItem="oWO-J8-dd5" secondAttribute="trailing" constant="50" id="N3u-bd-ECB"/>
+                            <constraint firstItem="37r-TH-L8m" firstAttribute="top" secondItem="19c-9f-Nx9" secondAttribute="bottom" constant="19" id="WVe-jr-O2m"/>
+                            <constraint firstItem="F1j-qO-qIx" firstAttribute="leading" secondItem="37r-TH-L8m" secondAttribute="trailing" constant="8" id="Ywb-RB-RJV"/>
+                            <constraint firstItem="F1j-qO-qIx" firstAttribute="top" secondItem="19c-9f-Nx9" secondAttribute="bottom" constant="24" id="cMy-1C-vU3"/>
+                            <constraint firstItem="19c-9f-Nx9" firstAttribute="trailing" secondItem="4uS-Pv-vmS" secondAttribute="trailing" id="fPv-kk-EE9"/>
+                            <constraint firstItem="37r-TH-L8m" firstAttribute="leading" secondItem="4uS-Pv-vmS" secondAttribute="leading" constant="16" id="hvS-tU-3Ri"/>
+                            <constraint firstItem="oWO-J8-dd5" firstAttribute="top" secondItem="CY1-Ty-msq" secondAttribute="bottom" constant="18.333333333333329" id="pvu-oY-Vay"/>
+                            <constraint firstItem="19c-9f-Nx9" firstAttribute="leading" secondItem="4uS-Pv-vmS" secondAttribute="leading" id="uGI-Lq-k42"/>
+                            <constraint firstItem="4uS-Pv-vmS" firstAttribute="trailing" secondItem="F1j-qO-qIx" secondAttribute="trailing" constant="16" id="uU6-In-4mC"/>
+                            <constraint firstItem="CY1-Ty-msq" firstAttribute="top" secondItem="4uS-Pv-vmS" secondAttribute="top" id="vtD-MI-Wx2"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="4uS-Pv-vmS"/>
+                    </view>
+                    <connections>
+                        <outlet property="codeLabel" destination="37r-TH-L8m" id="jfN-Vr-TLa"/>
+                        <outlet property="numberTextField" destination="F1j-qO-qIx" id="FvV-2J-6Rh"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UT9-mt-B9S" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="869.60000000000002" y="133.74384236453201"/>
         </scene>
     </scenes>
 </document>

@@ -16,6 +16,7 @@
 		117D4A30213F11A40072AB88 /* ShiftgramTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 117D4A2F213F11A40072AB88 /* ShiftgramTests.swift */; };
 		117D4A3B213F11A40072AB88 /* ShiftgramUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 117D4A3A213F11A40072AB88 /* ShiftgramUITests.swift */; };
 		117D4A4C213F16D60072AB88 /* PhoneVerifyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 117D4A4B213F16D60072AB88 /* PhoneVerifyViewController.swift */; };
+		117D4A4E213F1F260072AB88 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 117D4A4D213F1F260072AB88 /* ProfileViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,7 @@
 		117D4A48213F120C0072AB88 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Main.strings; sourceTree = "<group>"; };
 		117D4A49213F120D0072AB88 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		117D4A4B213F16D60072AB88 /* PhoneVerifyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneVerifyViewController.swift; sourceTree = "<group>"; };
+		117D4A4D213F1F260072AB88 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,6 +139,7 @@
 			children = (
 				117D4A19213F11A20072AB88 /* InitialViewController.swift */,
 				117D4A4B213F16D60072AB88 /* PhoneVerifyViewController.swift */,
+				117D4A4D213F1F260072AB88 /* ProfileViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -274,6 +277,7 @@
 			files = (
 				117D4A4C213F16D60072AB88 /* PhoneVerifyViewController.swift in Sources */,
 				117D4A20213F11A20072AB88 /* Shiftgram.xcdatamodeld in Sources */,
+				117D4A4E213F1F260072AB88 /* ProfileViewController.swift in Sources */,
 				117D4A1A213F11A20072AB88 /* InitialViewController.swift in Sources */,
 				117D4A18213F11A20072AB88 /* AppDelegate.swift in Sources */,
 			);

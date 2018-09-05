@@ -12,6 +12,7 @@ class PhoneVerifyViewController: UIViewController {
 
     @IBOutlet weak var codeLabel: UILabel!
     @IBOutlet weak var numberTextField: UITextField!
+    @IBOutlet weak var btnNext: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,11 +24,15 @@ class PhoneVerifyViewController: UIViewController {
     }
     
     private func initControls() {
+        self.btnNext.layer.cornerRadius = 20
+        self.addBorderTextField()
+    }
+    
+    private func addBorderTextField() {
         let border = CALayer()
         let width = CGFloat(2.0)
         border.borderColor = UIColor.gray.cgColor
         border.frame = CGRect(x: 0, y: numberTextField.frame.size.height - width, width: numberTextField.frame.size.width, height: numberTextField.frame.size.height)
-        
         border.borderWidth = width
         numberTextField.layer.addSublayer(border)
         numberTextField.layer.masksToBounds = true

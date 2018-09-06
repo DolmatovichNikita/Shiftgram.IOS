@@ -10,4 +10,13 @@ import Foundation
 
 class PhoneViewModel {
     
+    private let phoneDataManager = PhoneDataManager()
+    private var phones = [Phone]()
+    
+    public func getPhones(completion: @escaping () -> Void) {
+        self.phoneDataManager.getPhones { response in
+            self.phones = response
+            completion()
+        }
+    }
 }

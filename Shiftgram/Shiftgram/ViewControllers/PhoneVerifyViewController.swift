@@ -8,19 +8,61 @@
 
 import UIKit
 
-class PhoneVerifyViewController: UIViewController {
-
+class PhoneVerifyViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
+    
+    @IBOutlet weak var phonePicker: UIPickerView!
     @IBOutlet weak var codeLabel: UILabel!
     @IBOutlet weak var numberTextField: UITextField!
     @IBOutlet weak var btnNext: UIButton!
+    var phoneViewModel = PhoneViewModel()
+    var phones = [Phone]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.initControls()
+        phonePicker.delegate = self
+        phonePicker.dataSource = self
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        self.getPhones()
+    }
+    
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        if phones.count > 1 {
+            return phones.count
+        }
+        
+        return 0
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return phones[row].country
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        codeLabel.text = phones[row].code
+    }
+    
+    func selectedRow(inComponent component: Int) -> Int {
+        print(component)
+        return component
+    }
+    
+    private func getPhones() {
+        self.phoneViewModel.getPhones {
+            self.phones = Array(self.phoneViewModel.phones)
+            self.phonePicker.reloadAllComponents()
+        }
     }
     
     private func initControls() {

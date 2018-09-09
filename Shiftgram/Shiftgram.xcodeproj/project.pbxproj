@@ -18,6 +18,7 @@
 		117D4A4C213F16D60072AB88 /* PhoneVerifyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 117D4A4B213F16D60072AB88 /* PhoneVerifyViewController.swift */; };
 		117D4A4E213F1F260072AB88 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 117D4A4D213F1F260072AB88 /* ProfileViewController.swift */; };
 		11878F7F21455CE5009026CE /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11878F7E21455CE5009026CE /* ActivityIndicator.swift */; };
+		11878F82214562FC009026CE /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11878F81214562FC009026CE /* User.swift */; };
 		11C33D3521405A9500E10B8B /* CodeVerifyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11C33D3421405A9500E10B8B /* CodeVerifyViewController.swift */; };
 		11F31A562140665D00419361 /* Phone.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11F31A552140665D00419361 /* Phone.swift */; };
 		11F31A592140670400419361 /* PhoneViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11F31A582140670400419361 /* PhoneViewModel.swift */; };
@@ -63,6 +64,7 @@
 		117D4A4B213F16D60072AB88 /* PhoneVerifyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneVerifyViewController.swift; sourceTree = "<group>"; };
 		117D4A4D213F1F260072AB88 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		11878F7E21455CE5009026CE /* ActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
+		11878F81214562FC009026CE /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		11C33D3421405A9500E10B8B /* CodeVerifyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeVerifyViewController.swift; sourceTree = "<group>"; };
 		11F31A552140665D00419361 /* Phone.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Phone.swift; sourceTree = "<group>"; };
 		11F31A582140670400419361 /* PhoneViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneViewModel.swift; sourceTree = "<group>"; };
@@ -122,6 +124,7 @@
 		117D4A16213F11A20072AB88 /* Shiftgram */ = {
 			isa = PBXGroup;
 			children = (
+				11878F80214562D3009026CE /* CoreData */,
 				11878F7D21455CC8009026CE /* Helpers */,
 				11F31A5A2140685200419361 /* DataManagers */,
 				11F31A57214066E400419361 /* ViewModels */,
@@ -172,6 +175,14 @@
 				11878F7E21455CE5009026CE /* ActivityIndicator.swift */,
 			);
 			path = Helpers;
+			sourceTree = "<group>";
+		};
+		11878F80214562D3009026CE /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				11878F81214562FC009026CE /* User.swift */,
+			);
+			path = CoreData;
 			sourceTree = "<group>";
 		};
 		11F31A542140663800419361 /* Models */ = {
@@ -397,6 +408,7 @@
 				11F31A592140670400419361 /* PhoneViewModel.swift in Sources */,
 				117D4A1A213F11A20072AB88 /* InitialViewController.swift in Sources */,
 				117D4A18213F11A20072AB88 /* AppDelegate.swift in Sources */,
+				11878F82214562FC009026CE /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

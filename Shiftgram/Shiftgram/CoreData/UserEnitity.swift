@@ -12,10 +12,11 @@ import CoreData
 
 class UserEntity {
     
-    private let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    private let appDelegate: AppDelegate
     private let context: NSManagedObjectContext
     
     init() {
+        appDelegate = UIApplication.shared.delegate as! AppDelegate
         context = self.appDelegate.persistentContainer.viewContext
     }
     

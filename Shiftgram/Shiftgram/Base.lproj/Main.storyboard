@@ -32,7 +32,6 @@
                                 </state>
                                 <connections>
                                     <action selector="btnStartMessagingPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="eWf-G5-Whd"/>
-                                    <segue destination="6ie-nN-s9B" kind="show" id="SKy-m9-FII"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -45,9 +44,12 @@
                     </view>
                     <connections>
                         <outlet property="btnStartMessaging" destination="qZU-aC-ajn" id="bEN-he-T05"/>
+                        <segue destination="qp0-CV-1PO" kind="show" identifier="Register" id="7rL-ke-lAS"/>
+                        <segue destination="6ie-nN-s9B" kind="show" identifier="PhoneVerify" id="bBy-Yq-bbG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <customObject id="9HM-J3-ArT"/>
             </objects>
             <point key="canvasLocation" x="136.80000000000001" y="133.74384236453201"/>
         </scene>
@@ -138,7 +140,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UT9-mt-B9S" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="869.60000000000002" y="133.74384236453201"/>
+            <point key="canvasLocation" x="937" y="528"/>
         </scene>
         <!--Code Verify View Controller-->
         <scene sceneID="fSK-Xz-8xt">
@@ -200,7 +202,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="v6s-kE-vES" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1584.8" y="133.74384236453201"/>
+            <point key="canvasLocation" x="1658" y="528"/>
         </scene>
         <!--Profile View Controller-->
         <scene sceneID="KUY-H6-6qC">
@@ -348,7 +350,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8o0-WJ-f0Y" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2438" y="121"/>
+            <point key="canvasLocation" x="937" y="-173"/>
         </scene>
     </scenes>
 </document>

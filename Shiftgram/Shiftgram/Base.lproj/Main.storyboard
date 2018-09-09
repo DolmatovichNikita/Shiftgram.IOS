@@ -221,7 +221,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VdN-TY-waY">
                                 <rect key="frame" x="0.0" y="99" width="375" height="141"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="YWB-ld-qgA">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="photo" translatesAutoresizingMaskIntoConstraints="NO" id="YWB-ld-qgA">
                                         <rect key="frame" x="8" y="9" width="123" height="123"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="123" id="HNI-zZ-iaN"/>
@@ -353,4 +353,7 @@
             <point key="canvasLocation" x="937" y="-173"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="photo" width="100" height="100"/>
+    </resources>
 </document>

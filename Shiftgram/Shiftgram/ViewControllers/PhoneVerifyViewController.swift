@@ -14,12 +14,15 @@ class PhoneVerifyViewController: UIViewController, UIPickerViewDelegate, UIPicke
     @IBOutlet weak var codeLabel: UILabel!
     @IBOutlet weak var numberTextField: UITextField!
     @IBOutlet weak var btnNext: UIButton!
+    var activityIndicator: ActivityIndicator!
     var phoneViewModel = PhoneViewModel()
     var phones = [Phone]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.initControls()
+        self.activityIndicator = ActivityIndicator(view: self.view)
+        self.activityIndicator.startLoading()
         phonePicker.delegate = self
         phonePicker.dataSource = self
     }
@@ -54,6 +57,7 @@ class PhoneVerifyViewController: UIViewController, UIPickerViewDelegate, UIPicke
             self.phones = Array(self.phoneViewModel.phones)
             self.codeLabel.text = self.phones.first?.code
             self.phonePicker.reloadAllComponents()
+            self.activityIndicator.stopLoading()
         }
     }
     

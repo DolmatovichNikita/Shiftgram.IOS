@@ -11,11 +11,12 @@ import Alamofire
 
 class PhoneDataManager {
     
-    private let url = "http://shiftgram.eu-central-1.elasticbeanstalk.com/api/phone";
+    private let urlPhone = "http://shiftgram.eu-central-1.elasticbeanstalk.com/api/phone"
+    private let urlVerify = "http://shiftgram.eu-central-1.elasticbeanstalk.com/api/verify"
     
     public func getPhones(completion: @escaping ([Phone]) -> Void) {
         
-        Alamofire.request(url, method: .get, parameters: nil, encoding: JSONEncoding.default).responseJSON {
+        Alamofire.request(urlPhone, method: .get, parameters: nil, encoding: JSONEncoding.default).responseJSON {
             response in
             var phones = [Phone]()
             if let result = response.result.value {

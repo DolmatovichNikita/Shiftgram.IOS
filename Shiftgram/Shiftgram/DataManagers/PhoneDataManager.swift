@@ -15,7 +15,6 @@ class PhoneDataManager {
     private let urlVerify = "http://shiftgram.eu-central-1.elasticbeanstalk.com/api/verify"
     
     public func getPhones(completion: @escaping ([Phone]) -> Void) {
-        
         Alamofire.request(urlPhone, method: .get, parameters: nil, encoding: JSONEncoding.default).responseJSON {
             response in
             var phones = [Phone]()
@@ -27,6 +26,28 @@ class PhoneDataManager {
                 }
             }
             completion(phones)
+        }
+    }
+    
+    public func sendSMS(phoneVerify: PhoneVerify, completion: @escaping () -> Void) {
+        let parameters = phoneVerify.toParameters()
+        
+        Alamofire.request(urlVerify, method: .get, parameters: parameters, encoding: JSONEncoding.default).responseJSON {_ in
+            completion()
+        }
+    }
+    
+    public func isAuth(phoneVerify: PhoneVerify, completion: @escaping (Bool) -> Void) {
+        let parameters = phoneVerify.toParameters()
+        
+        Alamofire.request(urlVerify, method: .post, parameters: parameters, encoding: JSONEncoding.default).responseJSON {response in
+            if let code = response.response?.statusCode {
+                if code == 200 {
+                    completion(true)
+                } else if code == 400 {
+                    completion(false)
+                }
+            }
         }
     }
 }

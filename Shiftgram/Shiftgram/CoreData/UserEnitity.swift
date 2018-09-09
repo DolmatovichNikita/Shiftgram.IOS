@@ -11,7 +11,6 @@ import UIKit
 import CoreData
 
 class UserEntity {
-    
     private let appDelegate: AppDelegate
     private let context: NSManagedObjectContext
     
@@ -33,7 +32,6 @@ class UserEntity {
     }
     
     public func updateUser(value: Any, key: String) {
-        
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "User")
         
         do {
@@ -46,7 +44,6 @@ class UserEntity {
     }
     
     public func deleteUser() {
-        
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "User")
         let deleteRequest = NSBatchDeleteRequest(fetchRequest: request)
         
@@ -58,8 +55,21 @@ class UserEntity {
         }
     }
     
-    public func isExist() ->Bool {
+    public func getUser() -> NSManagedObjectContext {
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "User")
+        var user = NSManagedObjectContext()
         
+        do {
+            user = try self.context.fetch(request).first as! NSManagedObjectContext
+            
+        } catch {
+            print("Failed")
+        }
+        
+        return user
+    }
+    
+    public func isExist() ->Bool {
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "User")
         var isExist = false
         

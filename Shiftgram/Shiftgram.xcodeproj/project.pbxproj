@@ -22,6 +22,7 @@
 		11878F8621457301009026CE /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11878F8521457301009026CE /* Account.swift */; };
 		11878F88214596E4009026CE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 11878F87214596E4009026CE /* Assets.xcassets */; };
 		11878F8A21459DD9009026CE /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11878F8921459DD9009026CE /* UserViewModel.swift */; };
+		11878F8C2145A695009026CE /* PhoneVerify.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11878F8B2145A695009026CE /* PhoneVerify.swift */; };
 		11C33D3521405A9500E10B8B /* CodeVerifyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11C33D3421405A9500E10B8B /* CodeVerifyViewController.swift */; };
 		11F31A562140665D00419361 /* Phone.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11F31A552140665D00419361 /* Phone.swift */; };
 		11F31A592140670400419361 /* PhoneViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11F31A582140670400419361 /* PhoneViewModel.swift */; };
@@ -71,6 +72,7 @@
 		11878F8521457301009026CE /* Account.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
 		11878F87214596E4009026CE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		11878F8921459DD9009026CE /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
+		11878F8B2145A695009026CE /* PhoneVerify.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneVerify.swift; sourceTree = "<group>"; };
 		11C33D3421405A9500E10B8B /* CodeVerifyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeVerifyViewController.swift; sourceTree = "<group>"; };
 		11F31A552140665D00419361 /* Phone.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Phone.swift; sourceTree = "<group>"; };
 		11F31A582140670400419361 /* PhoneViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneViewModel.swift; sourceTree = "<group>"; };
@@ -196,6 +198,7 @@
 			children = (
 				11F31A552140665D00419361 /* Phone.swift */,
 				11878F8521457301009026CE /* Account.swift */,
+				11878F8B2145A695009026CE /* PhoneVerify.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -409,6 +412,7 @@
 			files = (
 				117D4A4C213F16D60072AB88 /* PhoneVerifyViewController.swift in Sources */,
 				11878F8621457301009026CE /* Account.swift in Sources */,
+				11878F8C2145A695009026CE /* PhoneVerify.swift in Sources */,
 				117D4A20213F11A20072AB88 /* Shiftgram.xcdatamodeld in Sources */,
 				11F31A5C2140688100419361 /* PhoneDataManager.swift in Sources */,
 				11C33D3521405A9500E10B8B /* CodeVerifyViewController.swift in Sources */,

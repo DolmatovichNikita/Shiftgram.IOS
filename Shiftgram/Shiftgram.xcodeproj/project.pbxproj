@@ -11,7 +11,6 @@
 		117D4A1A213F11A20072AB88 /* InitialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 117D4A19213F11A20072AB88 /* InitialViewController.swift */; };
 		117D4A1D213F11A20072AB88 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 117D4A1B213F11A20072AB88 /* Main.storyboard */; };
 		117D4A20213F11A20072AB88 /* Shiftgram.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 117D4A1E213F11A20072AB88 /* Shiftgram.xcdatamodeld */; };
-		117D4A22213F11A40072AB88 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 117D4A21213F11A40072AB88 /* Assets.xcassets */; };
 		117D4A25213F11A40072AB88 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 117D4A23213F11A40072AB88 /* LaunchScreen.storyboard */; };
 		117D4A30213F11A40072AB88 /* ShiftgramTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 117D4A2F213F11A40072AB88 /* ShiftgramTests.swift */; };
 		117D4A3B213F11A40072AB88 /* ShiftgramUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 117D4A3A213F11A40072AB88 /* ShiftgramUITests.swift */; };
@@ -21,6 +20,8 @@
 		11878F82214562FC009026CE /* UserEnitity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11878F81214562FC009026CE /* UserEnitity.swift */; };
 		11878F84214571B7009026CE /* UserDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11878F83214571B7009026CE /* UserDataManager.swift */; };
 		11878F8621457301009026CE /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11878F8521457301009026CE /* Account.swift */; };
+		11878F88214596E4009026CE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 11878F87214596E4009026CE /* Assets.xcassets */; };
+		11878F8A21459DD9009026CE /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11878F8921459DD9009026CE /* UserViewModel.swift */; };
 		11C33D3521405A9500E10B8B /* CodeVerifyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11C33D3421405A9500E10B8B /* CodeVerifyViewController.swift */; };
 		11F31A562140665D00419361 /* Phone.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11F31A552140665D00419361 /* Phone.swift */; };
 		11F31A592140670400419361 /* PhoneViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11F31A582140670400419361 /* PhoneViewModel.swift */; };
@@ -52,7 +53,6 @@
 		117D4A19213F11A20072AB88 /* InitialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialViewController.swift; sourceTree = "<group>"; };
 		117D4A1C213F11A20072AB88 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		117D4A1F213F11A20072AB88 /* Shiftgram.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Shiftgram.xcdatamodel; sourceTree = "<group>"; };
-		117D4A21213F11A40072AB88 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		117D4A24213F11A40072AB88 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		117D4A26213F11A40072AB88 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		117D4A2B213F11A40072AB88 /* ShiftgramTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ShiftgramTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -69,6 +69,8 @@
 		11878F81214562FC009026CE /* UserEnitity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserEnitity.swift; sourceTree = "<group>"; };
 		11878F83214571B7009026CE /* UserDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataManager.swift; sourceTree = "<group>"; };
 		11878F8521457301009026CE /* Account.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
+		11878F87214596E4009026CE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		11878F8921459DD9009026CE /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
 		11C33D3421405A9500E10B8B /* CodeVerifyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeVerifyViewController.swift; sourceTree = "<group>"; };
 		11F31A552140665D00419361 /* Phone.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Phone.swift; sourceTree = "<group>"; };
 		11F31A582140670400419361 /* PhoneViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneViewModel.swift; sourceTree = "<group>"; };
@@ -106,6 +108,7 @@
 		117D4A0B213F11A20072AB88 = {
 			isa = PBXGroup;
 			children = (
+				11878F87214596E4009026CE /* Assets.xcassets */,
 				117D4A16213F11A20072AB88 /* Shiftgram */,
 				117D4A2E213F11A40072AB88 /* ShiftgramTests */,
 				117D4A39213F11A40072AB88 /* ShiftgramUITests */,
@@ -136,7 +139,6 @@
 				117D4A4A213F12480072AB88 /* ViewControllers */,
 				117D4A17213F11A20072AB88 /* AppDelegate.swift */,
 				117D4A1B213F11A20072AB88 /* Main.storyboard */,
-				117D4A21213F11A40072AB88 /* Assets.xcassets */,
 				117D4A23213F11A40072AB88 /* LaunchScreen.storyboard */,
 				117D4A26213F11A40072AB88 /* Info.plist */,
 				117D4A1E213F11A20072AB88 /* Shiftgram.xcdatamodeld */,
@@ -202,6 +204,7 @@
 			isa = PBXGroup;
 			children = (
 				11F31A582140670400419361 /* PhoneViewModel.swift */,
+				11878F8921459DD9009026CE /* UserViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -339,7 +342,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				117D4A25213F11A40072AB88 /* LaunchScreen.storyboard in Resources */,
-				117D4A22213F11A40072AB88 /* Assets.xcassets in Resources */,
+				11878F88214596E4009026CE /* Assets.xcassets in Resources */,
 				117D4A1D213F11A20072AB88 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -409,6 +412,7 @@
 				117D4A20213F11A20072AB88 /* Shiftgram.xcdatamodeld in Sources */,
 				11F31A5C2140688100419361 /* PhoneDataManager.swift in Sources */,
 				11C33D3521405A9500E10B8B /* CodeVerifyViewController.swift in Sources */,
+				11878F8A21459DD9009026CE /* UserViewModel.swift in Sources */,
 				117D4A4E213F1F260072AB88 /* ProfileViewController.swift in Sources */,
 				11F31A562140665D00419361 /* Phone.swift in Sources */,
 				11878F7F21455CE5009026CE /* ActivityIndicator.swift in Sources */,

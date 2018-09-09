@@ -10,7 +10,6 @@ import Foundation
 import Alamofire
 
 struct Account {
-    let id: Int
     let firstName: String
     let lastName: String
     let bio: String
@@ -18,9 +17,8 @@ struct Account {
     let photoUrl: String
     let gender: String
     
-    init(id: Int, firstName: String, lastName: String, bio: String, username: String,
+    init(firstName: String, lastName: String, bio: String, username: String,
          photoUrl: String, gender: String) {
-        self.id = id
         self.firstName = firstName
         self.lastName = lastName
         self.bio = bio
@@ -32,7 +30,6 @@ struct Account {
     public func toParameters() -> Parameters {
         
         let parameter: Parameters = [
-            "Id": self.id,
             "FirstName": self.firstName,
             "LastName": self.lastName,
             "Bio": self.bio,

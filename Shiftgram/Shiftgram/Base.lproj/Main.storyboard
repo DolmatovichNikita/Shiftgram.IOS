@@ -228,24 +228,24 @@
                                             <constraint firstAttribute="width" constant="123" id="PPa-Pf-c7R"/>
                                         </constraints>
                                     </imageView>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2N0-5a-O3B">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="First name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2N0-5a-O3B">
                                         <rect key="frame" x="149" y="9" width="218" height="61"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="61" id="5qT-Ab-fjN"/>
                                         </constraints>
                                         <viewLayoutGuide key="safeArea" id="xGj-Wh-qvV"/>
                                         <nil key="textColor"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="utG-G0-lpx">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Last name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="utG-G0-lpx">
                                         <rect key="frame" x="149" y="78" width="218" height="58"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="58" id="fiS-kD-e7d"/>
                                         </constraints>
                                         <viewLayoutGuide key="safeArea" id="pnj-Os-DfC"/>
                                         <nil key="textColor"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                 </subviews>
@@ -276,7 +276,7 @@
                                     <constraint firstAttribute="height" constant="45" id="fNA-mc-fMm"/>
                                 </constraints>
                                 <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Any details such as age, occupation or city" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FvU-N6-srO">
@@ -292,7 +292,7 @@
                                     <constraint firstAttribute="height" constant="45" id="h7i-sA-8Qn"/>
                                 </constraints>
                                 <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="COz-zd-S7u">
@@ -317,6 +317,9 @@
                                 <state key="normal" title="Register">
                                     <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="registerBtnPressed:" destination="qp0-CV-1PO" eventType="touchUpInside" id="Ae1-8T-fim"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.87089818480000003" green="0.87952093909999995" blue="0.87952093909999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -347,6 +350,14 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="LAK-yu-MRy"/>
                     </view>
+                    <connections>
+                        <outlet property="bioTextField" destination="ISl-3k-wrR" id="Ud6-Rg-BwD"/>
+                        <outlet property="firstNameTextField" destination="2N0-5a-O3B" id="fbb-PW-f3L"/>
+                        <outlet property="lastNameTextField" destination="utG-G0-lpx" id="uCL-WT-Wyr"/>
+                        <outlet property="profileImageView" destination="YWB-ld-qgA" id="AcA-jc-Og6"/>
+                        <outlet property="segmentGender" destination="COz-zd-S7u" id="yUa-u7-fv0"/>
+                        <outlet property="usernameTextField" destination="BAf-LJ-gum" id="nej-bC-DMA"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8o0-WJ-f0Y" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

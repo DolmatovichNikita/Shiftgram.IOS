@@ -19,6 +19,8 @@
 		117D4A4E213F1F260072AB88 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 117D4A4D213F1F260072AB88 /* ProfileViewController.swift */; };
 		11878F7F21455CE5009026CE /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11878F7E21455CE5009026CE /* ActivityIndicator.swift */; };
 		11878F82214562FC009026CE /* UserEnitity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11878F81214562FC009026CE /* UserEnitity.swift */; };
+		11878F84214571B7009026CE /* UserDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11878F83214571B7009026CE /* UserDataManager.swift */; };
+		11878F8621457301009026CE /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11878F8521457301009026CE /* Account.swift */; };
 		11C33D3521405A9500E10B8B /* CodeVerifyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11C33D3421405A9500E10B8B /* CodeVerifyViewController.swift */; };
 		11F31A562140665D00419361 /* Phone.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11F31A552140665D00419361 /* Phone.swift */; };
 		11F31A592140670400419361 /* PhoneViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11F31A582140670400419361 /* PhoneViewModel.swift */; };
@@ -65,6 +67,8 @@
 		117D4A4D213F1F260072AB88 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		11878F7E21455CE5009026CE /* ActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
 		11878F81214562FC009026CE /* UserEnitity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserEnitity.swift; sourceTree = "<group>"; };
+		11878F83214571B7009026CE /* UserDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataManager.swift; sourceTree = "<group>"; };
+		11878F8521457301009026CE /* Account.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
 		11C33D3421405A9500E10B8B /* CodeVerifyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeVerifyViewController.swift; sourceTree = "<group>"; };
 		11F31A552140665D00419361 /* Phone.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Phone.swift; sourceTree = "<group>"; };
 		11F31A582140670400419361 /* PhoneViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneViewModel.swift; sourceTree = "<group>"; };
@@ -189,6 +193,7 @@
 			isa = PBXGroup;
 			children = (
 				11F31A552140665D00419361 /* Phone.swift */,
+				11878F8521457301009026CE /* Account.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -205,6 +210,7 @@
 			isa = PBXGroup;
 			children = (
 				11F31A5B2140688100419361 /* PhoneDataManager.swift */,
+				11878F83214571B7009026CE /* UserDataManager.swift */,
 			);
 			path = DataManagers;
 			sourceTree = "<group>";
@@ -399,6 +405,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				117D4A4C213F16D60072AB88 /* PhoneVerifyViewController.swift in Sources */,
+				11878F8621457301009026CE /* Account.swift in Sources */,
 				117D4A20213F11A20072AB88 /* Shiftgram.xcdatamodeld in Sources */,
 				11F31A5C2140688100419361 /* PhoneDataManager.swift in Sources */,
 				11C33D3521405A9500E10B8B /* CodeVerifyViewController.swift in Sources */,
@@ -406,6 +413,7 @@
 				11F31A562140665D00419361 /* Phone.swift in Sources */,
 				11878F7F21455CE5009026CE /* ActivityIndicator.swift in Sources */,
 				11F31A592140670400419361 /* PhoneViewModel.swift in Sources */,
+				11878F84214571B7009026CE /* UserDataManager.swift in Sources */,
 				117D4A1A213F11A20072AB88 /* InitialViewController.swift in Sources */,
 				117D4A18213F11A20072AB88 /* AppDelegate.swift in Sources */,
 				11878F82214562FC009026CE /* UserEnitity.swift in Sources */,

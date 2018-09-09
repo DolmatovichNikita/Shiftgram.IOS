@@ -38,11 +38,7 @@ class PhoneVerifyViewController: UIViewController, UIPickerViewDelegate, UIPicke
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        if phones.count > 1 {
-            return phones.count
-        }
-        
-        return 0
+        return phones.count
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
@@ -53,14 +49,10 @@ class PhoneVerifyViewController: UIViewController, UIPickerViewDelegate, UIPicke
         codeLabel.text = phones[row].code
     }
     
-    func selectedRow(inComponent component: Int) -> Int {
-        print(component)
-        return component
-    }
-    
     private func getPhones() {
         self.phoneViewModel.getPhones {
             self.phones = Array(self.phoneViewModel.phones)
+            self.codeLabel.text = self.phones.first?.code
             self.phonePicker.reloadAllComponents()
         }
     }

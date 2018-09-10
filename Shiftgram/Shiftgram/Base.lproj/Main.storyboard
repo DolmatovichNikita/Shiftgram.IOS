@@ -106,7 +106,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <segue destination="KgR-51-ZDu" kind="show" id="BCr-g5-sXm"/>
+                                    <action selector="btnNextPressed:" destination="6ie-nN-s9B" eventType="touchUpInside" id="KCv-EO-J84"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -136,6 +136,7 @@
                         <outlet property="codeLabel" destination="37r-TH-L8m" id="jfN-Vr-TLa"/>
                         <outlet property="numberTextField" destination="F1j-qO-qIx" id="FvV-2J-6Rh"/>
                         <outlet property="phonePicker" destination="19c-9f-Nx9" id="1TX-qM-rKF"/>
+                        <segue destination="KgR-51-ZDu" kind="show" identifier="Code" id="Gp5-EU-rZB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UT9-mt-B9S" userLabel="First Responder" sceneMemberID="firstResponder"/>

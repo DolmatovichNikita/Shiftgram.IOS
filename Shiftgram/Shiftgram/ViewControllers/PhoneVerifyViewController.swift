@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PhoneVerifyViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
+class PhoneVerifyViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate {
     
     @IBOutlet weak var phonePicker: UIPickerView!
     @IBOutlet weak var codeLabel: UILabel!
@@ -36,6 +36,17 @@ class PhoneVerifyViewController: UIViewController, UIPickerViewDelegate, UIPicke
         self.getPhones()
     }
     
+    @IBAction func btnNextPressed(_ sender: Any) {
+        self.activityIndicator.startLoading()
+        let userEntity = UserEntity()
+        let id = userEntity.getUserId()
+        let phoneVerify = PhoneVerify(id: Int(id), number: numberTextField.text!, code: codeLabel.text!)
+        phoneViewModel.sendSMS(phoneVerify: phoneVerify) {
+            self.activityIndicator.stopLoading()
+            self.performSegue(withIdentifier: "Code", sender: self)
+        }
+    }
+    
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
@@ -50,6 +61,15 @@ class PhoneVerifyViewController: UIViewController, UIPickerViewDelegate, UIPicke
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         codeLabel.text = phones[row].code
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.resignFirstResponder()
+        return true
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
     }
     
     private func getPhones() {

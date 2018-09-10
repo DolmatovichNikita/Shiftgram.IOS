@@ -12,7 +12,7 @@ import Alamofire
 class PhoneDataManager {
     
     private let urlPhone = "http://shiftgram.eu-central-1.elasticbeanstalk.com/api/phone"
-    private let urlVerify = "http://shiftgram.eu-central-1.elasticbeanstalk.com/api/verify"
+    private let urlVerify = "http://shiftgram.eu-central-1.elasticbeanstalk.com/api/phoneverify"
     
     public func getPhones(completion: @escaping ([Phone]) -> Void) {
         Alamofire.request(urlPhone, method: .get, parameters: nil, encoding: JSONEncoding.default).responseJSON {
@@ -30,9 +30,11 @@ class PhoneDataManager {
     }
     
     public func sendSMS(phoneVerify: PhoneVerify, completion: @escaping () -> Void) {
-        let parameters = phoneVerify.toParameters()
-        
-        Alamofire.request(urlVerify, method: .get, parameters: parameters, encoding: JSONEncoding.default).responseJSON {_ in
+        let id = phoneVerify.id
+        var code = phoneVerify.code
+        code.remove(at: code.startIndex)
+        let phone = code + phoneVerify.number
+        Alamofire.request(urlVerify + "/SendSMS/\(id)/\(phone)", method: .get).responseJSON { _ in
             completion()
         }
     }

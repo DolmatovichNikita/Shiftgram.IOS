@@ -55,18 +55,19 @@ class UserEntity {
         }
     }
     
-    public func getUser() -> NSManagedObjectContext {
+    public func getUserId() -> Int32 {
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "User")
-        var user = NSManagedObjectContext()
+        var id: Int32 = 0
         
         do {
-            user = try self.context.fetch(request).first as! NSManagedObjectContext
+            let user = try self.context.fetch(request).first as! User
+            id = user.id
             
         } catch {
             print("Failed")
         }
         
-        return user
+        return id
     }
     
     public func isExist() ->Bool {

@@ -24,4 +24,18 @@ class UserDataManager {
             completion()
         }
     }
+    
+    public func updateAccount(accountUpdate: AccountUpdate, completion: @escaping (Bool) -> Void) {
+        let parameters = accountUpdate.toParameters()
+        
+        Alamofire.request(url, method: .put, parameters: parameters, encoding: JSONEncoding.default, headers: nil).responseJSON {response in
+            let code = response.response?.statusCode
+            
+            if code == 200 {
+                completion(true)
+            } else if code == 400 {
+                completion(false)
+            }
+        }
+    }
 }

@@ -157,8 +157,16 @@
                                 <color key="barTintColor" white="1" alpha="0.014795590753424657" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <items>
                                     <navigationItem id="y4z-tH-UNI">
-                                        <barButtonItem key="leftBarButtonItem" title="Back" id="mAu-3g-6Sj"/>
-                                        <barButtonItem key="rightBarButtonItem" title="Next" id="zSU-5s-Zsf"/>
+                                        <barButtonItem key="leftBarButtonItem" title="Back" id="mAu-3g-6Sj">
+                                            <connections>
+                                                <segue destination="6ie-nN-s9B" kind="show" id="AyF-Th-YF1"/>
+                                            </connections>
+                                        </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" title="Next" id="zSU-5s-Zsf">
+                                            <connections>
+                                                <action selector="btnNextPressed:" destination="KgR-51-ZDu" id="djt-nY-Qx6"/>
+                                            </connections>
+                                        </barButtonItem>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
@@ -368,4 +376,7 @@
     <resources>
         <image name="photo" width="100" height="100"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="AyF-Th-YF1"/>
+    </inferredMetricsTieBreakers>
 </document>

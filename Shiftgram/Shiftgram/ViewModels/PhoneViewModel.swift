@@ -11,6 +11,7 @@ import Foundation
 class PhoneViewModel {
     
     private let phoneDataManager = PhoneDataManager()
+    private let userDataManager = UserDataManager()
     var phones = [Phone]()
     
     public func getPhones(completion: @escaping () -> Void) {
@@ -20,9 +21,13 @@ class PhoneViewModel {
         }
     }
     
-    public func sendSMS(phoneVerify: PhoneVerify, completion: @escaping () -> Void) {
-        self.phoneDataManager.sendSMS(phoneVerify: phoneVerify) {
-            completion()
+    public func sendSMS(accountUpdate: AccountUpdate, phoneVerify: PhoneVerify, completion: @escaping () -> Void) {
+        self.userDataManager.updateAccount(accountUpdate: accountUpdate) {response in
+            if response {
+                self.phoneDataManager.sendSMS(phoneVerify: phoneVerify) {
+                    completion()
+                }
+            }
         }
     }
     

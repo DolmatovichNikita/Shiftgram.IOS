@@ -8,10 +8,12 @@
 
 import UIKit
 
-class CodeVerifyViewController: UIViewController {
+class CodeVerifyViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var phoneLabel: UILabel!
     @IBOutlet weak var codeTextField: UITextField!
+    let phoneViewModel = PhoneViewModel()
+    var phone = String()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,6 +22,25 @@ class CodeVerifyViewController: UIViewController {
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
+    
+    @IBAction func btnNextPressed(_ sender: Any) {
+        let userEntity = UserEntity()
+        let id = userEntity.getUserId()
+        print(phone)
+        let phoneVerify = PhoneVerify(id: Int(id), number: phone, code: codeTextField.text!)
+        self.phoneViewModel.isAuth(phoneVerify: phoneVerify) { response in
+            print(response)
+        }
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.resignFirstResponder()
+        return true
     }
     
     private func initControls() {

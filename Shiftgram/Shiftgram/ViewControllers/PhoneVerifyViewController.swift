@@ -36,12 +36,23 @@ class PhoneVerifyViewController: UIViewController, UIPickerViewDelegate, UIPicke
         self.getPhones()
     }
     
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let codeVC: CodeVerifyViewController = segue.destination as! CodeVerifyViewController
+        codeVC.phone = self.codeLabel.text! + self.numberTextField.text!
+    }
+    
     @IBAction func btnNextPressed(_ sender: Any) {
         self.activityIndicator.startLoading()
         let userEntity = UserEntity()
         let id = userEntity.getUserId()
         let phoneVerify = PhoneVerify(id: Int(id), number: numberTextField.text!, code: codeLabel.text!)
-        phoneViewModel.sendSMS(phoneVerify: phoneVerify) {
+        let phone = codeLabel.text! + numberTextField.text!
+        let accountUpdate = AccountUpdate(id: Int(id), phone: phone, updateType: "PhoneUpdate")
+        phoneViewModel.sendSMS(accountUpdate: accountUpdate, phoneVerify: phoneVerify) {
             self.activityIndicator.stopLoading()
             self.performSegue(withIdentifier: "Code", sender: self)
         }
@@ -66,10 +77,6 @@ class PhoneVerifyViewController: UIViewController, UIPickerViewDelegate, UIPicke
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         self.resignFirstResponder()
         return true
-    }
-    
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        self.view.endEditing(true)
     }
     
     private func getPhones() {

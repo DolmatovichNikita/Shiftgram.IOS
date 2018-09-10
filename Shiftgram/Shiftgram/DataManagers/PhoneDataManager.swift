@@ -41,8 +41,9 @@ class PhoneDataManager {
     
     public func isAuth(phoneVerify: PhoneVerify, completion: @escaping (Bool) -> Void) {
         let parameters = phoneVerify.toParameters()
-        
+        print(parameters)
         Alamofire.request(urlVerify, method: .post, parameters: parameters, encoding: JSONEncoding.default).responseJSON {response in
+            print(response)
             if let code = response.response?.statusCode {
                 if code == 200 {
                     completion(true)

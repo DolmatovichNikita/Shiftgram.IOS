@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		116D07A321469A1200FB0AF0 /* AccountUpdatel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116D07A221469A1200FB0AF0 /* AccountUpdatel.swift */; };
 		117D4A18213F11A20072AB88 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 117D4A17213F11A20072AB88 /* AppDelegate.swift */; };
 		117D4A1A213F11A20072AB88 /* InitialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 117D4A19213F11A20072AB88 /* InitialViewController.swift */; };
 		117D4A1D213F11A20072AB88 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 117D4A1B213F11A20072AB88 /* Main.storyboard */; };
@@ -49,6 +50,7 @@
 
 /* Begin PBXFileReference section */
 		078F441A93D295553D364162 /* Pods-Shiftgram.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Shiftgram.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Shiftgram/Pods-Shiftgram.debug.xcconfig"; sourceTree = "<group>"; };
+		116D07A221469A1200FB0AF0 /* AccountUpdatel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountUpdatel.swift; sourceTree = "<group>"; };
 		117D4A14213F11A20072AB88 /* Shiftgram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Shiftgram.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		117D4A17213F11A20072AB88 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		117D4A19213F11A20072AB88 /* InitialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialViewController.swift; sourceTree = "<group>"; };
@@ -199,6 +201,7 @@
 				11F31A552140665D00419361 /* Phone.swift */,
 				11878F8521457301009026CE /* Account.swift */,
 				11878F8B2145A695009026CE /* PhoneVerify.swift */,
+				116D07A221469A1200FB0AF0 /* AccountUpdatel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -414,6 +417,7 @@
 				11878F8621457301009026CE /* Account.swift in Sources */,
 				11878F8C2145A695009026CE /* PhoneVerify.swift in Sources */,
 				117D4A20213F11A20072AB88 /* Shiftgram.xcdatamodeld in Sources */,
+				116D07A321469A1200FB0AF0 /* AccountUpdatel.swift in Sources */,
 				11F31A5C2140688100419361 /* PhoneDataManager.swift in Sources */,
 				11C33D3521405A9500E10B8B /* CodeVerifyViewController.swift in Sources */,
 				11878F8A21459DD9009026CE /* UserViewModel.swift in Sources */,

@@ -13,7 +13,7 @@
         <!--Initial View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="InitialViewController" customModule="Shiftgram" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Initial" id="BYZ-38-t0r" customClass="InitialViewController" customModule="Shiftgram" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -249,7 +249,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="YqZ-1L-7OM">
             <objects>
-                <tabBarController id="OiU-y0-a9u" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="Menu" id="OiU-y0-a9u" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="rLT-4p-2MR">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -428,6 +428,6 @@
         <image name="photo" width="100" height="100"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="AyF-Th-YF1"/>
+        <segue reference="bBy-Yq-bbG"/>
     </inferredMetricsTieBreakers>
 </document>

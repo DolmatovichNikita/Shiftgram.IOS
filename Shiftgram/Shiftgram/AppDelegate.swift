@@ -1,27 +1,43 @@
-//
-//  AppDelegate.swift
-//  Shiftgram
-//
-//  Created by Nikita on 04.09.2018.
-//  Copyright © 2018 SolIT. All rights reserved.
-//
-
 import UIKit
 import CoreData
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
     var window: UIWindow?
-
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         UINavigationBar.appearance().backgroundColor = UIColor.white
         UINavigationBar.appearance().shadowImage = UIImage()
         UINavigationBar.appearance().setBackgroundImage(UIImage(), for: .default)
+        
+        let storyborad = UIStoryboard(name: "Main", bundle: nil)
+        if self.isAuth() {
+            let initialViewController = storyborad.instantiateViewController(withIdentifier: "Menu")
+            self.window?.rootViewController = initialViewController
+            self.window?.makeKeyAndVisible()
+        } else {
+            let initialViewController = storyborad.instantiateViewController(withIdentifier: "Initial")
+            self.window?.rootViewController = initialViewController
+            self.window?.makeKeyAndVisible()
+        }
+        
         return true
     }
 
+    private func isAuth() -> Bool {
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "User")
+        var isAuth = false
+        
+        do {
+            let user = try self.persistentContainer.viewContext.fetch(request).first as! User
+            isAuth = user.isAuth
+        } catch {
+            print("Failed")
+        }
+        
+        return isAuth
+    }
+    
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
         // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.

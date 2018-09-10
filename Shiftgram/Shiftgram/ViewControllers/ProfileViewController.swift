@@ -1,16 +1,7 @@
-//
-//  ProfileViewController.swift
-//  Shiftgram
-//
-//  Created by Nikita on 04.09.2018.
-//  Copyright © 2018 SolIT. All rights reserved.
-//
-
 import UIKit
 
 class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate,
     UITextFieldDelegate{
-
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var firstNameTextField: UITextField!
     @IBOutlet weak var lastNameTextField: UITextField!
@@ -28,10 +19,13 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         super.didReceiveMemoryWarning()
     }
     
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
+    
     @IBAction func registerBtnPressed(_ sender: Any) {
         let account = Account(firstName: firstNameTextField.text!, lastName: lastNameTextField.text!, bio: bioTextField.text!,
                               username: usernameTextField.text!, photoUrl: "", gender: segmentGender.titleForSegment(at: segmentGender.selectedSegmentIndex)!)
-        print(segmentGender.titleForSegment(at: segmentGender.selectedSegmentIndex)!)
         self.userViewModel.addAccount(account: account) {}
     }
     
@@ -44,10 +38,6 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
-    }
-    
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        self.view.endEditing(true)
     }
     
     private func initControls() {

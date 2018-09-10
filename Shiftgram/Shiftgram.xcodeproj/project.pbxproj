@@ -25,6 +25,8 @@
 		11878F8A21459DD9009026CE /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11878F8921459DD9009026CE /* UserViewModel.swift */; };
 		11878F8C2145A695009026CE /* PhoneVerify.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11878F8B2145A695009026CE /* PhoneVerify.swift */; };
 		11C33D3521405A9500E10B8B /* CodeVerifyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11C33D3421405A9500E10B8B /* CodeVerifyViewController.swift */; };
+		11EBAAA82146D74700CECB45 /* ContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11EBAAA72146D74700CECB45 /* ContactViewController.swift */; };
+		11EBAAAA2146D75E00CECB45 /* MessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11EBAAA92146D75E00CECB45 /* MessageViewController.swift */; };
 		11F31A562140665D00419361 /* Phone.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11F31A552140665D00419361 /* Phone.swift */; };
 		11F31A592140670400419361 /* PhoneViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11F31A582140670400419361 /* PhoneViewModel.swift */; };
 		11F31A5C2140688100419361 /* PhoneDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11F31A5B2140688100419361 /* PhoneDataManager.swift */; };
@@ -76,6 +78,8 @@
 		11878F8921459DD9009026CE /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
 		11878F8B2145A695009026CE /* PhoneVerify.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneVerify.swift; sourceTree = "<group>"; };
 		11C33D3421405A9500E10B8B /* CodeVerifyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeVerifyViewController.swift; sourceTree = "<group>"; };
+		11EBAAA72146D74700CECB45 /* ContactViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactViewController.swift; sourceTree = "<group>"; };
+		11EBAAA92146D75E00CECB45 /* MessageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageViewController.swift; sourceTree = "<group>"; };
 		11F31A552140665D00419361 /* Phone.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Phone.swift; sourceTree = "<group>"; };
 		11F31A582140670400419361 /* PhoneViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneViewModel.swift; sourceTree = "<group>"; };
 		11F31A5B2140688100419361 /* PhoneDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneDataManager.swift; sourceTree = "<group>"; };
@@ -175,6 +179,8 @@
 				117D4A4B213F16D60072AB88 /* PhoneVerifyViewController.swift */,
 				117D4A4D213F1F260072AB88 /* ProfileViewController.swift */,
 				11C33D3421405A9500E10B8B /* CodeVerifyViewController.swift */,
+				11EBAAA72146D74700CECB45 /* ContactViewController.swift */,
+				11EBAAA92146D75E00CECB45 /* MessageViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -416,12 +422,14 @@
 				117D4A4C213F16D60072AB88 /* PhoneVerifyViewController.swift in Sources */,
 				11878F8621457301009026CE /* Account.swift in Sources */,
 				11878F8C2145A695009026CE /* PhoneVerify.swift in Sources */,
+				11EBAAA82146D74700CECB45 /* ContactViewController.swift in Sources */,
 				117D4A20213F11A20072AB88 /* Shiftgram.xcdatamodeld in Sources */,
 				116D07A321469A1200FB0AF0 /* AccountUpdatel.swift in Sources */,
 				11F31A5C2140688100419361 /* PhoneDataManager.swift in Sources */,
 				11C33D3521405A9500E10B8B /* CodeVerifyViewController.swift in Sources */,
 				11878F8A21459DD9009026CE /* UserViewModel.swift in Sources */,
 				117D4A4E213F1F260072AB88 /* ProfileViewController.swift in Sources */,
+				11EBAAAA2146D75E00CECB45 /* MessageViewController.swift in Sources */,
 				11F31A562140665D00419361 /* Phone.swift in Sources */,
 				11878F7F21455CE5009026CE /* ActivityIndicator.swift in Sources */,
 				11F31A592140670400419361 /* PhoneViewModel.swift in Sources */,

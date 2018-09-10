@@ -42,10 +42,18 @@ class PhoneVerifyViewController: UIViewController, UIPickerViewDelegate, UIPicke
         let id = userEntity.getUserId()
         let phoneVerify = PhoneVerify(id: Int(id), number: numberTextField.text!, code: codeLabel.text!)
         let phone = codeLabel.text! + numberTextField.text!
-        let accountUpdate = AccountUpdate(id: Int(id), phone: phone, updateType: "PhoneUpdate")
-        phoneViewModel.sendSMS(accountUpdate: accountUpdate, phoneVerify: phoneVerify) {
-            self.activityIndicator.stopLoading()
-            self.performSegue(withIdentifier: "Code", sender: self)
+        
+        if !userEntity.isRegister() {
+            let accountUpdate = AccountUpdate(id: Int(id), phone: phone, updateType: "PhoneUpdate")
+            phoneViewModel.sendSMS(accountUpdate: accountUpdate, phoneVerify: phoneVerify) {
+                self.activityIndicator.stopLoading()
+                self.performSegue(withIdentifier: "Code", sender: self)
+            }
+        } else {
+            phoneViewModel.sendSMS(accountUpdate: nil, phoneVerify: phoneVerify) {
+                self.activityIndicator.stopLoading()
+                self.performSegue(withIdentifier: "Code", sender: self)
+            }
         }
     }
     

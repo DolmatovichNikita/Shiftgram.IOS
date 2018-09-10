@@ -6,17 +6,24 @@ class PhoneViewModel {
     var phones = [Phone]()
     
     public func getPhones(completion: @escaping () -> Void) {
-        self.phoneDataManager.getPhones { _ in
+        self.phoneDataManager.getPhones {response in
+            self.phones = response
             completion()
         }
     }
     
-    public func sendSMS(accountUpdate: AccountUpdate, phoneVerify: PhoneVerify, completion: @escaping () -> Void) {
-        self.userDataManager.updateAccount(accountUpdate: accountUpdate) {response in
-            if response {
-                self.phoneDataManager.sendSMS(phoneVerify: phoneVerify) {
-                    completion()
+    public func sendSMS(accountUpdate: AccountUpdate?, phoneVerify: PhoneVerify, completion: @escaping () -> Void) {
+        if accountUpdate != nil {
+            self.userDataManager.updateAccount(accountUpdate: accountUpdate!) {response in
+                if response {
+                    self.phoneDataManager.sendSMS(phoneVerify: phoneVerify) {
+                        completion()
+                    }
                 }
+            }
+        } else {
+            self.phoneDataManager.sendSMS(phoneVerify: phoneVerify) {
+                completion()
             }
         }
     }

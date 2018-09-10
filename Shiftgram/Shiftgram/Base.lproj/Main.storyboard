@@ -141,7 +141,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UT9-mt-B9S" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="937" y="528"/>
+            <point key="canvasLocation" x="937" y="596"/>
         </scene>
         <!--Code Verify View Controller-->
         <scene sceneID="fSK-Xz-8xt">
@@ -212,7 +212,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="v6s-kE-vES" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1658" y="528"/>
+            <point key="canvasLocation" x="1727" y="596"/>
         </scene>
         <!--Item 2-->
         <scene sceneID="ptC-lb-Egu">
@@ -262,7 +262,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XjV-4i-Ral" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2417" y="528"/>
+            <point key="canvasLocation" x="2425" y="596"/>
         </scene>
         <!--Profile View Controller-->
         <scene sceneID="KUY-H6-6qC">
@@ -379,6 +379,7 @@
                                 </state>
                                 <connections>
                                     <action selector="registerBtnPressed:" destination="qp0-CV-1PO" eventType="touchUpInside" id="Ae1-8T-fim"/>
+                                    <segue destination="6ie-nN-s9B" kind="show" id="jar-ev-YGr"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -428,6 +429,6 @@
         <image name="photo" width="100" height="100"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="bBy-Yq-bbG"/>
+        <segue reference="AyF-Th-YF1"/>
     </inferredMetricsTieBreakers>
 </document>

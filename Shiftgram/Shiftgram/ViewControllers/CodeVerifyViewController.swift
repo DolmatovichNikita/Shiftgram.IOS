@@ -4,6 +4,7 @@ class CodeVerifyViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var phoneLabel: UILabel!
     @IBOutlet weak var codeTextField: UITextField!
     let phoneViewModel = PhoneViewModel()
+    let userEntity = UserEntity()
     var phone = String()
     
     override func viewDidLoad() {
@@ -25,6 +26,10 @@ class CodeVerifyViewController: UIViewController, UITextFieldDelegate {
         let phoneVerify = PhoneVerify(id: Int(id), number: phone, code: codeTextField.text!)
         self.phoneViewModel.isAuth(phoneVerify: phoneVerify) { response in
             if response {
+                if !self.userEntity.isRegister() {
+                    self.userEntity.updateUser(value: true, key: "isRegister")
+                    self.userEntity.updateUser(value: true, key: "isAuth")
+                }
                 self.performSegue(withIdentifier: "Menu", sender: self)
             }
         }

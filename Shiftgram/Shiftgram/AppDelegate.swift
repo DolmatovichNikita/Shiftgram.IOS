@@ -29,8 +29,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         var isAuth = false
         
         do {
-            let user = try self.persistentContainer.viewContext.fetch(request).first as! User
-            isAuth = user.isAuth
+            let count = try self.persistentContainer.viewContext.fetch(request).count
+            if count > 0 {
+                let user = try self.persistentContainer.viewContext.fetch(request).first as! User
+                isAuth = user.isAuth
+            }
         } catch {
             print("Failed")
         }

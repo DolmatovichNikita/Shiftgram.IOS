@@ -76,6 +76,20 @@ class UserEntity {
         return isAuth
     }
     
+    public func isRegister() -> Bool {
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "User")
+        var isRegister = false
+        
+        do {
+            let user = try self.context.fetch(request).first as! User
+            isRegister = user.isRegister
+        } catch {
+            print("Failed")
+        }
+        
+        return isRegister
+    }
+    
     public func isExist() ->Bool {
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "User")
         var isExist = false

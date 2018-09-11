@@ -6,8 +6,7 @@ class PhoneDataManager {
     private let urlVerify = "http://shiftgram.eu-central-1.elasticbeanstalk.com/api/phoneverify"
     
     public func getPhones(completion: @escaping ([Phone]) -> Void) {
-        Alamofire.request(urlPhone, method: .get, parameters: nil, encoding: JSONEncoding.default).responseJSON {
-            response in
+        Alamofire.request(urlPhone, method: .get, parameters: nil, encoding: JSONEncoding.default).responseJSON { response in
             var phones = [Phone]()
             if let result = response.result.value {
                 let items = result as! NSArray

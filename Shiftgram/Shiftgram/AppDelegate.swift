@@ -32,6 +32,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             let count = try self.persistentContainer.viewContext.fetch(request).count
             if count > 0 {
                 let user = try self.persistentContainer.viewContext.fetch(request).first as! User
+                print(user.isAuth)
                 isAuth = user.isAuth
             }
         } catch {
@@ -65,8 +66,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.saveContext()
     }
 
-    // MARK: - Core Data stack
-
     lazy var persistentContainer: NSPersistentContainer = {
         /*
          The persistent container for the application. This implementation
@@ -93,9 +92,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         })
         return container
     }()
-
-    // MARK: - Core Data Saving support
-
+    
     func saveContext () {
         let context = persistentContainer.viewContext
         if context.hasChanges {

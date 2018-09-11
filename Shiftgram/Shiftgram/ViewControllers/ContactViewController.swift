@@ -12,7 +12,6 @@ class ContactViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        let user = UserEntity()
 
         // Do any additional setup after loading the view.
     }

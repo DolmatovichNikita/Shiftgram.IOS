@@ -5,9 +5,9 @@ class PhoneVerifyViewController: UIViewController, UIPickerViewDelegate, UIPicke
     @IBOutlet weak var codeLabel: UILabel!
     @IBOutlet weak var numberTextField: UITextField!
     @IBOutlet weak var btnNext: UIButton!
-    var activityIndicator: ActivityIndicator!
-    var phoneViewModel = PhoneViewModel()
-    var phones = [Phone]()
+    private var activityIndicator: ActivityIndicator!
+    private var phoneViewModel = PhoneViewModel()
+    private var phones = [Phone]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -74,7 +74,7 @@ class PhoneVerifyViewController: UIViewController, UIPickerViewDelegate, UIPicke
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        self.resignFirstResponder()
+        textField.resignFirstResponder()
         return true
     }
     

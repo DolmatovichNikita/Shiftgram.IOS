@@ -17,7 +17,7 @@ class UserEntity {
         user.setValue(id, forKey: "id")
         
         do {
-         try self.context.save()
+            try self.context.save()
         } catch {
             print("Failed")
         }

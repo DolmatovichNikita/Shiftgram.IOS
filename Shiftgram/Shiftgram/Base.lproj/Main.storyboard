@@ -165,7 +165,6 @@
                                         <barButtonItem key="rightBarButtonItem" title="Next" id="zSU-5s-Zsf">
                                             <connections>
                                                 <action selector="btnNextPressed:" destination="KgR-51-ZDu" id="djt-nY-Qx6"/>
-                                                <segue destination="OiU-y0-a9u" kind="show" identifier="Menu" id="TwG-cf-yqU"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
@@ -208,6 +207,7 @@
                     <connections>
                         <outlet property="codeTextField" destination="Tfz-3E-fQf" id="mDO-og-enX"/>
                         <outlet property="phoneLabel" destination="NWg-Nm-LsX" id="m18-q0-nHD"/>
+                        <segue destination="OiU-y0-a9u" kind="show" identifier="Menu" id="xuS-rt-X2t"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="v6s-kE-vES" userLabel="First Responder" sceneMemberID="firstResponder"/>

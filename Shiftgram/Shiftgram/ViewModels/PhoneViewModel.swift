@@ -14,6 +14,8 @@ class PhoneViewModel {
     
     public func sendSMS(accountUpdate: AccountUpdate?, phoneVerify: PhoneVerify, completion: @escaping () -> Void) {
         if accountUpdate != nil {
+            let userEntity = UserEntity()
+            userEntity.updateUser(value: true, key: "isRegister")
             self.userDataManager.updateAccount(accountUpdate: accountUpdate!) {response in
                 if response {
                     self.phoneDataManager.sendSMS(phoneVerify: phoneVerify) {
@@ -30,6 +32,10 @@ class PhoneViewModel {
     
     public func isAuth(phoneVerify: PhoneVerify, completion: @escaping (Bool) -> Void) {
         self.phoneDataManager.isAuth(phoneVerify: phoneVerify) {response in
+            if response {
+                let userEntity = UserEntity()
+                userEntity.updateUser(value: true, key: "isAuth")
+            }
             completion(response)
         }
     }

@@ -4,4 +4,7 @@ use_frameworks!
 
 target 'Shiftgram' do
     pod 'Alamofire', '~> 4.6'
+     pod 'AWSCognito'
+     pod 'AWSCognitoIdentityProvider'
+     pod 'AWSS3'
 end

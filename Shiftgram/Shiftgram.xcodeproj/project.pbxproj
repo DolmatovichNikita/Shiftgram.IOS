@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1158272B2147B59100D5AFE1 /* AwsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1158272A2147B59100D5AFE1 /* AwsHelper.swift */; };
 		116D07A321469A1200FB0AF0 /* AccountUpdate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116D07A221469A1200FB0AF0 /* AccountUpdate.swift */; };
 		117D4A18213F11A20072AB88 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 117D4A17213F11A20072AB88 /* AppDelegate.swift */; };
 		117D4A1A213F11A20072AB88 /* InitialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 117D4A19213F11A20072AB88 /* InitialViewController.swift */; };
@@ -24,13 +25,14 @@
 		11878F88214596E4009026CE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 11878F87214596E4009026CE /* Assets.xcassets */; };
 		11878F8A21459DD9009026CE /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11878F8921459DD9009026CE /* UserViewModel.swift */; };
 		11878F8C2145A695009026CE /* PhoneVerify.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11878F8B2145A695009026CE /* PhoneVerify.swift */; };
+		11AB8295214804B1003558A4 /* AccountUpdatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11AB8294214804B1003558A4 /* AccountUpdatable.swift */; };
 		11C33D3521405A9500E10B8B /* CodeVerifyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11C33D3421405A9500E10B8B /* CodeVerifyViewController.swift */; };
 		11EBAAA82146D74700CECB45 /* ContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11EBAAA72146D74700CECB45 /* ContactViewController.swift */; };
 		11EBAAAA2146D75E00CECB45 /* MessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11EBAAA92146D75E00CECB45 /* MessageViewController.swift */; };
 		11F31A562140665D00419361 /* Phone.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11F31A552140665D00419361 /* Phone.swift */; };
 		11F31A592140670400419361 /* PhoneViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11F31A582140670400419361 /* PhoneViewModel.swift */; };
 		11F31A5C2140688100419361 /* PhoneDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11F31A5B2140688100419361 /* PhoneDataManager.swift */; };
-		49AC8BF6D0AACDA1819C0002 /* Pods_Shiftgram.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5944AB029545F3B65A14390D /* Pods_Shiftgram.framework */; };
+		594F505600FDE04D5A488AA0 /* Pods_Shiftgram.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09123D08BF57FECF800BAC34 /* Pods_Shiftgram.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,7 +53,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		078F441A93D295553D364162 /* Pods-Shiftgram.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Shiftgram.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Shiftgram/Pods-Shiftgram.debug.xcconfig"; sourceTree = "<group>"; };
+		09123D08BF57FECF800BAC34 /* Pods_Shiftgram.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Shiftgram.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1158272A2147B59100D5AFE1 /* AwsHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AwsHelper.swift; sourceTree = "<group>"; };
 		116D07A221469A1200FB0AF0 /* AccountUpdate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountUpdate.swift; sourceTree = "<group>"; };
 		117D4A14213F11A20072AB88 /* Shiftgram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Shiftgram.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		117D4A17213F11A20072AB88 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -77,14 +80,15 @@
 		11878F87214596E4009026CE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		11878F8921459DD9009026CE /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
 		11878F8B2145A695009026CE /* PhoneVerify.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneVerify.swift; sourceTree = "<group>"; };
+		11AB8294214804B1003558A4 /* AccountUpdatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountUpdatable.swift; sourceTree = "<group>"; };
 		11C33D3421405A9500E10B8B /* CodeVerifyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeVerifyViewController.swift; sourceTree = "<group>"; };
 		11EBAAA72146D74700CECB45 /* ContactViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactViewController.swift; sourceTree = "<group>"; };
 		11EBAAA92146D75E00CECB45 /* MessageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageViewController.swift; sourceTree = "<group>"; };
 		11F31A552140665D00419361 /* Phone.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Phone.swift; sourceTree = "<group>"; };
 		11F31A582140670400419361 /* PhoneViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneViewModel.swift; sourceTree = "<group>"; };
 		11F31A5B2140688100419361 /* PhoneDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneDataManager.swift; sourceTree = "<group>"; };
-		5944AB029545F3B65A14390D /* Pods_Shiftgram.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Shiftgram.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		66447DE8329D585A06BB2602 /* Pods-Shiftgram.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Shiftgram.release.xcconfig"; path = "Pods/Target Support Files/Pods-Shiftgram/Pods-Shiftgram.release.xcconfig"; sourceTree = "<group>"; };
+		155CB434932A2EF57C7FE426 /* Pods-Shiftgram.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Shiftgram.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Shiftgram/Pods-Shiftgram.debug.xcconfig"; sourceTree = "<group>"; };
+		3B675F772AFA60C82D40F703 /* Pods-Shiftgram.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Shiftgram.release.xcconfig"; path = "Pods/Target Support Files/Pods-Shiftgram/Pods-Shiftgram.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,7 +96,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				49AC8BF6D0AACDA1819C0002 /* Pods_Shiftgram.framework in Frameworks */,
+				594F505600FDE04D5A488AA0 /* Pods_Shiftgram.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -121,8 +125,8 @@
 				117D4A2E213F11A40072AB88 /* ShiftgramTests */,
 				117D4A39213F11A40072AB88 /* ShiftgramUITests */,
 				117D4A15213F11A20072AB88 /* Products */,
-				8A1F1418000DCCE6C44CEAB1 /* Pods */,
-				C289D2C5045741E6C4F893FD /* Frameworks */,
+				C3A7FC9C13312121912051D7 /* Pods */,
+				1D9BFC53AD3D5A3EBC0F94A7 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -139,6 +143,7 @@
 		117D4A16213F11A20072AB88 /* Shiftgram */ = {
 			isa = PBXGroup;
 			children = (
+				11AB829321480498003558A4 /* Protocols */,
 				11878F80214562D3009026CE /* CoreData */,
 				11878F7D21455CC8009026CE /* Helpers */,
 				11F31A5A2140685200419361 /* DataManagers */,
@@ -189,6 +194,7 @@
 			isa = PBXGroup;
 			children = (
 				11878F7E21455CE5009026CE /* ActivityIndicator.swift */,
+				1158272A2147B59100D5AFE1 /* AwsHelper.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -199,6 +205,14 @@
 				11878F81214562FC009026CE /* UserEnitity.swift */,
 			);
 			path = CoreData;
+			sourceTree = "<group>";
+		};
+		11AB829321480498003558A4 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				11AB8294214804B1003558A4 /* AccountUpdatable.swift */,
+			);
+			path = Protocols;
 			sourceTree = "<group>";
 		};
 		11F31A542140663800419361 /* Models */ = {
@@ -230,21 +244,21 @@
 			path = DataManagers;
 			sourceTree = "<group>";
 		};
-		8A1F1418000DCCE6C44CEAB1 /* Pods */ = {
+		1D9BFC53AD3D5A3EBC0F94A7 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				078F441A93D295553D364162 /* Pods-Shiftgram.debug.xcconfig */,
-				66447DE8329D585A06BB2602 /* Pods-Shiftgram.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
-		C289D2C5045741E6C4F893FD /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				5944AB029545F3B65A14390D /* Pods_Shiftgram.framework */,
+				09123D08BF57FECF800BAC34 /* Pods_Shiftgram.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C3A7FC9C13312121912051D7 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				155CB434932A2EF57C7FE426 /* Pods-Shiftgram.debug.xcconfig */,
+				3B675F772AFA60C82D40F703 /* Pods-Shiftgram.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -254,11 +268,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 117D4A3F213F11A40072AB88 /* Build configuration list for PBXNativeTarget "Shiftgram" */;
 			buildPhases = (
-				C81F1F317FCC620AB10A33ED /* [CP] Check Pods Manifest.lock */,
+				550CF49D5092F2F1BB7E5FBC /* [CP] Check Pods Manifest.lock */,
 				117D4A10213F11A20072AB88 /* Sources */,
 				117D4A11213F11A20072AB88 /* Frameworks */,
 				117D4A12213F11A20072AB88 /* Resources */,
-				D728C922A60B457983AFB0E2 /* [CP] Embed Pods Frameworks */,
+				71F8F811ABB2A6026D3D06BC /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -376,7 +390,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		C81F1F317FCC620AB10A33ED /* [CP] Check Pods Manifest.lock */ = {
+		550CF49D5092F2F1BB7E5FBC /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -394,17 +408,27 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		D728C922A60B457983AFB0E2 /* [CP] Embed Pods Frameworks */ = {
+		71F8F811ABB2A6026D3D06BC /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Shiftgram/Pods-Shiftgram-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/AWSCognito/AWSCognito.framework",
+				"${BUILT_PRODUCTS_DIR}/AWSCognitoIdentityProvider/AWSCognitoIdentityProvider.framework",
+				"${BUILT_PRODUCTS_DIR}/AWSCognitoIdentityProviderASF/AWSCognitoIdentityProviderASF.framework",
+				"${BUILT_PRODUCTS_DIR}/AWSCore/AWSCore.framework",
+				"${BUILT_PRODUCTS_DIR}/AWSS3/AWSS3.framework",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AWSCognito.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AWSCognitoIdentityProvider.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AWSCognitoIdentityProviderASF.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AWSCore.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AWSS3.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -421,10 +445,12 @@
 			files = (
 				117D4A4C213F16D60072AB88 /* PhoneVerifyViewController.swift in Sources */,
 				11878F8621457301009026CE /* Account.swift in Sources */,
+				11AB8295214804B1003558A4 /* AccountUpdatable.swift in Sources */,
 				11878F8C2145A695009026CE /* PhoneVerify.swift in Sources */,
 				11EBAAA82146D74700CECB45 /* ContactViewController.swift in Sources */,
 				117D4A20213F11A20072AB88 /* Shiftgram.xcdatamodeld in Sources */,
 				116D07A321469A1200FB0AF0 /* AccountUpdate.swift in Sources */,
+				1158272B2147B59100D5AFE1 /* AwsHelper.swift in Sources */,
 				11F31A5C2140688100419361 /* PhoneDataManager.swift in Sources */,
 				11C33D3521405A9500E10B8B /* CodeVerifyViewController.swift in Sources */,
 				11878F8A21459DD9009026CE /* UserViewModel.swift in Sources */,
@@ -613,7 +639,7 @@
 		};
 		117D4A40213F11A40072AB88 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 078F441A93D295553D364162 /* Pods-Shiftgram.debug.xcconfig */;
+			baseConfigurationReference = 155CB434932A2EF57C7FE426 /* Pods-Shiftgram.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -632,7 +658,7 @@
 		};
 		117D4A41213F11A40072AB88 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 66447DE8329D585A06BB2602 /* Pods-Shiftgram.release.xcconfig */;
+			baseConfigurationReference = 3B675F772AFA60C82D40F703 /* Pods-Shiftgram.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

@@ -1,7 +1,7 @@
 import Foundation
 import Alamofire
 
-struct AccountUpdate {
+class AccountUpdate {
     let id: Int
     let phone: String
     let updateType: String

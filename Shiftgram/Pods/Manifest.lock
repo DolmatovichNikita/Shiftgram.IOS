@@ -1,16 +1,38 @@
 PODS:
   - Alamofire (4.6.0)
+  - AWSCognito (2.6.7):
+    - AWSCore (= 2.6.7)
+  - AWSCognitoIdentityProvider (2.6.7):
+    - AWSCognitoIdentityProviderASF (= 1.0.0)
+    - AWSCore (= 2.6.7)
+  - AWSCognitoIdentityProviderASF (1.0.0)
+  - AWSCore (2.6.7)
+  - AWSS3 (2.6.7):
+    - AWSCore (= 2.6.7)
 
 DEPENDENCIES:
   - Alamofire (~> 4.6)
+  - AWSCognito
+  - AWSCognitoIdentityProvider
+  - AWSS3
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Alamofire
+    - AWSCognito
+    - AWSCognitoIdentityProvider
+    - AWSCognitoIdentityProviderASF
+    - AWSCore
+    - AWSS3
 
 SPEC CHECKSUMS:
   Alamofire: f41a599bd63041760b26d393ec1069d9d7b917f4
+  AWSCognito: be5798e371a93b84ebb4c0577db21634e2c8c955
+  AWSCognitoIdentityProvider: 1ca851a806ff2fd39b9495ddbe77924adfd391a4
+  AWSCognitoIdentityProviderASF: 0b0ea7e25a380e0a7fcd65d9a1d9a553357c0699
+  AWSCore: a5ff5fb202342b922eb9036af9ecc3bc28a032eb
+  AWSS3: cd4aec32f51fc202431e36596d2f535f821788e1
 
-PODFILE CHECKSUM: ae80a074e54df4127b10580598a69ab4318b0642
+PODFILE CHECKSUM: 8091ffac3e0e38a726699299ed292a4bc21a54d3
 
 COCOAPODS: 1.5.3

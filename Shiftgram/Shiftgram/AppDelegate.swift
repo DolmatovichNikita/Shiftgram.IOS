@@ -1,5 +1,6 @@
 import UIKit
 import CoreData
+import AWSCognito
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -9,6 +10,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UINavigationBar.appearance().backgroundColor = UIColor.white
         UINavigationBar.appearance().shadowImage = UIImage()
         UINavigationBar.appearance().setBackgroundImage(UIImage(), for: .default)
+        self.registerCognito()
         
         let storyborad = UIStoryboard(name: "Main", bundle: nil)
         if self.isAuth() {
@@ -22,6 +24,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         
         return true
+    }
+    
+    private func registerCognito() {
+        let credentialsProvider = AWSCognitoCredentialsProvider(regionType:.EUCentral1,
+                                                                identityPoolId:"eu-central-1:2e181e24-28d0-4839-84a3-011b2fe795f5")
+        
+        let configuration = AWSServiceConfiguration(region:.EUCentral1, credentialsProvider:credentialsProvider)
+        
+        AWSServiceManager.default().defaultServiceConfiguration = configuration
     }
 
     private func isAuth() -> Bool {

@@ -24,9 +24,11 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     }
     
     @IBAction func registerBtnPressed(_ sender: Any) {
-        let account = Account(firstName: firstNameTextField.text!, lastName: lastNameTextField.text!, bio: bioTextField.text!,
-                              username: usernameTextField.text!, photoUrl: "", gender: segmentGender.titleForSegment(at: segmentGender.selectedSegmentIndex)!)
-        self.userViewModel.addAccount(account: account) {}
+        AwsHelper.uploadImage(image: self.profileImageView.image!) { response in
+            let account = Account(firstName: self.firstNameTextField.text!, lastName: self.lastNameTextField.text!, bio: self.bioTextField.text!,
+                                  username: self.usernameTextField.text!, photoUrl: response, gender: self.segmentGender.titleForSegment(at: self.segmentGender.selectedSegmentIndex)!)
+            self.userViewModel.addAccount(account: account) {}
+        }
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {

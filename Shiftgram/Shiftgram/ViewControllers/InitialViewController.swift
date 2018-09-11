@@ -7,6 +7,7 @@ class InitialViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.initControls()
+        userEntity.deleteUser()
     }
 
     override func didReceiveMemoryWarning() {

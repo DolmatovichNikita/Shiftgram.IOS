@@ -214,7 +214,7 @@
             </objects>
             <point key="canvasLocation" x="1727" y="596"/>
         </scene>
-        <!--Item 2-->
+        <!--Messages-->
         <scene sceneID="ptC-lb-Egu">
             <objects>
                 <viewController id="j81-VI-SgQ" customClass="MessageViewController" customModule="Shiftgram" customModuleProvider="target" sceneMemberID="viewController">
@@ -224,13 +224,13 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="9bw-Iq-cCb"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item 2" id="Ahc-fw-1ez"/>
+                    <tabBarItem key="tabBarItem" title="Messages" image="message" id="Ahc-fw-1ez"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="owb-nH-w3a" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3370" y="854"/>
         </scene>
-        <!--Item 1-->
+        <!--Contacts-->
         <scene sceneID="cVv-3f-l4W">
             <objects>
                 <viewController id="e6f-bo-rh5" customClass="ContactViewController" customModule="Shiftgram" customModuleProvider="target" sceneMemberID="viewController">
@@ -240,7 +240,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="dgJ-Ba-eDE"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item 1" id="FRW-yL-OFX"/>
+                    <tabBarItem key="tabBarItem" title="Contacts" image="contact" id="FRW-yL-OFX"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0pb-7D-RAk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -426,6 +426,8 @@
         </scene>
     </scenes>
     <resources>
+        <image name="contact" width="26" height="26"/>
+        <image name="message" width="30" height="30"/>
         <image name="photo" width="100" height="100"/>
     </resources>
     <inferredMetricsTieBreakers>

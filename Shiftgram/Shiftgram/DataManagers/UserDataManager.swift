@@ -15,10 +15,80 @@ class UserDataManager {
         }
     }
     
-    public func updateAccount(accountUpdate: AccountUpdate, completion: @escaping (Bool) -> Void) {
+    public func updateAccountPhone(accountUpdate: AccountPhoneUpdate, completion: @escaping (Bool) -> Void) {
         let parameters = accountUpdate.toParameters()
         
         Alamofire.request(url, method: .put, parameters: parameters, encoding: JSONEncoding.default, headers: nil).responseJSON {response in
+            if let code = response.response?.statusCode {
+                if code == 200 {
+                    completion(true)
+                } else if code == 400 {
+                    completion(false)
+                }
+            }
+        }
+    }
+    
+    public func updateAccountInitials(accountUpdate: AccountInitialsUpdate, completion: @escaping (Bool) -> Void) {
+        let parameters = accountUpdate.toParameters()
+        
+        Alamofire.request(url, method: .put, parameters: parameters, encoding: JSONEncoding.default).responseJSON {response in
+            if let code = response.response?.statusCode {
+                if code == 200 {
+                    completion(true)
+                } else if code == 400 {
+                    completion(false)
+                }
+            }
+        }
+    }
+    
+    public func updateAccountBio(accountUpdate: AccountBioUpdate, completion: @escaping (Bool) -> Void) {
+        let parameters = accountUpdate.toParameters()
+        
+        Alamofire.request(url, method: .put, parameters: parameters, encoding: JSONEncoding.default).responseJSON {response in
+            if let code = response.response?.statusCode {
+                if code == 200 {
+                    completion(true)
+                } else if code == 400 {
+                    completion(false)
+                }
+            }
+        }
+    }
+    
+    public func updateAccountUsername(accountUpdate: AccountUsernameUpdate, completion: @escaping (Bool) -> Void) {
+        let parameters = accountUpdate.toParameters()
+        
+        Alamofire.request(url, method: .put, parameters: parameters, encoding: JSONEncoding.default).responseJSON {response in
+            if let code = response.response?.statusCode {
+                if code == 200 {
+                    completion(true)
+                } else if code == 400 {
+                    completion(false)
+                }
+            }
+        }
+    }
+    
+    public func updateAccountPhoto(accountUpdate: AccountPhotoUpdate, completion: @escaping (Bool) -> Void) {
+        let parameters = accountUpdate.toParameters()
+        
+        Alamofire.request(url, method: .put, parameters: parameters, encoding: JSONEncoding.default).responseJSON {response in
+            if let code = response.response?.statusCode {
+                if code == 200 {
+                    completion(true)
+                } else if code == 400 {
+                    completion(false)
+                }
+            }
+        }
+    }
+    
+    public func updateAccountGender(accountUpdate: AccountGenderUpdate, completion: @escaping (Bool) -> Void) {
+        let parameters = accountUpdate.toParameters()
+        
+        Alamofire.request(url, method: .put, parameters: parameters, encoding: JSONEncoding.default).responseJSON {response in
             if let code = response.response?.statusCode {
                 if code == 200 {
                     completion(true)

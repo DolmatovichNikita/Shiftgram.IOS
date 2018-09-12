@@ -1,21 +1,21 @@
 import Foundation
 import Alamofire
 
-class AccountUpdate {
-    let id: Int
-    let phone: String
-    let updateType: String
+class AccountGenderUpdate {
+    private let id: Int
+    private let gender: String
+    private let updateType: String
     
-    init(id: Int, phone: String, updateType: String) {
+    init(id: Int, gender: String, updateType: String) {
         self.id = id
-        self.phone = phone
+        self.gender = gender
         self.updateType = updateType
     }
     
     public func toParameters() -> Parameters {
         let parameter: Parameters = [
             "Id": self.id,
-            "Phone": self.phone,
+            "GenderName": self.gender,
             "UpdateType": self.updateType
         ]
         

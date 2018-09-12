@@ -8,8 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		1132AD412149868400B9BBB5 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1132AD402149868400B9BBB5 /* SettingsViewController.swift */; };
+		1132AD432149888900B9BBB5 /* AccountInitialsUpdate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1132AD422149888900B9BBB5 /* AccountInitialsUpdate.swift */; };
+		1132AD4521498A2F00B9BBB5 /* AccountBioUpdate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1132AD4421498A2F00B9BBB5 /* AccountBioUpdate.swift */; };
+		1132AD4721498B5800B9BBB5 /* AccountUsernameUpdate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1132AD4621498B5800B9BBB5 /* AccountUsernameUpdate.swift */; };
+		1132AD4921498C4300B9BBB5 /* AccountPhotoUpdate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1132AD4821498C4300B9BBB5 /* AccountPhotoUpdate.swift */; };
+		1132AD4B21498E1900B9BBB5 /* AccountGenderUpdate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1132AD4A21498E1900B9BBB5 /* AccountGenderUpdate.swift */; };
 		1158272B2147B59100D5AFE1 /* AwsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1158272A2147B59100D5AFE1 /* AwsHelper.swift */; };
-		116D07A321469A1200FB0AF0 /* AccountUpdate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116D07A221469A1200FB0AF0 /* AccountUpdate.swift */; };
+		116D07A321469A1200FB0AF0 /* AccountPhoneUpdate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116D07A221469A1200FB0AF0 /* AccountPhoneUpdate.swift */; };
 		117D4A18213F11A20072AB88 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 117D4A17213F11A20072AB88 /* AppDelegate.swift */; };
 		117D4A1A213F11A20072AB88 /* InitialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 117D4A19213F11A20072AB88 /* InitialViewController.swift */; };
 		117D4A1D213F11A20072AB88 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 117D4A1B213F11A20072AB88 /* Main.storyboard */; };
@@ -56,8 +61,13 @@
 /* Begin PBXFileReference section */
 		09123D08BF57FECF800BAC34 /* Pods_Shiftgram.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Shiftgram.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1132AD402149868400B9BBB5 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		1132AD422149888900B9BBB5 /* AccountInitialsUpdate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountInitialsUpdate.swift; sourceTree = "<group>"; };
+		1132AD4421498A2F00B9BBB5 /* AccountBioUpdate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountBioUpdate.swift; sourceTree = "<group>"; };
+		1132AD4621498B5800B9BBB5 /* AccountUsernameUpdate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountUsernameUpdate.swift; sourceTree = "<group>"; };
+		1132AD4821498C4300B9BBB5 /* AccountPhotoUpdate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountPhotoUpdate.swift; sourceTree = "<group>"; };
+		1132AD4A21498E1900B9BBB5 /* AccountGenderUpdate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountGenderUpdate.swift; sourceTree = "<group>"; };
 		1158272A2147B59100D5AFE1 /* AwsHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AwsHelper.swift; sourceTree = "<group>"; };
-		116D07A221469A1200FB0AF0 /* AccountUpdate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountUpdate.swift; sourceTree = "<group>"; };
+		116D07A221469A1200FB0AF0 /* AccountPhoneUpdate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountPhoneUpdate.swift; sourceTree = "<group>"; };
 		117D4A14213F11A20072AB88 /* Shiftgram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Shiftgram.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		117D4A17213F11A20072AB88 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		117D4A19213F11A20072AB88 /* InitialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialViewController.swift; sourceTree = "<group>"; };
@@ -224,7 +234,12 @@
 				11F31A552140665D00419361 /* Phone.swift */,
 				11878F8521457301009026CE /* Account.swift */,
 				11878F8B2145A695009026CE /* PhoneVerify.swift */,
-				116D07A221469A1200FB0AF0 /* AccountUpdate.swift */,
+				116D07A221469A1200FB0AF0 /* AccountPhoneUpdate.swift */,
+				1132AD422149888900B9BBB5 /* AccountInitialsUpdate.swift */,
+				1132AD4421498A2F00B9BBB5 /* AccountBioUpdate.swift */,
+				1132AD4621498B5800B9BBB5 /* AccountUsernameUpdate.swift */,
+				1132AD4821498C4300B9BBB5 /* AccountPhotoUpdate.swift */,
+				1132AD4A21498E1900B9BBB5 /* AccountGenderUpdate.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -447,13 +462,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				117D4A4C213F16D60072AB88 /* PhoneVerifyViewController.swift in Sources */,
+				1132AD4B21498E1900B9BBB5 /* AccountGenderUpdate.swift in Sources */,
 				11878F8621457301009026CE /* Account.swift in Sources */,
 				1132AD412149868400B9BBB5 /* SettingsViewController.swift in Sources */,
 				11AB8295214804B1003558A4 /* AccountUpdatable.swift in Sources */,
 				11878F8C2145A695009026CE /* PhoneVerify.swift in Sources */,
 				11EBAAA82146D74700CECB45 /* ContactViewController.swift in Sources */,
+				1132AD4721498B5800B9BBB5 /* AccountUsernameUpdate.swift in Sources */,
 				117D4A20213F11A20072AB88 /* Shiftgram.xcdatamodeld in Sources */,
-				116D07A321469A1200FB0AF0 /* AccountUpdate.swift in Sources */,
+				116D07A321469A1200FB0AF0 /* AccountPhoneUpdate.swift in Sources */,
 				1158272B2147B59100D5AFE1 /* AwsHelper.swift in Sources */,
 				11F31A5C2140688100419361 /* PhoneDataManager.swift in Sources */,
 				11C33D3521405A9500E10B8B /* CodeVerifyViewController.swift in Sources */,
@@ -461,12 +478,15 @@
 				117D4A4E213F1F260072AB88 /* ProfileViewController.swift in Sources */,
 				11EBAAAA2146D75E00CECB45 /* MessageViewController.swift in Sources */,
 				11F31A562140665D00419361 /* Phone.swift in Sources */,
+				1132AD4521498A2F00B9BBB5 /* AccountBioUpdate.swift in Sources */,
 				11878F7F21455CE5009026CE /* ActivityIndicator.swift in Sources */,
 				11F31A592140670400419361 /* PhoneViewModel.swift in Sources */,
+				1132AD4921498C4300B9BBB5 /* AccountPhotoUpdate.swift in Sources */,
 				11878F84214571B7009026CE /* UserDataManager.swift in Sources */,
 				117D4A1A213F11A20072AB88 /* InitialViewController.swift in Sources */,
 				117D4A18213F11A20072AB88 /* AppDelegate.swift in Sources */,
 				11878F82214562FC009026CE /* UserEnitity.swift in Sources */,
+				1132AD432149888900B9BBB5 /* AccountInitialsUpdate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

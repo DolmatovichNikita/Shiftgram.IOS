@@ -12,11 +12,11 @@ class PhoneViewModel {
         }
     }
     
-    public func sendSMS(accountUpdate: AccountUpdate?, phoneVerify: PhoneVerify, completion: @escaping () -> Void) {
+    public func sendSMS(accountUpdate: AccountPhoneUpdate?, phoneVerify: PhoneVerify, completion: @escaping () -> Void) {
         if accountUpdate != nil {
             let userEntity = UserEntity()
             userEntity.updateUser(value: true, key: "isRegister")
-            self.userDataManager.updateAccount(accountUpdate: accountUpdate!) {response in
+            self.userDataManager.updateAccountPhone(accountUpdate: accountUpdate!) {response in
                 if response {
                     self.phoneDataManager.sendSMS(phoneVerify: phoneVerify) {
                         completion()

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1132AD412149868400B9BBB5 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1132AD402149868400B9BBB5 /* SettingsViewController.swift */; };
 		1158272B2147B59100D5AFE1 /* AwsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1158272A2147B59100D5AFE1 /* AwsHelper.swift */; };
 		116D07A321469A1200FB0AF0 /* AccountUpdate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116D07A221469A1200FB0AF0 /* AccountUpdate.swift */; };
 		117D4A18213F11A20072AB88 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 117D4A17213F11A20072AB88 /* AppDelegate.swift */; };
@@ -54,6 +55,7 @@
 
 /* Begin PBXFileReference section */
 		09123D08BF57FECF800BAC34 /* Pods_Shiftgram.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Shiftgram.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1132AD402149868400B9BBB5 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		1158272A2147B59100D5AFE1 /* AwsHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AwsHelper.swift; sourceTree = "<group>"; };
 		116D07A221469A1200FB0AF0 /* AccountUpdate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountUpdate.swift; sourceTree = "<group>"; };
 		117D4A14213F11A20072AB88 /* Shiftgram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Shiftgram.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -186,6 +188,7 @@
 				11C33D3421405A9500E10B8B /* CodeVerifyViewController.swift */,
 				11EBAAA72146D74700CECB45 /* ContactViewController.swift */,
 				11EBAAA92146D75E00CECB45 /* MessageViewController.swift */,
+				1132AD402149868400B9BBB5 /* SettingsViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -445,6 +448,7 @@
 			files = (
 				117D4A4C213F16D60072AB88 /* PhoneVerifyViewController.swift in Sources */,
 				11878F8621457301009026CE /* Account.swift in Sources */,
+				1132AD412149868400B9BBB5 /* SettingsViewController.swift in Sources */,
 				11AB8295214804B1003558A4 /* AccountUpdatable.swift in Sources */,
 				11878F8C2145A695009026CE /* PhoneVerify.swift in Sources */,
 				11EBAAA82146D74700CECB45 /* ContactViewController.swift in Sources */,

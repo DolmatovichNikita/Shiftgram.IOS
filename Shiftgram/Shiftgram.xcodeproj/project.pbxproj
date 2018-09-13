@@ -33,6 +33,7 @@
 		11878F8C2145A695009026CE /* PhoneVerify.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11878F8B2145A695009026CE /* PhoneVerify.swift */; };
 		11AB8295214804B1003558A4 /* AccountUpdatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11AB8294214804B1003558A4 /* AccountUpdatable.swift */; };
 		11C33D3521405A9500E10B8B /* CodeVerifyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11C33D3421405A9500E10B8B /* CodeVerifyViewController.swift */; };
+		11CAF5F7214AED2C00EEAB74 /* AccountSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11CAF5F6214AED2C00EEAB74 /* AccountSettings.swift */; };
 		11EBAAA82146D74700CECB45 /* ContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11EBAAA72146D74700CECB45 /* ContactViewController.swift */; };
 		11EBAAAA2146D75E00CECB45 /* MessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11EBAAA92146D75E00CECB45 /* MessageViewController.swift */; };
 		11F31A562140665D00419361 /* Phone.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11F31A552140665D00419361 /* Phone.swift */; };
@@ -94,6 +95,7 @@
 		11878F8B2145A695009026CE /* PhoneVerify.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneVerify.swift; sourceTree = "<group>"; };
 		11AB8294214804B1003558A4 /* AccountUpdatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountUpdatable.swift; sourceTree = "<group>"; };
 		11C33D3421405A9500E10B8B /* CodeVerifyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeVerifyViewController.swift; sourceTree = "<group>"; };
+		11CAF5F6214AED2C00EEAB74 /* AccountSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountSettings.swift; sourceTree = "<group>"; };
 		11EBAAA72146D74700CECB45 /* ContactViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactViewController.swift; sourceTree = "<group>"; };
 		11EBAAA92146D75E00CECB45 /* MessageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageViewController.swift; sourceTree = "<group>"; };
 		11F31A552140665D00419361 /* Phone.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Phone.swift; sourceTree = "<group>"; };
@@ -155,6 +157,7 @@
 		117D4A16213F11A20072AB88 /* Shiftgram */ = {
 			isa = PBXGroup;
 			children = (
+				11CAF5F8214AF83700EEAB74 /* Extensions */,
 				11AB829321480498003558A4 /* Protocols */,
 				11878F80214562D3009026CE /* CoreData */,
 				11878F7D21455CC8009026CE /* Helpers */,
@@ -228,6 +231,13 @@
 			path = Protocols;
 			sourceTree = "<group>";
 		};
+		11CAF5F8214AF83700EEAB74 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		11F31A542140663800419361 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -240,6 +250,7 @@
 				1132AD4621498B5800B9BBB5 /* AccountUsernameUpdate.swift */,
 				1132AD4821498C4300B9BBB5 /* AccountPhotoUpdate.swift */,
 				1132AD4A21498E1900B9BBB5 /* AccountGenderUpdate.swift */,
+				11CAF5F6214AED2C00EEAB74 /* AccountSettings.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -478,6 +489,7 @@
 				117D4A4E213F1F260072AB88 /* ProfileViewController.swift in Sources */,
 				11EBAAAA2146D75E00CECB45 /* MessageViewController.swift in Sources */,
 				11F31A562140665D00419361 /* Phone.swift in Sources */,
+				11CAF5F7214AED2C00EEAB74 /* AccountSettings.swift in Sources */,
 				1132AD4521498A2F00B9BBB5 /* AccountBioUpdate.swift in Sources */,
 				11878F7F21455CE5009026CE /* ActivityIndicator.swift in Sources */,
 				11F31A592140670400419361 /* PhoneViewModel.swift in Sources */,

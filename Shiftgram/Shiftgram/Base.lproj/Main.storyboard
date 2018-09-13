@@ -248,7 +248,7 @@
                                 </items>
                             </navigationBar>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qhs-XB-1rp">
-                                <rect key="frame" x="0.0" y="88" width="375" height="108"/>
+                                <rect key="frame" x="0.0" y="112" width="375" height="108"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="K9n-0Q-Wgc">
                                         <rect key="frame" x="8" y="17" width="75" height="75"/>
@@ -273,13 +273,13 @@
                                             <constraint firstAttribute="height" constant="21" id="WEt-HV-For"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
+                                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ebW-1B-dCh">
                                         <rect key="frame" x="113" y="75" width="205" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
+                                        <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
@@ -303,10 +303,10 @@
                                 <viewLayoutGuide key="safeArea" id="1gs-b0-tH8"/>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="Gzw-bl-VFF" firstAttribute="leading" secondItem="BzE-W0-WUG" secondAttribute="leading" id="dpR-a2-CJ1"/>
-                            <constraint firstItem="qhs-XB-1rp" firstAttribute="top" secondItem="Gzw-bl-VFF" secondAttribute="bottom" id="eHK-9Q-rFQ"/>
+                            <constraint firstItem="qhs-XB-1rp" firstAttribute="top" secondItem="Gzw-bl-VFF" secondAttribute="bottom" constant="24" id="eHK-9Q-rFQ"/>
                             <constraint firstItem="Gzw-bl-VFF" firstAttribute="top" secondItem="BzE-W0-WUG" secondAttribute="top" id="h6s-Gq-y9F"/>
                             <constraint firstItem="Gzw-bl-VFF" firstAttribute="trailing" secondItem="BzE-W0-WUG" secondAttribute="trailing" id="tSO-hy-dgv"/>
                             <constraint firstItem="qhs-XB-1rp" firstAttribute="trailing" secondItem="BzE-W0-WUG" secondAttribute="trailing" id="va7-jb-ssZ"/>
@@ -316,6 +316,12 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Settings" image="settings" id="HSF-iS-z8Y"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="initialsLabel" destination="bMc-eC-Xe6" id="eni-8z-5ic"/>
+                        <outlet property="phoneLabel" destination="nHI-GN-xtX" id="31A-BQ-f9V"/>
+                        <outlet property="profileImageView" destination="K9n-0Q-Wgc" id="HiH-Xr-pcp"/>
+                        <outlet property="usernameLabel" destination="ebW-1B-dCh" id="XAi-hy-ebY"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dnH-nc-gFh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

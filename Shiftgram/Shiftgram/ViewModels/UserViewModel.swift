@@ -8,4 +8,10 @@ class UserViewModel {
             completion()
         }
     }
+    
+    public func getAccountSettings(completion: @escaping (AccountSettings) -> Void) {
+        self.userDataManager.getById {response in
+            completion(response)
+        }
+    }
 }

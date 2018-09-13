@@ -48,7 +48,9 @@ class AwsHelper {
                     print(error)
                 } else {
                     if let data = NSData(contentsOf: downloadedFile) {
-                        completion(data)
+                        DispatchQueue.main.async {
+                            completion(data)
+                        }
                     }
                 }
                 

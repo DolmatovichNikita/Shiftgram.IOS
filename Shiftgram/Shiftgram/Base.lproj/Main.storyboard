@@ -62,7 +62,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your Phone" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CY1-Ty-msq">
-                                <rect key="frame" x="131" y="44" width="113.66666666666669" height="27.666666666666671"/>
+                                <rect key="frame" x="130.66666666666666" y="44" width="113.66666666666666" height="27.666666666666671"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="23"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -303,7 +303,7 @@
                                 <viewLayoutGuide key="safeArea" id="1gs-b0-tH8"/>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.95686274509803926" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="Gzw-bl-VFF" firstAttribute="leading" secondItem="BzE-W0-WUG" secondAttribute="leading" id="dpR-a2-CJ1"/>
                             <constraint firstItem="qhs-XB-1rp" firstAttribute="top" secondItem="Gzw-bl-VFF" secondAttribute="bottom" constant="24" id="eHK-9Q-rFQ"/>
@@ -334,14 +334,57 @@
                     <view key="view" contentMode="scaleToFill" id="wz9-tI-Qca">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="52k-uC-yL1">
+                                <rect key="frame" x="0.0" y="44" width="375" height="44"/>
+                                <viewLayoutGuide key="safeArea" id="vbH-bp-bLa"/>
+                                <items>
+                                    <navigationItem title="Contacts" id="Yfu-b9-m4e">
+                                        <barButtonItem key="rightBarButtonItem" image="plus" id="jNP-t0-yg5"/>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <searchBar contentMode="redraw" searchBarStyle="minimal" placeholder="       Search for contacts or username" translatesAutoresizingMaskIntoConstraints="NO" id="z68-Gx-B2s">
+                                <rect key="frame" x="0.0" y="88" width="375" height="56"/>
+                                <viewLayoutGuide key="safeArea" id="Npj-v0-ap5"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="G8Y-yA-wh3">
+                                <rect key="frame" x="0.0" y="144" width="375" height="585"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <viewLayoutGuide key="safeArea" id="oIL-n4-nyR"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="Vx0-k7-kiK">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Vx0-k7-kiK" id="awX-tC-5T9">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.666666666666664"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="G8Y-yA-wh3" firstAttribute="leading" secondItem="dgJ-Ba-eDE" secondAttribute="leading" id="71U-n2-VYE"/>
+                            <constraint firstItem="G8Y-yA-wh3" firstAttribute="bottom" secondItem="dgJ-Ba-eDE" secondAttribute="bottom" id="7W7-Zp-Nez"/>
+                            <constraint firstItem="G8Y-yA-wh3" firstAttribute="trailing" secondItem="dgJ-Ba-eDE" secondAttribute="trailing" id="Ayd-L6-FzS"/>
+                            <constraint firstItem="G8Y-yA-wh3" firstAttribute="top" secondItem="z68-Gx-B2s" secondAttribute="bottom" id="JrG-cS-7j0"/>
+                            <constraint firstItem="z68-Gx-B2s" firstAttribute="leading" secondItem="dgJ-Ba-eDE" secondAttribute="leading" id="S8e-Tl-8il"/>
+                            <constraint firstItem="52k-uC-yL1" firstAttribute="trailing" secondItem="dgJ-Ba-eDE" secondAttribute="trailing" id="c2T-Xx-biX"/>
+                            <constraint firstItem="52k-uC-yL1" firstAttribute="top" secondItem="dgJ-Ba-eDE" secondAttribute="top" id="lAZ-9w-czO"/>
+                            <constraint firstItem="52k-uC-yL1" firstAttribute="leading" secondItem="dgJ-Ba-eDE" secondAttribute="leading" id="lkR-km-NIX"/>
+                            <constraint firstItem="z68-Gx-B2s" firstAttribute="top" secondItem="52k-uC-yL1" secondAttribute="bottom" id="pYd-7U-NkD"/>
+                            <constraint firstItem="z68-Gx-B2s" firstAttribute="trailing" secondItem="dgJ-Ba-eDE" secondAttribute="trailing" id="t1n-7z-KWY"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="dgJ-Ba-eDE"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Contacts" image="contact" id="FRW-yL-OFX"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0pb-7D-RAk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3370" y="202"/>
+            <point key="canvasLocation" x="3368.8000000000002" y="201.72413793103451"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="YqZ-1L-7OM">
@@ -527,6 +570,7 @@
         <image name="contact" width="26" height="26"/>
         <image name="message" width="30" height="30"/>
         <image name="photo" width="100" height="100"/>
+        <image name="plus" width="50" height="50"/>
         <image name="settings" width="26" height="26"/>
     </resources>
     <inferredMetricsTieBreakers>

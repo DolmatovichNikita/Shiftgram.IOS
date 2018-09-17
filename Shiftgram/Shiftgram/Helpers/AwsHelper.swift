@@ -23,7 +23,9 @@ class AwsHelper {
                 if let error = task.error {
                     print(error)
                 } else {
-                    completion((uploadRequest?.key)!)
+                    DispatchQueue.main.async {
+                        completion((uploadRequest?.key)!)
+                    }
                 }
                 return nil
             }

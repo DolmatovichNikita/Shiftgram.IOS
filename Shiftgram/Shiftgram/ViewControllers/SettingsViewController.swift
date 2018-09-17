@@ -12,7 +12,6 @@ class SettingsViewController: UIViewController {
         super.viewDidLoad()
         self.initControls()
         UINavigationBar.appearance().backgroundColor = self.view.backgroundColor
-        //UINavigationBar.appearance().shadowImage = UIImage()
         UINavigationBar.appearance().setBackgroundImage(UIImage(), for: .default)
         self.activityIndicator = ActivityIndicator(view: self.view)
         self.activityIndicator.startLoading()

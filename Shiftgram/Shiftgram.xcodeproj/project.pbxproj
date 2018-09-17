@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1101BFA421501EA60012599B /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1101BFA321501EA60012599B /* Contact.swift */; };
+		1101BFA621501F7E0012599B /* ContactDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1101BFA521501F7E0012599B /* ContactDataManager.swift */; };
 		1132AD412149868400B9BBB5 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1132AD402149868400B9BBB5 /* SettingsViewController.swift */; };
 		1132AD432149888900B9BBB5 /* AccountInitialsUpdate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1132AD422149888900B9BBB5 /* AccountInitialsUpdate.swift */; };
 		1132AD4521498A2F00B9BBB5 /* AccountBioUpdate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1132AD4421498A2F00B9BBB5 /* AccountBioUpdate.swift */; };
@@ -63,6 +64,7 @@
 /* Begin PBXFileReference section */
 		09123D08BF57FECF800BAC34 /* Pods_Shiftgram.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Shiftgram.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1101BFA321501EA60012599B /* Contact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contact.swift; sourceTree = "<group>"; };
+		1101BFA521501F7E0012599B /* ContactDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactDataManager.swift; sourceTree = "<group>"; };
 		1132AD402149868400B9BBB5 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		1132AD422149888900B9BBB5 /* AccountInitialsUpdate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountInitialsUpdate.swift; sourceTree = "<group>"; };
 		1132AD4421498A2F00B9BBB5 /* AccountBioUpdate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountBioUpdate.swift; sourceTree = "<group>"; };
@@ -272,6 +274,7 @@
 			children = (
 				11F31A5B2140688100419361 /* PhoneDataManager.swift */,
 				11878F83214571B7009026CE /* UserDataManager.swift */,
+				1101BFA521501F7E0012599B /* ContactDataManager.swift */,
 			);
 			path = DataManagers;
 			sourceTree = "<group>";
@@ -475,6 +478,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1101BFA621501F7E0012599B /* ContactDataManager.swift in Sources */,
 				117D4A4C213F16D60072AB88 /* PhoneVerifyViewController.swift in Sources */,
 				1132AD4B21498E1900B9BBB5 /* AccountGenderUpdate.swift in Sources */,
 				11878F8621457301009026CE /* Account.swift in Sources */,

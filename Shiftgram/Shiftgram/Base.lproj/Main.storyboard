@@ -354,7 +354,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <viewLayoutGuide key="safeArea" id="oIL-n4-nyR"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="Vx0-k7-kiK">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ContactCell" id="Vx0-k7-kiK">
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Vx0-k7-kiK" id="awX-tC-5T9">
@@ -381,6 +381,9 @@
                         <viewLayoutGuide key="safeArea" id="dgJ-Ba-eDE"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Contacts" image="contact" id="FRW-yL-OFX"/>
+                    <connections>
+                        <outlet property="contacttableView" destination="G8Y-yA-wh3" id="SBU-Er-WCu"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0pb-7D-RAk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

@@ -11,8 +11,9 @@ class ContactDataManager {
         
         do {
             try self.contactStore.enumerateContacts(with: request) { (value, stoppingPointer)  in
-                let contact = Contact(firstName: value.givenName, lastName: value.middleName, phone: (value.phoneNumbers.first?.value.stringValue)!)
+                let contact = Contact(firstName: value.givenName, phone: (value.phoneNumbers.first?.value.stringValue)!)
                 contacts.append(contact)
+                completion(contacts)
             }
         } catch {
             print("Failed")

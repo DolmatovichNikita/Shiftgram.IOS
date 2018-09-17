@@ -25,10 +25,9 @@ class ContactViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell(style: .subtitle, reuseIdentifier: "ContactCell")
+        let cell = self.contacttableView.dequeueReusableCell(withIdentifier: "ContactCell", for: indexPath) as! ContactTableViewCell
         let contact = contacts[indexPath.row]
-        cell.textLabel?.text = contact.firstName
-        cell.detailTextLabel?.text = contact.phone
+        cell.nameLabel.text = contact.firstName
         
         return cell
     }

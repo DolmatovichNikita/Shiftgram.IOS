@@ -362,7 +362,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="72.666666666666671"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ZgB-Op-HPx">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="contactProfile" translatesAutoresizingMaskIntoConstraints="NO" id="ZgB-Op-HPx">
                                                     <rect key="frame" x="15" y="4" width="65" height="65"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="65" id="4Dq-aj-B12"/>
@@ -396,6 +396,11 @@
                                                 <constraint firstAttribute="bottomMargin" secondItem="fXv-oi-aIM" secondAttribute="bottom" constant="25" id="sZs-63-mTu"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="contactImageView" destination="ZgB-Op-HPx" id="tGN-ih-kRF"/>
+                                            <outlet property="nameLabel" destination="fXv-oi-aIM" id="K7O-hQ-8Wc"/>
+                                            <outlet property="statusLabel" destination="2Gw-Yn-F4o" id="0Nq-ej-p3l"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -606,6 +611,7 @@
     </scenes>
     <resources>
         <image name="contact" width="26" height="26"/>
+        <image name="contactProfile" width="80" height="80"/>
         <image name="message" width="30" height="30"/>
         <image name="photo" width="100" height="100"/>
         <image name="plus" width="50" height="50"/>

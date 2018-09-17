@@ -10,7 +10,6 @@
 		1101BFA421501EA60012599B /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1101BFA321501EA60012599B /* Contact.swift */; };
 		1101BFA621501F7E0012599B /* ContactDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1101BFA521501F7E0012599B /* ContactDataManager.swift */; };
 		1101BFA8215023240012599B /* ContactViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1101BFA7215023240012599B /* ContactViewModel.swift */; };
-		1101BFAB21502FD00012599B /* ContactTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1101BFAA21502FD00012599B /* ContactTableViewCell.swift */; };
 		1132AD412149868400B9BBB5 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1132AD402149868400B9BBB5 /* SettingsViewController.swift */; };
 		1132AD432149888900B9BBB5 /* AccountInitialsUpdate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1132AD422149888900B9BBB5 /* AccountInitialsUpdate.swift */; };
 		1132AD4521498A2F00B9BBB5 /* AccountBioUpdate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1132AD4421498A2F00B9BBB5 /* AccountBioUpdate.swift */; };
@@ -36,6 +35,7 @@
 		11878F8A21459DD9009026CE /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11878F8921459DD9009026CE /* UserViewModel.swift */; };
 		11878F8C2145A695009026CE /* PhoneVerify.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11878F8B2145A695009026CE /* PhoneVerify.swift */; };
 		11AB8295214804B1003558A4 /* AccountUpdatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11AB8294214804B1003558A4 /* AccountUpdatable.swift */; };
+		11BE43AD21503B5500938ED2 /* ContactTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11BE43AC21503B5500938ED2 /* ContactTableViewCell.swift */; };
 		11C33D3521405A9500E10B8B /* CodeVerifyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11C33D3421405A9500E10B8B /* CodeVerifyViewController.swift */; };
 		11CAF5F7214AED2C00EEAB74 /* AccountSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11CAF5F6214AED2C00EEAB74 /* AccountSettings.swift */; };
 		11EBAAA82146D74700CECB45 /* ContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11EBAAA72146D74700CECB45 /* ContactViewController.swift */; };
@@ -68,7 +68,6 @@
 		1101BFA321501EA60012599B /* Contact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contact.swift; sourceTree = "<group>"; };
 		1101BFA521501F7E0012599B /* ContactDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactDataManager.swift; sourceTree = "<group>"; };
 		1101BFA7215023240012599B /* ContactViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactViewModel.swift; sourceTree = "<group>"; };
-		1101BFAA21502FD00012599B /* ContactTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactTableViewCell.swift; sourceTree = "<group>"; };
 		1132AD402149868400B9BBB5 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		1132AD422149888900B9BBB5 /* AccountInitialsUpdate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountInitialsUpdate.swift; sourceTree = "<group>"; };
 		1132AD4421498A2F00B9BBB5 /* AccountBioUpdate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountBioUpdate.swift; sourceTree = "<group>"; };
@@ -102,6 +101,7 @@
 		11878F8921459DD9009026CE /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
 		11878F8B2145A695009026CE /* PhoneVerify.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneVerify.swift; sourceTree = "<group>"; };
 		11AB8294214804B1003558A4 /* AccountUpdatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountUpdatable.swift; sourceTree = "<group>"; };
+		11BE43AC21503B5500938ED2 /* ContactTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactTableViewCell.swift; sourceTree = "<group>"; };
 		11C33D3421405A9500E10B8B /* CodeVerifyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeVerifyViewController.swift; sourceTree = "<group>"; };
 		11CAF5F6214AED2C00EEAB74 /* AccountSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountSettings.swift; sourceTree = "<group>"; };
 		11EBAAA72146D74700CECB45 /* ContactViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactViewController.swift; sourceTree = "<group>"; };
@@ -142,7 +142,7 @@
 		1101BFA921502FAB0012599B /* TableViewCells */ = {
 			isa = PBXGroup;
 			children = (
-				1101BFAA21502FD00012599B /* ContactTableViewCell.swift */,
+				11BE43AC21503B5500938ED2 /* ContactTableViewCell.swift */,
 			);
 			path = TableViewCells;
 			sourceTree = "<group>";
@@ -496,9 +496,9 @@
 				117D4A4C213F16D60072AB88 /* PhoneVerifyViewController.swift in Sources */,
 				1132AD4B21498E1900B9BBB5 /* AccountGenderUpdate.swift in Sources */,
 				11878F8621457301009026CE /* Account.swift in Sources */,
+				11BE43AD21503B5500938ED2 /* ContactTableViewCell.swift in Sources */,
 				1132AD412149868400B9BBB5 /* SettingsViewController.swift in Sources */,
 				11AB8295214804B1003558A4 /* AccountUpdatable.swift in Sources */,
-				1101BFAB21502FD00012599B /* ContactTableViewCell.swift in Sources */,
 				11878F8C2145A695009026CE /* PhoneVerify.swift in Sources */,
 				1101BFA8215023240012599B /* ContactViewModel.swift in Sources */,
 				11EBAAA82146D74700CECB45 /* ContactViewController.swift in Sources */,

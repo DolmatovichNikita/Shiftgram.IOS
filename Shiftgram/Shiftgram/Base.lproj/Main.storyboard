@@ -341,6 +341,7 @@
                                 <viewLayoutGuide key="safeArea" id="vbH-bp-bLa"/>
                                 <items>
                                     <navigationItem title="Contacts" id="Yfu-b9-m4e">
+                                        <barButtonItem key="leftBarButtonItem" title="Item" image="Sync" id="Wtr-Ng-utS"/>
                                         <barButtonItem key="rightBarButtonItem" image="plus" id="jNP-t0-yg5"/>
                                     </navigationItem>
                                 </items>
@@ -397,9 +398,9 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="contactImageView" destination="ZgB-Op-HPx" id="tGN-ih-kRF"/>
-                                            <outlet property="nameLabel" destination="fXv-oi-aIM" id="K7O-hQ-8Wc"/>
-                                            <outlet property="statusLabel" destination="2Gw-Yn-F4o" id="0Nq-ej-p3l"/>
+                                            <outlet property="contactImageView" destination="ZgB-Op-HPx" id="Tx7-0e-VBB"/>
+                                            <outlet property="nameLabel" destination="fXv-oi-aIM" id="L9k-wx-flD"/>
+                                            <outlet property="statusLabel" destination="2Gw-Yn-F4o" id="SZI-lM-DAX"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -408,7 +409,6 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="G8Y-yA-wh3" firstAttribute="leading" secondItem="dgJ-Ba-eDE" secondAttribute="leading" id="71U-n2-VYE"/>
-                            <constraint firstItem="G8Y-yA-wh3" firstAttribute="bottom" secondItem="dgJ-Ba-eDE" secondAttribute="bottom" id="7W7-Zp-Nez"/>
                             <constraint firstItem="G8Y-yA-wh3" firstAttribute="trailing" secondItem="dgJ-Ba-eDE" secondAttribute="trailing" id="Ayd-L6-FzS"/>
                             <constraint firstItem="G8Y-yA-wh3" firstAttribute="top" secondItem="z68-Gx-B2s" secondAttribute="bottom" id="JrG-cS-7j0"/>
                             <constraint firstItem="z68-Gx-B2s" firstAttribute="leading" secondItem="dgJ-Ba-eDE" secondAttribute="leading" id="S8e-Tl-8il"/>
@@ -416,6 +416,7 @@
                             <constraint firstItem="52k-uC-yL1" firstAttribute="top" secondItem="dgJ-Ba-eDE" secondAttribute="top" id="lAZ-9w-czO"/>
                             <constraint firstItem="52k-uC-yL1" firstAttribute="leading" secondItem="dgJ-Ba-eDE" secondAttribute="leading" id="lkR-km-NIX"/>
                             <constraint firstItem="z68-Gx-B2s" firstAttribute="top" secondItem="52k-uC-yL1" secondAttribute="bottom" id="pYd-7U-NkD"/>
+                            <constraint firstItem="G8Y-yA-wh3" firstAttribute="bottom" secondItem="dgJ-Ba-eDE" secondAttribute="bottom" id="rCA-Uf-d5P"/>
                             <constraint firstItem="z68-Gx-B2s" firstAttribute="trailing" secondItem="dgJ-Ba-eDE" secondAttribute="trailing" id="t1n-7z-KWY"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="dgJ-Ba-eDE"/>
@@ -610,6 +611,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Sync" width="50" height="50"/>
         <image name="contact" width="26" height="26"/>
         <image name="contactProfile" width="80" height="80"/>
         <image name="message" width="30" height="30"/>

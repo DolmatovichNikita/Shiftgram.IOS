@@ -41,6 +41,8 @@
 		11CAF5F7214AED2C00EEAB74 /* AccountSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11CAF5F6214AED2C00EEAB74 /* AccountSettings.swift */; };
 		11D833B12151673E00C606BB /* FriendEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11D833B02151673E00C606BB /* FriendEntity.swift */; };
 		11D833B32151680800C606BB /* FriendModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11D833B22151680800C606BB /* FriendModel.swift */; };
+		11D833B52151697D00C606BB /* FriendDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11D833B42151697D00C606BB /* FriendDataManager.swift */; };
+		11D833B721516A5600C606BB /* AccountFriendModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11D833B621516A5600C606BB /* AccountFriendModel.swift */; };
 		11EBAAA82146D74700CECB45 /* ContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11EBAAA72146D74700CECB45 /* ContactViewController.swift */; };
 		11EBAAAA2146D75E00CECB45 /* MessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11EBAAA92146D75E00CECB45 /* MessageViewController.swift */; };
 		11F31A562140665D00419361 /* Phone.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11F31A552140665D00419361 /* Phone.swift */; };
@@ -110,6 +112,8 @@
 		11CAF5F6214AED2C00EEAB74 /* AccountSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountSettings.swift; sourceTree = "<group>"; };
 		11D833B02151673E00C606BB /* FriendEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendEntity.swift; sourceTree = "<group>"; };
 		11D833B22151680800C606BB /* FriendModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendModel.swift; sourceTree = "<group>"; };
+		11D833B42151697D00C606BB /* FriendDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendDataManager.swift; sourceTree = "<group>"; };
+		11D833B621516A5600C606BB /* AccountFriendModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountFriendModel.swift; sourceTree = "<group>"; };
 		11EBAAA72146D74700CECB45 /* ContactViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactViewController.swift; sourceTree = "<group>"; };
 		11EBAAA92146D75E00CECB45 /* MessageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageViewController.swift; sourceTree = "<group>"; };
 		11F31A552140665D00419361 /* Phone.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Phone.swift; sourceTree = "<group>"; };
@@ -278,6 +282,7 @@
 				11CAF5F6214AED2C00EEAB74 /* AccountSettings.swift */,
 				1101BFA321501EA60012599B /* Contact.swift */,
 				11D833B22151680800C606BB /* FriendModel.swift */,
+				11D833B621516A5600C606BB /* AccountFriendModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -298,6 +303,7 @@
 				11F31A5B2140688100419361 /* PhoneDataManager.swift */,
 				11878F83214571B7009026CE /* UserDataManager.swift */,
 				1101BFA521501F7E0012599B /* ContactDataManager.swift */,
+				11D833B42151697D00C606BB /* FriendDataManager.swift */,
 			);
 			path = DataManagers;
 			sourceTree = "<group>";
@@ -506,6 +512,7 @@
 				1132AD4B21498E1900B9BBB5 /* AccountGenderUpdate.swift in Sources */,
 				11BE43AF21503F2D00938ED2 /* InviteViewController.swift in Sources */,
 				11878F8621457301009026CE /* Account.swift in Sources */,
+				11D833B721516A5600C606BB /* AccountFriendModel.swift in Sources */,
 				11BE43AD21503B5500938ED2 /* ContactTableViewCell.swift in Sources */,
 				1132AD412149868400B9BBB5 /* SettingsViewController.swift in Sources */,
 				11AB8295214804B1003558A4 /* AccountUpdatable.swift in Sources */,
@@ -519,6 +526,7 @@
 				1158272B2147B59100D5AFE1 /* AwsHelper.swift in Sources */,
 				11F31A5C2140688100419361 /* PhoneDataManager.swift in Sources */,
 				11C33D3521405A9500E10B8B /* CodeVerifyViewController.swift in Sources */,
+				11D833B52151697D00C606BB /* FriendDataManager.swift in Sources */,
 				11878F8A21459DD9009026CE /* UserViewModel.swift in Sources */,
 				11D833B12151673E00C606BB /* FriendEntity.swift in Sources */,
 				117D4A4E213F1F260072AB88 /* ProfileViewController.swift in Sources */,

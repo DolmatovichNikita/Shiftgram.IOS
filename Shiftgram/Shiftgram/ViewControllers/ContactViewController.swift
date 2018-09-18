@@ -28,9 +28,7 @@ class ContactViewController: UIViewController, UITableViewDelegate, UITableViewD
         let id = UserEntity().getUserId()
         for contact in contacts {
             let accountFriendModel = AccountFriendModel(accountAId: Int(id), accountBPhone: contact.phone)
-            self.friendViewModel.syncFriends(accountFriendModel: accountFriendModel) {
-                
-            }
+            self.friendViewModel.syncFriends(accountFriendModel: accountFriendModel) {}
         }
         self.activityIndicator.stopLoading()
     }

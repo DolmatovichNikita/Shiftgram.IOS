@@ -7,4 +7,9 @@ target 'Shiftgram' do
      pod 'AWSCognito'
      pod 'AWSCognitoIdentityProvider'
      pod 'AWSS3'
+     pod 'Firebase/Core'
+     pod 'Firebase/Storage'
+     pod 'Firebase/Auth'
+     pod 'Firebase/Database'
+     pod 'JSQMessagesViewController'
 end

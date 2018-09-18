@@ -1,6 +1,7 @@
 import UIKit
 import CoreData
 import AWSCognito
+import Firebase
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -11,6 +12,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UINavigationBar.appearance().shadowImage = UIImage()
         UINavigationBar.appearance().setBackgroundImage(UIImage(), for: .default)
         self.registerCognito()
+        FirebaseApp.configure()
         
         let storyborad = UIStoryboard(name: "Main", bundle: nil)
         if self.isAuth() {

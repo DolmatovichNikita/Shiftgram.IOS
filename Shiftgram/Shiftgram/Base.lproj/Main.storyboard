@@ -4,7 +4,6 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -341,7 +340,11 @@
                                 <viewLayoutGuide key="safeArea" id="vbH-bp-bLa"/>
                                 <items>
                                     <navigationItem title="Contacts" id="Yfu-b9-m4e">
-                                        <barButtonItem key="leftBarButtonItem" title="Item" image="Sync" id="Wtr-Ng-utS"/>
+                                        <barButtonItem key="leftBarButtonItem" title="Item" image="Sync" id="Wtr-Ng-utS">
+                                            <connections>
+                                                <action selector="btnSyncPressed:" destination="e6f-bo-rh5" id="21J-YR-i2X"/>
+                                            </connections>
+                                        </barButtonItem>
                                         <barButtonItem key="rightBarButtonItem" image="plus" id="jNP-t0-yg5"/>
                                     </navigationItem>
                                 </items>

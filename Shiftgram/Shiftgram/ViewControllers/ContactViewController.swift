@@ -20,6 +20,9 @@ class ContactViewController: UIViewController, UITableViewDelegate, UITableViewD
         super.didReceiveMemoryWarning()
     }
     
+    @IBAction func btnSyncPressed(_ sender: Any) {
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return contacts.count
     }

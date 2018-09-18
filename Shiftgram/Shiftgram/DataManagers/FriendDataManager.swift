@@ -6,10 +6,9 @@ class FriendDataManager {
     
     public func addFriend(accountFriendModel: AccountFriendModel, completion: @escaping () -> Void) {
         let parameters = accountFriendModel.toParameters()
-        
+
         Alamofire.request(self.url, method: .post, parameters: parameters, encoding: JSONEncoding.default).responseJSON {response in
             if let code = response.response?.statusCode {
-                print(code)
                 completion()
             }
         }

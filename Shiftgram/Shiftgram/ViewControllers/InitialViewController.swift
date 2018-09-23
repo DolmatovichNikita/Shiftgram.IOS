@@ -17,7 +17,6 @@ class InitialViewController: UIViewController {
     }
 
     @IBAction func btnStartMessagingPressed(_ sender: Any) {
-        
         let isExist = self.userEntity.isExist()
         
         if isExist {

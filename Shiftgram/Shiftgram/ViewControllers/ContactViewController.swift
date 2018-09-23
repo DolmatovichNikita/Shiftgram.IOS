@@ -21,18 +21,18 @@ class ContactViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
 
     override func didReceiveMemoryWarning() {
-        
         super.didReceiveMemoryWarning()
     }
     
     @IBAction func btnSyncPressed(_ sender: Any) {
-        
         self.activityIndicator.startLoading()
         let id = UserEntity().getUserId()
+        
         for contact in contacts {
             let accountFriendModel = AccountFriendModel(accountAId: Int(id), accountBPhone: contact.phone)
             self.friendViewModel.syncFriends(accountFriendModel: accountFriendModel) {}
         }
+        
         self.activityIndicator.stopLoading()
     }
     

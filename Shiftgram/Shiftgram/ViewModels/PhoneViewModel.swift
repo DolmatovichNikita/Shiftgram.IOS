@@ -18,9 +18,9 @@ class PhoneViewModel {
             userEntity.updateUser(value: true, key: "isRegister")
             self.userDataManager.updateAccountPhone(accountUpdate: accountUpdate!) {response in
                 if response {
-                    self.phoneDataManager.sendSMS(phoneVerify: phoneVerify) {
+                    //self.phoneDataManager.sendSMS(phoneVerify: phoneVerify) {
                         completion()
-                    }
+                    //}
                 }
             }
         } else {

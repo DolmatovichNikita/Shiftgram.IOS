@@ -23,11 +23,11 @@ class CodeVerifyViewController: UIViewController, UITextFieldDelegate {
     @IBAction func btnNextPressed(_ sender: Any) {
         let id = userEntity.getUserId()
         let phoneVerify = PhoneVerify(id: Int(id), number: phone, code: codeTextField.text!)
-        self.phoneViewModel.isAuth(phoneVerify: phoneVerify) { response in
-            if response {
+        //self.phoneViewModel.isAuth(phoneVerify: phoneVerify) { response in
+            //if response {
                 self.performSegue(withIdentifier: "Menu", sender: self)
-            }
-        }
+            //}
+        //}
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {

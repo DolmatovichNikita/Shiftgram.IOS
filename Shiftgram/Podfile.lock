@@ -61,6 +61,7 @@ PODS:
     - nanopb/encode (= 0.3.8)
   - nanopb/decode (0.3.8)
   - nanopb/encode (0.3.8)
+  - ROGoogleTranslate (0.0.5)
 
 DEPENDENCIES:
   - Alamofire (~> 4.6)
@@ -72,6 +73,7 @@ DEPENDENCIES:
   - Firebase/Database
   - Firebase/Storage
   - JSQMessagesViewController
+  - ROGoogleTranslate
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
@@ -94,6 +96,7 @@ SPEC REPOS:
     - JSQSystemSoundPlayer
     - leveldb-library
     - nanopb
+    - ROGoogleTranslate
 
 SPEC CHECKSUMS:
   Alamofire: f41a599bd63041760b26d393ec1069d9d7b917f4
@@ -115,7 +118,8 @@ SPEC CHECKSUMS:
   JSQSystemSoundPlayer: c5850e77a4363ffd374cd851154b9af93264ed8d
   leveldb-library: 4f9eedf84ab46b4fa3b7893bf30714b2a1a74022
   nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
+  ROGoogleTranslate: 344d579487c21af1ae54138baa68605b861ba84e
 
-PODFILE CHECKSUM: 30d152b96e23fcf2ed97715493a995c6986ef98a
+PODFILE CHECKSUM: 67152da21d47119a981f085c9d8c183d1e0c0384
 
 COCOAPODS: 1.5.3

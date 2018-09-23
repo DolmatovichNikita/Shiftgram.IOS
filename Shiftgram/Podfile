@@ -12,4 +12,5 @@ target 'Shiftgram' do
      pod 'Firebase/Auth'
      pod 'Firebase/Database'
      pod 'JSQMessagesViewController'
+     pod "ROGoogleTranslate"
 end

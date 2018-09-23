@@ -17,6 +17,10 @@
 		1132AD4921498C4300B9BBB5 /* AccountPhotoUpdate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1132AD4821498C4300B9BBB5 /* AccountPhotoUpdate.swift */; };
 		1132AD4B21498E1900B9BBB5 /* AccountGenderUpdate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1132AD4A21498E1900B9BBB5 /* AccountGenderUpdate.swift */; };
 		1158272B2147B59100D5AFE1 /* AwsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1158272A2147B59100D5AFE1 /* AwsHelper.swift */; };
+		115974BD2151769C0075C2A5 /* FriendViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 115974BC2151769B0075C2A5 /* FriendViewModel.swift */; };
+		116A8B6121518EBF00C9F8DE /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116A8B6021518EBF00C9F8DE /* Constants.swift */; };
+		116A8B63215192B800C9F8DE /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 116A8B62215192B700C9F8DE /* GoogleService-Info.plist */; };
+		116A8B652151934700C9F8DE /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116A8B642151934700C9F8DE /* ChatViewController.swift */; };
 		116D07A321469A1200FB0AF0 /* AccountPhoneUpdate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116D07A221469A1200FB0AF0 /* AccountPhoneUpdate.swift */; };
 		117D4A18213F11A20072AB88 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 117D4A17213F11A20072AB88 /* AppDelegate.swift */; };
 		117D4A1A213F11A20072AB88 /* InitialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 117D4A19213F11A20072AB88 /* InitialViewController.swift */; };
@@ -48,7 +52,7 @@
 		11F31A562140665D00419361 /* Phone.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11F31A552140665D00419361 /* Phone.swift */; };
 		11F31A592140670400419361 /* PhoneViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11F31A582140670400419361 /* PhoneViewModel.swift */; };
 		11F31A5C2140688100419361 /* PhoneDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11F31A5B2140688100419361 /* PhoneDataManager.swift */; };
-		594F505600FDE04D5A488AA0 /* Pods_Shiftgram.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09123D08BF57FECF800BAC34 /* Pods_Shiftgram.framework */; };
+		788044D78A1BB8FC1B6273B2 /* Pods_Shiftgram.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B543D455E2AE5E4CF8040C2C /* Pods_Shiftgram.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,7 +73,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		09123D08BF57FECF800BAC34 /* Pods_Shiftgram.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Shiftgram.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1101BFA321501EA60012599B /* Contact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contact.swift; sourceTree = "<group>"; };
 		1101BFA521501F7E0012599B /* ContactDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactDataManager.swift; sourceTree = "<group>"; };
 		1101BFA7215023240012599B /* ContactViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactViewModel.swift; sourceTree = "<group>"; };
@@ -80,6 +83,11 @@
 		1132AD4821498C4300B9BBB5 /* AccountPhotoUpdate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountPhotoUpdate.swift; sourceTree = "<group>"; };
 		1132AD4A21498E1900B9BBB5 /* AccountGenderUpdate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountGenderUpdate.swift; sourceTree = "<group>"; };
 		1158272A2147B59100D5AFE1 /* AwsHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AwsHelper.swift; sourceTree = "<group>"; };
+		115974BC2151769B0075C2A5 /* FriendViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendViewModel.swift; sourceTree = "<group>"; };
+		116A8B5C21518AF800C9F8DE /* Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Bridging-Header.h"; sourceTree = "<group>"; };
+		116A8B6021518EBF00C9F8DE /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		116A8B62215192B700C9F8DE /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		116A8B642151934700C9F8DE /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		116D07A221469A1200FB0AF0 /* AccountPhoneUpdate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountPhoneUpdate.swift; sourceTree = "<group>"; };
 		117D4A14213F11A20072AB88 /* Shiftgram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Shiftgram.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		117D4A17213F11A20072AB88 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -119,8 +127,9 @@
 		11F31A552140665D00419361 /* Phone.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Phone.swift; sourceTree = "<group>"; };
 		11F31A582140670400419361 /* PhoneViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneViewModel.swift; sourceTree = "<group>"; };
 		11F31A5B2140688100419361 /* PhoneDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneDataManager.swift; sourceTree = "<group>"; };
-		155CB434932A2EF57C7FE426 /* Pods-Shiftgram.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Shiftgram.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Shiftgram/Pods-Shiftgram.debug.xcconfig"; sourceTree = "<group>"; };
-		3B675F772AFA60C82D40F703 /* Pods-Shiftgram.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Shiftgram.release.xcconfig"; path = "Pods/Target Support Files/Pods-Shiftgram/Pods-Shiftgram.release.xcconfig"; sourceTree = "<group>"; };
+		5BFC68A548607F6A005195A6 /* Pods-Shiftgram.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Shiftgram.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Shiftgram/Pods-Shiftgram.debug.xcconfig"; sourceTree = "<group>"; };
+		7FA204809493C9466386BEDD /* Pods-Shiftgram.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Shiftgram.release.xcconfig"; path = "Pods/Target Support Files/Pods-Shiftgram/Pods-Shiftgram.release.xcconfig"; sourceTree = "<group>"; };
+		B543D455E2AE5E4CF8040C2C /* Pods_Shiftgram.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Shiftgram.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,7 +137,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				594F505600FDE04D5A488AA0 /* Pods_Shiftgram.framework in Frameworks */,
+				788044D78A1BB8FC1B6273B2 /* Pods_Shiftgram.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -157,16 +166,26 @@
 			path = TableViewCells;
 			sourceTree = "<group>";
 		};
+		116A8B5F21518EAC00C9F8DE /* Constanst */ = {
+			isa = PBXGroup;
+			children = (
+				116A8B6021518EBF00C9F8DE /* Constants.swift */,
+			);
+			path = Constanst;
+			sourceTree = "<group>";
+		};
 		117D4A0B213F11A20072AB88 = {
 			isa = PBXGroup;
 			children = (
+				116A8B62215192B700C9F8DE /* GoogleService-Info.plist */,
+				116A8B5C21518AF800C9F8DE /* Bridging-Header.h */,
 				11878F87214596E4009026CE /* Assets.xcassets */,
 				117D4A16213F11A20072AB88 /* Shiftgram */,
 				117D4A2E213F11A40072AB88 /* ShiftgramTests */,
 				117D4A39213F11A40072AB88 /* ShiftgramUITests */,
 				117D4A15213F11A20072AB88 /* Products */,
-				C3A7FC9C13312121912051D7 /* Pods */,
-				1D9BFC53AD3D5A3EBC0F94A7 /* Frameworks */,
+				8E6ECB627D9A7D08AD49CB9C /* Pods */,
+				F07B8EABE2A88BCE942B95ED /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -183,6 +202,7 @@
 		117D4A16213F11A20072AB88 /* Shiftgram */ = {
 			isa = PBXGroup;
 			children = (
+				116A8B5F21518EAC00C9F8DE /* Constanst */,
 				1101BFA921502FAB0012599B /* TableViewCells */,
 				11CAF5F8214AF83700EEAB74 /* Extensions */,
 				11AB829321480498003558A4 /* Protocols */,
@@ -230,6 +250,7 @@
 				11EBAAA92146D75E00CECB45 /* MessageViewController.swift */,
 				1132AD402149868400B9BBB5 /* SettingsViewController.swift */,
 				11BE43AE21503F2D00938ED2 /* InviteViewController.swift */,
+				116A8B642151934700C9F8DE /* ChatViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -293,6 +314,7 @@
 				11F31A582140670400419361 /* PhoneViewModel.swift */,
 				11878F8921459DD9009026CE /* UserViewModel.swift */,
 				1101BFA7215023240012599B /* ContactViewModel.swift */,
+				115974BC2151769B0075C2A5 /* FriendViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -308,21 +330,21 @@
 			path = DataManagers;
 			sourceTree = "<group>";
 		};
-		1D9BFC53AD3D5A3EBC0F94A7 /* Frameworks */ = {
+		8E6ECB627D9A7D08AD49CB9C /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				09123D08BF57FECF800BAC34 /* Pods_Shiftgram.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		C3A7FC9C13312121912051D7 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				155CB434932A2EF57C7FE426 /* Pods-Shiftgram.debug.xcconfig */,
-				3B675F772AFA60C82D40F703 /* Pods-Shiftgram.release.xcconfig */,
+				5BFC68A548607F6A005195A6 /* Pods-Shiftgram.debug.xcconfig */,
+				7FA204809493C9466386BEDD /* Pods-Shiftgram.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		F07B8EABE2A88BCE942B95ED /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B543D455E2AE5E4CF8040C2C /* Pods_Shiftgram.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -332,11 +354,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 117D4A3F213F11A40072AB88 /* Build configuration list for PBXNativeTarget "Shiftgram" */;
 			buildPhases = (
-				550CF49D5092F2F1BB7E5FBC /* [CP] Check Pods Manifest.lock */,
+				905F6147046C94379E4A39A8 /* [CP] Check Pods Manifest.lock */,
 				117D4A10213F11A20072AB88 /* Sources */,
 				117D4A11213F11A20072AB88 /* Frameworks */,
 				117D4A12213F11A20072AB88 /* Resources */,
-				71F8F811ABB2A6026D3D06BC /* [CP] Embed Pods Frameworks */,
+				8D3EF036C88DE8AC48A0FED5 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -432,6 +454,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				117D4A25213F11A40072AB88 /* LaunchScreen.storyboard in Resources */,
+				116A8B63215192B800C9F8DE /* GoogleService-Info.plist in Resources */,
 				11878F88214596E4009026CE /* Assets.xcassets in Resources */,
 				117D4A1D213F11A20072AB88 /* Main.storyboard in Resources */,
 			);
@@ -454,7 +477,49 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		550CF49D5092F2F1BB7E5FBC /* [CP] Check Pods Manifest.lock */ = {
+		8D3EF036C88DE8AC48A0FED5 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Shiftgram/Pods-Shiftgram-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/AWSCognito/AWSCognito.framework",
+				"${BUILT_PRODUCTS_DIR}/AWSCognitoIdentityProvider/AWSCognitoIdentityProvider.framework",
+				"${BUILT_PRODUCTS_DIR}/AWSCognitoIdentityProviderASF/AWSCognitoIdentityProviderASF.framework",
+				"${BUILT_PRODUCTS_DIR}/AWSCore/AWSCore.framework",
+				"${BUILT_PRODUCTS_DIR}/AWSS3/AWSS3.framework",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/JSQMessagesViewController/JSQMessagesViewController.framework",
+				"${BUILT_PRODUCTS_DIR}/JSQSystemSoundPlayer/JSQSystemSoundPlayer.framework",
+				"${BUILT_PRODUCTS_DIR}/ROGoogleTranslate/ROGoogleTranslate.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AWSCognito.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AWSCognitoIdentityProvider.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AWSCognitoIdentityProviderASF.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AWSCore.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AWSS3.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JSQMessagesViewController.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JSQSystemSoundPlayer.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ROGoogleTranslate.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Shiftgram/Pods-Shiftgram-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		905F6147046C94379E4A39A8 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -472,34 +537,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		71F8F811ABB2A6026D3D06BC /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-Shiftgram/Pods-Shiftgram-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/AWSCognito/AWSCognito.framework",
-				"${BUILT_PRODUCTS_DIR}/AWSCognitoIdentityProvider/AWSCognitoIdentityProvider.framework",
-				"${BUILT_PRODUCTS_DIR}/AWSCognitoIdentityProviderASF/AWSCognitoIdentityProviderASF.framework",
-				"${BUILT_PRODUCTS_DIR}/AWSCore/AWSCore.framework",
-				"${BUILT_PRODUCTS_DIR}/AWSS3/AWSS3.framework",
-				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AWSCognito.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AWSCognitoIdentityProvider.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AWSCognitoIdentityProviderASF.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AWSCore.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AWSS3.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Shiftgram/Pods-Shiftgram-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -508,6 +545,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1101BFA621501F7E0012599B /* ContactDataManager.swift in Sources */,
+				116A8B6121518EBF00C9F8DE /* Constants.swift in Sources */,
 				117D4A4C213F16D60072AB88 /* PhoneVerifyViewController.swift in Sources */,
 				1132AD4B21498E1900B9BBB5 /* AccountGenderUpdate.swift in Sources */,
 				11BE43AF21503F2D00938ED2 /* InviteViewController.swift in Sources */,
@@ -528,9 +566,11 @@
 				11C33D3521405A9500E10B8B /* CodeVerifyViewController.swift in Sources */,
 				11D833B52151697D00C606BB /* FriendDataManager.swift in Sources */,
 				11878F8A21459DD9009026CE /* UserViewModel.swift in Sources */,
+				116A8B652151934700C9F8DE /* ChatViewController.swift in Sources */,
 				11D833B12151673E00C606BB /* FriendEntity.swift in Sources */,
 				117D4A4E213F1F260072AB88 /* ProfileViewController.swift in Sources */,
 				11EBAAAA2146D75E00CECB45 /* MessageViewController.swift in Sources */,
+				115974BD2151769C0075C2A5 /* FriendViewModel.swift in Sources */,
 				11F31A562140665D00419361 /* Phone.swift in Sources */,
 				11CAF5F7214AED2C00EEAB74 /* AccountSettings.swift in Sources */,
 				1132AD4521498A2F00B9BBB5 /* AccountBioUpdate.swift in Sources */,
@@ -652,11 +692,12 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = "$(SRCROOT)/Pods";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OBJC_BRIDGING_HEADER = "Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -708,10 +749,11 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = "$(SRCROOT)/Pods";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OBJC_BRIDGING_HEADER = "Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				VALIDATE_PRODUCT = YES;
 			};
@@ -719,7 +761,7 @@
 		};
 		117D4A40213F11A40072AB88 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 155CB434932A2EF57C7FE426 /* Pods-Shiftgram.debug.xcconfig */;
+			baseConfigurationReference = 5BFC68A548607F6A005195A6 /* Pods-Shiftgram.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -738,7 +780,7 @@
 		};
 		117D4A41213F11A40072AB88 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3B675F772AFA60C82D40F703 /* Pods-Shiftgram.release.xcconfig */;
+			baseConfigurationReference = 7FA204809493C9466386BEDD /* Pods-Shiftgram.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

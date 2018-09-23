@@ -3,6 +3,7 @@ import Alamofire
 
 class UserDataManager {
     private let url = "http://shiftgram.eu-central-1.elasticbeanstalk.com/api/account"
+    private let OK_CODE = 200
     private let userEntity = UserEntity()
     
     public func addAccount(account: Account, completion: @escaping () -> Void) {
@@ -23,6 +24,20 @@ class UserDataManager {
             let accountSettings = AccountSettings(item: result)
             
             completion(accountSettings)
+        }
+    }
+    
+    public func isExistAccount(phone: String, completion: @escaping (Bool) -> Void) {
+        let phoneURL = self.url + "/\(phone)"
+        
+        Alamofire.request(phoneURL, method: .get, parameters: nil, encoding: JSONEncoding.default).responseJSON {response in
+            if let code = response.response?.statusCode {
+                if code == self.OK_CODE {
+                    completion(true)
+                } else {
+                    completion(false)
+                }
+            }
         }
     }
     

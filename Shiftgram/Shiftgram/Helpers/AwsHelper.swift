@@ -4,7 +4,9 @@ import AWSCore
 import AWSS3
 
 class AwsHelper {
+    
     public static func uploadImage(image: UIImage, completion: @escaping (String) -> Void) {
+        
         let transferManager = AWSS3TransferManager.default()
         let bucketName = "shiftgramimage"
         let jpgImage = UIImageJPEGRepresentation(image, 1)
@@ -35,6 +37,7 @@ class AwsHelper {
     }
     
     public static func downloadImage(path: String, completion: @escaping (NSData) -> Void) {
+        
         let bucketName = "shiftgramimage"
         let key = path
         let transferManager = AWSS3TransferManager.default()

@@ -2,11 +2,13 @@ import Foundation
 import Alamofire
 
 class UserDataManager {
+    
     private let url = "http://shiftgram.eu-central-1.elasticbeanstalk.com/api/account"
     private let OK_CODE = 200
     private let userEntity = UserEntity()
     
     public func addAccount(account: Account, completion: @escaping () -> Void) {
+        
         let parameter = account.toParameters()
         
         Alamofire.request(url, method: .post, parameters: parameter, encoding: JSONEncoding.default).responseJSON { response in
@@ -17,6 +19,7 @@ class UserDataManager {
     }
     
     public func getById(completion: @escaping (AccountSettings) -> Void) {
+        
         let accountId = self.userEntity.getUserId()
         
         Alamofire.request(self.url + "/\(accountId)", method: .get, parameters: nil, encoding: JSONEncoding.default).responseJSON {response in
@@ -28,6 +31,7 @@ class UserDataManager {
     }
     
     public func isExistAccount(phone: String, completion: @escaping (Bool) -> Void) {
+        
         let phoneURL = self.url + "/\(phone)"
         
         Alamofire.request(phoneURL, method: .get, parameters: nil, encoding: JSONEncoding.default).responseJSON {response in
@@ -42,6 +46,7 @@ class UserDataManager {
     }
     
     public func updateAccountPhone(accountUpdate: AccountPhoneUpdate, completion: @escaping (Bool) -> Void) {
+        
         let parameters = accountUpdate.toParameters()
         
         Alamofire.request(url, method: .put, parameters: parameters, encoding: JSONEncoding.default, headers: nil).responseJSON {response in
@@ -56,6 +61,7 @@ class UserDataManager {
     }
     
     public func updateAccountInitials(accountUpdate: AccountInitialsUpdate, completion: @escaping (Bool) -> Void) {
+        
         let parameters = accountUpdate.toParameters()
         
         Alamofire.request(url, method: .put, parameters: parameters, encoding: JSONEncoding.default).responseJSON {response in
@@ -70,6 +76,7 @@ class UserDataManager {
     }
     
     public func updateAccountBio(accountUpdate: AccountBioUpdate, completion: @escaping (Bool) -> Void) {
+        
         let parameters = accountUpdate.toParameters()
         
         Alamofire.request(url, method: .put, parameters: parameters, encoding: JSONEncoding.default).responseJSON {response in
@@ -84,6 +91,7 @@ class UserDataManager {
     }
     
     public func updateAccountUsername(accountUpdate: AccountUsernameUpdate, completion: @escaping (Bool) -> Void) {
+        
         let parameters = accountUpdate.toParameters()
         
         Alamofire.request(url, method: .put, parameters: parameters, encoding: JSONEncoding.default).responseJSON {response in
@@ -98,6 +106,7 @@ class UserDataManager {
     }
     
     public func updateAccountPhoto(accountUpdate: AccountPhotoUpdate, completion: @escaping (Bool) -> Void) {
+        
         let parameters = accountUpdate.toParameters()
         
         Alamofire.request(url, method: .put, parameters: parameters, encoding: JSONEncoding.default).responseJSON {response in
@@ -112,6 +121,7 @@ class UserDataManager {
     }
     
     public func updateAccountGender(accountUpdate: AccountGenderUpdate, completion: @escaping (Bool) -> Void) {
+        
         let parameters = accountUpdate.toParameters()
         
         Alamofire.request(url, method: .put, parameters: parameters, encoding: JSONEncoding.default).responseJSON {response in

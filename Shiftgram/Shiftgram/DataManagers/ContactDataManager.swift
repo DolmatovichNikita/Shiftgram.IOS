@@ -2,9 +2,11 @@ import Foundation
 import Contacts
 
 class ContactDataManager {
+    
     private let contactStore = CNContactStore()
     
     public func getContacts(completion: @escaping ([Contact]) -> Void){
+        
         var contacts = [Contact]()
         let key = [CNContactGivenNameKey, CNContactPhoneNumbersKey] as [CNKeyDescriptor]
         let request = CNContactFetchRequest(keysToFetch: key)

@@ -2,6 +2,7 @@ import Foundation
 import Alamofire
 
 class AccountBioUpdate {
+    
     private let id: Int
     private let bio: String
     private let updateType: String
@@ -13,6 +14,7 @@ class AccountBioUpdate {
     }
     
     public func toParameters() -> Parameters {
+        
         let parameter: Parameters = [
             "Id": self.id,
             "Bio": self.bio,

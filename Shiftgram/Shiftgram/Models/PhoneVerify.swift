@@ -2,6 +2,7 @@ import Foundation
 import Alamofire
 
 struct PhoneVerify {
+    
     let id: Int
     let number: String
     let code: String
@@ -13,6 +14,7 @@ struct PhoneVerify {
     }
     
     public func toParameters() -> Parameters {
+        
         let parameter: Parameters = [
             "Id": self.id,
             "Number": self.number,

@@ -2,9 +2,11 @@ import Foundation
 import Alamofire
 
 class FriendDataManager {
+    
     private let url = "http://shiftgram.eu-central-1.elasticbeanstalk.com/api/friend"
     
     public func addFriend(accountFriendModel: AccountFriendModel, completion: @escaping () -> Void) {
+        
         let parameters = accountFriendModel.toParameters()
 
         Alamofire.request(self.url, method: .post, parameters: parameters, encoding: JSONEncoding.default).responseJSON {response in
@@ -13,6 +15,7 @@ class FriendDataManager {
     }
     
     public func getFriends(completion: @escaping () -> Void) {
+        
         let userId = UserEntity().getUserId()
         
         Alamofire.request(self.url + "/\(userId)", method: .get, parameters: nil, encoding: JSONEncoding.default).responseJSON {response in

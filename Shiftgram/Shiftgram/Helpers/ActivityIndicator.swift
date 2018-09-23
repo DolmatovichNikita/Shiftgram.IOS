@@ -2,6 +2,7 @@ import Foundation
 import UIKit
 
 class ActivityIndicator {
+    
     private var view: UIView
     private var activityIndicator = UIActivityIndicatorView()
     
@@ -14,11 +15,13 @@ class ActivityIndicator {
     }
     
     public func startLoading() {
+        
         self.activityIndicator.startAnimating()
         UIApplication.shared.beginIgnoringInteractionEvents()
     }
     
     public func stopLoading() {
+        
         self.activityIndicator.stopAnimating()
         UIApplication.shared.endIgnoringInteractionEvents()
     }

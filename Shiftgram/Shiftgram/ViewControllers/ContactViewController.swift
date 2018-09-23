@@ -2,6 +2,7 @@ import UIKit
 import Contacts
 
 class ContactViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    
     @IBOutlet weak var contacttableView: UITableView!
     private let contactViewModel = ContactViewModel()
     private let friendViewModel = FriendViewModel()
@@ -20,10 +21,12 @@ class ContactViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
 
     override func didReceiveMemoryWarning() {
+        
         super.didReceiveMemoryWarning()
     }
     
     @IBAction func btnSyncPressed(_ sender: Any) {
+        
         self.activityIndicator.startLoading()
         let id = UserEntity().getUserId()
         for contact in contacts {
@@ -34,10 +37,12 @@ class ContactViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
         return contacts.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
         let cell = self.contacttableView.dequeueReusableCell(withIdentifier: "ContactCell", for: indexPath) as! ContactTableViewCell
         let contact = contacts[indexPath.row]
         cell.nameLabel.text = contact.firstName

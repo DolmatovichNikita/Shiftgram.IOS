@@ -2,6 +2,7 @@ import Foundation
 import Alamofire
 
 struct Account {
+    
     let firstName: String
     let lastName: String
     let bio: String
@@ -20,6 +21,7 @@ struct Account {
     }
     
     public func toParameters() -> Parameters {
+        
         let parameter: Parameters = [
             "FirstName": self.firstName,
             "LastName": self.lastName,

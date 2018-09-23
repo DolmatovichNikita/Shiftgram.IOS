@@ -1,13 +1,14 @@
 import UIKit
 
 class SettingsViewController: UIViewController {
+    
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var initialsLabel: UILabel!
     @IBOutlet weak var phoneLabel: UILabel!
     private let userViewModel = UserViewModel()
     private var activityIndicator: ActivityIndicator!
-    
     @IBOutlet weak var usernameLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.initControls()
@@ -19,10 +20,12 @@ class SettingsViewController: UIViewController {
     }
 
     override func didReceiveMemoryWarning() {
+        
         super.didReceiveMemoryWarning()
     }
     
     private func getAccountSettings() {
+        
         self.userViewModel.getAccountSettings {response in
             let scope = self
             self.initialsLabel.text = response.initials
@@ -36,10 +39,12 @@ class SettingsViewController: UIViewController {
     }
     
     private func initControls() {
+        
         self.serCircleImageView()
     }
     
     private func serCircleImageView() {
+        
         profileImageView.layer.borderWidth = 1
         profileImageView.layer.masksToBounds = false
         profileImageView.layer.borderColor = UIColor.black.cgColor

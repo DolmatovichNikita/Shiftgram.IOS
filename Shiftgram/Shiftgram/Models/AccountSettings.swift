@@ -2,6 +2,7 @@ import Foundation
 import UIKit
 
 struct AccountSettings {
+    
     let initials: String
     let phone: String
     let username: String

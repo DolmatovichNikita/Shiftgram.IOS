@@ -2,6 +2,7 @@ import Foundation
 import Alamofire
 
 class AccountPhoneUpdate {
+    
     private let id: Int
     private let phone: String
     private let updateType: String
@@ -13,6 +14,7 @@ class AccountPhoneUpdate {
     }
     
     public func toParameters() -> Parameters {
+        
         let parameter: Parameters = [
             "Id": self.id,
             "Phone": self.phone,

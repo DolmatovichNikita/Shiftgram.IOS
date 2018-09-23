@@ -2,6 +2,7 @@ import UIKit
 
 class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate,
     UITextFieldDelegate{
+    
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var firstNameTextField: UITextField!
     @IBOutlet weak var lastNameTextField: UITextField!
@@ -16,14 +17,17 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     }
 
     override func didReceiveMemoryWarning() {
+        
         super.didReceiveMemoryWarning()
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        
         self.view.endEditing(true)
     }
     
     @IBAction func registerBtnPressed(_ sender: Any) {
+        
         AwsHelper.uploadImage(image: self.profileImageView.image!) { response in
             let account = Account(firstName: self.firstNameTextField.text!, lastName: self.lastNameTextField.text!, bio: self.bioTextField.text!,
                                   username: self.usernameTextField.text!, photoUrl: response, gender: self.segmentGender.titleForSegment(at: self.segmentGender.selectedSegmentIndex)!)
@@ -32,29 +36,34 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        
         let image = info[UIImagePickerControllerOriginalImage] as! UIImage
         self.profileImageView.image = image
         self.dismiss(animated: true, completion: nil)
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        
         textField.resignFirstResponder()
         return true
     }
     
     private func initControls() {
+        
         self.addBorderTextField()
         self.addClickToImageView()
         self.serCircleImageView()
     }
     
     private func addClickToImageView() {
+        
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(imagePressed(tapGestureRecognizer:)))
         self.profileImageView.isUserInteractionEnabled = true
         self.profileImageView.addGestureRecognizer(tapGestureRecognizer)
     }
     
     @objc private func imagePressed(tapGestureRecognizer: UITapGestureRecognizer) {
+        
         let choiceImageAlert = UIAlertController(title: "Select image from", message: "", preferredStyle: .actionSheet)
         let cameraAction = UIAlertAction(title: "Camera", style: .default) { (action) in
             if UIImagePickerController.isSourceTypeAvailable(.camera) {
@@ -81,6 +90,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     }
     
     private func addBorderTextField() {
+        
         let border = CALayer()
         let width = CGFloat(2.0)
         border.borderColor = UIColor.gray.cgColor
@@ -91,6 +101,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     }
     
     private func serCircleImageView() {
+        
         profileImageView.layer.borderWidth = 1
         profileImageView.layer.masksToBounds = false
         profileImageView.layer.borderColor = UIColor.black.cgColor

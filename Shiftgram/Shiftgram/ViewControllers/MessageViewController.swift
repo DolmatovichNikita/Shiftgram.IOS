@@ -1,5 +1,4 @@
 import UIKit
-import ROGoogleTranslate
 
 class MessageViewController: UIViewController {
 

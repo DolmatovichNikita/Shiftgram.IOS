@@ -1,6 +1,7 @@
 import UIKit
 
 class InitialViewController: UIViewController {
+    
     @IBOutlet weak var btnStartMessaging: UIButton!
     private let userEntity = UserEntity()
     
@@ -11,10 +12,12 @@ class InitialViewController: UIViewController {
     }
 
     override func didReceiveMemoryWarning() {
+        
         super.didReceiveMemoryWarning()
     }
 
     @IBAction func btnStartMessagingPressed(_ sender: Any) {
+        
         let isExist = self.userEntity.isExist()
         
         if isExist {
@@ -25,6 +28,7 @@ class InitialViewController: UIViewController {
     }
     
     private func initControls() {
+        
         btnStartMessaging.layer.cornerRadius = 20
     }
 }

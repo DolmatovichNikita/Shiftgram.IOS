@@ -1,6 +1,7 @@
 import Foundation
 
 struct Phone {
+    
     let id: Int
     let country: String
     let code: String

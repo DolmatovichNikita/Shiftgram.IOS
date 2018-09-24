@@ -4,6 +4,7 @@ class InitialViewController: UIViewController {
     
     @IBOutlet weak var btnStartMessaging: UIButton!
     private let userEntity = UserEntity()
+    private let userViewModel = UserViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -12,7 +13,6 @@ class InitialViewController: UIViewController {
     }
 
     override func didReceiveMemoryWarning() {
-        
         super.didReceiveMemoryWarning()
     }
 

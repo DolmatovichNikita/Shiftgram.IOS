@@ -13,8 +13,7 @@ class FriendDataManager {
         }
     }
     
-    public func getFriends(completion: @escaping () -> Void) {
-        
+    public func fetchFriends(completion: @escaping () -> Void) {
         let userId = UserEntity().getUserId()
         
         Alamofire.request(self.url + "/\(userId)", method: .get, parameters: nil, encoding: JSONEncoding.default).responseJSON {response in
@@ -23,10 +22,17 @@ class FriendDataManager {
                 for item in items {
                     let value = item as! NSDictionary
                     let friendEntity = FriendEntity()
-                    let friendModel = FriendModel(id: value["Id"] as! Int, photo: value["PhotoUrl"] as! String)
+                    let friendModel = FriendModel(id: value["Id"] as! Int, photo: value["PhotoUrl"] as! String,
+                                                  username: value["Username"] as! String)
                     friendEntity.addFriend(friendModel: friendModel)
                 }
             }
         }
+    }
+    
+    public func getFriendsContact() -> [FriendModel] {
+        let friendEntity = FriendEntity()
+        
+        return friendEntity.getFriends()
     }
 }

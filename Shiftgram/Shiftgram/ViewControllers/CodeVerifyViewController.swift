@@ -14,39 +14,33 @@ class CodeVerifyViewController: UIViewController, UITextFieldDelegate {
     }
 
     override func didReceiveMemoryWarning() {
-        
         super.didReceiveMemoryWarning()
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        
         self.view.endEditing(true)
     }
     
     @IBAction func btnNextPressed(_ sender: Any) {
-        
-        //let id = userEntity.getUserId()
-        //let phoneVerify = PhoneVerify(id: Int(id), number: phone, code: codeTextField.text!)
-        //self.phoneViewModel.isAuth(phoneVerify: phoneVerify) { response in
+        let id = userEntity.getUserId()
+        let phoneVerify = PhoneVerify(id: Int(id), number: phone, code: codeTextField.text!)
+        self.phoneViewModel.isAuth(phoneVerify: phoneVerify) { response in
             //if response {
                 self.performSegue(withIdentifier: "Menu", sender: self)
             //}
-        //}
+        }
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        
         textField.resignFirstResponder()
         return true
     }
     
     private func initControls() {
-        
         self.addBorderTextField()
     }
     
     private func addBorderTextField() {
-        
         let border = CALayer()
         let width = CGFloat(2.0)
         border.borderColor = UIColor.gray.cgColor

@@ -20,29 +20,24 @@ class PhoneVerifyViewController: UIViewController, UIPickerViewDelegate, UIPicke
     }
 
     override func didReceiveMemoryWarning() {
-        
         super.didReceiveMemoryWarning()
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        
         super.viewDidAppear(animated)
         self.getPhones()
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        
         self.view.endEditing(true)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
         let codeVC: CodeVerifyViewController = segue.destination as! CodeVerifyViewController
         codeVC.phone = self.codeLabel.text! + self.numberTextField.text!
     }
     
     @IBAction func btnNextPressed(_ sender: Any) {
-        
         self.activityIndicator.startLoading()
         let userEntity = UserEntity()
         let id = userEntity.getUserId()
@@ -56,10 +51,10 @@ class PhoneVerifyViewController: UIViewController, UIPickerViewDelegate, UIPicke
                 self.performSegue(withIdentifier: "Code", sender: self)
             }
         } else {
-            phoneViewModel.sendSMS(accountUpdate: nil, phoneVerify: phoneVerify) {
-                self.activityIndicator.stopLoading()
+            //phoneViewModel.sendSMS(accountUpdate: nil, phoneVerify: phoneVerify) {
+                //self.activityIndicator.stopLoading()
                 self.performSegue(withIdentifier: "Code", sender: self)
-            }
+            //}
         }
     }
     

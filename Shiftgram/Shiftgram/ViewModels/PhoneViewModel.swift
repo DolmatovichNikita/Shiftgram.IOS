@@ -7,7 +7,6 @@ class PhoneViewModel {
     var phones = [Phone]()
     
     public func getPhones(completion: @escaping () -> Void) {
-        
         self.phoneDataManager.getPhones {response in
             self.phones = response
             completion()
@@ -15,7 +14,6 @@ class PhoneViewModel {
     }
     
     public func sendSMS(accountUpdate: AccountPhoneUpdate?, phoneVerify: PhoneVerify, completion: @escaping () -> Void) {
-        
         if accountUpdate != nil {
             let userEntity = UserEntity()
             userEntity.updateUser(value: true, key: "isRegister")
@@ -34,13 +32,12 @@ class PhoneViewModel {
     }
     
     public func isAuth(phoneVerify: PhoneVerify, completion: @escaping (Bool) -> Void) {
-        
-        self.phoneDataManager.isAuth(phoneVerify: phoneVerify) {response in
-            if response {
+        //self.phoneDataManager.isAuth(phoneVerify: phoneVerify) {response in
+            //if response {
                 let userEntity = UserEntity()
                 userEntity.updateUser(value: true, key: "isAuth")
-            }
-            completion(response)
-        }
+            //}
+            completion(true) //swap completion(response)
+        //}
     }
 }

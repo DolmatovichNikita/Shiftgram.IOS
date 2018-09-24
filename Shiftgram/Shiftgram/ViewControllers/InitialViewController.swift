@@ -27,7 +27,6 @@ class InitialViewController: UIViewController {
     }
     
     private func initControls() {
-        
         btnStartMessaging.layer.cornerRadius = 20
     }
 }

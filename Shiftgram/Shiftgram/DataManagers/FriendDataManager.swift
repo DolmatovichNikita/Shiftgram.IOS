@@ -4,12 +4,19 @@ import Alamofire
 class FriendDataManager {
     
     private let url = "http://shiftgram.eu-central-1.elasticbeanstalk.com/api/friend"
+    private let OK_CODE = 200
     
-    public func addFriend(accountFriendModel: AccountFriendModel, completion: @escaping () -> Void) {
+    public func addFriend(accountFriendModel: AccountFriendModel, completion: @escaping (Bool) -> Void) {
         let parameters = accountFriendModel.toParameters()
 
         Alamofire.request(self.url, method: .post, parameters: parameters, encoding: JSONEncoding.default).responseJSON {response in
-            completion()
+            if let code = response.response?.statusCode {
+                if code == self.OK_CODE {
+                    completion(true)
+                } else {
+                    completion(false)
+                }
+            }
         }
     }
     

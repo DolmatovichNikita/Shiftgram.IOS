@@ -52,6 +52,7 @@ class UserDataManager {
         Alamofire.request(url, method: .put, parameters: parameters, encoding: JSONEncoding.default, headers: nil).responseJSON {response in
             if let code = response.response?.statusCode {
                 if code == 200 {
+                    self.userEntity.updateUser(value: parameters["Phone"] as! String, key: "phone")
                     completion(true)
                 } else if code == 400 {
                     completion(false)

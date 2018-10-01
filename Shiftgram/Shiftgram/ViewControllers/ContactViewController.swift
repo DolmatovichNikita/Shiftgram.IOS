@@ -6,18 +6,16 @@ class ContactViewController: UIViewController, UITableViewDelegate, UITableViewD
     @IBOutlet weak var contacttableView: UITableView!
     private let contactViewModel = ContactViewModel()
     private let friendViewModel = FriendViewModel()
-    //private var contacts = [Contact]()
     private var activityIndicator: ActivityIndicator!
+    private var friends = [FriendModel]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.contacttableView.delegate = self
         self.contacttableView.dataSource = self
         self.activityIndicator = ActivityIndicator(view: self.view)
-        /*self.contactViewModel.getContacts {
-            self.contacts = Array(self.contactViewModel.contacts)
-            self.contacttableView.reloadData()
-        }*/
+        self.friends = FriendEntity().getFriends()
+        self.contacttableView.reloadData()
     }
 
     override func didReceiveMemoryWarning() {
@@ -25,31 +23,22 @@ class ContactViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     @IBAction func btnSyncPressed(_ sender: Any) {
+        UserEntity().updateUser(value: true, key: "isSync")
         self.activityIndicator.startLoading()
-        let id = UserEntity().getUserId()
-        var contacts = [Contact]()
-        
-        self.contactViewModel.getContacts {
-            contacts = Array(self.contactViewModel.contacts)
-            
-            for contact in contacts {
-                let accountFriendModel = AccountFriendModel(accountAId: Int(id), accountBPhone: contact.phone)
-                self.friendViewModel.syncFriends(accountFriendModel: accountFriendModel) {}
-            }
-            
+        self.contactViewModel.syncContacts {values in
+            self.friends = values
             self.activityIndicator.stopLoading()
+            self.contacttableView.reloadData()
         }
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        //return contacts.count
-        return 0
+        return friends.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = self.contacttableView.dequeueReusableCell(withIdentifier: "ContactCell", for: indexPath) as! ContactTableViewCell
-        //let contact = contacts[indexPath.row]
-        //cell.nameLabel.text = contact.firstName
+        cell.nameLabel.text = self.friends[indexPath.row].username
         
         return cell
     }

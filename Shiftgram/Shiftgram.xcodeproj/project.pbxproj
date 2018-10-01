@@ -42,7 +42,7 @@
 		11BE43AD21503B5500938ED2 /* ContactTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11BE43AC21503B5500938ED2 /* ContactTableViewCell.swift */; };
 		11BE43AF21503F2D00938ED2 /* InviteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11BE43AE21503F2D00938ED2 /* InviteViewController.swift */; };
 		11C29CA52159559100D50085 /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11C29CA42159559100D50085 /* StringExtensions.swift */; };
-		11C29CA721595F2300D50085 /* FriendExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11C29CA621595F2300D50085 /* FriendExtensions.swift */; };
+		11C29CA721595F2300D50085 /* ArrayExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11C29CA621595F2300D50085 /* ArrayExtensions.swift */; };
 		11C33D3521405A9500E10B8B /* CodeVerifyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11C33D3421405A9500E10B8B /* CodeVerifyViewController.swift */; };
 		11CAF5F7214AED2C00EEAB74 /* AccountSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11CAF5F6214AED2C00EEAB74 /* AccountSettings.swift */; };
 		11D833B12151673E00C606BB /* FriendEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11D833B02151673E00C606BB /* FriendEntity.swift */; };
@@ -119,7 +119,7 @@
 		11BE43AC21503B5500938ED2 /* ContactTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactTableViewCell.swift; sourceTree = "<group>"; };
 		11BE43AE21503F2D00938ED2 /* InviteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InviteViewController.swift; sourceTree = "<group>"; };
 		11C29CA42159559100D50085 /* StringExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
-		11C29CA621595F2300D50085 /* FriendExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendExtensions.swift; sourceTree = "<group>"; };
+		11C29CA621595F2300D50085 /* ArrayExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayExtensions.swift; sourceTree = "<group>"; };
 		11C33D3421405A9500E10B8B /* CodeVerifyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeVerifyViewController.swift; sourceTree = "<group>"; };
 		11CAF5F6214AED2C00EEAB74 /* AccountSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountSettings.swift; sourceTree = "<group>"; };
 		11D833B02151673E00C606BB /* FriendEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendEntity.swift; sourceTree = "<group>"; };
@@ -289,7 +289,7 @@
 			isa = PBXGroup;
 			children = (
 				11C29CA42159559100D50085 /* StringExtensions.swift */,
-				11C29CA621595F2300D50085 /* FriendExtensions.swift */,
+				11C29CA621595F2300D50085 /* ArrayExtensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -569,7 +569,7 @@
 				116D07A321469A1200FB0AF0 /* AccountPhoneUpdate.swift in Sources */,
 				1158272B2147B59100D5AFE1 /* AwsHelper.swift in Sources */,
 				11F31A5C2140688100419361 /* PhoneDataManager.swift in Sources */,
-				11C29CA721595F2300D50085 /* FriendExtensions.swift in Sources */,
+				11C29CA721595F2300D50085 /* ArrayExtensions.swift in Sources */,
 				11C33D3521405A9500E10B8B /* CodeVerifyViewController.swift in Sources */,
 				11D833B52151697D00C606BB /* FriendDataManager.swift in Sources */,
 				11878F8A21459DD9009026CE /* UserViewModel.swift in Sources */,

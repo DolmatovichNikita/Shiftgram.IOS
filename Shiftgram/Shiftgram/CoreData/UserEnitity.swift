@@ -13,7 +13,6 @@ class UserEntity {
     }
     
     public func addUser(id: Int) {
-        
         let entity = NSEntityDescription.entity(forEntityName: "User", in: self.context)
         let user = NSManagedObject(entity: entity!, insertInto: self.context)
         user.setValue(id, forKey: "id")
@@ -26,7 +25,6 @@ class UserEntity {
     }
     
     public func updateUser(value: Any, key: String) {
-        
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "User")
         
         do {
@@ -39,7 +37,6 @@ class UserEntity {
     }
     
     public func deleteUser() {
-        
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "User")
         let deleteRequest = NSBatchDeleteRequest(fetchRequest: request)
         
@@ -52,7 +49,6 @@ class UserEntity {
     }
     
     public func getUserId() -> Int32 {
-        
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "User")
         var id: Int32 = 0
         
@@ -67,8 +63,22 @@ class UserEntity {
         return id
     }
     
-    public func isAuth() -> Bool {
+    public func getUserPhone() -> String {
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "User")
+        var phone: String = ""
         
+        do {
+            let user = try self.context.fetch(request).first as! User
+            phone = user.phone!
+            
+        } catch {
+            print("Failed")
+        }
+        
+        return phone
+    }
+    
+    public func isAuth() -> Bool {
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "User")
         var isAuth = false
         
@@ -83,7 +93,6 @@ class UserEntity {
     }
     
     public func isRegister() -> Bool {
-        
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "User")
         var isRegister = false
         
@@ -97,8 +106,21 @@ class UserEntity {
         return isRegister
     }
     
-    public func isExist() ->Bool {
+    public func isSync() -> Bool {
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "User")
+        var isSync = false
         
+        do {
+            let user = try self.context.fetch(request).first as! User
+            isSync = user.isSync
+        } catch {
+            print("Failed")
+        }
+        
+        return isSync
+    }
+    
+    public func isExist() ->Bool {
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "User")
         var isExist = false
         

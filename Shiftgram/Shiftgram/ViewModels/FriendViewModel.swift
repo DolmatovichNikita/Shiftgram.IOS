@@ -9,8 +9,4 @@ class FriendViewModel {
             completion()
         }
     }
-    
-    public func getFriendSection() -> Array<FriendModel> {
-        return self.friendDataManager.getFriendsContact()
-    }
 }

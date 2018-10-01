@@ -17,6 +17,8 @@ class FriendEntity {
         let friend = NSManagedObject(entity: entity!, insertInto: self.context)
         friend.setValue(friendModel.id, forKey: "id")
         friend.setValue(friendModel.photo, forKey: "photo")
+        friend.setValue(friendModel.username, forKey: "username")
+        friend.setValue(friendModel.phone, forKey: "phone")
         
         do {
             try self.context.save()
@@ -32,10 +34,23 @@ class FriendEntity {
         do {
             let friends = try self.context.fetch(request) as! [Friend]
             models = Array<Friend>.toFriendModel(friends: friends)
+            print(models.count)
         } catch {
             print("Failed")
         }
         
         return models
+    }
+    
+    public func deleteFriends() {
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Friend")
+        let deleteRequest = NSBatchDeleteRequest(fetchRequest: request)
+        
+        do {
+            try self.context.execute(deleteRequest)
+            try self.context.save()
+        } catch {
+            print("Failed")
+        }
     }
 }

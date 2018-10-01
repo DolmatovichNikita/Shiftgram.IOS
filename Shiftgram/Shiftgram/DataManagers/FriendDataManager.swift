@@ -28,18 +28,25 @@ class FriendDataManager {
                 let items = result as! NSArray
                 for item in items {
                     let value = item as! NSDictionary
-                    let friendEntity = FriendEntity()
-                    let friendModel = FriendModel(id: value["Id"] as! Int, photo: value["PhotoUrl"] as! String,
-                                                  username: value["Username"] as! String)
-                    friendEntity.addFriend(friendModel: friendModel)
+                    if FriendEntity().getFriends().count > 0 {
+                        for friend in FriendEntity().getFriends() {
+                            if friend.id != value["Id"] as! Int {
+                                let friendEntity = FriendEntity()
+                                let friendModel = FriendModel(id: value["Id"] as! Int, photo: value["PhotoUrl"] as! String,
+                                                              username: value["Username"] as! String, phone: value["Phone"] as! String)
+                                friendEntity.addFriend(friendModel: friendModel)
+                            }
+                        }
+                    } else {
+                        let friendEntity = FriendEntity()
+                        let friendModel = FriendModel(id: value["Id"] as! Int, photo: value["PhotoUrl"] as! String,
+                                                      username: value["Username"] as! String, phone: value["Phone"] as! String)
+                        friendEntity.addFriend(friendModel: friendModel)
+                    }
                 }
+                
+                completion()
             }
         }
-    }
-    
-    public func getFriendsContact() -> [FriendModel] {
-        let friendEntity = FriendEntity()
-        
-        return friendEntity.getFriends()
     }
 }

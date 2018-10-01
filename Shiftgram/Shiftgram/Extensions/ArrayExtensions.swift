@@ -6,10 +6,11 @@ extension Array where Element: Friend {
         var models = [FriendModel]()
         
         for friend in friends {
-            let model = FriendModel(id: Int(friend.id), photo: friend.photo!, username: friend.username!)
+            let model = FriendModel(id: Int(friend.id), photo: friend.photo!, username: friend.username!, phone: friend.phone!)
             models.append(model)
         }
         
         return models
     }
 }
+

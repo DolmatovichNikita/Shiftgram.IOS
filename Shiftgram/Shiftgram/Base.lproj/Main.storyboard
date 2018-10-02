@@ -223,25 +223,50 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gOL-GZ-V1q">
-                                <rect key="frame" x="0.0" y="44" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="44" width="336" height="44"/>
                                 <items>
                                     <navigationItem title="Chats" id="HK1-Q7-adl"/>
                                 </items>
                             </navigationBar>
                             <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="2WB-ov-sJO">
-                                <rect key="frame" x="0.0" y="88" width="375" height="56"/>
+                                <rect key="frame" x="0.0" y="88" width="336" height="56"/>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="F4v-8K-1dB">
                                 <rect key="frame" x="0.0" y="144" width="375" height="585"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="97Z-7F-Dkz">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MessageCell" rowHeight="91" id="97Z-7F-Dkz" customClass="MessageTableViewCell" customModule="Shiftgram" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="91"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="97Z-7F-Dkz" id="dW6-YD-VFG">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.666666666666664"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="90.666666666666671"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="b4N-x3-4XZ">
+                                                    <rect key="frame" x="15" y="12" width="65" height="65"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="65" id="YGd-hn-Jda"/>
+                                                        <constraint firstAttribute="width" constant="65" id="ZZe-Tk-CQy"/>
+                                                    </constraints>
+                                                    <viewLayoutGuide key="safeArea" id="Qcm-uP-ZEx"/>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CTC-iq-oHR">
+                                                    <rect key="frame" x="113" y="11" width="203" height="33"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="b4N-x3-4XZ" firstAttribute="leading" secondItem="dW6-YD-VFG" secondAttribute="leadingMargin" id="8qN-k8-vqc"/>
+                                                <constraint firstItem="b4N-x3-4XZ" firstAttribute="top" secondItem="dW6-YD-VFG" secondAttribute="topMargin" constant="1" id="E8f-bI-06K"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="CTC-iq-oHR" secondAttribute="bottom" constant="36" id="Lmw-sJ-QTf"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="CTC-iq-oHR" secondAttribute="trailing" constant="44" id="Vr2-zH-9h6"/>
+                                                <constraint firstItem="CTC-iq-oHR" firstAttribute="top" secondItem="dW6-YD-VFG" secondAttribute="topMargin" id="aFg-hj-ek3"/>
+                                                <constraint firstItem="CTC-iq-oHR" firstAttribute="leading" secondItem="b4N-x3-4XZ" secondAttribute="trailing" constant="33" id="kg7-Fm-1kN"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="b4N-x3-4XZ" secondAttribute="bottom" constant="3" id="lAp-GB-KQg"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>

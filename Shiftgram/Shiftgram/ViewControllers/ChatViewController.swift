@@ -4,12 +4,13 @@ import ROGoogleTranslate
 
 class ChatViewController: JSQMessagesViewController {
     var messages = [JSQMessage]()
+    
     lazy var outgoingBubble: JSQMessagesBubbleImage = {
         return JSQMessagesBubbleImageFactory()!.outgoingMessagesBubbleImage(with: UIColor.jsq_messageBubbleBlue())
     }()
     
     lazy var incomingBubble: JSQMessagesBubbleImage = {
-        return JSQMessagesBubbleImageFactory()!.incomingMessagesBubbleImage(with: UIColor.jsq_messageBubbleLightGray())
+        return JSQMessagesBubbleImageFactory()!.incomingMessagesBubbleImage(with: UIColor.lightGray)
     }()
     
     override func viewDidLoad() {

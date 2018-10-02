@@ -44,6 +44,7 @@ class ContactViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        let friend = self.friends[indexPath.row]
+        ConversationEntity().addConversation(friendModel: friend)
     }
 }

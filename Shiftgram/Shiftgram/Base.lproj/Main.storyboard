@@ -214,7 +214,7 @@
             </objects>
             <point key="canvasLocation" x="1727" y="596"/>
         </scene>
-        <!--Messages-->
+        <!--Message View Controller-->
         <scene sceneID="ptC-lb-Egu">
             <objects>
                 <viewController id="j81-VI-SgQ" customClass="MessageViewController" customModule="Shiftgram" customModuleProvider="target" sceneMemberID="viewController">
@@ -222,12 +222,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gOL-GZ-V1q">
-                                <rect key="frame" x="0.0" y="44" width="375" height="44"/>
-                                <items>
-                                    <navigationItem title="Chats" id="HK1-Q7-adl"/>
-                                </items>
-                            </navigationBar>
                             <searchBar contentMode="redraw" searchBarStyle="minimal" placeholder="           Seacrh for messages or users" translatesAutoresizingMaskIntoConstraints="NO" id="2WB-ov-sJO">
                                 <rect key="frame" x="0.0" y="88" width="375" height="56"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -274,29 +268,32 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="2WB-ov-sJO" firstAttribute="top" secondItem="gOL-GZ-V1q" secondAttribute="bottom" id="3Ov-Ya-LB7"/>
+                            <constraint firstItem="2WB-ov-sJO" firstAttribute="top" secondItem="9bw-Iq-cCb" secondAttribute="top" id="2bu-Q4-pFf"/>
                             <constraint firstItem="2WB-ov-sJO" firstAttribute="trailing" secondItem="9bw-Iq-cCb" secondAttribute="trailing" id="BZ4-nu-oes"/>
                             <constraint firstItem="F4v-8K-1dB" firstAttribute="trailing" secondItem="9bw-Iq-cCb" secondAttribute="trailing" id="CtO-SW-JTR"/>
                             <constraint firstItem="F4v-8K-1dB" firstAttribute="top" secondItem="2WB-ov-sJO" secondAttribute="bottom" id="QEO-rb-FOC"/>
-                            <constraint firstItem="gOL-GZ-V1q" firstAttribute="trailing" secondItem="9bw-Iq-cCb" secondAttribute="trailing" id="SdA-3Z-cWI"/>
-                            <constraint firstItem="gOL-GZ-V1q" firstAttribute="leading" secondItem="9bw-Iq-cCb" secondAttribute="leading" id="afu-qs-9qU"/>
                             <constraint firstItem="2WB-ov-sJO" firstAttribute="leading" secondItem="9bw-Iq-cCb" secondAttribute="leading" id="dmh-oB-7Lv"/>
-                            <constraint firstItem="gOL-GZ-V1q" firstAttribute="top" secondItem="9bw-Iq-cCb" secondAttribute="top" id="lzG-Es-LfN"/>
                             <constraint firstItem="F4v-8K-1dB" firstAttribute="leading" secondItem="9bw-Iq-cCb" secondAttribute="leading" id="rkX-D6-fsO"/>
                             <constraint firstItem="F4v-8K-1dB" firstAttribute="bottom" secondItem="9bw-Iq-cCb" secondAttribute="bottom" id="tkn-Ee-Bh6"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="9bw-Iq-cCb"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Messages" image="message" id="Ahc-fw-1ez"/>
+                    <navigationItem key="navigationItem" id="y8W-PJ-p2q">
+                        <barButtonItem key="rightBarButtonItem" title="Item" id="Hj5-Wl-GyS">
+                            <connections>
+                                <segue destination="qb4-ws-otk" kind="show" id="ZL2-si-uHx"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="owb-nH-w3a" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3368.8000000000002" y="853.44827586206895"/>
+            <point key="canvasLocation" x="4100" y="941"/>
         </scene>
         <!--Chat View Controller-->
         <scene sceneID="1Ar-R0-0Wd">
             <objects>
-                <viewController id="qb4-ws-otk" customClass="ChatViewController" customModule="Shiftgram" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController hidesBottomBarWhenPushed="YES" id="qb4-ws-otk" customClass="ChatViewController" customModule="Shiftgram" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="uMY-xF-KdP">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -306,7 +303,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3yD-mR-KH2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4094" y="1245"/>
+            <point key="canvasLocation" x="5036" y="1244.3349753694581"/>
         </scene>
         <!--Settings-->
         <scene sceneID="t8X-J7-KAa">
@@ -403,7 +400,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dnH-nc-gFh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4141.6000000000004" y="595.56650246305423"/>
+            <point key="canvasLocation" x="5084" y="595.56650246305423"/>
         </scene>
         <!--Contacts-->
         <scene sceneID="cVv-3f-l4W">
@@ -581,7 +578,7 @@
                     </tabBar>
                     <connections>
                         <segue destination="e6f-bo-rh5" kind="relationship" relationship="viewControllers" id="pHR-8J-axx"/>
-                        <segue destination="j81-VI-SgQ" kind="relationship" relationship="viewControllers" id="hJZ-L7-Uxd"/>
+                        <segue destination="6rU-g5-dMJ" kind="relationship" relationship="viewControllers" id="hJZ-L7-Uxd"/>
                         <segue destination="fSb-hM-ws9" kind="relationship" relationship="viewControllers" id="p3G-HM-R6Y"/>
                     </connections>
                 </tabBarController>
@@ -748,6 +745,25 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8o0-WJ-f0Y" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="937" y="-173"/>
+        </scene>
+        <!--Messages-->
+        <scene sceneID="Xwo-Vb-Cn3">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="6rU-g5-dMJ" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Messages" image="message" id="Ahc-fw-1ez"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="EqQ-wh-tgJ">
+                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="j81-VI-SgQ" kind="relationship" relationship="rootViewController" id="DAS-7Q-QSz"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="msj-O2-fiy" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3369" y="941"/>
         </scene>
     </scenes>
     <resources>

@@ -1,4 +1,4 @@
-import UIKit
+/*import UIKit
 import JSQMessagesViewController
 import ROGoogleTranslate
 
@@ -155,4 +155,15 @@ class ChatViewController: JSQMessagesViewController {
         return messages[indexPath.item].senderId == senderId ? 0 : 15
     }
 
+}*/
+
+import UIKit
+import MessageKit
+
+class ChatViewController: MessagesViewController {
+    override func viewDidLoad() {
+        super.viewDidLoad()
+    }
 }
+
+

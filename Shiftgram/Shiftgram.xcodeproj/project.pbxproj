@@ -56,7 +56,7 @@
 		11F31A562140665D00419361 /* Phone.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11F31A552140665D00419361 /* Phone.swift */; };
 		11F31A592140670400419361 /* PhoneViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11F31A582140670400419361 /* PhoneViewModel.swift */; };
 		11F31A5C2140688100419361 /* PhoneDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11F31A5B2140688100419361 /* PhoneDataManager.swift */; };
-		788044D78A1BB8FC1B6273B2 /* Pods_Shiftgram.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B543D455E2AE5E4CF8040C2C /* Pods_Shiftgram.framework */; };
+		1737C8874B7AE1133F527C19 /* Pods_Shiftgram.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 79C14CF8E1D4CF28BB315EC3 /* Pods_Shiftgram.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,6 +77,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		04F08A0A0B6F380B523D8A62 /* Pods-Shiftgram.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Shiftgram.release.xcconfig"; path = "Pods/Target Support Files/Pods-Shiftgram/Pods-Shiftgram.release.xcconfig"; sourceTree = "<group>"; };
 		1101BFA321501EA60012599B /* Contact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contact.swift; sourceTree = "<group>"; };
 		1101BFA521501F7E0012599B /* ContactDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactDataManager.swift; sourceTree = "<group>"; };
 		1101BFA7215023240012599B /* ContactViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactViewModel.swift; sourceTree = "<group>"; };
@@ -135,9 +136,8 @@
 		11F31A552140665D00419361 /* Phone.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Phone.swift; sourceTree = "<group>"; };
 		11F31A582140670400419361 /* PhoneViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneViewModel.swift; sourceTree = "<group>"; };
 		11F31A5B2140688100419361 /* PhoneDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneDataManager.swift; sourceTree = "<group>"; };
-		5BFC68A548607F6A005195A6 /* Pods-Shiftgram.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Shiftgram.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Shiftgram/Pods-Shiftgram.debug.xcconfig"; sourceTree = "<group>"; };
-		7FA204809493C9466386BEDD /* Pods-Shiftgram.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Shiftgram.release.xcconfig"; path = "Pods/Target Support Files/Pods-Shiftgram/Pods-Shiftgram.release.xcconfig"; sourceTree = "<group>"; };
-		B543D455E2AE5E4CF8040C2C /* Pods_Shiftgram.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Shiftgram.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		79C14CF8E1D4CF28BB315EC3 /* Pods_Shiftgram.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Shiftgram.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8177F0DA89F37954AD8DBA42 /* Pods-Shiftgram.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Shiftgram.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Shiftgram/Pods-Shiftgram.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -145,7 +145,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				788044D78A1BB8FC1B6273B2 /* Pods_Shiftgram.framework in Frameworks */,
+				1737C8874B7AE1133F527C19 /* Pods_Shiftgram.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -193,8 +193,8 @@
 				117D4A2E213F11A40072AB88 /* ShiftgramTests */,
 				117D4A39213F11A40072AB88 /* ShiftgramUITests */,
 				117D4A15213F11A20072AB88 /* Products */,
-				8E6ECB627D9A7D08AD49CB9C /* Pods */,
-				F07B8EABE2A88BCE942B95ED /* Frameworks */,
+				447F6FC8EA073C9A0A25FB67 /* Pods */,
+				C190CC6D408493520C277F82 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -342,19 +342,19 @@
 			path = DataManagers;
 			sourceTree = "<group>";
 		};
-		8E6ECB627D9A7D08AD49CB9C /* Pods */ = {
+		447F6FC8EA073C9A0A25FB67 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				5BFC68A548607F6A005195A6 /* Pods-Shiftgram.debug.xcconfig */,
-				7FA204809493C9466386BEDD /* Pods-Shiftgram.release.xcconfig */,
+				8177F0DA89F37954AD8DBA42 /* Pods-Shiftgram.debug.xcconfig */,
+				04F08A0A0B6F380B523D8A62 /* Pods-Shiftgram.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
 		};
-		F07B8EABE2A88BCE942B95ED /* Frameworks */ = {
+		C190CC6D408493520C277F82 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				B543D455E2AE5E4CF8040C2C /* Pods_Shiftgram.framework */,
+				79C14CF8E1D4CF28BB315EC3 /* Pods_Shiftgram.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -366,11 +366,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 117D4A3F213F11A40072AB88 /* Build configuration list for PBXNativeTarget "Shiftgram" */;
 			buildPhases = (
-				905F6147046C94379E4A39A8 /* [CP] Check Pods Manifest.lock */,
+				9DC581BF540B629EEB79EF64 /* [CP] Check Pods Manifest.lock */,
 				117D4A10213F11A20072AB88 /* Sources */,
 				117D4A11213F11A20072AB88 /* Frameworks */,
 				117D4A12213F11A20072AB88 /* Resources */,
-				8D3EF036C88DE8AC48A0FED5 /* [CP] Embed Pods Frameworks */,
+				C86C589683010E47892E28B3 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -489,7 +489,25 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		8D3EF036C88DE8AC48A0FED5 /* [CP] Embed Pods Frameworks */ = {
+		9DC581BF540B629EEB79EF64 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Shiftgram-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C86C589683010E47892E28B3 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -506,6 +524,7 @@
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/JSQMessagesViewController/JSQMessagesViewController.framework",
 				"${BUILT_PRODUCTS_DIR}/JSQSystemSoundPlayer/JSQSystemSoundPlayer.framework",
+				"${BUILT_PRODUCTS_DIR}/MessageKit/MessageKit.framework",
 				"${BUILT_PRODUCTS_DIR}/ROGoogleTranslate/ROGoogleTranslate.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
@@ -522,6 +541,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JSQMessagesViewController.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JSQSystemSoundPlayer.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MessageKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ROGoogleTranslate.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
@@ -529,24 +549,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Shiftgram/Pods-Shiftgram-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		905F6147046C94379E4A39A8 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Shiftgram-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -777,7 +779,7 @@
 		};
 		117D4A40213F11A40072AB88 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5BFC68A548607F6A005195A6 /* Pods-Shiftgram.debug.xcconfig */;
+			baseConfigurationReference = 8177F0DA89F37954AD8DBA42 /* Pods-Shiftgram.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -796,7 +798,7 @@
 		};
 		117D4A41213F11A40072AB88 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7FA204809493C9466386BEDD /* Pods-Shiftgram.release.xcconfig */;
+			baseConfigurationReference = 04F08A0A0B6F380B523D8A62 /* Pods-Shiftgram.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

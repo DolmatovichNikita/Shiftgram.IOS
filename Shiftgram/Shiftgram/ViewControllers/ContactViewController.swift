@@ -46,5 +46,8 @@ class ContactViewController: UIViewController, UITableViewDelegate, UITableViewD
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let friend = self.friends[indexPath.row]
         ConversationEntity().addConversation(friendModel: friend)
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let chatViewController = storyboard.instantiateViewController(withIdentifier: "Conversation")
+        self.present(chatViewController, animated: true, completion: nil)
     }
 }

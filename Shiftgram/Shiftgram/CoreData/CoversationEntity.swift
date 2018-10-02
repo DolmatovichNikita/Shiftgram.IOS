@@ -24,4 +24,17 @@ class ConversationEntity {
             print("Failed")
         }
     }
+    
+    public func getConversations() -> [Conversation] {
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Conversation")
+        var conversations = [Conversation]()
+        
+        do {
+            conversations = try self.context.fetch(request) as! [Conversation]
+        } catch {
+            print("Failed")
+        }
+        
+        return conversations
+    }
 }

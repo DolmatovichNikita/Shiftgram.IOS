@@ -217,7 +217,7 @@
         <!--Message View Controller-->
         <scene sceneID="ptC-lb-Egu">
             <objects>
-                <viewController id="j81-VI-SgQ" customClass="MessageViewController" customModule="Shiftgram" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Conversation" id="j81-VI-SgQ" customClass="MessageViewController" customModule="Shiftgram" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="nDi-gD-l56">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -262,6 +262,10 @@
                                                 <constraint firstAttribute="bottomMargin" secondItem="b4N-x3-4XZ" secondAttribute="bottom" constant="3" id="lAp-GB-KQg"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="nameLabel" destination="CTC-iq-oHR" id="AXo-t5-HZ9"/>
+                                            <outlet property="photoImageView" destination="b4N-x3-4XZ" id="hle-Yt-D6I"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -285,6 +289,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="conversationTableView" destination="F4v-8K-1dB" id="9MT-Fc-3uS"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="owb-nH-w3a" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -293,7 +300,7 @@
         <!--Chat View Controller-->
         <scene sceneID="1Ar-R0-0Wd">
             <objects>
-                <viewController hidesBottomBarWhenPushed="YES" id="qb4-ws-otk" customClass="ChatViewController" customModule="Shiftgram" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Chat" hidesBottomBarWhenPushed="YES" id="qb4-ws-otk" customClass="ChatViewController" customModule="Shiftgram" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="uMY-xF-KdP">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

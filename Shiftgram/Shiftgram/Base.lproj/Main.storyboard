@@ -221,14 +221,52 @@
                     <view key="view" contentMode="scaleToFill" id="nDi-gD-l56">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gOL-GZ-V1q">
+                                <rect key="frame" x="0.0" y="44" width="375" height="44"/>
+                                <items>
+                                    <navigationItem title="Chats" id="HK1-Q7-adl"/>
+                                </items>
+                            </navigationBar>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="2WB-ov-sJO">
+                                <rect key="frame" x="0.0" y="88" width="375" height="56"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="F4v-8K-1dB">
+                                <rect key="frame" x="0.0" y="144" width="375" height="585"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="97Z-7F-Dkz">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="97Z-7F-Dkz" id="dW6-YD-VFG">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.666666666666664"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="2WB-ov-sJO" firstAttribute="top" secondItem="gOL-GZ-V1q" secondAttribute="bottom" id="3Ov-Ya-LB7"/>
+                            <constraint firstItem="2WB-ov-sJO" firstAttribute="trailing" secondItem="9bw-Iq-cCb" secondAttribute="trailing" id="BZ4-nu-oes"/>
+                            <constraint firstItem="F4v-8K-1dB" firstAttribute="trailing" secondItem="9bw-Iq-cCb" secondAttribute="trailing" id="CtO-SW-JTR"/>
+                            <constraint firstItem="F4v-8K-1dB" firstAttribute="top" secondItem="2WB-ov-sJO" secondAttribute="bottom" id="QEO-rb-FOC"/>
+                            <constraint firstItem="gOL-GZ-V1q" firstAttribute="trailing" secondItem="9bw-Iq-cCb" secondAttribute="trailing" id="SdA-3Z-cWI"/>
+                            <constraint firstItem="gOL-GZ-V1q" firstAttribute="leading" secondItem="9bw-Iq-cCb" secondAttribute="leading" id="afu-qs-9qU"/>
+                            <constraint firstItem="2WB-ov-sJO" firstAttribute="leading" secondItem="9bw-Iq-cCb" secondAttribute="leading" id="dmh-oB-7Lv"/>
+                            <constraint firstItem="gOL-GZ-V1q" firstAttribute="top" secondItem="9bw-Iq-cCb" secondAttribute="top" id="lzG-Es-LfN"/>
+                            <constraint firstItem="F4v-8K-1dB" firstAttribute="leading" secondItem="9bw-Iq-cCb" secondAttribute="leading" id="rkX-D6-fsO"/>
+                            <constraint firstItem="F4v-8K-1dB" firstAttribute="bottom" secondItem="9bw-Iq-cCb" secondAttribute="bottom" id="tkn-Ee-Bh6"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="9bw-Iq-cCb"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Messages" image="message" id="Ahc-fw-1ez"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="owb-nH-w3a" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3370" y="854"/>
+            <point key="canvasLocation" x="3368.8000000000002" y="853.44827586206895"/>
         </scene>
         <!--Chat View Controller-->
         <scene sceneID="1Ar-R0-0Wd">
@@ -389,13 +427,13 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fXv-oi-aIM">
-                                                    <rect key="frame" x="101" y="11" width="259" height="0.0"/>
+                                                    <rect key="frame" x="101" y="11" width="298" height="0.0"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Gw-Yn-F4o">
-                                                    <rect key="frame" x="101" y="19" width="259" height="21"/>
+                                                    <rect key="frame" x="101" y="19" width="298" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.87089818480000003" green="0.87952093909999995" blue="0.87952093909999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>

@@ -223,13 +223,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gOL-GZ-V1q">
-                                <rect key="frame" x="0.0" y="44" width="336" height="44"/>
+                                <rect key="frame" x="0.0" y="44" width="375" height="44"/>
                                 <items>
                                     <navigationItem title="Chats" id="HK1-Q7-adl"/>
                                 </items>
                             </navigationBar>
-                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="2WB-ov-sJO">
-                                <rect key="frame" x="0.0" y="88" width="336" height="56"/>
+                            <searchBar contentMode="redraw" searchBarStyle="minimal" placeholder="           Seacrh for messages or users" translatesAutoresizingMaskIntoConstraints="NO" id="2WB-ov-sJO">
+                                <rect key="frame" x="0.0" y="88" width="375" height="56"/>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="F4v-8K-1dB">

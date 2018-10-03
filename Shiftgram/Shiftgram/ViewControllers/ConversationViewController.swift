@@ -22,8 +22,12 @@ class ConversationViewController: UIViewController, UITableViewDelegate, UITable
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let conversation = self.conversations[indexPath.row]
         let cell = self.conversationTableView.dequeueReusableCell(withIdentifier: "MessageCell") as! MessageTableViewCell
-        cell.nameLabel.text = conversations[indexPath.row].name
+        cell.nameLabel.text = conversation.name
+        AwsHelper.downloadImage(path: conversation.photo!) { (data) in
+            cell.photoImageView.image = UIImage(data: data as Data)
+        }
         
         return cell
     }

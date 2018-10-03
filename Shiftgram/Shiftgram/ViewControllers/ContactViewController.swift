@@ -37,8 +37,12 @@ class ContactViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let friend = self.friends[indexPath.row]
         let cell = self.contacttableView.dequeueReusableCell(withIdentifier: "ContactCell", for: indexPath) as! ContactTableViewCell
-        cell.nameLabel.text = self.friends[indexPath.row].username
+        cell.nameLabel.text = friend.username
+        AwsHelper.downloadImage(path: friend.photo) { (data) in
+            cell.contactImageView.image = UIImage(data: data as Data)
+        }
         
         return cell
     }

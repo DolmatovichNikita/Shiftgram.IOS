@@ -37,4 +37,33 @@ class ConversationEntity {
         
         return conversations
     }
+    
+    public func deleteAllConversations() {
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Conversation")
+        let deleteRequest = NSBatchDeleteRequest(fetchRequest: request)
+        
+        do {
+            try self.context.execute(deleteRequest)
+            try self.context.save()
+        } catch {
+            print("Failed")
+        }
+    }
+    
+    public func isExistConversation(accountBId: Int) -> Bool {
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Conversation")
+        var isExist = false
+        
+        request.predicate = NSPredicate(format: "accountBId == %@", String(accountBId))
+        do {
+            let conversation = try self.context.fetch(request) as! [Conversation]
+            if conversation.count > 0 {
+                isExist = true
+            }
+        } catch {
+            print("Failed")
+        }
+        
+        return isExist
+    }
 }

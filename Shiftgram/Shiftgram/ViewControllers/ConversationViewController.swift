@@ -1,6 +1,6 @@
 import UIKit
 
-class MessageViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class ConversationViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var conversationTableView: UITableView!
     private var conversations = [Conversation]()

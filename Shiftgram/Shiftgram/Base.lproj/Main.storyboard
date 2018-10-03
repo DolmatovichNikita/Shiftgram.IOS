@@ -214,10 +214,10 @@
             </objects>
             <point key="canvasLocation" x="1727" y="596"/>
         </scene>
-        <!--Message View Controller-->
+        <!--Conversation View Controller-->
         <scene sceneID="ptC-lb-Egu">
             <objects>
-                <viewController storyboardIdentifier="Conversation" id="j81-VI-SgQ" customClass="MessageViewController" customModule="Shiftgram" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Conversation" id="j81-VI-SgQ" customClass="ConversationViewController" customModule="Shiftgram" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="nDi-gD-l56">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -456,13 +456,13 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fXv-oi-aIM">
-                                                    <rect key="frame" x="101" y="11" width="298" height="0.0"/>
+                                                    <rect key="frame" x="101" y="11" width="259" height="0.0"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Gw-Yn-F4o">
-                                                    <rect key="frame" x="101" y="19" width="298" height="21"/>
+                                                    <rect key="frame" x="101" y="19" width="259" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.87089818480000003" green="0.87952093909999995" blue="0.87952093909999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>

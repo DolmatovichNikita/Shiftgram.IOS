@@ -5,6 +5,7 @@ class ContactViewModel {
     private let contactDataManager = ContactDataManager()
     private let friendDataManager = FriendDataManager()
     private let friendEntity = FriendEntity()
+    private let conversationEntity = ConversationEntity()
     
     public func syncContacts(completion: @escaping ([FriendModel]) -> Void) {
         self.addContacts()
@@ -13,6 +14,10 @@ class ContactViewModel {
                 
             completion(friends)
         }
+    }
+    
+    public func isAddNewConversation(accountBId: Int) -> Bool {
+        return conversationEntity.isExistConversation(accountBId: accountBId)
     }
     
     private func addContacts() {

@@ -161,6 +161,7 @@ import UIKit
 import MessageKit
 
 class ChatViewController: MessagesViewController {
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }

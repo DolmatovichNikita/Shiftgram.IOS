@@ -9,4 +9,18 @@ extension String {
         
         return phone
     }
+    
+    func parseLanguage() -> String {
+        var language = ""
+        
+        for ch in self {
+            if ch != "-" {
+                language.append(ch)
+            } else {
+                break
+            }
+        }
+        
+        return language
+    }
 }

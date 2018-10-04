@@ -21,4 +21,10 @@ class UserViewModel {
             completion(response)
         }
     }
+    
+    public func updateLanguage(accountUpdate: AccountLanguageUpdate, completion: @escaping (Bool) -> Void) {
+        self.userDataManager.updateAccountLanguage(accountUpdate: accountUpdate) { (value) in
+            completion(value)
+        }
+    }
 }

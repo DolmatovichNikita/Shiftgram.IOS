@@ -24,8 +24,15 @@ class SettingsViewController: UIViewController {
         super.didReceiveMemoryWarning()
     }
     
+    @IBAction func btnLanguagePressed(_ sender: Any) {
+        self.activityIndicator.startLoading()
+        let accountUpdate = AccountLanguageUpdate(id: Int(UserEntity().getUserId()), language: (Locale.preferredLanguages.first?.parseLanguage())!, updateType: "LanguageUpdate")
+        self.userViewModel.updateLanguage(accountUpdate: accountUpdate) { (_) in
+            self.activityIndicator.stopLoading()
+        }
+    }
+    
     private func getAccountSettings() {
-        
         self.userViewModel.getAccountSettings {response in
             let scope = self
             self.initialsLabel.text = response.initials
@@ -39,12 +46,10 @@ class SettingsViewController: UIViewController {
     }
     
     private func initControls() {
-        
         self.serCircleImageView()
     }
     
     private func serCircleImageView() {
-        
         profileImageView.layer.borderWidth = 1
         profileImageView.layer.masksToBounds = false
         profileImageView.layer.borderColor = UIColor.black.cgColor

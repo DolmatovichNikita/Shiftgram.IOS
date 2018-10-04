@@ -322,7 +322,11 @@
                                 <viewLayoutGuide key="safeArea" id="50Y-nJ-zQE"/>
                                 <items>
                                     <navigationItem title="Settings" id="KxQ-Up-czg">
-                                        <barButtonItem key="rightBarButtonItem" title="Edit" id="y3g-p5-eeB"/>
+                                        <barButtonItem key="rightBarButtonItem" image="language" id="y3g-p5-eeB">
+                                            <connections>
+                                                <action selector="btnLanguagePressed:" destination="fSb-hM-ws9" id="Hge-gv-SKb"/>
+                                            </connections>
+                                        </barButtonItem>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
@@ -774,6 +778,7 @@
         <image name="Sync" width="75" height="75"/>
         <image name="contact" width="19.5" height="19.5"/>
         <image name="contactProfile" width="64" height="64"/>
+        <image name="language" width="37.5" height="37.5"/>
         <image name="message" width="22.5" height="22.5"/>
         <image name="photo" width="75" height="75"/>
         <image name="plus" width="75" height="75"/>

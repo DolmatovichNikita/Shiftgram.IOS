@@ -19,6 +19,7 @@ class FriendEntity {
         friend.setValue(friendModel.photo, forKey: "photo")
         friend.setValue(friendModel.username, forKey: "username")
         friend.setValue(friendModel.phone, forKey: "phone")
+        friend.setValue(friendModel.language, forKey: "language")
         
         do {
             try self.context.save()
@@ -40,6 +41,21 @@ class FriendEntity {
         }
         
         return models
+    }
+    
+    public func getFriendLanguage(id: Int) -> String {
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Friend")
+        var language = ""
+        
+        request.predicate = NSPredicate(format: "id == %@", String(id))
+        do {
+            let friend = try self.context.fetch(request).first as! Friend
+            language = friend.language
+        } catch {
+            print("Failed")
+        }
+        
+        return language
     }
     
     public func deleteFriends() {

@@ -28,6 +28,7 @@ struct Account {
             "Bio": self.bio,
             "Username": self.username,
             "PhotoUrl":self.photoUrl,
+            "Language": Locale.current.languageCode!
         ]
         
         return parameter

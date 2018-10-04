@@ -33,14 +33,14 @@ class FriendDataManager {
                             if friend.id != value["Id"] as! Int {
                                 let friendEntity = FriendEntity()
                                 let friendModel = FriendModel(id: value["Id"] as! Int, photo: value["PhotoUrl"] as! String,
-                                                              username: value["Username"] as! String, phone: value["Phone"] as! String)
+                                                              username: value["Username"] as! String, phone: value["Phone"] as! String, language: value["Language"] as! String)
                                 friendEntity.addFriend(friendModel: friendModel)
                             }
                         }
                     } else {
                         let friendEntity = FriendEntity()
                         let friendModel = FriendModel(id: value["Id"] as! Int, photo: value["PhotoUrl"] as! String,
-                                                      username: value["Username"] as! String, phone: value["Phone"] as! String)
+                                                      username: value["Username"] as! String, phone: value["Phone"] as! String, language: value["Language"] as! String)
                         friendEntity.addFriend(friendModel: friendModel)
                     }
                 }

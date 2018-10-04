@@ -40,6 +40,7 @@
 		11878F8A21459DD9009026CE /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11878F8921459DD9009026CE /* UserViewModel.swift */; };
 		11878F8C2145A695009026CE /* PhoneVerify.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11878F8B2145A695009026CE /* PhoneVerify.swift */; };
 		11AB8295214804B1003558A4 /* AccountUpdatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11AB8294214804B1003558A4 /* AccountUpdatable.swift */; };
+		11BD01BB2166AFBE0087B8E0 /* AccountLanguageUpdate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11BD01BA2166AFBE0087B8E0 /* AccountLanguageUpdate.swift */; };
 		11BE43AD21503B5500938ED2 /* ContactTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11BE43AC21503B5500938ED2 /* ContactTableViewCell.swift */; };
 		11BE43AF21503F2D00938ED2 /* InviteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11BE43AE21503F2D00938ED2 /* InviteViewController.swift */; };
 		11C29CA52159559100D50085 /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11C29CA42159559100D50085 /* StringExtensions.swift */; };
@@ -120,6 +121,7 @@
 		11878F8921459DD9009026CE /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
 		11878F8B2145A695009026CE /* PhoneVerify.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneVerify.swift; sourceTree = "<group>"; };
 		11AB8294214804B1003558A4 /* AccountUpdatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountUpdatable.swift; sourceTree = "<group>"; };
+		11BD01BA2166AFBE0087B8E0 /* AccountLanguageUpdate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountLanguageUpdate.swift; sourceTree = "<group>"; };
 		11BE43AC21503B5500938ED2 /* ContactTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactTableViewCell.swift; sourceTree = "<group>"; };
 		11BE43AE21503F2D00938ED2 /* InviteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InviteViewController.swift; sourceTree = "<group>"; };
 		11C29CA42159559100D50085 /* StringExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
@@ -319,6 +321,7 @@
 				11D833B22151680800C606BB /* FriendModel.swift */,
 				11D833B621516A5600C606BB /* AccountFriendModel.swift */,
 				1159D09E21655576004E2171 /* Message.swift */,
+				11BD01BA2166AFBE0087B8E0 /* AccountLanguageUpdate.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -588,6 +591,7 @@
 				11D833B32151680800C606BB /* FriendModel.swift in Sources */,
 				1101BFA8215023240012599B /* ContactViewModel.swift in Sources */,
 				11EBAAA82146D74700CECB45 /* ContactViewController.swift in Sources */,
+				11BD01BB2166AFBE0087B8E0 /* AccountLanguageUpdate.swift in Sources */,
 				1132AD4721498B5800B9BBB5 /* AccountUsernameUpdate.swift in Sources */,
 				117D4A20213F11A20072AB88 /* Shiftgram.xcdatamodeld in Sources */,
 				1159D09F21655576004E2171 /* Message.swift in Sources */,

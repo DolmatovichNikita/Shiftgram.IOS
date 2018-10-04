@@ -135,4 +135,18 @@ class UserDataManager {
             }
         }
     }
+    
+    public func updateAccountLanguage(accountUpdate: AccountLanguageUpdate, completion: @escaping (Bool) -> Void) {
+        let parameters = accountUpdate.toParameters()
+        
+        Alamofire.request(url, method: .put, parameters: parameters, encoding: JSONEncoding.default).responseJSON {response in
+            if let code = response.response?.statusCode {
+                if code == 200 {
+                    completion(true)
+                } else if code == 400 {
+                    completion(false)
+                }
+            }
+        }
+    }
 }

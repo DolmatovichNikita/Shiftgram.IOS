@@ -16,6 +16,7 @@ class UserEntity {
         let entity = NSEntityDescription.entity(forEntityName: "User", in: self.context)
         let user = NSManagedObject(entity: entity!, insertInto: self.context)
         user.setValue(id, forKey: "id")
+        user.setValue(Locale.current.languageCode!, forKey: "language")
         
         do {
             try self.context.save()
@@ -76,6 +77,20 @@ class UserEntity {
         }
         
         return phone
+    }
+    
+    public func getUserLanguage() -> String {
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "User")
+        var language = ""
+        
+        do {
+            let user = try self.context.fetch(request).first as! User
+            language = user.language!
+        } catch {
+            print("Failed")
+        }
+        
+        return language
     }
     
     public func isAuth() -> Bool {

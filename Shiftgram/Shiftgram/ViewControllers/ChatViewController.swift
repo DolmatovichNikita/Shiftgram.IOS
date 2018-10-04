@@ -7,6 +7,7 @@ class ChatViewController: JSQMessagesViewController {
     public var conversationName = String()
     private var messages = [JSQMessage]()
     private let userId = UserEntity().getUserId()
+    private let language = Locale.current.languageCode!
     
     lazy var outgoingBubble: JSQMessagesBubbleImage = {
         return JSQMessagesBubbleImageFactory()!.outgoingMessagesBubbleImage(with: UIColor.jsq_messageBubbleBlue())
@@ -39,22 +40,15 @@ class ChatViewController: JSQMessagesViewController {
                 let text        = data["text"],
                 !text.isEmpty
             {
-                /*let params = ROGoogleTranslateParams(source: "en",
-                 target: "ru",
-                 text:   text)*/
                 
-                //let translator = ROGoogleTranslate()
-                //translator.apiKey = "AIzaSyCjWOGOGX_OuXSnLC1k0ZH5XcI58fzslZ0"
                 
-                //translator.translate(params: params) { (result) in
                 if let message = JSQMessage(senderId: id, displayName: name, text: text)
                 {
-                    
                     self?.messages.append(message)
-                    
+                            
                     self?.finishReceivingMessage()
                 }
-                //}
+                
             }
         })
     }
@@ -68,11 +62,17 @@ class ChatViewController: JSQMessagesViewController {
     {
         let ref = Constants.refs.databaseRoot.child(self.conversationName).childByAutoId()
         
-        let message = ["sender_id": senderId, "name": senderDisplayName, "text": text]
-        
-        ref.setValue(message)
-        
-        finishSendingMessage()
+        let params = ROGoogleTranslateParams(source: language,
+                                             target: "en",
+                                             text:   text)
+        let translator = ROGoogleTranslate()
+        translator.apiKey = "AIzaSyBePVek0atgmg3pzKQyN4oo6a7Oggog3sQ"
+        translator.translate(params: params) { (value) in
+            let message = ["sender_id": senderId, "name": senderDisplayName, "text": value, "ownText": text]
+                
+            ref.setValue(message)
+        }
+        self.finishSendingMessage()
     }
     
     override func collectionView(_ collectionView: JSQMessagesCollectionView!, messageDataForItemAt indexPath: IndexPath!) -> JSQMessageData!

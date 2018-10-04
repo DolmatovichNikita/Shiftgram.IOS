@@ -38,7 +38,7 @@ class ChatViewController: JSQMessagesViewController {
             if  let data        = snapshot.value as? [String: String],
                 let id          = data["sender_id"],
                 let name        = data["name"],
-                let text        = data["text"],
+                let text        = data["sender_id"] == self!.senderId ? data["ownText"] : data["transText"],
                 !text.isEmpty
             {
                 
@@ -64,12 +64,13 @@ class ChatViewController: JSQMessagesViewController {
         let ref = Constants.refs.databaseRoot.child(self.conversationName).childByAutoId()
         
         let params = ROGoogleTranslateParams(source: language,
-                                             target: "en",
+                                             target: self.friendLanguage,
                                              text:   text)
         let translator = ROGoogleTranslate()
         translator.apiKey = "AIzaSyBePVek0atgmg3pzKQyN4oo6a7Oggog3sQ"
         translator.translate(params: params) { (value) in
-            let message = ["sender_id": senderId, "name": senderDisplayName, "text": value, "ownText": text]
+            let message = ["sender_id": senderId, "name": senderDisplayName, "text": value, "ownText": text,
+                           "transText": value]
                 
             ref.setValue(message)
         }

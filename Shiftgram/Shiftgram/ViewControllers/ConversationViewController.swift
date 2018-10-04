@@ -4,6 +4,7 @@ class ConversationViewController: UIViewController, UITableViewDelegate, UITable
     
     @IBOutlet weak var conversationTableView: UITableView!
     private var conversations = [Conversation]()
+    private var conversationName: String!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,5 +31,19 @@ class ConversationViewController: UIViewController, UITableViewDelegate, UITable
         }
         
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let conversation = self.conversations[indexPath.row]
+        let userId = UserEntity().getUserId()
+        self.conversationName = String(conversation.accountBId * userId)
+        self.performSegue(withIdentifier: "Chat", sender: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "Chat" {
+            var chatViewController = segue.destination as! ChatViewController
+            chatViewController.conversationName = self.conversationName
+        }
     }
 }

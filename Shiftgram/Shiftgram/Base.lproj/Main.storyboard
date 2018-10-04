@@ -283,14 +283,11 @@
                         <viewLayoutGuide key="safeArea" id="9bw-Iq-cCb"/>
                     </view>
                     <navigationItem key="navigationItem" id="y8W-PJ-p2q">
-                        <barButtonItem key="rightBarButtonItem" title="Item" id="Hj5-Wl-GyS">
-                            <connections>
-                                <segue destination="qb4-ws-otk" kind="show" id="ZL2-si-uHx"/>
-                            </connections>
-                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Item" id="Hj5-Wl-GyS"/>
                     </navigationItem>
                     <connections>
                         <outlet property="conversationTableView" destination="F4v-8K-1dB" id="9MT-Fc-3uS"/>
+                        <segue destination="qb4-ws-otk" kind="show" identifier="Chat" id="Cxm-gc-DYr"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="owb-nH-w3a" userLabel="First Responder" sceneMemberID="firstResponder"/>

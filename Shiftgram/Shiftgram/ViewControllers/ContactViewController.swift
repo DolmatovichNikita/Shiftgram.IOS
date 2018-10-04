@@ -52,7 +52,9 @@ class ContactViewController: UIViewController, UITableViewDelegate, UITableViewD
         if !self.contactViewModel.isAddNewConversation(accountBId: friend.id) {
             ConversationEntity().addConversation(friendModel: friend)
         }
-        let conversationViewController = ChatViewController()
-        self.present(conversationViewController, animated: true, completion: nil)
+        let chatViewController = ChatViewController()
+        let userId = UserEntity().getUserId()
+        chatViewController.conversationName = String(friend.id * Int(userId))
+        self.present(chatViewController, animated: true, completion: nil)
     }
 }

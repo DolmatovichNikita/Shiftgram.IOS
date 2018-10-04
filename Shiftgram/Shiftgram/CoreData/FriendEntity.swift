@@ -69,4 +69,17 @@ class FriendEntity {
             print("Failed")
         }
     }
+    
+    public func updateFriend(value: Any, key: String, id: Int) {
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Friend")
+        
+        request.predicate = NSPredicate(format: "id == %@", String(id))
+        do {
+            let entity = try self.context.fetch(request).first as! NSManagedObject
+            entity.setValue(value, forKey: key)
+            try self.context.save()
+        } catch {
+            print("Failed")
+        }
+    }
 }

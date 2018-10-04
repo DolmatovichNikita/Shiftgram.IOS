@@ -8,7 +8,7 @@ class ChatViewController: JSQMessagesViewController {
     public var friendLanguage = String()
     private var messages = [JSQMessage]()
     private let userId = UserEntity().getUserId()
-    private var language = Locale.current.languageCode!
+    private var language = (Locale.preferredLanguages.first?.parseLanguage())!
     
     lazy var outgoingBubble: JSQMessagesBubbleImage = {
         return JSQMessagesBubbleImageFactory()!.outgoingMessagesBubbleImage(with: UIColor.jsq_messageBubbleBlue())
@@ -63,7 +63,6 @@ class ChatViewController: JSQMessagesViewController {
     {
         let ref = Constants.refs.databaseRoot.child(self.conversationName).childByAutoId()
         
-        language = (inputToolbar.textInputMode?.primaryLanguage)!
         let params = ROGoogleTranslateParams(source: language,
                                              target: self.friendLanguage,
                                              text:   text)

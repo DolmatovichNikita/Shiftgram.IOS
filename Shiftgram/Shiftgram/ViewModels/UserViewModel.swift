@@ -3,6 +3,7 @@ import Foundation
 class UserViewModel {
     
     private let userDataManager = UserDataManager()
+    private let friendDataManager = FriendDataManager()
     
     public func addAccount(account: Account, completion: @escaping() -> Void) {
         self.userDataManager.addAccount(account: account) {
@@ -25,6 +26,12 @@ class UserViewModel {
     public func updateLanguage(accountUpdate: AccountLanguageUpdate, completion: @escaping (Bool) -> Void) {
         self.userDataManager.updateAccountLanguage(accountUpdate: accountUpdate) { (value) in
             completion(value)
+        }
+    }
+    
+    public func updateLanguageFriend(completion: @escaping () -> Void) {
+        self.friendDataManager.updateLanguageFriends {
+            completion()
         }
     }
 }

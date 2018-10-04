@@ -28,7 +28,9 @@ class SettingsViewController: UIViewController {
         self.activityIndicator.startLoading()
         let accountUpdate = AccountLanguageUpdate(id: Int(UserEntity().getUserId()), language: (Locale.preferredLanguages.first?.parseLanguage())!, updateType: "LanguageUpdate")
         self.userViewModel.updateLanguage(accountUpdate: accountUpdate) { (_) in
-            self.activityIndicator.stopLoading()
+            self.userViewModel.updateLanguageFriend(completion: {
+                self.activityIndicator.stopLoading()
+            })
         }
     }
     

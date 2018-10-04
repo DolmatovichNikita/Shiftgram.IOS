@@ -5,6 +5,7 @@ class ConversationViewController: UIViewController, UITableViewDelegate, UITable
     @IBOutlet weak var conversationTableView: UITableView!
     private var conversations = [Conversation]()
     private var conversationName: String!
+    private var friendLanguage: String!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,13 +38,15 @@ class ConversationViewController: UIViewController, UITableViewDelegate, UITable
         let conversation = self.conversations[indexPath.row]
         let userId = UserEntity().getUserId()
         self.conversationName = String(conversation.accountBId * userId)
+        self.friendLanguage = FriendEntity().getFriendLanguage(id: Int(conversation.accountBId))
         self.performSegue(withIdentifier: "Chat", sender: self)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "Chat" {
-            var chatViewController = segue.destination as! ChatViewController
+            let chatViewController = segue.destination as! ChatViewController
             chatViewController.conversationName = self.conversationName
+            chatViewController.friendLanguage = self.friendLanguage
         }
     }
 }

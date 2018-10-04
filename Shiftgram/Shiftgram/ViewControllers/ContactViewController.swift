@@ -55,6 +55,7 @@ class ContactViewController: UIViewController, UITableViewDelegate, UITableViewD
         let chatViewController = ChatViewController()
         let userId = UserEntity().getUserId()
         chatViewController.conversationName = String(friend.id * Int(userId))
+        chatViewController.friendLanguage = FriendEntity().getFriendLanguage(id: friend.id)
         self.present(chatViewController, animated: true, completion: nil)
     }
 }

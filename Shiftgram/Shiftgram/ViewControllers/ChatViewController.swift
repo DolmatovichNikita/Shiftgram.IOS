@@ -5,6 +5,7 @@ import ROGoogleTranslate
 class ChatViewController: JSQMessagesViewController {
     
     public var conversationName = String()
+    public var friendLanguage = String()
     private var messages = [JSQMessage]()
     private let userId = UserEntity().getUserId()
     private let language = Locale.current.languageCode!
@@ -22,7 +23,6 @@ class ChatViewController: JSQMessagesViewController {
         inputToolbar.contentView.leftBarButtonItem = nil
         collectionView.collectionViewLayout.incomingAvatarViewSize = CGSize.zero
         collectionView.collectionViewLayout.outgoingAvatarViewSize = CGSize.zero
-        print()
         self.initChat()
     }
     

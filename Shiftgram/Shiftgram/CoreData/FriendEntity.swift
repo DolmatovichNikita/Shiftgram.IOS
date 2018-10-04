@@ -50,7 +50,7 @@ class FriendEntity {
         request.predicate = NSPredicate(format: "id == %@", String(id))
         do {
             let friend = try self.context.fetch(request).first as! Friend
-            language = friend.language
+            language = friend.language!
         } catch {
             print("Failed")
         }

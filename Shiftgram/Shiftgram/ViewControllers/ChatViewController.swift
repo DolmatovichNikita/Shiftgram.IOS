@@ -1,9 +1,10 @@
 import UIKit
+import AVFoundation
 import JSQMessagesViewController
 import ROGoogleTranslate
 
 class ChatViewController: JSQMessagesViewController {
-    
+
     public var conversationName = String()
     public var friendLanguage = String()
     private var messages = [JSQMessage]()
@@ -18,9 +19,17 @@ class ChatViewController: JSQMessagesViewController {
         return JSQMessagesBubbleImageFactory()!.incomingMessagesBubbleImage(with: UIColor.lightGray)
     }()
     
+    lazy var rightBarButtonItem: UIButton = {
+        let button = UIButton(frame: CGRect.zero)
+        button.setImage(UIImage(named: "microphone"), for: .normal)
+        button.imageView?.contentMode = .scaleAspectFit
+        return button
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         inputToolbar.contentView.leftBarButtonItem = nil
+        inputToolbar?.contentView?.rightBarButtonItem = self.rightBarButtonItem
         collectionView.collectionViewLayout.incomingAvatarViewSize = CGSize.zero
         collectionView.collectionViewLayout.outgoingAvatarViewSize = CGSize.zero
         self.initChat()
@@ -56,8 +65,10 @@ class ChatViewController: JSQMessagesViewController {
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
+}
+
+extension ChatViewController {
     
     override func didPressSend(_ button: UIButton!, withMessageText text: String!, senderId: String!, senderDisplayName: String!, date: Date!)
     {
@@ -71,7 +82,7 @@ class ChatViewController: JSQMessagesViewController {
         translator.translate(params: params) { (value) in
             let message = ["sender_id": senderId, "name": senderDisplayName, "text": value, "ownText": text,
                            "transText": value]
-                
+            
             ref.setValue(message)
         }
         self.finishSendingMessage()
@@ -106,7 +117,5 @@ class ChatViewController: JSQMessagesViewController {
     {
         return messages[indexPath.item].senderId == senderId ? 0 : 15
     }
-
 }
-
 

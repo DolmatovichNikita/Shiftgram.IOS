@@ -214,7 +214,7 @@
             </objects>
             <point key="canvasLocation" x="1727" y="596"/>
         </scene>
-        <!--Conversation View Controller-->
+        <!--Chats-->
         <scene sceneID="ptC-lb-Egu">
             <objects>
                 <viewController storyboardIdentifier="Conversation" id="j81-VI-SgQ" customClass="ConversationViewController" customModule="Shiftgram" customModuleProvider="target" sceneMemberID="viewController">
@@ -282,9 +282,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="9bw-Iq-cCb"/>
                     </view>
-                    <navigationItem key="navigationItem" id="y8W-PJ-p2q">
-                        <barButtonItem key="rightBarButtonItem" title="Item" id="Hj5-Wl-GyS"/>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Chats" id="y8W-PJ-p2q"/>
                     <connections>
                         <outlet property="conversationTableView" destination="F4v-8K-1dB" id="9MT-Fc-3uS"/>
                         <segue destination="qb4-ws-otk" kind="show" identifier="Chat" id="Cxm-gc-DYr"/>

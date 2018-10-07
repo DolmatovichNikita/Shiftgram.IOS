@@ -21,6 +21,7 @@ class UserDataManager {
     public func getById(completion: @escaping (AccountSettings) -> Void) {
         
         let accountId = self.userEntity.getUserId()
+        print(accountId)
         
         Alamofire.request(self.url + "/\(accountId)", method: .get, parameters: nil, encoding: JSONEncoding.default).responseJSON {response in
             let result = response.result.value as! NSDictionary

@@ -4,7 +4,7 @@ import ROGoogleTranslate
 import AVFoundation
 import Speech
 
-class ChatViewController: JSQMessagesViewController, AVAudioRecorderDelegate, AVAudioPlayerDelegate, SFSpeechRecognizerDelegate {
+class ChatViewController: JSQMessagesViewController, AVAudioRecorderDelegate, SFSpeechRecognizerDelegate {
 
     public var conversationName = String()
     public var friendLanguage = String()
@@ -13,10 +13,8 @@ class ChatViewController: JSQMessagesViewController, AVAudioRecorderDelegate, AV
     private var language = (Locale.preferredLanguages.first?.parseLanguage())!
     
     var audioRecorder: AVAudioRecorder?
-    var audioPlayer: AVAudioPlayer?
     
     private let speechRecognizer = SFSpeechRecognizer(locale: Locale.init(identifier: Locale.preferredLanguages.first!))
-    
     private var recognitionRequest: SFSpeechAudioBufferRecognitionRequest?
     private var recognitionTask: SFSpeechRecognitionTask?
     private let audioEngine = AVAudioEngine()
@@ -30,7 +28,7 @@ class ChatViewController: JSQMessagesViewController, AVAudioRecorderDelegate, AV
         return JSQMessagesBubbleImageFactory()!.incomingMessagesBubbleImage(with: UIColor.lightGray)
     }()
     
-    lazy var leftBarButtonItem: UIButton = {
+    lazy var rightBarButtonItem: UIButton = {
         let button = UIButton(frame: CGRect.zero)
         button.setImage(UIImage(named: "microphone"), for: .normal)
         button.imageView?.contentMode = .scaleAspectFit
@@ -45,14 +43,12 @@ class ChatViewController: JSQMessagesViewController, AVAudioRecorderDelegate, AV
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        inputToolbar.contentView.leftBarButtonItem = self.leftBarButtonItem
-        //inputToolbar?.contentView?.rightBarButtonItem = self.rightBarButtonItem
+        inputToolbar.contentView.leftBarButtonItem = nil
+        inputToolbar?.contentView?.rightBarButtonItem = self.rightBarButtonItem
         collectionView.collectionViewLayout.incomingAvatarViewSize = CGSize.zero
         collectionView.collectionViewLayout.outgoingAvatarViewSize = CGSize.zero
         self.initChat()
-        self.initAudio()
         speechRecognizer!.delegate = self
-        
         SFSpeechRecognizer.requestAuthorization { (_) in}
     }
     
@@ -77,6 +73,7 @@ class ChatViewController: JSQMessagesViewController, AVAudioRecorderDelegate, AV
                     let text = data["sender_id"] == String(UserEntity().getUserId()) ? data["ownAudio"] : data["transAudio"]
                     
                     if !(text?.isEmpty)! && text != nil {
+                        self?.finishReceivingMessage()
                         if let message = JSQMessage(senderId: id, displayName: name, text: text)
                         {
                             self?.messages.append(message)
@@ -84,16 +81,9 @@ class ChatViewController: JSQMessagesViewController, AVAudioRecorderDelegate, AV
                             self?.finishReceivingMessage()
                         }
                     }
-                    /*AwsHelper.downloadRecord(path: audioUrl!, completion: { (data) in
-                        let audioItem = JSQAudioMediaItem(data: data as Data)
-                        let message = JSQMessage(senderId: self!.senderId, displayName: self!.senderDisplayName, media: audioItem)
-                        self!.messages.append(message!)
-                        self?.finishReceivingMessage()
-                    })*/
-                    
                 } else {
                     let text = data["sender_id"] == self!.senderId ? data["ownText"] : data["transText"]
-                    
+    
                     if !(text?.isEmpty)! && text != nil {
                         if let message = JSQMessage(senderId: id, displayName: name, text: text)
                         {
@@ -107,37 +97,8 @@ class ChatViewController: JSQMessagesViewController, AVAudioRecorderDelegate, AV
         })
     }
     
-    private func initAudio() {
-        let fileMgr = FileManager.default
-        let dirPaths = fileMgr.urls(for: .documentDirectory, in: .userDomainMask)
-        let soundFileURL = dirPaths[0].appendingPathComponent("sound.caf")
-        let recordSettings =
-            [AVEncoderAudioQualityKey: AVAudioQuality.min.rawValue,
-             AVEncoderBitRateKey: 16,
-             AVNumberOfChannelsKey: 2,
-             AVSampleRateKey: 44100.0] as [String : Any]
-        let audioSession = AVAudioSession.sharedInstance()
-        
-        do {
-            try audioSession.setCategory(
-                AVAudioSessionCategoryPlayAndRecord)
-        } catch let error as NSError {
-            print("audioSession error: \(error.localizedDescription)")
-        }
-        
-        do {
-            try audioRecorder = AVAudioRecorder(url: soundFileURL,
-                                                settings: recordSettings as [String : AnyObject])
-            audioRecorder?.prepareToRecord()
-        } catch let error as NSError {
-            print("audioSession error: \(error.localizedDescription)")
-        }
-    }
-    
     @objc private func longPressedButton(tapGestureRecognizer: UILongPressGestureRecognizer) {
         if tapGestureRecognizer.state == .began {
-            //self.initAudio()
-            //audioRecorder?.record()
             self.startRecording()
             self.inputToolbar.contentView.rightBarButtonItem.isEnabled = true
         }
@@ -151,43 +112,27 @@ class ChatViewController: JSQMessagesViewController, AVAudioRecorderDelegate, AV
                                                      text:   speechText)
                 let translator = ROGoogleTranslate()
                 translator.apiKey = "AIzaSyBePVek0atgmg3pzKQyN4oo6a7Oggog3sQ"
-                DispatchQueue.main.async {
-                    translator.translate(params: params) { (value) in
-                        let message = ["sender_id": self.senderId!, "name": self.senderDisplayName, "audio": self.speechText, "ownAudio": self.speechText,
+                translator.translate(params: params) { (value) in
+                    let message = ["sender_id": self.senderId!, "name": self.senderDisplayName, "audio": self.speechText, "ownAudio": self.speechText,
                                        "transAudio": value] as [String : Any]
                         
-                        ref.setValue(message)
-                    }
+                    ref.setValue(message)
+                    self.speechText = ""
                 }
-                let uttr = AVSpeechUtterance(string: self.speechText)
-                uttr.voice = AVSpeechSynthesisVoice(language: "en-US")
-                uttr.rate = 0.5
-                AVSpeechSynthesizer().speak(uttr)
                 
                 self.finishSendingMessage()
                 self.inputToolbar.contentView.rightBarButtonItem.isEnabled = true
             }
-            /*audioRecorder?.stop()
-
-            AwsHelper.uploadRecord(audioRecord: self.audioRecorder!) { (value) in
-                let ref = Constants.refs.databaseRoot.child(self.conversationName).childByAutoId()
-                JSQSystemSoundPlayer.jsq_playMessageSentSound()
-                let message = ["sender_id": self.senderId!, "name": self.senderDisplayName, "audioUrl": value] as [String : Any]
-                ref.setValue(message)
-                self.finishSendingMessage()
-                self.inputToolbar.contentView.rightBarButtonItem.isEnabled = true
-            }*/
-            
         }
     }
     
     func startRecording() {
-        if recognitionTask != nil {  //1
+        if recognitionTask != nil {
             recognitionTask?.cancel()
             recognitionTask = nil
         }
         
-        let audioSession = AVAudioSession.sharedInstance()  //2
+        let audioSession = AVAudioSession.sharedInstance()
         do {
             try audioSession.setCategory(AVAudioSessionCategoryRecord)
             try audioSession.setMode(AVAudioSessionModeMeasurement)
@@ -196,27 +141,27 @@ class ChatViewController: JSQMessagesViewController, AVAudioRecorderDelegate, AV
             print("audioSession properties weren't set because of an error.")
         }
         
-        recognitionRequest = SFSpeechAudioBufferRecognitionRequest()  //3
+        recognitionRequest = SFSpeechAudioBufferRecognitionRequest()
         
-        let inputNode = audioEngine.inputNode //4
+        let inputNode = audioEngine.inputNode
         
         guard let recognitionRequest = recognitionRequest else {
             fatalError("Unable to create an SFSpeechAudioBufferRecognitionRequest object")
-        } //5
+        }
         
-        recognitionRequest.shouldReportPartialResults = true  //6
+        recognitionRequest.shouldReportPartialResults = true
         
-        recognitionTask = speechRecognizer!.recognitionTask(with: recognitionRequest, resultHandler: { (result, error) in  //7
+        recognitionTask = speechRecognizer!.recognitionTask(with: recognitionRequest, resultHandler: { (result, error) in
             
-            var isFinal = false  //8
+            var isFinal = false
             
             if result != nil {
                 
-                self.speechText = (result?.bestTranscription.formattedString)!  //9
+                self.speechText = (result?.bestTranscription.formattedString)!
                 isFinal = (result?.isFinal)!
             }
             
-            if error != nil || isFinal {  //10
+            if error != nil || isFinal {
                 self.audioEngine.stop()
                 inputNode.removeTap(onBus: 0)
                 
@@ -226,12 +171,12 @@ class ChatViewController: JSQMessagesViewController, AVAudioRecorderDelegate, AV
             }
         })
         
-        let recordingFormat = inputNode.outputFormat(forBus: 0)  //11
+        let recordingFormat = inputNode.outputFormat(forBus: 0)
         inputNode.installTap(onBus: 0, bufferSize: 1024, format: recordingFormat) { (buffer, when) in
             self.recognitionRequest?.append(buffer)
         }
         
-        audioEngine.prepare()  //12
+        audioEngine.prepare()
         
         do {
             try audioEngine.start()

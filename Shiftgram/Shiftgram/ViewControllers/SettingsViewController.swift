@@ -12,8 +12,6 @@ class SettingsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.initControls()
-        UINavigationBar.appearance().backgroundColor = self.view.backgroundColor
-        UINavigationBar.appearance().setBackgroundImage(UIImage(), for: .default)
         self.activityIndicator = ActivityIndicator(view: self.view)
         self.activityIndicator.startLoading()
         self.getAccountSettings()

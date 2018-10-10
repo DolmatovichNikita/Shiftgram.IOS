@@ -13,6 +13,7 @@ class ChatViewController: JSQMessagesViewController, AVAudioRecorderDelegate, SF
     private var language = (Locale.preferredLanguages.first?.parseLanguage())!
     
     var audioRecorder: AVAudioRecorder?
+    private var timer = Timer()
     
     private let speechRecognizer = SFSpeechRecognizer(locale: Locale.init(identifier: Locale.preferredLanguages.first!))
     private var recognitionRequest: SFSpeechAudioBufferRecognitionRequest?
@@ -97,16 +98,24 @@ class ChatViewController: JSQMessagesViewController, AVAudioRecorderDelegate, SF
         })
     }
     
+    @objc private func rightSwipeGesture(swipeGesture: UISwipeGestureRecognizer) {
+        if swipeGesture.direction == .left {
+        }
+    }
+    
     @objc private func longPressedButton(tapGestureRecognizer: UILongPressGestureRecognizer) {
         if tapGestureRecognizer.state == .began {
             self.startRecording()
+            self.addViewRecording()
             self.inputToolbar.contentView.rightBarButtonItem.isEnabled = true
         }
         if tapGestureRecognizer.state == .ended {
+            print("Hi1")
             if audioEngine.isRunning {
                 audioEngine.stop()
                 recognitionRequest?.endAudio()
-                let ref = Constants.refs.databaseRoot.child(self.conversationName).childByAutoId()
+                //self.deleteViewRecording()
+                /*let ref = Constants.refs.databaseRoot.child(self.conversationName).childByAutoId()
                 let params = ROGoogleTranslateParams(source: language,
                                                      target: self.friendLanguage,
                                                      text:   speechText)
@@ -120,13 +129,13 @@ class ChatViewController: JSQMessagesViewController, AVAudioRecorderDelegate, SF
                     self.speechText = ""
                 }
                 
-                self.finishSendingMessage()
+                self.finishSendingMessage()*/
                 self.inputToolbar.contentView.rightBarButtonItem.isEnabled = true
             }
         }
     }
     
-    func startRecording() {
+    private func startRecording() {
         if recognitionTask != nil {
             recognitionTask?.cancel()
             recognitionTask = nil
@@ -183,6 +192,55 @@ class ChatViewController: JSQMessagesViewController, AVAudioRecorderDelegate, SF
         } catch {
             print("audioEngine couldn't start because of an error.")
         }
+    }
+    
+    private func addViewRecording() {
+        let recordingView = UIView(frame: CGRect(x: 0, y: 0, width: self.inputToolbar.contentView.frame.size.width, height: self.inputToolbar.contentView.frame.size.height))
+        recordingView.backgroundColor = UIColor.white
+        recordingView.tag = Int(userId)
+        let swipeGestureRecognition = UISwipeGestureRecognizer(target: self, action: #selector(rightSwipeGesture(swipeGesture:)))
+        swipeGestureRecognition.direction = .left
+        recordingView.addGestureRecognizer(swipeGestureRecognition)
+        
+        let labelTimer = UILabel(frame: CGRect(x: self.inputToolbar.contentView.frame.size.width / 2.0, y: 0, width: 100, height: 44))
+        labelTimer.textColor = UIColor.black
+        labelTimer.text = String(format: "%02i:%02i", 0, 0)
+        
+        let labelText = UILabel(frame: CGRect(x: 0, y: 0, width: 100, height: 44))
+        labelText.textColor = UIColor.lightGray
+        labelText.font = UIFont.systemFont(ofSize: 12)
+        labelText.text = "Slide to cancel"
+        
+        let point = UIBezierPath(arcCenter: CGPoint(x: self.inputToolbar.contentView.frame.size.width / 2.0 - 10.0, y: self.inputToolbar.contentView.frame.size.height / 2.0), radius: 3, startAngle: CGFloat(0), endAngle: CGFloat(3.14 * Float(2)), clockwise: true)
+        let circle = CAShapeLayer()
+        circle.path = point.cgPath
+        circle.fillColor = UIColor.red.cgColor
+        
+        var counter = 0
+        self.timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: { (timer) in
+            counter += 1
+            var minute = 0
+            var seconds = 0
+            
+            if counter > 60 {
+                minute = counter / 60
+                seconds = counter % 60
+            } else {
+                seconds = counter
+            }
+            labelTimer.text = String(format: "%02i:%02i", minute, seconds)
+        })
+        recordingView.addSubview(labelText)
+        recordingView.addSubview(labelTimer)
+        recordingView.layer.addSublayer(circle)
+        self.inputToolbar.contentView.addSubview(recordingView)
+        self.inputToolbar.contentView.addGestureRecognizer(swipeGestureRecognition)
+    }
+    
+    private func deleteViewRecording() {
+        self.timer.invalidate()
+        let del = self.inputToolbar.contentView.viewWithTag(Int(userId))
+        del?.removeFromSuperview()
     }
 }
 

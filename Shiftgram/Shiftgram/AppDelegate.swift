@@ -9,7 +9,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        
         self.initControls()
         self.registerCognito()
         FirebaseApp.configure()
@@ -29,7 +28,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     private func registerCognito() {
-        
         let credentialsProvider = AWSCognitoCredentialsProvider(regionType:.EUCentral1,
                                                                 identityPoolId:"eu-central-1:2e181e24-28d0-4839-84a3-011b2fe795f5")
         
@@ -39,7 +37,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     private func isAuth() -> Bool {
-        
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "User")
         var isAuth = false
         
@@ -58,7 +55,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     private func initControls() {
-        
         UINavigationBar.appearance().backgroundColor = UIColor.white
         UINavigationBar.appearance().shadowImage = UIImage()
         UINavigationBar.appearance().setBackgroundImage(UIImage(), for: .default)

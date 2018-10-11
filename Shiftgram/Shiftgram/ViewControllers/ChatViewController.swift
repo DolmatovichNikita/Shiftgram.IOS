@@ -5,7 +5,7 @@ import AVFoundation
 import Speech
 import CallKit
 
-class ChatViewController: JSQMessagesViewController, AVAudioRecorderDelegate, SFSpeechRecognizerDelegate, CXProviderDelegate {
+class ChatViewController: JSQMessagesViewController, AVAudioRecorderDelegate, SFSpeechRecognizerDelegate {
 
     public var conversationName = String()
     public var friendLanguage = String()
@@ -38,39 +38,6 @@ class ChatViewController: JSQMessagesViewController, AVAudioRecorderDelegate, SF
         button.addGestureRecognizer(gestureRecgnizer)
         return button
     }()
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-    }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        inputToolbar.contentView.leftBarButtonItem = nil
-        inputToolbar?.contentView?.rightBarButtonItem = self.rightBarButtonItem
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "call"), style: .plain, target: self, action: #selector (pressCallButton))
-        collectionView.collectionViewLayout.incomingAvatarViewSize = CGSize.zero
-        collectionView.collectionViewLayout.outgoingAvatarViewSize = CGSize.zero
-        self.initChat()
-        speechRecognizer!.delegate = self
-        SFSpeechRecognizer.requestAuthorization { (_) in}
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        self.inputToolbar.contentView.rightBarButtonItem.isEnabled = true
-    }
-    
-    func providerDidReset(_ provider: CXProvider) {
-        
-    }
-    
-    func provider(_ provider: CXProvider, perform action: CXAnswerCallAction) {
-        action.fulfill()
-    }
-    
-    func provider(_ provider: CXProvider, perform action: CXEndCallAction) {
-        action.fulfill()
-    }
     
     private func initChat() {
         senderId = String(userId)
@@ -106,6 +73,28 @@ class ChatViewController: JSQMessagesViewController, AVAudioRecorderDelegate, SF
                             
                             self?.finishReceivingMessage()
                         }
+                    }
+                }
+            }
+        })
+    }
+    
+    private func initCall() {
+        let query = Constants.refs.databaseRoot.child(self.conversationName + "notification").queryLimited(toLast: 10)
+        
+        _ = query.observe(.childAdded, with: { [weak self] snapshot in
+            if let data = snapshot.value as? [String: String] {
+                let id = data["sender_id"]
+                let senderName = data["name"]
+                let video = data["videoCall"]
+                
+                if id != String(UserEntity().getUserId()) {
+                    if video != nil && !(video?.isEmpty)! {
+                        let provider = CXProvider(configuration: CXProviderConfiguration(localizedName: "Shiftgram"))
+                        provider.setDelegate(self, queue: nil)
+                        let update = CXCallUpdate()
+                        update.remoteHandle = CXHandle(type: .generic, value: senderName!)
+                        provider.reportNewIncomingCall(with: UUID(), update: update, completion: { error in })
                     }
                 }
             }
@@ -271,6 +260,28 @@ class ChatViewController: JSQMessagesViewController, AVAudioRecorderDelegate, SF
 
 extension ChatViewController {
     
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        inputToolbar.contentView.leftBarButtonItem = nil
+        inputToolbar?.contentView?.rightBarButtonItem = self.rightBarButtonItem
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "call"), style: .plain, target: self, action: #selector (pressCallButton))
+        collectionView.collectionViewLayout.incomingAvatarViewSize = CGSize.zero
+        collectionView.collectionViewLayout.outgoingAvatarViewSize = CGSize.zero
+        self.initChat()
+        self.initCall()
+        speechRecognizer!.delegate = self
+        SFSpeechRecognizer.requestAuthorization { (_) in}
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        self.inputToolbar.contentView.rightBarButtonItem.isEnabled = true
+    }
+    
     override func didPressSend(_ button: UIButton!, withMessageText text: String!, senderId: String!, senderDisplayName: String!, date: Date!) {
         if text != nil && text != "" {
             let ref = Constants.refs.databaseRoot.child(self.conversationName).childByAutoId()
@@ -313,5 +324,23 @@ extension ChatViewController {
     
     override func collectionView(_ collectionView: JSQMessagesCollectionView!, layout collectionViewLayout: JSQMessagesCollectionViewFlowLayout!, heightForMessageBubbleTopLabelAt indexPath: IndexPath!) -> CGFloat {
         return messages[indexPath.item].senderId == senderId ? 0 : 15
+    }
+}
+
+extension ChatViewController: CXProviderDelegate {
+    func providerDidReset(_ provider: CXProvider) {
+        
+    }
+    
+    func provider(_ provider: CXProvider, perform action: CXAnswerCallAction) {
+        //action.fulfill()
+        let videoViewController = VideoViewController()
+        self.present(videoViewController, animated: true, completion: nil)
+        Constants.refs.databaseRoot.child(self.conversationName + "notification").removeValue()
+    }
+    
+    func provider(_ provider: CXProvider, perform action: CXEndCallAction) {
+        action.fulfill()
+        Constants.refs.databaseRoot.child(self.conversationName + "notification").removeValue()
     }
 }

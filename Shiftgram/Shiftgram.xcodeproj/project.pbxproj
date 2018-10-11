@@ -39,6 +39,7 @@
 		11878F88214596E4009026CE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 11878F87214596E4009026CE /* Assets.xcassets */; };
 		11878F8A21459DD9009026CE /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11878F8921459DD9009026CE /* UserViewModel.swift */; };
 		11878F8C2145A695009026CE /* PhoneVerify.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11878F8B2145A695009026CE /* PhoneVerify.swift */; };
+		1194664D216F896C00591C82 /* VideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1194664C216F896C00591C82 /* VideoViewController.swift */; };
 		11AB8295214804B1003558A4 /* AccountUpdatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11AB8294214804B1003558A4 /* AccountUpdatable.swift */; };
 		11BD01BB2166AFBE0087B8E0 /* AccountLanguageUpdate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11BD01BA2166AFBE0087B8E0 /* AccountLanguageUpdate.swift */; };
 		11BE43AD21503B5500938ED2 /* ContactTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11BE43AC21503B5500938ED2 /* ContactTableViewCell.swift */; };
@@ -121,6 +122,7 @@
 		11878F87214596E4009026CE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		11878F8921459DD9009026CE /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
 		11878F8B2145A695009026CE /* PhoneVerify.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneVerify.swift; sourceTree = "<group>"; };
+		1194664C216F896C00591C82 /* VideoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoViewController.swift; sourceTree = "<group>"; };
 		11AB8294214804B1003558A4 /* AccountUpdatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountUpdatable.swift; sourceTree = "<group>"; };
 		11BD01BA2166AFBE0087B8E0 /* AccountLanguageUpdate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountLanguageUpdate.swift; sourceTree = "<group>"; };
 		11BE43AC21503B5500938ED2 /* ContactTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactTableViewCell.swift; sourceTree = "<group>"; };
@@ -272,6 +274,7 @@
 				1132AD402149868400B9BBB5 /* SettingsViewController.swift */,
 				11BE43AE21503F2D00938ED2 /* InviteViewController.swift */,
 				116A8B642151934700C9F8DE /* ChatViewController.swift */,
+				1194664C216F896C00591C82 /* VideoViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -608,6 +611,7 @@
 				11BD01BB2166AFBE0087B8E0 /* AccountLanguageUpdate.swift in Sources */,
 				1132AD4721498B5800B9BBB5 /* AccountUsernameUpdate.swift in Sources */,
 				117D4A20213F11A20072AB88 /* Shiftgram.xcdatamodeld in Sources */,
+				1194664D216F896C00591C82 /* VideoViewController.swift in Sources */,
 				1159D09F21655576004E2171 /* Message.swift in Sources */,
 				116D07A321469A1200FB0AF0 /* AccountPhoneUpdate.swift in Sources */,
 				1158272B2147B59100D5AFE1 /* AwsHelper.swift in Sources */,

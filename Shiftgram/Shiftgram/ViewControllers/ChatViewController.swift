@@ -141,11 +141,7 @@ class ChatViewController: JSQMessagesViewController, AVAudioRecorderDelegate, SF
             let ref = Constants.refs.databaseRoot.child(self.conversationName + "notification").childByAutoId()
             let message = ["sender_id": self.senderId!, "name": self.senderDisplayName, "videoCall": "true"] as [String : Any]
             ref.setValue(message)
-            
-            let videoViewController = VideoViewController()
-            videoViewController.conversationName = self.conversationName
-            videoViewController.friendLaguage = self.friendLanguage
-            self.present(videoViewController, animated: true, completion: nil)
+            self.performSegue(withIdentifier: "Video", sender: self)
         }
         let voiceCall = UIAlertAction(title: "Voice", style: .default) { (_) in
             let ref = Constants.refs.databaseRoot.child(self.conversationName + "notification").childByAutoId()
@@ -156,6 +152,14 @@ class ChatViewController: JSQMessagesViewController, AVAudioRecorderDelegate, SF
         choiceCallType.addAction(videoCall)
         choiceCallType.addAction(voiceCall)
         self.present(choiceCallType, animated: true, completion: nil)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "Video" {
+            let videoViewController = VideoViewController()
+            videoViewController.conversationName = self.conversationName
+            videoViewController.friendLaguage = self.friendLanguage
+        }
     }
     
     private func startRecording() {

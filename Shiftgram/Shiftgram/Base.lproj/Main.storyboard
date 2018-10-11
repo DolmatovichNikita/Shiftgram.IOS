@@ -246,7 +246,7 @@
                                                     <viewLayoutGuide key="safeArea" id="Qcm-uP-ZEx"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CTC-iq-oHR">
-                                                    <rect key="frame" x="113" y="11" width="242" height="33"/>
+                                                    <rect key="frame" x="113" y="11" width="203" height="33"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -302,6 +302,9 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="DSI-Lu-Rzx"/>
                     </view>
+                    <connections>
+                        <segue destination="9UR-8d-K8X" kind="show" identifier="Video" id="BCl-DI-y0z"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3yD-mR-KH2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -315,36 +318,40 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4Hp-Do-WMZ" customClass="TVIVideoView">
-                                <rect key="frame" x="221" y="626" width="138" height="152"/>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jJU-wd-RMV" customClass="TVIVideoView">
+                                <rect key="frame" x="198" y="586" width="161" height="143"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="143" id="yvA-5N-RiL"/>
+                                </constraints>
+                                <viewLayoutGuide key="safeArea" id="gPX-aC-1F8"/>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gQC-zZ-ygZ">
-                                <rect key="frame" x="16" y="674" width="116" height="57"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tDd-8g-3QT">
+                                <rect key="frame" x="16" y="631" width="127" height="63"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal" title="Disconnect">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <action selector="pressedBtnDisconnect:" destination="9UR-8d-K8X" eventType="touchUpInside" id="jEP-Fy-8bl"/>
+                                    <action selector="btnDisconnectPressed:" destination="9UR-8d-K8X" eventType="touchUpInside" id="YjL-kJ-cCs"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="gQC-zZ-ygZ" firstAttribute="leading" secondItem="1M1-dm-P2Y" secondAttribute="leading" constant="16" id="Af9-Z9-85R"/>
-                            <constraint firstItem="4Hp-Do-WMZ" firstAttribute="leading" secondItem="gQC-zZ-ygZ" secondAttribute="trailing" constant="89" id="Jqn-cM-pWs"/>
-                            <constraint firstItem="gQC-zZ-ygZ" firstAttribute="top" secondItem="1M1-dm-P2Y" secondAttribute="top" constant="630" id="K4S-lq-SNY"/>
-                            <constraint firstItem="1M1-dm-P2Y" firstAttribute="bottom" secondItem="gQC-zZ-ygZ" secondAttribute="bottom" constant="47" id="NqM-uc-ypY"/>
-                            <constraint firstItem="1M1-dm-P2Y" firstAttribute="bottom" secondItem="4Hp-Do-WMZ" secondAttribute="bottom" id="V0K-sd-WLq"/>
-                            <constraint firstItem="4Hp-Do-WMZ" firstAttribute="leading" secondItem="1M1-dm-P2Y" secondAttribute="leading" constant="221" id="V8R-8o-Ipb"/>
-                            <constraint firstItem="1M1-dm-P2Y" firstAttribute="trailing" secondItem="4Hp-Do-WMZ" secondAttribute="trailing" constant="16" id="X6X-ji-K0V"/>
-                            <constraint firstItem="4Hp-Do-WMZ" firstAttribute="top" secondItem="1M1-dm-P2Y" secondAttribute="top" constant="582" id="vNJ-Yh-ZxZ"/>
+                            <constraint firstItem="tDd-8g-3QT" firstAttribute="leading" secondItem="1M1-dm-P2Y" secondAttribute="leading" constant="16" id="04l-EY-7Nr"/>
+                            <constraint firstItem="jJU-wd-RMV" firstAttribute="leading" secondItem="1M1-dm-P2Y" secondAttribute="leading" constant="198" id="4O9-ta-6ZO"/>
+                            <constraint firstItem="jJU-wd-RMV" firstAttribute="leading" secondItem="tDd-8g-3QT" secondAttribute="trailing" constant="55" id="5PH-76-wXs"/>
+                            <constraint firstItem="jJU-wd-RMV" firstAttribute="leading" secondItem="1M1-dm-P2Y" secondAttribute="leading" constant="198" id="G02-gZ-q27"/>
+                            <constraint firstItem="jJU-wd-RMV" firstAttribute="bottom" secondItem="1M1-dm-P2Y" secondAttribute="bottom" id="KW2-c9-Gjl"/>
+                            <constraint firstItem="1M1-dm-P2Y" firstAttribute="bottom" secondItem="tDd-8g-3QT" secondAttribute="bottom" constant="35" id="OJX-gw-PMF"/>
+                            <constraint firstItem="1M1-dm-P2Y" firstAttribute="trailing" secondItem="jJU-wd-RMV" secondAttribute="trailing" constant="16" id="nl1-VZ-vRs"/>
+                            <constraint firstItem="tDd-8g-3QT" firstAttribute="top" secondItem="1M1-dm-P2Y" secondAttribute="top" constant="543" id="pC2-bT-DuB"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="1M1-dm-P2Y"/>
                     </view>
                     <connections>
-                        <outlet property="previewView" destination="4Hp-Do-WMZ" id="9Lp-14-o3p"/>
+                        <outlet property="previewView" destination="jJU-wd-RMV" id="VFf-BK-NI5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QBE-gd-lx8" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -499,13 +506,13 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fXv-oi-aIM">
-                                                    <rect key="frame" x="101" y="11" width="298" height="0.0"/>
+                                                    <rect key="frame" x="101" y="11" width="259" height="0.0"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Gw-Yn-F4o">
-                                                    <rect key="frame" x="101" y="19" width="298" height="21"/>
+                                                    <rect key="frame" x="101" y="19" width="259" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.87089818480000003" green="0.87952093909999995" blue="0.87952093909999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>

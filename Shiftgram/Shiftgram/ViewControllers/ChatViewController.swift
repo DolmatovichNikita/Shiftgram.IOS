@@ -38,6 +38,14 @@ class ChatViewController: JSQMessagesViewController, AVAudioRecorderDelegate, SF
         return button
     }()
     
+    lazy var callButton: UIButton = {
+        let button = UIButton(frame: CGRect.zero)
+        button.setImage(UIImage(named: "call"), for: .normal)
+        button.imageView?.contentMode = .scaleAspectFit
+        
+        return button
+    }()
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
@@ -46,6 +54,7 @@ class ChatViewController: JSQMessagesViewController, AVAudioRecorderDelegate, SF
         super.viewDidLoad()
         inputToolbar.contentView.leftBarButtonItem = nil
         inputToolbar?.contentView?.rightBarButtonItem = self.rightBarButtonItem
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "call"), style: .plain, target: self, action: nil)
         collectionView.collectionViewLayout.incomingAvatarViewSize = CGSize.zero
         collectionView.collectionViewLayout.outgoingAvatarViewSize = CGSize.zero
         self.initChat()

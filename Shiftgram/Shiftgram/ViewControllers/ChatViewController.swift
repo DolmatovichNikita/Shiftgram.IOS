@@ -83,7 +83,7 @@ class ChatViewController: JSQMessagesViewController, AVAudioRecorderDelegate, SF
                         }
                     }
                 } else {
-                    let text = data["sender_id"] == self!.senderId ? data["ownText"] : data["transText"]
+                    let text = data["sender_id"] == String(UserEntity().getUserId()) ? data["ownText"] : data["transText"]
     
                     if !(text?.isEmpty)! && text != nil {
                         if let message = JSQMessage(senderId: id, displayName: name, text: text)
@@ -98,11 +98,6 @@ class ChatViewController: JSQMessagesViewController, AVAudioRecorderDelegate, SF
         })
     }
     
-    @objc private func rightSwipeGesture(swipeGesture: UISwipeGestureRecognizer) {
-        if swipeGesture.direction == .left {
-        }
-    }
-    
     @objc private func longPressedButton(tapGestureRecognizer: UILongPressGestureRecognizer) {
         if tapGestureRecognizer.state == .began {
             self.startRecording()
@@ -110,26 +105,27 @@ class ChatViewController: JSQMessagesViewController, AVAudioRecorderDelegate, SF
             self.inputToolbar.contentView.rightBarButtonItem.isEnabled = true
         }
         if tapGestureRecognizer.state == .ended {
-            print("Hi1")
             if audioEngine.isRunning {
                 audioEngine.stop()
                 recognitionRequest?.endAudio()
-                //self.deleteViewRecording()
-                /*let ref = Constants.refs.databaseRoot.child(self.conversationName).childByAutoId()
-                let params = ROGoogleTranslateParams(source: language,
-                                                     target: self.friendLanguage,
-                                                     text:   speechText)
-                let translator = ROGoogleTranslate()
-                translator.apiKey = "AIzaSyBePVek0atgmg3pzKQyN4oo6a7Oggog3sQ"
-                translator.translate(params: params) { (value) in
-                    let message = ["sender_id": self.senderId!, "name": self.senderDisplayName, "audio": self.speechText, "ownAudio": self.speechText,
+                self.deleteViewRecording()
+                if !self.speechText.isEmpty {
+                    let ref = Constants.refs.databaseRoot.child(self.conversationName).childByAutoId()
+                    let params = ROGoogleTranslateParams(source: language,
+                                                         target: self.friendLanguage,
+                                                         text:   speechText)
+                    let translator = ROGoogleTranslate()
+                    translator.apiKey = "AIzaSyBePVek0atgmg3pzKQyN4oo6a7Oggog3sQ"
+                    translator.translate(params: params) { (value) in
+                        let message = ["sender_id": self.senderId!, "name": self.senderDisplayName, "audio": self.speechText, "ownAudio": self.speechText,
                                        "transAudio": value] as [String : Any]
                         
-                    ref.setValue(message)
-                    self.speechText = ""
+                        ref.setValue(message)
+                        self.speechText = ""
+                    }
+                    
+                    self.finishSendingMessage()
                 }
-                
-                self.finishSendingMessage()*/
                 self.inputToolbar.contentView.rightBarButtonItem.isEnabled = true
             }
         }
@@ -198,9 +194,6 @@ class ChatViewController: JSQMessagesViewController, AVAudioRecorderDelegate, SF
         let recordingView = UIView(frame: CGRect(x: 0, y: 0, width: self.inputToolbar.contentView.frame.size.width, height: self.inputToolbar.contentView.frame.size.height))
         recordingView.backgroundColor = UIColor.white
         recordingView.tag = Int(userId)
-        let swipeGestureRecognition = UISwipeGestureRecognizer(target: self, action: #selector(rightSwipeGesture(swipeGesture:)))
-        swipeGestureRecognition.direction = .left
-        recordingView.addGestureRecognizer(swipeGestureRecognition)
         
         let labelTimer = UILabel(frame: CGRect(x: self.inputToolbar.contentView.frame.size.width / 2.0, y: 0, width: 100, height: 44))
         labelTimer.textColor = UIColor.black
@@ -234,7 +227,6 @@ class ChatViewController: JSQMessagesViewController, AVAudioRecorderDelegate, SF
         recordingView.addSubview(labelTimer)
         recordingView.layer.addSublayer(circle)
         self.inputToolbar.contentView.addSubview(recordingView)
-        self.inputToolbar.contentView.addGestureRecognizer(swipeGestureRecognition)
     }
     
     private func deleteViewRecording() {

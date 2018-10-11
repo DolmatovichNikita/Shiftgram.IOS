@@ -155,10 +155,12 @@ class ChatViewController: JSQMessagesViewController, AVAudioRecorderDelegate, SF
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let language = self.friendLanguage
+        let conversation = self.conversationName
         if segue.identifier == "Video" {
             let videoViewController = VideoViewController()
-            videoViewController.conversationName = self.conversationName
-            videoViewController.friendLaguage = self.friendLanguage
+            videoViewController.conversationName = conversation
+            videoViewController.friendLaguage = language
         }
     }
     
@@ -342,9 +344,7 @@ extension ChatViewController: CXProviderDelegate {
     }
     
     func provider(_ provider: CXProvider, perform action: CXAnswerCallAction) {
-        //action.fulfill()
-        let videoViewController = VideoViewController()
-        self.present(videoViewController, animated: true, completion: nil)
+        self.performSegue(withIdentifier: "Video", sender: self)
         Constants.refs.databaseRoot.child(self.conversationName + "notification").removeValue()
     }
     

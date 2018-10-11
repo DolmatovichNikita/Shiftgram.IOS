@@ -37,15 +37,7 @@ class ChatViewController: JSQMessagesViewController, AVAudioRecorderDelegate, SF
         button.addGestureRecognizer(gestureRecgnizer)
         return button
     }()
-    
-    lazy var callButton: UIButton = {
-        let button = UIButton(frame: CGRect.zero)
-        button.setImage(UIImage(named: "call"), for: .normal)
-        button.imageView?.contentMode = .scaleAspectFit
-        
-        return button
-    }()
-    
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
@@ -54,7 +46,7 @@ class ChatViewController: JSQMessagesViewController, AVAudioRecorderDelegate, SF
         super.viewDidLoad()
         inputToolbar.contentView.leftBarButtonItem = nil
         inputToolbar?.contentView?.rightBarButtonItem = self.rightBarButtonItem
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "call"), style: .plain, target: self, action: nil)
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "call"), style: .plain, target: self, action: #selector (pressCallButton))
         collectionView.collectionViewLayout.incomingAvatarViewSize = CGSize.zero
         collectionView.collectionViewLayout.outgoingAvatarViewSize = CGSize.zero
         self.initChat()
@@ -138,6 +130,21 @@ class ChatViewController: JSQMessagesViewController, AVAudioRecorderDelegate, SF
                 self.inputToolbar.contentView.rightBarButtonItem.isEnabled = true
             }
         }
+    }
+    
+    @objc private func pressCallButton() {
+        let choiceCallType = UIAlertController(title: "Choice type of calling", message: nil, preferredStyle: .actionSheet)
+        
+        let videoCall = UIAlertAction(title: "Video", style: .default) { (_) in
+            print("Video")
+        }
+        let voiceCall = UIAlertAction(title: "Voice", style: .default) { (_) in
+            print("Voice")
+        }
+        
+        choiceCallType.addAction(videoCall)
+        choiceCallType.addAction(voiceCall)
+        self.present(choiceCallType, animated: true, completion: nil)
     }
     
     private func startRecording() {

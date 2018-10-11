@@ -23,6 +23,7 @@
 		116A8B63215192B800C9F8DE /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 116A8B62215192B700C9F8DE /* GoogleService-Info.plist */; };
 		116A8B652151934700C9F8DE /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116A8B642151934700C9F8DE /* ChatViewController.swift */; };
 		116D07A321469A1200FB0AF0 /* AccountPhoneUpdate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116D07A221469A1200FB0AF0 /* AccountPhoneUpdate.swift */; };
+		1176F22D216F4770002C84F2 /* VideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1176F22C216F4770002C84F2 /* VideoViewController.swift */; };
 		117D4A18213F11A20072AB88 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 117D4A17213F11A20072AB88 /* AppDelegate.swift */; };
 		117D4A1A213F11A20072AB88 /* InitialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 117D4A19213F11A20072AB88 /* InitialViewController.swift */; };
 		117D4A1D213F11A20072AB88 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 117D4A1B213F11A20072AB88 /* Main.storyboard */; };
@@ -58,7 +59,7 @@
 		11F31A562140665D00419361 /* Phone.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11F31A552140665D00419361 /* Phone.swift */; };
 		11F31A592140670400419361 /* PhoneViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11F31A582140670400419361 /* PhoneViewModel.swift */; };
 		11F31A5C2140688100419361 /* PhoneDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11F31A5B2140688100419361 /* PhoneDataManager.swift */; };
-		678B7D50370A002B05AE6F2A /* Pods_Shiftgram.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D41B4E71BB900D743A905952 /* Pods_Shiftgram.framework */; };
+		187FA9D59A726550AE0C89CC /* Pods_Shiftgram.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B881B2F3181B35155618059 /* Pods_Shiftgram.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -79,6 +80,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0B7137214EBDEA7C3F93393B /* Pods-Shiftgram.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Shiftgram.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Shiftgram/Pods-Shiftgram.debug.xcconfig"; sourceTree = "<group>"; };
 		1101BFA321501EA60012599B /* Contact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contact.swift; sourceTree = "<group>"; };
 		1101BFA521501F7E0012599B /* ContactDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactDataManager.swift; sourceTree = "<group>"; };
 		1101BFA7215023240012599B /* ContactViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactViewModel.swift; sourceTree = "<group>"; };
@@ -96,6 +98,7 @@
 		116A8B62215192B700C9F8DE /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		116A8B642151934700C9F8DE /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		116D07A221469A1200FB0AF0 /* AccountPhoneUpdate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountPhoneUpdate.swift; sourceTree = "<group>"; };
+		1176F22C216F4770002C84F2 /* VideoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoViewController.swift; sourceTree = "<group>"; };
 		117D4A14213F11A20072AB88 /* Shiftgram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Shiftgram.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		117D4A17213F11A20072AB88 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		117D4A19213F11A20072AB88 /* InitialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialViewController.swift; sourceTree = "<group>"; };
@@ -139,9 +142,8 @@
 		11F31A552140665D00419361 /* Phone.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Phone.swift; sourceTree = "<group>"; };
 		11F31A582140670400419361 /* PhoneViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneViewModel.swift; sourceTree = "<group>"; };
 		11F31A5B2140688100419361 /* PhoneDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneDataManager.swift; sourceTree = "<group>"; };
-		634409FF9E98A2AD9497C4F5 /* Pods-Shiftgram.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Shiftgram.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Shiftgram/Pods-Shiftgram.debug.xcconfig"; sourceTree = "<group>"; };
-		C8A6B3546412DD7E366CA016 /* Pods-Shiftgram.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Shiftgram.release.xcconfig"; path = "Pods/Target Support Files/Pods-Shiftgram/Pods-Shiftgram.release.xcconfig"; sourceTree = "<group>"; };
-		D41B4E71BB900D743A905952 /* Pods_Shiftgram.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Shiftgram.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5B881B2F3181B35155618059 /* Pods_Shiftgram.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Shiftgram.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		ECCA28634F0CB2EB5CA7A3CA /* Pods-Shiftgram.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Shiftgram.release.xcconfig"; path = "Pods/Target Support Files/Pods-Shiftgram/Pods-Shiftgram.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -149,7 +151,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				678B7D50370A002B05AE6F2A /* Pods_Shiftgram.framework in Frameworks */,
+				187FA9D59A726550AE0C89CC /* Pods_Shiftgram.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -170,6 +172,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0FD7EAC2BB903BF4FDEA375F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5B881B2F3181B35155618059 /* Pods_Shiftgram.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		1101BFA921502FAB0012599B /* TableViewCells */ = {
 			isa = PBXGroup;
 			children = (
@@ -197,8 +207,8 @@
 				117D4A2E213F11A40072AB88 /* ShiftgramTests */,
 				117D4A39213F11A40072AB88 /* ShiftgramUITests */,
 				117D4A15213F11A20072AB88 /* Products */,
-				590A3111B61B11227C86CAA7 /* Pods */,
-				F91D7905EE42FAB8068D3820 /* Frameworks */,
+				2AF59AA971D5BFBF0D99E350 /* Pods */,
+				0FD7EAC2BB903BF4FDEA375F /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -264,6 +274,7 @@
 				1132AD402149868400B9BBB5 /* SettingsViewController.swift */,
 				11BE43AE21503F2D00938ED2 /* InviteViewController.swift */,
 				116A8B642151934700C9F8DE /* ChatViewController.swift */,
+				1176F22C216F4770002C84F2 /* VideoViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -348,21 +359,13 @@
 			path = DataManagers;
 			sourceTree = "<group>";
 		};
-		590A3111B61B11227C86CAA7 /* Pods */ = {
+		2AF59AA971D5BFBF0D99E350 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				634409FF9E98A2AD9497C4F5 /* Pods-Shiftgram.debug.xcconfig */,
-				C8A6B3546412DD7E366CA016 /* Pods-Shiftgram.release.xcconfig */,
+				0B7137214EBDEA7C3F93393B /* Pods-Shiftgram.debug.xcconfig */,
+				ECCA28634F0CB2EB5CA7A3CA /* Pods-Shiftgram.release.xcconfig */,
 			);
 			name = Pods;
-			sourceTree = "<group>";
-		};
-		F91D7905EE42FAB8068D3820 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				D41B4E71BB900D743A905952 /* Pods_Shiftgram.framework */,
-			);
-			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -372,12 +375,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 117D4A3F213F11A40072AB88 /* Build configuration list for PBXNativeTarget "Shiftgram" */;
 			buildPhases = (
-				C41C254A999D2924DE6CDFA3 /* [CP] Check Pods Manifest.lock */,
+				971DA3EDFE5C46ECE1A9BBE6 /* [CP] Check Pods Manifest.lock */,
 				117D4A10213F11A20072AB88 /* Sources */,
 				117D4A11213F11A20072AB88 /* Frameworks */,
 				117D4A12213F11A20072AB88 /* Resources */,
-				905E4CC369A37FBC0D0E0C3A /* [CP] Embed Pods Frameworks */,
 				110DDB742169549F00598C04 /* ShellScript */,
+				11C95714A6919CB0E452AF91 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -501,11 +504,7 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputFileListPaths = (
-			);
 			inputPaths = (
-			);
-			outputFileListPaths = (
 			);
 			outputPaths = (
 			);
@@ -513,7 +512,7 @@
 			shellPath = /bin/sh;
 			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n";
 		};
-		905E4CC369A37FBC0D0E0C3A /* [CP] Embed Pods Frameworks */ = {
+		11C95714A6919CB0E452AF91 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -531,9 +530,9 @@
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/JSQMessagesViewController/JSQMessagesViewController.framework",
 				"${BUILT_PRODUCTS_DIR}/JSQSystemSoundPlayer/JSQSystemSoundPlayer.framework",
-				"${BUILT_PRODUCTS_DIR}/MessageKit/MessageKit.framework",
 				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
 				"${BUILT_PRODUCTS_DIR}/ROGoogleTranslate/ROGoogleTranslate.framework",
+				"${PODS_ROOT}/TwilioVideo/Build/iOS/TwilioVideo.framework",
 				"${BUILT_PRODUCTS_DIR}/gRPC/GRPCClient.framework",
 				"${BUILT_PRODUCTS_DIR}/gRPC-Core/grpc.framework",
 				"${BUILT_PRODUCTS_DIR}/gRPC-ProtoRPC/ProtoRPC.framework",
@@ -554,9 +553,9 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JSQMessagesViewController.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JSQSystemSoundPlayer.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MessageKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ROGoogleTranslate.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TwilioVideo.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GRPCClient.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpc.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ProtoRPC.framework",
@@ -569,7 +568,7 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Shiftgram/Pods-Shiftgram-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		C41C254A999D2924DE6CDFA3 /* [CP] Check Pods Manifest.lock */ = {
+		971DA3EDFE5C46ECE1A9BBE6 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -612,6 +611,7 @@
 				11BD01BB2166AFBE0087B8E0 /* AccountLanguageUpdate.swift in Sources */,
 				1132AD4721498B5800B9BBB5 /* AccountUsernameUpdate.swift in Sources */,
 				117D4A20213F11A20072AB88 /* Shiftgram.xcdatamodeld in Sources */,
+				1176F22D216F4770002C84F2 /* VideoViewController.swift in Sources */,
 				1159D09F21655576004E2171 /* Message.swift in Sources */,
 				116D07A321469A1200FB0AF0 /* AccountPhoneUpdate.swift in Sources */,
 				1158272B2147B59100D5AFE1 /* AwsHelper.swift in Sources */,
@@ -817,7 +817,7 @@
 		};
 		117D4A40213F11A40072AB88 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 634409FF9E98A2AD9497C4F5 /* Pods-Shiftgram.debug.xcconfig */;
+			baseConfigurationReference = 0B7137214EBDEA7C3F93393B /* Pods-Shiftgram.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -840,7 +840,7 @@
 		};
 		117D4A41213F11A40072AB88 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C8A6B3546412DD7E366CA016 /* Pods-Shiftgram.release.xcconfig */;
+			baseConfigurationReference = ECCA28634F0CB2EB5CA7A3CA /* Pods-Shiftgram.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

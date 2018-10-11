@@ -98,6 +98,7 @@ PODS:
   - nanopb/encode (0.3.8)
   - Protobuf (3.5.0)
   - ROGoogleTranslate (0.0.5)
+  - TwilioVideo (2.5.2)
 
 DEPENDENCIES:
   - Alamofire (~> 4.6)
@@ -111,6 +112,7 @@ DEPENDENCIES:
   - Firebase/Storage
   - JSQMessagesViewController
   - ROGoogleTranslate
+  - TwilioVideo
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
@@ -141,6 +143,7 @@ SPEC REPOS:
     - nanopb
     - Protobuf
     - ROGoogleTranslate
+    - TwilioVideo
 
 SPEC CHECKSUMS:
   Alamofire: f41a599bd63041760b26d393ec1069d9d7b917f4
@@ -166,11 +169,12 @@ SPEC CHECKSUMS:
   GTMSessionFetcher: ebaa1f79a5366922c1735f1566901f50beba23b7
   JSQMessagesViewController: 6587f56aedbcb150a8ba1d968e1ef58b1bc758b7
   JSQSystemSoundPlayer: c5850e77a4363ffd374cd851154b9af93264ed8d
-  leveldb-library: 4f9eedf84ab46b4fa3b7893bf30714b2a1a74022
+  leveldb-library: 08cba283675b7ed2d99629a4bc5fd052cd2bb6a5
   nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
   Protobuf: 8a9838fba8dae3389230e1b7f8c104aa32389c03
   ROGoogleTranslate: 344d579487c21af1ae54138baa68605b861ba84e
+  TwilioVideo: 47c9c7c2b280423090f497f88b2a8a09a0e23427
 
-PODFILE CHECKSUM: c75f51b4ed3e8a72949c6b6dd6ace2a271b38d2e
+PODFILE CHECKSUM: 7c1e3e5d820bb1f381e1f37f79fb539879c1b6c0
 
 COCOAPODS: 1.5.3

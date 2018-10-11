@@ -3,6 +3,7 @@ import JSQMessagesViewController
 import ROGoogleTranslate
 import AVFoundation
 import Speech
+import CallKit
 
 class ChatViewController: JSQMessagesViewController, AVAudioRecorderDelegate, SFSpeechRecognizerDelegate {
 
@@ -136,7 +137,7 @@ class ChatViewController: JSQMessagesViewController, AVAudioRecorderDelegate, SF
         let choiceCallType = UIAlertController(title: "Choice type of calling", message: nil, preferredStyle: .actionSheet)
         
         let videoCall = UIAlertAction(title: "Video", style: .default) { (_) in
-            print("Video")
+            
         }
         let voiceCall = UIAlertAction(title: "Voice", style: .default) { (_) in
             print("Voice")

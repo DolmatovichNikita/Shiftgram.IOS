@@ -5,7 +5,7 @@ import AVFoundation
 import Speech
 import CallKit
 
-class ChatViewController: JSQMessagesViewController, AVAudioRecorderDelegate, SFSpeechRecognizerDelegate {
+class ChatViewController: JSQMessagesViewController, AVAudioRecorderDelegate, SFSpeechRecognizerDelegate, CXProviderDelegate {
 
     public var conversationName = String()
     public var friendLanguage = String()
@@ -58,6 +58,18 @@ class ChatViewController: JSQMessagesViewController, AVAudioRecorderDelegate, SF
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         self.inputToolbar.contentView.rightBarButtonItem.isEnabled = true
+    }
+    
+    func providerDidReset(_ provider: CXProvider) {
+        
+    }
+    
+    func provider(_ provider: CXProvider, perform action: CXAnswerCallAction) {
+        action.fulfill()
+    }
+    
+    func provider(_ provider: CXProvider, perform action: CXEndCallAction) {
+        action.fulfill()
     }
     
     private func initChat() {
@@ -137,10 +149,14 @@ class ChatViewController: JSQMessagesViewController, AVAudioRecorderDelegate, SF
         let choiceCallType = UIAlertController(title: "Choice type of calling", message: nil, preferredStyle: .actionSheet)
         
         let videoCall = UIAlertAction(title: "Video", style: .default) { (_) in
-            
+            let ref = Constants.refs.databaseRoot.child(self.conversationName + "notification").childByAutoId()
+            let message = ["sender_id": self.senderId!, "name": self.senderDisplayName, "videoCall": "true"] as [String : Any]
+            ref.setValue(message)
         }
         let voiceCall = UIAlertAction(title: "Voice", style: .default) { (_) in
-            print("Voice")
+            let ref = Constants.refs.databaseRoot.child(self.conversationName + "notification").childByAutoId()
+            let message = ["sender_id": self.senderId!, "name": self.senderDisplayName, "audioCall": "true"] as [String : Any]
+            ref.setValue(message)
         }
         
         choiceCallType.addAction(videoCall)

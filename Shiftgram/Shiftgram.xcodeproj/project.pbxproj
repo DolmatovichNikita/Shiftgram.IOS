@@ -40,6 +40,8 @@
 		11878F8A21459DD9009026CE /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11878F8921459DD9009026CE /* UserViewModel.swift */; };
 		11878F8C2145A695009026CE /* PhoneVerify.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11878F8B2145A695009026CE /* PhoneVerify.swift */; };
 		1194664D216F896C00591C82 /* VideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1194664C216F896C00591C82 /* VideoViewController.swift */; };
+		1194664F216F98C700591C82 /* VideoDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1194664E216F98C700591C82 /* VideoDataManager.swift */; };
+		11946651216F992000591C82 /* VideoAccessModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11946650216F992000591C82 /* VideoAccessModel.swift */; };
 		11AB8295214804B1003558A4 /* AccountUpdatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11AB8294214804B1003558A4 /* AccountUpdatable.swift */; };
 		11BD01BB2166AFBE0087B8E0 /* AccountLanguageUpdate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11BD01BA2166AFBE0087B8E0 /* AccountLanguageUpdate.swift */; };
 		11BE43AD21503B5500938ED2 /* ContactTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11BE43AC21503B5500938ED2 /* ContactTableViewCell.swift */; };
@@ -123,6 +125,8 @@
 		11878F8921459DD9009026CE /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
 		11878F8B2145A695009026CE /* PhoneVerify.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneVerify.swift; sourceTree = "<group>"; };
 		1194664C216F896C00591C82 /* VideoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoViewController.swift; sourceTree = "<group>"; };
+		1194664E216F98C700591C82 /* VideoDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoDataManager.swift; sourceTree = "<group>"; };
+		11946650216F992000591C82 /* VideoAccessModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoAccessModel.swift; sourceTree = "<group>"; };
 		11AB8294214804B1003558A4 /* AccountUpdatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountUpdatable.swift; sourceTree = "<group>"; };
 		11BD01BA2166AFBE0087B8E0 /* AccountLanguageUpdate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountLanguageUpdate.swift; sourceTree = "<group>"; };
 		11BE43AC21503B5500938ED2 /* ContactTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactTableViewCell.swift; sourceTree = "<group>"; };
@@ -333,6 +337,7 @@
 				11D833B621516A5600C606BB /* AccountFriendModel.swift */,
 				1159D09E21655576004E2171 /* Message.swift */,
 				11BD01BA2166AFBE0087B8E0 /* AccountLanguageUpdate.swift */,
+				11946650216F992000591C82 /* VideoAccessModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -355,6 +360,7 @@
 				11878F83214571B7009026CE /* UserDataManager.swift */,
 				1101BFA521501F7E0012599B /* ContactDataManager.swift */,
 				11D833B42151697D00C606BB /* FriendDataManager.swift */,
+				1194664E216F98C700591C82 /* VideoDataManager.swift */,
 			);
 			path = DataManagers;
 			sourceTree = "<group>";
@@ -597,6 +603,7 @@
 				116A8B6121518EBF00C9F8DE /* Constants.swift in Sources */,
 				117D4A4C213F16D60072AB88 /* PhoneVerifyViewController.swift in Sources */,
 				1132AD4B21498E1900B9BBB5 /* AccountGenderUpdate.swift in Sources */,
+				1194664F216F98C700591C82 /* VideoDataManager.swift in Sources */,
 				11BE43AF21503F2D00938ED2 /* InviteViewController.swift in Sources */,
 				11878F8621457301009026CE /* Account.swift in Sources */,
 				11D833B721516A5600C606BB /* AccountFriendModel.swift in Sources */,
@@ -635,6 +642,7 @@
 				11F2505E2163E63700496DD4 /* MessageTableViewCell.swift in Sources */,
 				1132AD4921498C4300B9BBB5 /* AccountPhotoUpdate.swift in Sources */,
 				11878F84214571B7009026CE /* UserDataManager.swift in Sources */,
+				11946651216F992000591C82 /* VideoAccessModel.swift in Sources */,
 				117D4A1A213F11A20072AB88 /* InitialViewController.swift in Sources */,
 				117D4A18213F11A20072AB88 /* AppDelegate.swift in Sources */,
 				11878F82214562FC009026CE /* UserEnitity.swift in Sources */,

@@ -305,7 +305,51 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3yD-mR-KH2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5084" y="1247"/>
+            <point key="canvasLocation" x="5084" y="1246.5517241379312"/>
+        </scene>
+        <!--Video View Controller-->
+        <scene sceneID="WeN-bx-0YT">
+            <objects>
+                <viewController id="9UR-8d-K8X" customClass="VideoViewController" customModule="Shiftgram" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="hyE-cz-kLf">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4Hp-Do-WMZ" customClass="TVIVideoView">
+                                <rect key="frame" x="221" y="626" width="138" height="152"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gQC-zZ-ygZ">
+                                <rect key="frame" x="16" y="674" width="116" height="57"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                <state key="normal" title="Disconnect">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="pressedBtnDisconnect:" destination="9UR-8d-K8X" eventType="touchUpInside" id="jEP-Fy-8bl"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="gQC-zZ-ygZ" firstAttribute="leading" secondItem="1M1-dm-P2Y" secondAttribute="leading" constant="16" id="Af9-Z9-85R"/>
+                            <constraint firstItem="4Hp-Do-WMZ" firstAttribute="leading" secondItem="gQC-zZ-ygZ" secondAttribute="trailing" constant="89" id="Jqn-cM-pWs"/>
+                            <constraint firstItem="gQC-zZ-ygZ" firstAttribute="top" secondItem="1M1-dm-P2Y" secondAttribute="top" constant="630" id="K4S-lq-SNY"/>
+                            <constraint firstItem="1M1-dm-P2Y" firstAttribute="bottom" secondItem="gQC-zZ-ygZ" secondAttribute="bottom" constant="47" id="NqM-uc-ypY"/>
+                            <constraint firstItem="1M1-dm-P2Y" firstAttribute="bottom" secondItem="4Hp-Do-WMZ" secondAttribute="bottom" id="V0K-sd-WLq"/>
+                            <constraint firstItem="4Hp-Do-WMZ" firstAttribute="leading" secondItem="1M1-dm-P2Y" secondAttribute="leading" constant="221" id="V8R-8o-Ipb"/>
+                            <constraint firstItem="1M1-dm-P2Y" firstAttribute="trailing" secondItem="4Hp-Do-WMZ" secondAttribute="trailing" constant="16" id="X6X-ji-K0V"/>
+                            <constraint firstItem="4Hp-Do-WMZ" firstAttribute="top" secondItem="1M1-dm-P2Y" secondAttribute="top" constant="582" id="vNJ-Yh-ZxZ"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="1M1-dm-P2Y"/>
+                    </view>
+                    <connections>
+                        <outlet property="previewView" destination="4Hp-Do-WMZ" id="9Lp-14-o3p"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QBE-gd-lx8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5840.8000000000002" y="1246.5517241379312"/>
         </scene>
         <!--Settings-->
         <scene sceneID="t8X-J7-KAa">

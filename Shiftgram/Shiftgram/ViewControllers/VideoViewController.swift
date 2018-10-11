@@ -6,6 +6,7 @@ class VideoViewController: UIViewController {
     public var conversationName: String?
     public var friendLaguage: String?
     private var accessToken: String?
+    private let videoAccessViewModel = VideoAccessViewModel()
     
     private var room: TVIRoom?
     private var camera: TVICameraCapturer?

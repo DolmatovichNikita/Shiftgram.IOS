@@ -118,7 +118,7 @@ class ChatViewController: JSQMessagesViewController, AVAudioRecorderDelegate, SF
                                                          target: self.friendLanguage,
                                                          text:   speechText)
                     let translator = ROGoogleTranslate()
-                    translator.apiKey = "AIzaSyBePVek0atgmg3pzKQyN4oo6a7Oggog3sQ"
+                    translator.apiKey = "AIzaSyA03pGAne7Bz9t8Y-ZeW0K-TVM15vEZYLQ"
                     translator.translate(params: params) { (value) in
                         let message = ["sender_id": self.senderId!, "name": self.senderDisplayName, "audio": self.speechText, "ownAudio": self.speechText,
                                        "transAudio": value] as [String : Any]
@@ -158,7 +158,7 @@ class ChatViewController: JSQMessagesViewController, AVAudioRecorderDelegate, SF
         let language = self.friendLanguage
         let conversation = self.conversationName
         if segue.identifier == "Video" {
-            let videoViewController = VideoViewController()
+            let videoViewController = segue.destination as! VideoViewController
             videoViewController.conversationName = conversation
             videoViewController.friendLaguage = language
         }
@@ -301,7 +301,7 @@ extension ChatViewController {
                                                  target: self.friendLanguage,
                                                  text:   text)
             let translator = ROGoogleTranslate()
-            translator.apiKey = "AIzaSyBePVek0atgmg3pzKQyN4oo6a7Oggog3sQ"
+            translator.apiKey = "AIzaSyA03pGAne7Bz9t8Y-ZeW0K-TVM15vEZYLQ"
             translator.translate(params: params) { (value) in
                 let message = ["sender_id": senderId, "name": senderDisplayName, "text": value, "ownText": text,
                                "transText": value]

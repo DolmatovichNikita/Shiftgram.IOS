@@ -1,13 +1,19 @@
 import UIKit
 import TwilioVideo
+import Speech
+import Firebase
+import AVFoundation
+import ROGoogleTranslate
 
-class VideoViewController: UIViewController {
+class VideoViewController: UIViewController{
 
     public var conversationName = String()
     public var friendLaguage = String()
+    private var language = (Locale.preferredLanguages.first?.parseLanguage())!
     private var accessToken: String?
     private let videoAccessViewModel = VideoAccessViewModel()
     private let roomName = "Shiftgram"
+    private let userId = String(UserEntity().getUserId())
     
     private var room: TVIRoom?
     private var camera: TVICameraCapturer?
@@ -17,28 +23,141 @@ class VideoViewController: UIViewController {
     private var remoteView: TVIVideoView?
     
     @IBOutlet weak var previewView: TVIVideoView!
+    @IBOutlet weak var btnStart: UIButton!
+    
+    private let speechRecognizer = SFSpeechRecognizer(locale: Locale.init(identifier: Locale.preferredLanguages.first!))
+    private var recognitionRequest: SFSpeechAudioBufferRecognitionRequest?
+    private var recognitionTask: SFSpeechRecognitionTask?
+    private let audioEngine = AVAudioEngine()
+    private var speechText = ""
+    private let synthezier = AVSpeechSynthesizer()
     
     @IBAction func btnDisconnectPressed(_ sender: Any) {
+        Constants.refs.databaseRoot.child(self.conversationName + "video").removeValue()
+        self.room!.disconnect()
+    }
+    
+    @IBAction func speechPressed(_ sender: Any) {
+        let user = self.userId
+        if audioEngine.isRunning {
+            audioEngine.stop()
+            recognitionRequest?.endAudio()
+            let ref = Constants.refs.databaseRoot.child(self.conversationName + "video").childByAutoId()
+            
+            let params = ROGoogleTranslateParams(source: self.language,
+                                                 target: self.friendLaguage,
+                                                 text:   self.speechText)
+            let translator = ROGoogleTranslate()
+            translator.apiKey = "AIzaSyA03pGAne7Bz9t8Y-ZeW0K-TVM15vEZYLQ"
+            translator.translate(params: params) { (value) in
+                let message = ["sender_id": user, "ownText": self.speechText, "transText": value]
+                
+                ref.setValue(message)
+                self.speechText = ""
+            }
+            self.btnStart.setTitle("Start Recording", for: .normal)
+        } else {
+            self.startRecording()
+            self.btnStart.setTitle("Stop Recording", for: .normal)
+        }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor.white
+        self.initChat()
         self.startPreview()
         self.initConnection()
+        SFSpeechRecognizer.requestAuthorization { (_) in}
+    }
+    
+    private func initChat() {
+        let user = self.userId
+        let query = Constants.refs.databaseRoot.child(self.conversationName + "video").queryLimited(toLast: 10)
+        
+        _ = query.observe(.childAdded, with: { snapshot in
+            if let data = snapshot.value as? [String: String] {
+                let id = data["sender_id"]
+                let text = id != user ? data["transText"] : nil
+                if text != nil && !(text?.isEmpty)! {
+                    self.synthezier.continueSpeaking()
+                    let utterance = AVSpeechUtterance(string: text!)
+                    utterance.voice = AVSpeechSynthesisVoice(language: Locale.preferredLanguages.first)
+                    utterance.volume = 1.0
+                    self.synthezier.speak(utterance)
+                }
+            }
+        })
+    }
+    
+    private func startRecording() {
+        if recognitionTask != nil {
+            recognitionTask?.cancel()
+            recognitionTask = nil
+        }
+        
+        let audioSession = AVAudioSession.sharedInstance()
+        do {
+            try audioSession.setCategory(AVAudioSessionCategoryPlayAndRecord)
+            try audioSession.setMode(AVAudioSessionModeMeasurement)
+            try audioSession.setActive(true, with: .notifyOthersOnDeactivation)
+        } catch {
+            print("audioSession properties weren't set because of an error.")
+        }
+        
+        recognitionRequest = SFSpeechAudioBufferRecognitionRequest()
+        
+        let inputNode = audioEngine.inputNode
+        
+        guard let recognitionRequest = recognitionRequest else {
+            fatalError("Unable to create an SFSpeechAudioBufferRecognitionRequest object")
+        }
+        
+        recognitionRequest.shouldReportPartialResults = true
+        
+        recognitionTask = speechRecognizer!.recognitionTask(with: recognitionRequest, resultHandler: { (result, error) in
+            
+            var isFinal = false
+            
+            if result != nil {
+                self.speechText = (result?.bestTranscription.formattedString)!
+                isFinal = (result?.isFinal)!
+            }
+            
+            if error != nil || isFinal {
+                self.audioEngine.stop()
+                inputNode.removeTap(onBus: 0)
+                
+                self.recognitionRequest = nil
+                self.recognitionTask = nil
+                
+            }
+        })
+        
+        let recordingFormat = inputNode.outputFormat(forBus: 0)
+        inputNode.installTap(onBus: 0, bufferSize: 1024, format: recordingFormat) { (buffer, when) in
+            self.recognitionRequest?.append(buffer)
+        }
+        
+        audioEngine.prepare()
+        
+        do {
+            try audioEngine.start()
+        } catch {
+            print("audioEngine couldn't start because of an error.")
+        }
     }
     
     private func initConnection() {
         let videoAccessModel = VideoAccessModel(name: String(UserEntity().getUserId()), room: self.roomName)
         self.videoAccessViewModel.getToken(videoAccessModel: videoAccessModel) { (token) in
             self.accessToken = token
-            print(token)
             
             self.prepareLocalMedia()
             
             let connectOptions = TVIConnectOptions.init(token: self.accessToken!) { (builder) in
                 
-                builder.audioTracks = self.localAudioTrack != nil ? [self.localAudioTrack!] : [TVILocalAudioTrack]()
+                //builder.audioTracks = self.localAudioTrack != nil ? [self.localAudioTrack!] : [TVILocalAudioTrack]()
                 builder.videoTracks = self.localVideoTrack != nil ? [self.localVideoTrack!] : [TVILocalVideoTrack]()
                 
                 if let preferredAudioCodec = Settings.shared.audioCodec {
@@ -134,7 +253,7 @@ class VideoViewController: UIViewController {
     
     private func prepareLocalMedia() {
         if (localAudioTrack == nil) {
-            localAudioTrack = TVILocalAudioTrack.init(options: nil, enabled: true, name: "Microphone")
+            //localAudioTrack = TVILocalAudioTrack.init(options: nil, enabled: true, name: "Microphone")
             
             if (localAudioTrack == nil) {
             }

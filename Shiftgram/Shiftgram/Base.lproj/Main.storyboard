@@ -336,6 +336,13 @@
                                     <action selector="btnDisconnectPressed:" destination="9UR-8d-K8X" eventType="touchUpInside" id="YjL-kJ-cCs"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gJa-0T-NHP">
+                                <rect key="frame" x="27" y="600" width="116" height="30"/>
+                                <state key="normal" title="Start Recording"/>
+                                <connections>
+                                    <action selector="speechPressed:" destination="9UR-8d-K8X" eventType="touchUpInside" id="uOc-zd-aNg"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -345,12 +352,17 @@
                             <constraint firstItem="jJU-wd-RMV" firstAttribute="leading" secondItem="1M1-dm-P2Y" secondAttribute="leading" constant="198" id="G02-gZ-q27"/>
                             <constraint firstItem="jJU-wd-RMV" firstAttribute="bottom" secondItem="1M1-dm-P2Y" secondAttribute="bottom" id="KW2-c9-Gjl"/>
                             <constraint firstItem="1M1-dm-P2Y" firstAttribute="bottom" secondItem="tDd-8g-3QT" secondAttribute="bottom" constant="35" id="OJX-gw-PMF"/>
+                            <constraint firstItem="gJa-0T-NHP" firstAttribute="leading" secondItem="1M1-dm-P2Y" secondAttribute="leading" constant="27" id="UbA-BO-pJB"/>
+                            <constraint firstItem="jJU-wd-RMV" firstAttribute="leading" secondItem="gJa-0T-NHP" secondAttribute="trailing" constant="55" id="bi9-6b-fq4"/>
                             <constraint firstItem="1M1-dm-P2Y" firstAttribute="trailing" secondItem="jJU-wd-RMV" secondAttribute="trailing" constant="16" id="nl1-VZ-vRs"/>
                             <constraint firstItem="tDd-8g-3QT" firstAttribute="top" secondItem="1M1-dm-P2Y" secondAttribute="top" constant="543" id="pC2-bT-DuB"/>
+                            <constraint firstItem="tDd-8g-3QT" firstAttribute="top" secondItem="gJa-0T-NHP" secondAttribute="bottom" constant="1" id="vUZ-Mn-Aq9"/>
+                            <constraint firstItem="gJa-0T-NHP" firstAttribute="top" secondItem="1M1-dm-P2Y" secondAttribute="top" constant="512" id="xrk-MM-uj0"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="1M1-dm-P2Y"/>
                     </view>
                     <connections>
+                        <outlet property="btnStart" destination="gJa-0T-NHP" id="aie-9v-Psk"/>
                         <outlet property="previewView" destination="jJU-wd-RMV" id="VFf-BK-NI5"/>
                     </connections>
                 </viewController>

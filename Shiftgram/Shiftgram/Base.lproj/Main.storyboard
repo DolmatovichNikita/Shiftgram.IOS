@@ -636,10 +636,10 @@
             </objects>
             <point key="canvasLocation" x="4149.6000000000004" y="-57.635467980295566"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Menu View Controller-->
         <scene sceneID="YqZ-1L-7OM">
             <objects>
-                <tabBarController storyboardIdentifier="Menu" id="OiU-y0-a9u" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="Menu" id="OiU-y0-a9u" customClass="MenuViewController" customModule="Shiftgram" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="rLT-4p-2MR">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>

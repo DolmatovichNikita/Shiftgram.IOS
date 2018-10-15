@@ -31,6 +31,7 @@ class VideoViewController: UIViewController{
     private let audioEngine = AVAudioEngine()
     private var speechText = ""
     private let synthezier = AVSpeechSynthesizer()
+    private let audioSession = AVAudioSession.sharedInstance()
     
     @IBAction func btnDisconnectPressed(_ sender: Any) {
         Constants.refs.databaseRoot.child(self.conversationName + "video").removeValue()
@@ -68,7 +69,18 @@ class VideoViewController: UIViewController{
         self.initChat()
         self.startPreview()
         self.initConnection()
+        self.initAudioSession()
         SFSpeechRecognizer.requestAuthorization { (_) in}
+    }
+    
+    private func initAudioSession() {
+        do {
+            try audioSession.setCategory(AVAudioSessionCategoryPlayAndRecord)
+            try audioSession.setMode(AVAudioSessionModeMeasurement)
+            try audioSession.setActive(true, with: .notifyOthersOnDeactivation)
+        } catch {
+            print("audioSession properties weren't set because of an error.")
+        }
     }
     
     private func initChat() {
@@ -82,8 +94,9 @@ class VideoViewController: UIViewController{
                 if text != nil && !(text?.isEmpty)! {
                     self.synthezier.continueSpeaking()
                     let utterance = AVSpeechUtterance(string: text!)
-                    utterance.voice = AVSpeechSynthesisVoice(language: Locale.preferredLanguages.first)
+                    utterance.voice = AVSpeechSynthesisVoice(language: Locale.preferredLanguages.first?.parseLanguage())
                     utterance.volume = 1.0
+                    utterance.rate = 0.3
                     self.synthezier.speak(utterance)
                 }
             }
@@ -94,15 +107,6 @@ class VideoViewController: UIViewController{
         if recognitionTask != nil {
             recognitionTask?.cancel()
             recognitionTask = nil
-        }
-        
-        let audioSession = AVAudioSession.sharedInstance()
-        do {
-            try audioSession.setCategory(AVAudioSessionCategoryPlayAndRecord)
-            try audioSession.setMode(AVAudioSessionModeMeasurement)
-            try audioSession.setActive(true, with: .notifyOthersOnDeactivation)
-        } catch {
-            print("audioSession properties weren't set because of an error.")
         }
         
         recognitionRequest = SFSpeechAudioBufferRecognitionRequest()

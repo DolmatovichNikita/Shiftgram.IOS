@@ -318,52 +318,32 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jJU-wd-RMV" customClass="TVIVideoView">
-                                <rect key="frame" x="198" y="586" width="161" height="143"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yDC-SN-djU" customClass="TVIVideoView">
+                                <rect key="frame" x="218" y="589" width="157" height="140"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="143" id="yvA-5N-RiL"/>
-                                </constraints>
-                                <viewLayoutGuide key="safeArea" id="gPX-aC-1F8"/>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tDd-8g-3QT">
-                                <rect key="frame" x="16" y="631" width="127" height="63"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <state key="normal" title="Disconnect">
-                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="btnDisconnectPressed:" destination="9UR-8d-K8X" eventType="touchUpInside" id="YjL-kJ-cCs"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gJa-0T-NHP">
-                                <rect key="frame" x="27" y="600" width="116" height="30"/>
-                                <state key="normal" title="Start Recording"/>
-                                <connections>
-                                    <action selector="speechPressed:" destination="9UR-8d-K8X" eventType="touchUpInside" id="uOc-zd-aNg"/>
-                                </connections>
-                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="disconnect" translatesAutoresizingMaskIntoConstraints="NO" id="rCg-fG-vzq">
+                                <rect key="frame" x="0.0" y="629" width="75" height="75"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="recording" translatesAutoresizingMaskIntoConstraints="NO" id="ygk-ad-4tH">
+                                <rect key="frame" x="83" y="629" width="75" height="75"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="tDd-8g-3QT" firstAttribute="leading" secondItem="1M1-dm-P2Y" secondAttribute="leading" constant="16" id="04l-EY-7Nr"/>
-                            <constraint firstItem="jJU-wd-RMV" firstAttribute="leading" secondItem="1M1-dm-P2Y" secondAttribute="leading" constant="198" id="4O9-ta-6ZO"/>
-                            <constraint firstItem="jJU-wd-RMV" firstAttribute="leading" secondItem="tDd-8g-3QT" secondAttribute="trailing" constant="55" id="5PH-76-wXs"/>
-                            <constraint firstItem="jJU-wd-RMV" firstAttribute="leading" secondItem="1M1-dm-P2Y" secondAttribute="leading" constant="198" id="G02-gZ-q27"/>
-                            <constraint firstItem="jJU-wd-RMV" firstAttribute="bottom" secondItem="1M1-dm-P2Y" secondAttribute="bottom" id="KW2-c9-Gjl"/>
-                            <constraint firstItem="1M1-dm-P2Y" firstAttribute="bottom" secondItem="tDd-8g-3QT" secondAttribute="bottom" constant="35" id="OJX-gw-PMF"/>
-                            <constraint firstItem="gJa-0T-NHP" firstAttribute="leading" secondItem="1M1-dm-P2Y" secondAttribute="leading" constant="27" id="UbA-BO-pJB"/>
-                            <constraint firstItem="jJU-wd-RMV" firstAttribute="leading" secondItem="gJa-0T-NHP" secondAttribute="trailing" constant="55" id="bi9-6b-fq4"/>
-                            <constraint firstItem="1M1-dm-P2Y" firstAttribute="trailing" secondItem="jJU-wd-RMV" secondAttribute="trailing" constant="16" id="nl1-VZ-vRs"/>
-                            <constraint firstItem="tDd-8g-3QT" firstAttribute="top" secondItem="1M1-dm-P2Y" secondAttribute="top" constant="543" id="pC2-bT-DuB"/>
-                            <constraint firstItem="tDd-8g-3QT" firstAttribute="top" secondItem="gJa-0T-NHP" secondAttribute="bottom" constant="1" id="vUZ-Mn-Aq9"/>
-                            <constraint firstItem="gJa-0T-NHP" firstAttribute="top" secondItem="1M1-dm-P2Y" secondAttribute="top" constant="512" id="xrk-MM-uj0"/>
+                            <constraint firstItem="ygk-ad-4tH" firstAttribute="leading" secondItem="rCg-fG-vzq" secondAttribute="trailing" constant="8" id="7Vb-so-tRV"/>
+                            <constraint firstItem="1M1-dm-P2Y" firstAttribute="bottom" secondItem="rCg-fG-vzq" secondAttribute="bottom" constant="25" id="GXA-cP-1vb"/>
+                            <constraint firstItem="yDC-SN-djU" firstAttribute="trailing" secondItem="1M1-dm-P2Y" secondAttribute="trailing" id="Kqd-5n-HWf"/>
+                            <constraint firstItem="1M1-dm-P2Y" firstAttribute="bottom" secondItem="yDC-SN-djU" secondAttribute="bottom" id="MOa-1T-6zm"/>
+                            <constraint firstItem="yDC-SN-djU" firstAttribute="leading" secondItem="1M1-dm-P2Y" secondAttribute="leading" constant="218" id="Nne-q9-kDa"/>
+                            <constraint firstItem="rCg-fG-vzq" firstAttribute="leading" secondItem="1M1-dm-P2Y" secondAttribute="leading" id="QMX-ZD-gMh"/>
+                            <constraint firstItem="1M1-dm-P2Y" firstAttribute="bottom" secondItem="ygk-ad-4tH" secondAttribute="bottom" constant="25" id="Wpb-BW-br9"/>
+                            <constraint firstItem="yDC-SN-djU" firstAttribute="top" secondItem="1M1-dm-P2Y" secondAttribute="top" constant="501" id="jWa-Py-F6p"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="1M1-dm-P2Y"/>
                     </view>
                     <connections>
-                        <outlet property="btnStart" destination="gJa-0T-NHP" id="aie-9v-Psk"/>
-                        <outlet property="previewView" destination="jJU-wd-RMV" id="VFf-BK-NI5"/>
+                        <outlet property="previewView" destination="yDC-SN-djU" id="bwz-wr-TSL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QBE-gd-lx8" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -839,10 +819,12 @@
         <image name="Sync" width="75" height="75"/>
         <image name="contact" width="19.5" height="19.5"/>
         <image name="contactProfile" width="64" height="64"/>
+        <image name="disconnect" width="75" height="75"/>
         <image name="language" width="37.5" height="37.5"/>
         <image name="message" width="22.5" height="22.5"/>
         <image name="photo" width="75" height="75"/>
         <image name="plus" width="75" height="75"/>
+        <image name="recording" width="75" height="75"/>
         <image name="settings" width="19.5" height="19.5"/>
     </resources>
     <inferredMetricsTieBreakers>

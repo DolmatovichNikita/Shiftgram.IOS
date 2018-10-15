@@ -20,7 +20,7 @@ class VideoViewController: UIViewController{
     private var localVideoTrack: TVILocalVideoTrack?
     private var localAudioTrack: TVILocalAudioTrack?
     private var remoteParticipant: TVIRemoteParticipant?
-    private var remoteView: TVIVideoView?
+    private var remoteView: TVIVideoView!
     
     @IBOutlet weak var previewView: TVIVideoView!
     @IBOutlet weak var btnStart: UIButton!
@@ -33,7 +33,7 @@ class VideoViewController: UIViewController{
     private let synthezier = AVSpeechSynthesizer()
     private let audioSession = AVAudioSession.sharedInstance()
     
-    @IBAction func btnDisconnectPressed(_ sender: Any) {
+    @IBAction func disconnectPressed(_ sender: Any) {
         Constants.refs.databaseRoot.child(self.conversationName + "video").removeValue()
         self.room!.disconnect()
     }
@@ -96,7 +96,7 @@ class VideoViewController: UIViewController{
                     let utterance = AVSpeechUtterance(string: text!)
                     utterance.voice = AVSpeechSynthesisVoice(language: Locale.preferredLanguages.first?.parseLanguage())
                     utterance.volume = 1.0
-                    utterance.rate = 0.3
+                    utterance.rate = 0.4
                     self.synthezier.speak(utterance)
                 }
             }

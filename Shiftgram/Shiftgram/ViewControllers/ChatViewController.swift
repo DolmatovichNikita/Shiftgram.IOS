@@ -79,6 +79,40 @@ class ChatViewController: JSQMessagesViewController, AVAudioRecorderDelegate, SF
         })
     }
     
+    private func initAudioSession() {
+        let audioSession = AVAudioSession.sharedInstance()
+        
+        do {
+            try audioSession.setCategory(AVAudioSessionCategoryPlayAndRecord)
+            try audioSession.setMode(AVAudioSessionModeMeasurement)
+            try audioSession.setActive(true)
+        } catch {
+            print("audioSession properties weren't set because of an error.")
+        }
+    }
+    
+    private func initCall() {
+        let query = Constants.refs.databaseRoot.child(self.conversationName + "notification").queryLimited(toLast: 10)
+        
+        _ = query.observe(.childAdded, with: { [weak self] snapshot in
+            if let data = snapshot.value as? [String: String] {
+                let id = data["sender_id"]
+                let senderName = data["name"]
+                let video = data["videoCall"]
+                
+                if id != String(UserEntity().getUserId()) {
+                    if video != nil && !(video?.isEmpty)! {
+                        let provider = CXProvider(configuration: CXProviderConfiguration(localizedName: "Shiftgram"))
+                        provider.setDelegate(self, queue: nil)
+                        let update = CXCallUpdate()
+                        update.remoteHandle = CXHandle(type: .generic, value: senderName!)
+                        provider.reportNewIncomingCall(with: UUID(), update: update, completion: { error in })
+                    }
+                }
+            }
+        })
+    }
+    
     @objc private func longPressedButton(tapGestureRecognizer: UILongPressGestureRecognizer) {
         if tapGestureRecognizer.state == .began {
             self.startRecording()
@@ -116,9 +150,9 @@ class ChatViewController: JSQMessagesViewController, AVAudioRecorderDelegate, SF
         let choiceCallType = UIAlertController(title: "Choice type of calling", message: nil, preferredStyle: .actionSheet)
         
         let videoCall = UIAlertAction(title: "Video", style: .default) { (_) in
-            //let ref = Constants.refs.databaseRoot.child(self.conversationName + "notification").childByAutoId()
-            //let message = ["sender_id": self.senderId!, "name": self.senderDisplayName, "videoCall": "true"] as [String : Any]
-            //ref.setValue(message)
+            let ref = Constants.refs.databaseRoot.child(self.conversationName + "notification").childByAutoId()
+            let message = ["sender_id": self.senderId!, "name": self.senderDisplayName, "videoCall": "true"] as [String : Any]
+            ref.setValue(message)
             self.performSegue(withIdentifier: "Video", sender: self)
         }
         let voiceCall = UIAlertAction(title: "Voice", style: .default) { (_) in
@@ -261,6 +295,8 @@ extension ChatViewController {
         collectionView.collectionViewLayout.incomingAvatarViewSize = CGSize.zero
         collectionView.collectionViewLayout.outgoingAvatarViewSize = CGSize.zero
         self.initChat()
+        self.initAudioSession()
+        self.initCall()
         speechRecognizer!.delegate = self
         SFSpeechRecognizer.requestAuthorization { (_) in}
     }
@@ -312,6 +348,24 @@ extension ChatViewController {
     
     override func collectionView(_ collectionView: JSQMessagesCollectionView!, layout collectionViewLayout: JSQMessagesCollectionViewFlowLayout!, heightForMessageBubbleTopLabelAt indexPath: IndexPath!) -> CGFloat {
         return messages[indexPath.item].senderId == senderId ? 0 : 15
+    }
+}
+
+extension ChatViewController: CXProviderDelegate {
+    
+    func providerDidReset(_ provider: CXProvider) {
+        
+    }
+    
+    func provider(_ provider: CXProvider, perform action: CXAnswerCallAction) {
+        action.fulfill()
+        self.performSegue(withIdentifier: "Video", sender: self)
+        Constants.refs.databaseRoot.child(self.conversationName + "notification").removeValue()
+    }
+    
+    func provider(_ provider: CXProvider, perform action: CXEndCallAction) {
+        action.fulfill()
+        Constants.refs.databaseRoot.child(self.conversationName + "notification").removeValue()
     }
 }
 

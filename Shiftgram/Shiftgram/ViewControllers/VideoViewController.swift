@@ -23,7 +23,8 @@ class VideoViewController: UIViewController{
     private var remoteView: TVIVideoView!
     
     @IBOutlet weak var previewView: TVIVideoView!
-    @IBOutlet weak var btnStart: UIButton!
+    @IBOutlet weak var recordingImageView: UIImageView!
+    @IBOutlet weak var disconnectImageView: UIImageView!
     
     private let speechRecognizer = SFSpeechRecognizer(locale: Locale.init(identifier: Locale.preferredLanguages.first!))
     private var recognitionRequest: SFSpeechAudioBufferRecognitionRequest?
@@ -33,12 +34,27 @@ class VideoViewController: UIViewController{
     private let synthezier = AVSpeechSynthesizer()
     private let audioSession = AVAudioSession.sharedInstance()
     
-    @IBAction func disconnectPressed(_ sender: Any) {
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        let disconnectGesture = UITapGestureRecognizer(target: self, action: #selector (tapGestureDisconnect(gesture:)))
+        self.disconnectImageView.isUserInteractionEnabled = true
+        self.disconnectImageView.addGestureRecognizer(disconnectGesture)
+        let recordingGesture = UITapGestureRecognizer(target: self, action: #selector (tapGestureRecroding(gesture:)))
+        self.recordingImageView.isUserInteractionEnabled = true
+        self.recordingImageView.addGestureRecognizer(recordingGesture)
+        self.initChat()
+        self.startPreview()
+        self.initConnection()
+        self.initAudioSession()
+        SFSpeechRecognizer.requestAuthorization { (_) in}
+    }
+    
+    @objc private func tapGestureDisconnect(gesture: UITapGestureRecognizer) {
         Constants.refs.databaseRoot.child(self.conversationName + "video").removeValue()
         self.room!.disconnect()
     }
     
-    @IBAction func speechPressed(_ sender: Any) {
+    @objc private func tapGestureRecroding(gesture: UITapGestureRecognizer) {
         let user = self.userId
         if audioEngine.isRunning {
             audioEngine.stop()
@@ -56,21 +72,13 @@ class VideoViewController: UIViewController{
                 ref.setValue(message)
                 self.speechText = ""
             }
-            self.btnStart.setTitle("Start Recording", for: .normal)
+            self.recordingImageView.image = UIImage(named: "recording")
+            self.recordingImageView.contentMode = .scaleAspectFit
         } else {
             self.startRecording()
-            self.btnStart.setTitle("Stop Recording", for: .normal)
+            self.recordingImageView.image = UIImage(named: "inRecording")
+            self.recordingImageView.contentMode = .scaleAspectFit
         }
-    }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        self.view.backgroundColor = UIColor.white
-        self.initChat()
-        self.startPreview()
-        self.initConnection()
-        self.initAudioSession()
-        SFSpeechRecognizer.requestAuthorization { (_) in}
     }
     
     private func initAudioSession() {

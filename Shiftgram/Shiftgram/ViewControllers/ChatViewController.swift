@@ -116,9 +116,9 @@ class ChatViewController: JSQMessagesViewController, AVAudioRecorderDelegate, SF
         let choiceCallType = UIAlertController(title: "Choice type of calling", message: nil, preferredStyle: .actionSheet)
         
         let videoCall = UIAlertAction(title: "Video", style: .default) { (_) in
-            let ref = Constants.refs.databaseRoot.child(self.conversationName + "notification").childByAutoId()
-            let message = ["sender_id": self.senderId!, "name": self.senderDisplayName, "videoCall": "true"] as [String : Any]
-            ref.setValue(message)
+            //let ref = Constants.refs.databaseRoot.child(self.conversationName + "notification").childByAutoId()
+            //let message = ["sender_id": self.senderId!, "name": self.senderDisplayName, "videoCall": "true"] as [String : Any]
+            //ref.setValue(message)
             self.performSegue(withIdentifier: "Video", sender: self)
         }
         let voiceCall = UIAlertAction(title: "Voice", style: .default) { (_) in
@@ -314,3 +314,4 @@ extension ChatViewController {
         return messages[indexPath.item].senderId == senderId ? 0 : 15
     }
 }
+

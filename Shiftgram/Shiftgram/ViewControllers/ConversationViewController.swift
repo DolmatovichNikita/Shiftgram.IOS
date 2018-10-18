@@ -1,9 +1,9 @@
 import UIKit
 
-class ConversationViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class ConversationViewController: UIViewController {
     
     @IBOutlet weak var conversationTableView: UITableView!
-    private var conversations = [Conversation]()
+    private var conversations = ConversationEntity().getConversations()
     private var conversationName: String!
     private var friendLanguage: String!
     
@@ -11,13 +11,23 @@ class ConversationViewController: UIViewController, UITableViewDelegate, UITable
         super.viewDidLoad()
         self.conversationTableView.delegate = self
         self.conversationTableView.dataSource = self
-        self.conversations = ConversationEntity().getConversations()
         self.conversationTableView.reloadData()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "Chat" {
+            let chatViewController = segue.destination as! ChatViewController
+            chatViewController.conversationName = self.conversationName
+            chatViewController.friendLanguage = self.friendLanguage
+        }
+    }
+}
+
+extension ConversationViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return conversations.count
@@ -41,12 +51,5 @@ class ConversationViewController: UIViewController, UITableViewDelegate, UITable
         self.friendLanguage = FriendEntity().getFriendLanguage(id: Int(conversation.accountBId))
         self.performSegue(withIdentifier: "Chat", sender: self)
     }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "Chat" {
-            let chatViewController = segue.destination as! ChatViewController
-            chatViewController.conversationName = self.conversationName
-            chatViewController.friendLanguage = self.friendLanguage
-        }
-    }
 }
+

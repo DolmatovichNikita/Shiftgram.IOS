@@ -79,26 +79,6 @@ class ChatViewController: JSQMessagesViewController, AVAudioRecorderDelegate, SF
         })
     }
     
-    
-    
-    /*private func initCall() {
-        let query = Constants.refs.databaseRoot.child(self.conversationName + "notification").queryLimited(toLast: 10)
-        
-        _ = query.observe(.childAdded, with: { [weak self] snapshot in
-            if let data = snapshot.value as? [String: String] {
-                let id = data["sender_id"]
-                let senderName = data["name"]
-                let video = data["videoCall"]
-                
-                if id != String(UserEntity().getUserId()) {
-                    if video != nil && !(video?.isEmpty)! {
-                        
-                    }
-                }
-            }
-        })
-    }*/
-    
     @objc private func longPressedButton(tapGestureRecognizer: UILongPressGestureRecognizer) {
         if tapGestureRecognizer.state == .began {
             self.startRecording()
@@ -281,8 +261,6 @@ extension ChatViewController {
         collectionView.collectionViewLayout.incomingAvatarViewSize = CGSize.zero
         collectionView.collectionViewLayout.outgoingAvatarViewSize = CGSize.zero
         self.initChat()
-        //self.initAudioSession()
-        //self.initCall()
         speechRecognizer!.delegate = self
         SFSpeechRecognizer.requestAuthorization { (_) in}
     }
@@ -337,21 +315,4 @@ extension ChatViewController {
     }
 }
 
-/*extension ChatViewController: CXProviderDelegate {
-    
-    func providerDidReset(_ provider: CXProvider) {
-        
-    }
-    
-    func provider(_ provider: CXProvider, perform action: CXAnswerCallAction) {
-        action.fulfill()
-        self.performSegue(withIdentifier: "Video", sender: self)
-        Constants.refs.databaseRoot.child(self.conversationName + "notification").removeValue()
-    }
-    
-    func provider(_ provider: CXProvider, perform action: CXEndCallAction) {
-        action.fulfill()
-        Constants.refs.databaseRoot.child(self.conversationName + "notification").removeValue()
-    }
-}*/
 

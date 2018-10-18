@@ -568,7 +568,6 @@
                     <connections>
                         <outlet property="contacttableView" destination="G8Y-yA-wh3" id="SBU-Er-WCu"/>
                         <segue destination="l9h-Td-3Ez" kind="show" id="dj1-ZU-5FS"/>
-                        <segue destination="9UR-8d-K8X" kind="show" identifier="Video" id="BKF-Xp-5JS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0pb-7D-RAk" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -646,6 +645,7 @@
                         <segue destination="e6f-bo-rh5" kind="relationship" relationship="viewControllers" id="pHR-8J-axx"/>
                         <segue destination="6rU-g5-dMJ" kind="relationship" relationship="viewControllers" id="hJZ-L7-Uxd"/>
                         <segue destination="fSb-hM-ws9" kind="relationship" relationship="viewControllers" id="p3G-HM-R6Y"/>
+                        <segue destination="9UR-8d-K8X" kind="show" identifier="Video" id="GMq-ef-AHN"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XjV-4i-Ral" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -845,7 +845,7 @@
         <image name="settings" width="19.5" height="19.5"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="BKF-Xp-5JS"/>
+        <segue reference="GMq-ef-AHN"/>
         <segue reference="bBy-Yq-bbG"/>
     </inferredMetricsTieBreakers>
 </document>

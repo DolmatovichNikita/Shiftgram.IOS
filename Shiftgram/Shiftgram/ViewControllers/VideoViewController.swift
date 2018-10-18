@@ -9,6 +9,7 @@ class VideoViewController: UIViewController{
 
     public var conversationName = String()
     public var friendLaguage = String()
+    public var from = String()
     private var language = (Locale.preferredLanguages.first?.parseLanguage())!
     private var accessToken: String?
     private let videoAccessViewModel = VideoAccessViewModel()

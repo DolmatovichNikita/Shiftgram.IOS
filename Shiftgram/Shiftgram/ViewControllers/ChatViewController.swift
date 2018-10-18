@@ -79,19 +79,9 @@ class ChatViewController: JSQMessagesViewController, AVAudioRecorderDelegate, SF
         })
     }
     
-    private func initAudioSession() {
-        let audioSession = AVAudioSession.sharedInstance()
-        
-        do {
-            try audioSession.setCategory(AVAudioSessionCategoryPlayAndRecord)
-            try audioSession.setMode(AVAudioSessionModeMeasurement)
-            try audioSession.setActive(true)
-        } catch {
-            print("audioSession properties weren't set because of an error.")
-        }
-    }
     
-    private func initCall() {
+    
+    /*private func initCall() {
         let query = Constants.refs.databaseRoot.child(self.conversationName + "notification").queryLimited(toLast: 10)
         
         _ = query.observe(.childAdded, with: { [weak self] snapshot in
@@ -102,16 +92,12 @@ class ChatViewController: JSQMessagesViewController, AVAudioRecorderDelegate, SF
                 
                 if id != String(UserEntity().getUserId()) {
                     if video != nil && !(video?.isEmpty)! {
-                        let provider = CXProvider(configuration: CXProviderConfiguration(localizedName: "Shiftgram"))
-                        provider.setDelegate(self, queue: nil)
-                        let update = CXCallUpdate()
-                        update.remoteHandle = CXHandle(type: .generic, value: senderName!)
-                        provider.reportNewIncomingCall(with: UUID(), update: update, completion: { error in })
+                        
                     }
                 }
             }
         })
-    }
+    }*/
     
     @objc private func longPressedButton(tapGestureRecognizer: UILongPressGestureRecognizer) {
         if tapGestureRecognizer.state == .began {
@@ -153,7 +139,7 @@ class ChatViewController: JSQMessagesViewController, AVAudioRecorderDelegate, SF
             let ref = Constants.refs.databaseRoot.child(self.conversationName + "notification").childByAutoId()
             let message = ["sender_id": self.senderId!, "name": self.senderDisplayName, "videoCall": "true"] as [String : Any]
             ref.setValue(message)
-            self.performSegue(withIdentifier: "Video", sender: self)
+            self.performSegue(withIdentifier: "VideoChat", sender: self)
         }
         let voiceCall = UIAlertAction(title: "Voice", style: .default) { (_) in
             let ref = Constants.refs.databaseRoot.child(self.conversationName + "notification").childByAutoId()
@@ -169,7 +155,7 @@ class ChatViewController: JSQMessagesViewController, AVAudioRecorderDelegate, SF
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let language = self.friendLanguage
         let conversation = self.conversationName
-        if segue.identifier == "Video" {
+        if segue.identifier == "VideoChat" {
             let videoViewController = segue.destination as! VideoViewController
             videoViewController.conversationName = conversation
             videoViewController.friendLaguage = language
@@ -295,8 +281,8 @@ extension ChatViewController {
         collectionView.collectionViewLayout.incomingAvatarViewSize = CGSize.zero
         collectionView.collectionViewLayout.outgoingAvatarViewSize = CGSize.zero
         self.initChat()
-        self.initAudioSession()
-        self.initCall()
+        //self.initAudioSession()
+        //self.initCall()
         speechRecognizer!.delegate = self
         SFSpeechRecognizer.requestAuthorization { (_) in}
     }
@@ -351,7 +337,7 @@ extension ChatViewController {
     }
 }
 
-extension ChatViewController: CXProviderDelegate {
+/*extension ChatViewController: CXProviderDelegate {
     
     func providerDidReset(_ provider: CXProvider) {
         
@@ -367,5 +353,5 @@ extension ChatViewController: CXProviderDelegate {
         action.fulfill()
         Constants.refs.databaseRoot.child(self.conversationName + "notification").removeValue()
     }
-}
+}*/
 

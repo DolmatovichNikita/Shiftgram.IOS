@@ -27,6 +27,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
     
+    public func navigateToVideo(conversationName: String, friendLanguage: String) {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let videoViewController = storyboard.instantiateViewController(withIdentifier: "VideoViewController") as? VideoViewController
+        videoViewController?.conversationName = conversationName
+        videoViewController?.friendLaguage = friendLanguage
+        self.window?.rootViewController = videoViewController
+        self.window?.makeKeyAndVisible()
+    }
+    
     private func registerCognito() {
         let credentialsProvider = AWSCognitoCredentialsProvider(regionType:.EUCentral1,
                                                                 identityPoolId:"eu-central-1:2e181e24-28d0-4839-84a3-011b2fe795f5")

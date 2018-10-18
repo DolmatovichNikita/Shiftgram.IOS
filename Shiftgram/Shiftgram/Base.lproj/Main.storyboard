@@ -303,7 +303,7 @@
                         <viewLayoutGuide key="safeArea" id="DSI-Lu-Rzx"/>
                     </view>
                     <connections>
-                        <segue destination="9UR-8d-K8X" kind="show" identifier="Video" id="BCl-DI-y0z"/>
+                        <segue destination="9UR-8d-K8X" kind="show" identifier="VideoChat" id="76h-AU-Asc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3yD-mR-KH2" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -313,24 +313,24 @@
         <!--Video View Controller-->
         <scene sceneID="WeN-bx-0YT">
             <objects>
-                <viewController id="9UR-8d-K8X" customClass="VideoViewController" customModule="Shiftgram" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="VideoViewController" id="9UR-8d-K8X" customClass="VideoViewController" customModule="Shiftgram" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="hyE-cz-kLf">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yDC-SN-djU" customClass="TVIVideoView">
-                                <rect key="frame" x="175" y="570" width="200" height="159"/>
+                                <rect key="frame" x="175" y="526" width="200" height="252"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="disconnect" translatesAutoresizingMaskIntoConstraints="NO" id="rCg-fG-vzq">
-                                <rect key="frame" x="0.0" y="661" width="75" height="68"/>
+                                <rect key="frame" x="0.0" y="710" width="75" height="68"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="75" id="65n-xE-9Oe"/>
                                     <constraint firstAttribute="height" constant="68" id="92L-yk-sgI"/>
                                 </constraints>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="recording" translatesAutoresizingMaskIntoConstraints="NO" id="ygk-ad-4tH">
-                                <rect key="frame" x="75" y="661" width="78" height="68"/>
+                                <rect key="frame" x="75" y="710" width="78" height="68"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="68" id="qn0-gd-5le"/>
                                 </constraints>
@@ -568,6 +568,7 @@
                     <connections>
                         <outlet property="contacttableView" destination="G8Y-yA-wh3" id="SBU-Er-WCu"/>
                         <segue destination="l9h-Td-3Ez" kind="show" id="dj1-ZU-5FS"/>
+                        <segue destination="9UR-8d-K8X" kind="show" identifier="Video" id="BKF-Xp-5JS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0pb-7D-RAk" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -844,6 +845,7 @@
         <image name="settings" width="19.5" height="19.5"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="BKF-Xp-5JS"/>
         <segue reference="bBy-Yq-bbG"/>
     </inferredMetricsTieBreakers>
 </document>

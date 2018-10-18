@@ -335,6 +335,15 @@
                                     <constraint firstAttribute="height" constant="68" id="qn0-gd-5le"/>
                                 </constraints>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loading" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8gb-af-USb">
+                                <rect key="frame" x="124" y="304" width="127" height="58"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="58" id="NXi-EO-4nH"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -344,27 +353,31 @@
                             <constraint firstItem="1M1-dm-P2Y" firstAttribute="bottom" secondItem="rCg-fG-vzq" secondAttribute="bottom" id="GXA-cP-1vb"/>
                             <constraint firstItem="yDC-SN-djU" firstAttribute="trailing" secondItem="1M1-dm-P2Y" secondAttribute="trailing" id="Kqd-5n-HWf"/>
                             <constraint firstItem="1M1-dm-P2Y" firstAttribute="bottom" secondItem="yDC-SN-djU" secondAttribute="bottom" id="MOa-1T-6zm"/>
+                            <constraint firstItem="8gb-af-USb" firstAttribute="leading" secondItem="1M1-dm-P2Y" secondAttribute="leading" constant="124" id="N1E-c1-Y31"/>
                             <constraint firstItem="yDC-SN-djU" firstAttribute="leading" secondItem="1M1-dm-P2Y" secondAttribute="leading" constant="175" id="Nne-q9-kDa"/>
                             <constraint firstItem="rCg-fG-vzq" firstAttribute="leading" secondItem="1M1-dm-P2Y" secondAttribute="leading" id="QMX-ZD-gMh"/>
                             <constraint firstItem="1M1-dm-P2Y" firstAttribute="bottom" secondItem="ygk-ad-4tH" secondAttribute="bottom" id="Wpb-BW-br9"/>
                             <constraint firstItem="rCg-fG-vzq" firstAttribute="bottom" secondItem="1M1-dm-P2Y" secondAttribute="bottom" id="YDm-u3-9OV"/>
                             <constraint firstItem="ygk-ad-4tH" firstAttribute="bottom" secondItem="1M1-dm-P2Y" secondAttribute="bottom" id="bkQ-i0-Xko"/>
+                            <constraint firstItem="8gb-af-USb" firstAttribute="top" secondItem="1M1-dm-P2Y" secondAttribute="top" constant="260" id="hxY-rF-7ll"/>
                             <constraint firstItem="yDC-SN-djU" firstAttribute="top" secondItem="1M1-dm-P2Y" secondAttribute="top" constant="482" id="jWa-Py-F6p"/>
                             <constraint firstItem="yDC-SN-djU" firstAttribute="leading" secondItem="ygk-ad-4tH" secondAttribute="trailing" constant="22" id="jX3-s6-aL4"/>
                             <constraint firstItem="rCg-fG-vzq" firstAttribute="leading" secondItem="1M1-dm-P2Y" secondAttribute="leading" id="jeT-Le-1wY"/>
                             <constraint firstItem="rCg-fG-vzq" firstAttribute="leading" secondItem="1M1-dm-P2Y" secondAttribute="leading" id="s5T-Zg-u7G"/>
+                            <constraint firstItem="1M1-dm-P2Y" firstAttribute="trailing" secondItem="8gb-af-USb" secondAttribute="trailing" constant="124" id="xZV-5E-soX"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="1M1-dm-P2Y"/>
                     </view>
                     <connections>
                         <outlet property="disconnectImageView" destination="rCg-fG-vzq" id="QRR-zX-U0p"/>
+                        <outlet property="loadingLabel" destination="8gb-af-USb" id="Pfl-Ag-QNv"/>
                         <outlet property="previewView" destination="yDC-SN-djU" id="bwz-wr-TSL"/>
                         <outlet property="recordingImageView" destination="ygk-ad-4tH" id="uxJ-bs-p4E"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QBE-gd-lx8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5840.8000000000002" y="1245.4272863568217"/>
+            <point key="canvasLocation" x="5840.8000000000002" y="1244.3349753694581"/>
         </scene>
         <!--Settings-->
         <scene sceneID="t8X-J7-KAa">

@@ -15,6 +15,7 @@ class VideoViewController: UIViewController{
     private let videoAccessViewModel = VideoAccessViewModel()
     private let roomName = "Shiftgram"
     private let userId = String(UserEntity().getUserId())
+    private var indicator: ActivityIndicator?
     
     private var room: TVIRoom?
     private var camera: TVICameraCapturer?
@@ -26,6 +27,7 @@ class VideoViewController: UIViewController{
     @IBOutlet weak var previewView: TVIVideoView!
     @IBOutlet weak var recordingImageView: UIImageView!
     @IBOutlet weak var disconnectImageView: UIImageView!
+    @IBOutlet weak var loadingLabel: UILabel!
     
     private let speechRecognizer = SFSpeechRecognizer(locale: Locale.init(identifier: Locale.preferredLanguages.first!))
     private var recognitionRequest: SFSpeechAudioBufferRecognitionRequest?
@@ -37,6 +39,8 @@ class VideoViewController: UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.indicator = ActivityIndicator(view: self.view)
+        self.indicator!.startLoading()
         let disconnectGesture = UITapGestureRecognizer(target: self, action: #selector (tapGestureDisconnect(gesture:)))
         self.disconnectImageView.isUserInteractionEnabled = true
         self.disconnectImageView.addGestureRecognizer(disconnectGesture)
@@ -170,7 +174,9 @@ class VideoViewController: UIViewController{
             
             let connectOptions = TVIConnectOptions.init(token: self.accessToken!) { (builder) in
                 
-                //builder.audioTracks = self.localAudioTrack != nil ? [self.localAudioTrack!] : [TVILocalAudioTrack]()
+                if self.language == self.friendLaguage {
+                    builder.audioTracks = self.localAudioTrack != nil ? [self.localAudioTrack!] : [TVILocalAudioTrack]()
+                }
                 builder.videoTracks = self.localVideoTrack != nil ? [self.localVideoTrack!] : [TVILocalVideoTrack]()
                 
                 if let preferredAudioCodec = Settings.shared.audioCodec {
@@ -266,7 +272,9 @@ class VideoViewController: UIViewController{
     
     private func prepareLocalMedia() {
         if (localAudioTrack == nil) {
-            //localAudioTrack = TVILocalAudioTrack.init(options: nil, enabled: true, name: "Microphone")
+            if language == friendLaguage {
+                localAudioTrack = TVILocalAudioTrack.init(options: nil, enabled: true, name: "Microphone")
+            }
             
             if (localAudioTrack == nil) {
             }
@@ -335,6 +343,8 @@ extension VideoViewController : TVIRemoteParticipantDelegate {
         if (self.remoteParticipant == participant) {
             setupRemoteVideoView()
             videoTrack.addRenderer(self.remoteView!)
+            self.indicator!.stopLoading()
+            self.loadingLabel.text = ""
         }
     }
     

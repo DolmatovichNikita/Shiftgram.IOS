@@ -125,6 +125,9 @@ class ChatViewController: JSQMessagesViewController, AVAudioRecorderDelegate, SF
             let ref = Constants.refs.databaseRoot.child(self.conversationName + "notification").childByAutoId()
             let message = ["sender_id": self.senderId!, "name": self.senderDisplayName, "audioCall": "true"] as [String : Any]
             ref.setValue(message)
+            let audioViewController = AudioViewController()
+            audioViewController.name = self.conversationName
+            self.navigationController?.pushViewController(audioViewController, animated: true)
         }
         
         choiceCallType.addAction(videoCall)

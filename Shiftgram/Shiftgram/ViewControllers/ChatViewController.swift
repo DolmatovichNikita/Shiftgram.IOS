@@ -8,6 +8,7 @@ import CallKit
 class ChatViewController: JSQMessagesViewController, AVAudioRecorderDelegate, SFSpeechRecognizerDelegate {
 
     public var conversationName = String()
+    public var friendName = String()
     public var friendLanguage = String()
     private var messages = [JSQMessage]()
     private let userId = UserEntity().getUserId()
@@ -126,7 +127,9 @@ class ChatViewController: JSQMessagesViewController, AVAudioRecorderDelegate, SF
             let message = ["sender_id": self.senderId!, "name": self.senderDisplayName, "audioCall": "true"] as [String : Any]
             ref.setValue(message)
             let audioViewController = AudioViewController()
-            audioViewController.name = self.conversationName
+            audioViewController.name = self.friendName
+            audioViewController.conversationName = self.conversationName
+            audioViewController.friendLanguage = self.friendLanguage
             self.navigationController?.pushViewController(audioViewController, animated: true)
         }
         

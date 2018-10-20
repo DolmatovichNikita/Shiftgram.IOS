@@ -3,6 +3,8 @@ import UIKit
 class AudioViewController: UIViewController {
     
     public var name = String()
+    public var conversationName = String()
+    public var friendLanguage = String()
     
     override func viewDidLoad() {
         super.viewDidLoad()

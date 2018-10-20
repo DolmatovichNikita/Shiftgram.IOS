@@ -6,6 +6,7 @@ class ConversationViewController: UIViewController {
     private var conversations = ConversationEntity().getConversations()
     private var conversationName: String!
     private var friendLanguage: String!
+    private var friendName: String!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,6 +24,7 @@ class ConversationViewController: UIViewController {
             let chatViewController = segue.destination as! ChatViewController
             chatViewController.conversationName = self.conversationName
             chatViewController.friendLanguage = self.friendLanguage
+            chatViewController.friendName = self.friendName
         }
     }
 }
@@ -49,6 +51,7 @@ extension ConversationViewController: UITableViewDelegate, UITableViewDataSource
         let userId = UserEntity().getUserId()
         self.conversationName = String(conversation.accountBId * userId)
         self.friendLanguage = FriendEntity().getFriendLanguage(id: Int(conversation.accountBId))
+        self.friendName = conversation.name
         self.performSegue(withIdentifier: "Chat", sender: self)
     }
 }

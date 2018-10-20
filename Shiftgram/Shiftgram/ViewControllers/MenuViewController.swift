@@ -7,11 +7,15 @@ class MenuViewController: UITabBarController {
     private let userId = UserEntity().getUserId()
     private var currentConversationName = String()
     private var currentFriendLanguage = String()
+    private var currentName = String()
+    private var isAudio = String()
+    private var isVideo = String()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.initAudioSession()
         self.initConversations()
+        self.initAudioConversation()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -22,6 +26,8 @@ class MenuViewController: UITabBarController {
             Constants.refs.databaseRoot.child(self.currentConversationName + "notification").removeValue()
             self.currentConversationName = ""
             self.currentFriendLanguage = ""
+            self.isVideo = ""
+            self.isAudio = ""
         }
     }
     
@@ -52,6 +58,32 @@ class MenuViewController: UITabBarController {
                         if video != nil && !(video?.isEmpty)! {
                             self.currentConversationName = conversationName
                             self.currentFriendLanguage = FriendEntity().getFriendLanguage(id: Int(conversation.accountBId))
+                            self.isVideo = "video"
+                            self.incomingCall(senderName: name!)
+                        }
+                    }
+                }
+            })
+        }
+    }
+    
+    private func initAudioConversation() {
+        for conversation in conversations {
+            let conversationName = String(userId * conversation.accountBId)
+            let query = Constants.refs.databaseRoot.child(conversationName + "notification").queryLimited(toLast: 10)
+            
+            _ = query.observe(.childAdded, with: { snapshot in
+                if let data = snapshot.value as? [String: String] {
+                    let id = data["sender_id"]
+                    let name = data["name"]
+                    let video = data["audioCall"]
+                    
+                    if id != String(self.userId) {
+                        if video != nil && !(video?.isEmpty)! {
+                            self.currentConversationName = conversationName
+                            self.currentFriendLanguage = FriendEntity().getFriendLanguage(id: Int(conversation.accountBId))
+                            self.currentName = conversation.name!
+                            self.isAudio = "audio"
                             self.incomingCall(senderName: name!)
                         }
                     }
@@ -77,7 +109,20 @@ extension MenuViewController: CXProviderDelegate {
     
     func provider(_ provider: CXProvider, perform action: CXAnswerCallAction) {
         action.fulfill()
-        self.performSegue(withIdentifier: "Video", sender: self)
+        if !self.isVideo.isEmpty {
+            self.performSegue(withIdentifier: "Video", sender: self)
+        } else if !self.isAudio.isEmpty {
+            let audioViewController = AudioViewController()
+            audioViewController.name = self.currentName
+            audioViewController.conversationName = self.currentConversationName
+            audioViewController.friendLanguage = self.currentFriendLanguage
+            Constants.refs.databaseRoot.child(self.currentConversationName + "notification").removeValue()
+            self.currentConversationName = ""
+            self.currentFriendLanguage = ""
+            self.isVideo = ""
+            self.isAudio = ""
+            self.present(audioViewController, animated: true, completion: nil)
+        }
     }
     
     func provider(_ provider: CXProvider, perform action: CXEndCallAction) {

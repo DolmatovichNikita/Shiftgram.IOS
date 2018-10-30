@@ -17,6 +17,8 @@ class UserEntity {
         let user = NSManagedObject(entity: entity!, insertInto: self.context)
         user.setValue(id, forKey: "id")
         user.setValue(Locale.current.languageCode!, forKey: "language")
+        user.setValue(true, forKey: "isAuth")
+        user.setValue(true, forKey: "isRegister")
         
         do {
             try self.context.save()
@@ -54,8 +56,11 @@ class UserEntity {
         var id: Int32 = 0
         
         do {
-            let user = try self.context.fetch(request).first as! User
-            id = user.id
+            let users = try self.context.fetch(request)
+            if users.count > 0 {
+                let user = users.first as! User
+                id = user.id
+            }
             
         } catch {
             print("Failed")
@@ -69,9 +74,11 @@ class UserEntity {
         var phone: String = ""
         
         do {
-            let user = try self.context.fetch(request).first as! User
-            phone = user.phone!
-            
+            let users = try self.context.fetch(request)
+            if users.count > 0 {
+                let user = users.first as! User
+                phone = user.phone!
+            }
         } catch {
             print("Failed")
         }
@@ -98,8 +105,11 @@ class UserEntity {
         var isAuth = false
         
         do {
-            let user = try self.context.fetch(request).first as! User
-            isAuth = user.isAuth
+            let users = try self.context.fetch(request)
+            if users.count > 0 {
+                let user = users.first as! User
+                isAuth = user.isAuth
+            }
         } catch {
             print("Failed")
         }
@@ -112,8 +122,11 @@ class UserEntity {
         var isRegister = false
         
         do {
-            let user = try self.context.fetch(request).first as! User
-            isRegister = user.isRegister
+            let users = try self.context.fetch(request)
+            if users.count > 0 {
+                let user = users.first as! User
+                isRegister = user.isRegister
+            }
         } catch {
             print("Failed")
         }
@@ -126,8 +139,11 @@ class UserEntity {
         var isSync = false
         
         do {
-            let user = try self.context.fetch(request).first as! User
-            isSync = user.isSync
+            let users = try self.context.fetch(request)
+            if users.count > 0 {
+                let user = users.first as! User
+                isSync = user.isSync
+            }
         } catch {
             print("Failed")
         }
@@ -145,7 +161,6 @@ class UserEntity {
             if result.count > 0 {
                 isExist = true
             }
-            
         } catch {
             print("Failed")
         }

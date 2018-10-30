@@ -820,6 +820,7 @@
                         <outlet property="profileImageView" destination="YWB-ld-qgA" id="AcA-jc-Og6"/>
                         <outlet property="segmentGender" destination="COz-zd-S7u" id="yUa-u7-fv0"/>
                         <outlet property="usernameTextField" destination="BAf-LJ-gum" id="nej-bC-DMA"/>
+                        <segue destination="OiU-y0-a9u" kind="show" identifier="RegisterToMenu" id="7gg-Z7-64x"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8o0-WJ-f0Y" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -894,6 +895,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="SYN-Kx-kXB"/>
+        <segue reference="7gg-Z7-64x"/>
         <segue reference="GMq-ef-AHN"/>
         <segue reference="AyF-Th-YF1"/>
     </inferredMetricsTieBreakers>

@@ -21,14 +21,27 @@ class CodeVerifyViewController: UIViewController, UITextFieldDelegate {
         self.view.endEditing(true)
     }
     
-    @IBAction func btnNextPressed(_ sender: Any) {
-        let id = userEntity.getUserId()
-        let phoneVerify = PhoneVerify(id: Int(id), number: phone, code: codeTextField.text!)
-        self.phoneViewModel.isAuth(phoneVerify: phoneVerify) { response in
-            //if response {
-                self.performSegue(withIdentifier: "Menu", sender: self)
-            //}
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "Register" {
+            let registerViewController = segue.destination as? ProfileViewController
+            registerViewController?.phone = self.phone
         }
+    }
+    
+    @IBAction func btnNextPressed(_ sender: Any) {
+        //let id = userEntity.getUserId()
+        //let phoneVerify = PhoneVerify(id: Int(id), number: phone, code: codeTextField.text!)
+        //self.phoneViewModel.isAuth(phoneVerify: phoneVerify) { response in
+            //if response {
+            self.phoneViewModel.isExistUser(phone: self.phone, completion: { (response) in
+                if !response {
+                    self.performSegue(withIdentifier: "Register", sender: self)
+                } else {
+                    self.performSegue(withIdentifier: "Menu", sender: self)
+                }
+            })
+            //}
+        //}
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {

@@ -40,4 +40,10 @@ class PhoneViewModel {
             completion(true) //swap completion(response)
         //}
     }
+    
+    public func isExistUser(phone: String, completion: @escaping(Bool) -> Void) {
+        self.userDataManager.isExistAccount(phone: phone) { (value) in
+            completion(value)
+        }
+    }
 }

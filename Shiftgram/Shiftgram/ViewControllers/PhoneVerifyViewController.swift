@@ -45,11 +45,11 @@ class PhoneVerifyViewController: UIViewController, UIPickerViewDelegate, UIPicke
         let phone = codeLabel.text! + numberTextField.text!
         
         if !userEntity.isRegister() {
-            let accountUpdate = AccountPhoneUpdate(id: Int(id), phone: phone, updateType: "PhoneUpdate")
-            phoneViewModel.sendSMS(accountUpdate: accountUpdate, phoneVerify: phoneVerify) {
+            //let accountUpdate = AccountPhoneUpdate(id: Int(id), phone: phone, updateType: "PhoneUpdate")
+            //phoneViewModel.sendSMS(accountUpdate: accountUpdate, phoneVerify: phoneVerify) {
                 self.activityIndicator.stopLoading()
                 self.performSegue(withIdentifier: "Code", sender: self)
-            }
+            //}
         } else {
             //phoneViewModel.sendSMS(accountUpdate: nil, phoneVerify: phoneVerify) {
                 //self.activityIndicator.stopLoading()
@@ -59,33 +59,27 @@ class PhoneVerifyViewController: UIViewController, UIPickerViewDelegate, UIPicke
     }
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        
         return 1
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        
         return phones.count
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        
         return phones[row].country
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        
         codeLabel.text = phones[row].code
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        
         textField.resignFirstResponder()
         return true
     }
     
     private func getPhones() {
-        
         self.phoneViewModel.getPhones {
             self.phones = Array(self.phoneViewModel.phones)
             self.codeLabel.text = self.phones.first?.code
@@ -95,13 +89,11 @@ class PhoneVerifyViewController: UIViewController, UIPickerViewDelegate, UIPicke
     }
     
     private func initControls() {
-        
         self.btnNext.layer.cornerRadius = 20
         self.addBorderTextField()
     }
     
     private func addBorderTextField() {
-        
         let border = CALayer()
         let width = CGFloat(2.0)
         border.borderColor = UIColor.gray.cgColor

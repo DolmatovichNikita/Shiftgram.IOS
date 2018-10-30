@@ -223,11 +223,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <searchBar contentMode="redraw" searchBarStyle="minimal" placeholder="           Seacrh for messages or users" translatesAutoresizingMaskIntoConstraints="NO" id="2WB-ov-sJO">
-                                <rect key="frame" x="0.0" y="88" width="375" height="56"/>
+                                <rect key="frame" x="0.0" y="44" width="375" height="56"/>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="F4v-8K-1dB">
-                                <rect key="frame" x="0.0" y="144" width="375" height="585"/>
+                                <rect key="frame" x="0.0" y="100" width="375" height="678"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MessageCell" rowHeight="91" id="97Z-7F-Dkz" customClass="MessageTableViewCell" customModule="Shiftgram" customModuleProvider="target">
@@ -498,7 +498,6 @@
                                                 <action selector="btnSyncPressed:" destination="e6f-bo-rh5" id="21J-YR-i2X"/>
                                             </connections>
                                         </barButtonItem>
-                                        <barButtonItem key="rightBarButtonItem" image="plus" id="jNP-t0-yg5"/>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
@@ -580,70 +579,12 @@
                     <tabBarItem key="tabBarItem" title="Contacts" image="contact" id="FRW-yL-OFX"/>
                     <connections>
                         <outlet property="contacttableView" destination="G8Y-yA-wh3" id="SBU-Er-WCu"/>
-                        <segue destination="l9h-Td-3Ez" kind="show" id="dj1-ZU-5FS"/>
+                        <segue destination="j81-VI-SgQ" kind="show" identifier="ContactToChat" id="MNp-gb-ZfO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0pb-7D-RAk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3368.8000000000002" y="201.72413793103451"/>
-        </scene>
-        <!--Invite View Controller-->
-        <scene sceneID="97m-FC-BEX">
-            <objects>
-                <viewController id="l9h-Td-3Ez" customClass="InviteViewController" customModule="Shiftgram" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="uxj-0z-Uvc">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mr4-aD-gMv">
-                                <rect key="frame" x="0.0" y="44" width="375" height="44"/>
-                                <viewLayoutGuide key="safeArea" id="o9g-Zh-0Ku"/>
-                                <items>
-                                    <navigationItem title="Info" id="p27-AA-kFP">
-                                        <barButtonItem key="leftBarButtonItem" title="Back" id="9Tm-JM-Z3X"/>
-                                    </navigationItem>
-                                </items>
-                            </navigationBar>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Gfo-Fd-1lD">
-                                <rect key="frame" x="16" y="104" width="102" height="102"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="102" id="TyK-03-D0i"/>
-                                    <constraint firstAttribute="width" constant="102" id="XRa-RK-2m9"/>
-                                </constraints>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="19V-6k-zfe">
-                                <rect key="frame" x="143" y="143" width="216" height="0.0"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v0b-8S-Co0">
-                                <rect key="frame" x="16" y="240" width="343" height="0.0"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0037266831060000002" green="0.53122285000000002" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="19V-6k-zfe" firstAttribute="leading" secondItem="Gfo-Fd-1lD" secondAttribute="trailing" constant="25" id="3cd-ac-FqD"/>
-                            <constraint firstItem="Mr4-aD-gMv" firstAttribute="leading" secondItem="0Dg-iZ-8na" secondAttribute="leading" id="3v3-fq-R25"/>
-                            <constraint firstItem="Mr4-aD-gMv" firstAttribute="top" secondItem="0Dg-iZ-8na" secondAttribute="top" id="JVk-t9-Qe4"/>
-                            <constraint firstItem="19V-6k-zfe" firstAttribute="top" secondItem="Mr4-aD-gMv" secondAttribute="bottom" constant="55" id="LQK-Fe-Mzl"/>
-                            <constraint firstItem="v0b-8S-Co0" firstAttribute="leading" secondItem="0Dg-iZ-8na" secondAttribute="leading" constant="16" id="MXB-xb-ehm"/>
-                            <constraint firstItem="Mr4-aD-gMv" firstAttribute="trailing" secondItem="0Dg-iZ-8na" secondAttribute="trailing" id="QKZ-5t-aum"/>
-                            <constraint firstItem="0Dg-iZ-8na" firstAttribute="trailing" secondItem="19V-6k-zfe" secondAttribute="trailing" constant="16" id="U6z-vR-Yaz"/>
-                            <constraint firstItem="Gfo-Fd-1lD" firstAttribute="leading" secondItem="0Dg-iZ-8na" secondAttribute="leading" constant="16" id="VCg-lS-f4Q"/>
-                            <constraint firstItem="0Dg-iZ-8na" firstAttribute="trailing" secondItem="v0b-8S-Co0" secondAttribute="trailing" constant="16" id="aoK-ak-NlX"/>
-                            <constraint firstItem="v0b-8S-Co0" firstAttribute="top" secondItem="Gfo-Fd-1lD" secondAttribute="bottom" constant="34" id="lsz-Af-iFE"/>
-                            <constraint firstItem="Gfo-Fd-1lD" firstAttribute="top" secondItem="Mr4-aD-gMv" secondAttribute="bottom" constant="16" id="p6S-q9-HDe"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="0Dg-iZ-8na"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="2Fz-gE-idb" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="4149.6000000000004" y="-57.635467980295566"/>
         </scene>
         <!--Menu View Controller-->
         <scene sceneID="YqZ-1L-7OM">
@@ -889,7 +830,6 @@
         <image name="language" width="37.5" height="37.5"/>
         <image name="message" width="22.5" height="22.5"/>
         <image name="photo" width="75" height="75"/>
-        <image name="plus" width="75" height="75"/>
         <image name="recording" width="75" height="75"/>
         <image name="settings" width="19.5" height="19.5"/>
     </resources>
@@ -897,6 +837,7 @@
         <segue reference="SYN-Kx-kXB"/>
         <segue reference="7gg-Z7-64x"/>
         <segue reference="GMq-ef-AHN"/>
+        <segue reference="MNp-gb-ZfO"/>
         <segue reference="AyF-Th-YF1"/>
     </inferredMetricsTieBreakers>
 </document>

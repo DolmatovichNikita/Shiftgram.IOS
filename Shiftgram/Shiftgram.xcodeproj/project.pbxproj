@@ -48,7 +48,6 @@
 		11B2B094217B318B0078232A /* AudioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B2B093217B318B0078232A /* AudioViewController.swift */; };
 		11BD01BB2166AFBE0087B8E0 /* AccountLanguageUpdate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11BD01BA2166AFBE0087B8E0 /* AccountLanguageUpdate.swift */; };
 		11BE43AD21503B5500938ED2 /* ContactTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11BE43AC21503B5500938ED2 /* ContactTableViewCell.swift */; };
-		11BE43AF21503F2D00938ED2 /* InviteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11BE43AE21503F2D00938ED2 /* InviteViewController.swift */; };
 		11C26343217492A9008E2FB2 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11C26342217492A9008E2FB2 /* MenuViewController.swift */; };
 		11C29CA52159559100D50085 /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11C29CA42159559100D50085 /* StringExtensions.swift */; };
 		11C29CA721595F2300D50085 /* ArrayExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11C29CA621595F2300D50085 /* ArrayExtensions.swift */; };
@@ -137,7 +136,6 @@
 		11B2B093217B318B0078232A /* AudioViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioViewController.swift; sourceTree = "<group>"; };
 		11BD01BA2166AFBE0087B8E0 /* AccountLanguageUpdate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountLanguageUpdate.swift; sourceTree = "<group>"; };
 		11BE43AC21503B5500938ED2 /* ContactTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactTableViewCell.swift; sourceTree = "<group>"; };
-		11BE43AE21503F2D00938ED2 /* InviteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InviteViewController.swift; sourceTree = "<group>"; };
 		11C26342217492A9008E2FB2 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		11C29CA42159559100D50085 /* StringExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
 		11C29CA621595F2300D50085 /* ArrayExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayExtensions.swift; sourceTree = "<group>"; };
@@ -285,7 +283,6 @@
 				11EBAAA72146D74700CECB45 /* ContactViewController.swift */,
 				11EBAAA92146D75E00CECB45 /* ConversationViewController.swift */,
 				1132AD402149868400B9BBB5 /* SettingsViewController.swift */,
-				11BE43AE21503F2D00938ED2 /* InviteViewController.swift */,
 				116A8B642151934700C9F8DE /* ChatViewController.swift */,
 				1194664C216F896C00591C82 /* VideoViewController.swift */,
 				11C26342217492A9008E2FB2 /* MenuViewController.swift */,
@@ -616,7 +613,6 @@
 				117D4A4C213F16D60072AB88 /* PhoneVerifyViewController.swift in Sources */,
 				1132AD4B21498E1900B9BBB5 /* AccountGenderUpdate.swift in Sources */,
 				1194664F216F98C700591C82 /* VideoDataManager.swift in Sources */,
-				11BE43AF21503F2D00938ED2 /* InviteViewController.swift in Sources */,
 				11878F8621457301009026CE /* Account.swift in Sources */,
 				11D833B721516A5600C606BB /* AccountFriendModel.swift in Sources */,
 				11BE43AD21503B5500938ED2 /* ContactTableViewCell.swift in Sources */,

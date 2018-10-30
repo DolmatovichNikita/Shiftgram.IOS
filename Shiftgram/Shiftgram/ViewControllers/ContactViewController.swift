@@ -27,17 +27,6 @@ class ContactViewController: UIViewController {
         super.didReceiveMemoryWarning()
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "Video" {
-            let videoViewController = segue.destination as? VideoViewController
-            videoViewController?.conversationName = self.currentConversationName
-            videoViewController?.friendLaguage = self.currentFriendLanguage
-            Constants.refs.databaseRoot.child(self.currentConversationName + "notification").removeValue()
-            self.currentConversationName = ""
-            self.currentFriendLanguage = ""
-        }
-    }
-    
     @IBAction func btnSyncPressed(_ sender: Any) {
         UserEntity().updateUser(value: true, key: "isSync")
         self.activityIndicator.startLoading()
@@ -45,6 +34,9 @@ class ContactViewController: UIViewController {
             self.friends = values
             self.activityIndicator.stopLoading()
             self.contacttableView.reloadData()
+            let alert = UIAlertController(title: "Сообщение", message: "Контакты были обновлены", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
         }
     }
 }
@@ -71,11 +63,7 @@ extension ContactViewController: UITableViewDelegate, UITableViewDataSource {
         if !self.contactViewModel.isAddNewConversation(accountBId: friend.id) {
             ConversationEntity().addConversation(friendModel: friend)
         }
-        let chatViewController = ChatViewController()
-        let userId = UserEntity().getUserId()
-        chatViewController.conversationName = String(friend.id * Int(userId))
-        chatViewController.friendLanguage = FriendEntity().getFriendLanguage(id: friend.id)
-        self.present(chatViewController, animated: true, completion: nil)
+        self.performSegue(withIdentifier: "ContactToChat", sender: self)
     }
 }
 

@@ -12,7 +12,7 @@ class UserDataManager {
         
         Alamofire.request(url, method: .post, parameters: parameter, encoding: JSONEncoding.default).responseJSON { response in
             let id = response.result.value as! Int
-            self.userEntity.addUser(id: id)
+            self.userEntity.addUser(id: id, phone: account.phone)
             completion()
         }
     }

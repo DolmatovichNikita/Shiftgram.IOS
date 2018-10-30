@@ -12,13 +12,14 @@ class UserEntity {
         context = self.appDelegate.persistentContainer.viewContext
     }
     
-    public func addUser(id: Int) {
+    public func addUser(id: Int, phone: String) {
         let entity = NSEntityDescription.entity(forEntityName: "User", in: self.context)
         let user = NSManagedObject(entity: entity!, insertInto: self.context)
         user.setValue(id, forKey: "id")
         user.setValue(Locale.current.languageCode!, forKey: "language")
         user.setValue(true, forKey: "isAuth")
         user.setValue(true, forKey: "isRegister")
+        user.setValue(phone, forKey: "phone")
         
         do {
             try self.context.save()

@@ -9,7 +9,6 @@ class InitialViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.initControls()
-        //userEntity.deleteUser()
     }
 
     override func didReceiveMemoryWarning() {
@@ -17,13 +16,7 @@ class InitialViewController: UIViewController {
     }
 
     @IBAction func btnStartMessagingPressed(_ sender: Any) {
-        let isExist = self.userEntity.isExist()
-        
-        if isExist {
-            self.performSegue(withIdentifier: "PhoneVerify", sender: self)
-        } else {
-            self.performSegue(withIdentifier: "Register", sender: self)
-        }
+        self.performSegue(withIdentifier: "PhoneVerify", sender: self)
     }
     
     private func initControls() {

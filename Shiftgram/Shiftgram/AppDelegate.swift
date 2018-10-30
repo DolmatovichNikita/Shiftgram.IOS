@@ -27,12 +27,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
     
-    public func navigateToVideo(conversationName: String, friendLanguage: String) {
+    public func navigateToVideo() {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let videoViewController = storyboard.instantiateViewController(withIdentifier: "VideoViewController") as? VideoViewController
-        videoViewController?.conversationName = conversationName
-        videoViewController?.friendLaguage = friendLanguage
-        self.window?.rootViewController = videoViewController
+        let menuViewController = storyboard.instantiateViewController(withIdentifier: "Menu")
+        self.window?.rootViewController = menuViewController
         self.window?.makeKeyAndVisible()
     }
     

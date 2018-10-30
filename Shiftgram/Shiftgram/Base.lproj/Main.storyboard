@@ -44,7 +44,6 @@
                     </view>
                     <connections>
                         <outlet property="btnStartMessaging" destination="qZU-aC-ajn" id="bEN-he-T05"/>
-                        <segue destination="qp0-CV-1PO" kind="show" identifier="Register" id="7rL-ke-lAS"/>
                         <segue destination="6ie-nN-s9B" kind="show" identifier="PhoneVerify" id="bBy-Yq-bbG"/>
                     </connections>
                 </viewController>
@@ -208,6 +207,7 @@
                         <outlet property="codeTextField" destination="Tfz-3E-fQf" id="mDO-og-enX"/>
                         <outlet property="phoneLabel" destination="NWg-Nm-LsX" id="m18-q0-nHD"/>
                         <segue destination="OiU-y0-a9u" kind="show" identifier="Menu" id="xuS-rt-X2t"/>
+                        <segue destination="qp0-CV-1PO" kind="show" identifier="Register" id="L1K-iu-ngS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="v6s-kE-vES" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -782,7 +782,6 @@
                                 </state>
                                 <connections>
                                     <action selector="registerBtnPressed:" destination="qp0-CV-1PO" eventType="touchUpInside" id="Ae1-8T-fim"/>
-                                    <segue destination="6ie-nN-s9B" kind="show" id="jar-ev-YGr"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -896,6 +895,6 @@
     <inferredMetricsTieBreakers>
         <segue reference="SYN-Kx-kXB"/>
         <segue reference="GMq-ef-AHN"/>
-        <segue reference="bBy-Yq-bbG"/>
+        <segue reference="AyF-Th-YF1"/>
     </inferredMetricsTieBreakers>
 </document>

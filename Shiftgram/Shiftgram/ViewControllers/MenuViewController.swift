@@ -116,11 +116,14 @@ extension MenuViewController: CXProviderDelegate {
             audioViewController.name = self.currentName
             audioViewController.conversationName = self.currentConversationName
             audioViewController.friendLanguage = self.currentFriendLanguage
-            Constants.refs.databaseRoot.child(self.currentConversationName + "notification").removeValue()
-            self.currentConversationName = ""
+            let ref = Constants.refs.databaseRoot.child(self.currentConversationName + "audioCalling").childByAutoId()
+            let message = ["sender_id": String(self.userId)]
+            ref.setValue(message)
             self.currentFriendLanguage = ""
             self.isVideo = ""
             self.isAudio = ""
+            Constants.refs.databaseRoot.child(self.currentConversationName + "notification").removeValue()
+            self.currentConversationName = ""
             self.present(audioViewController, animated: true, completion: nil)
         }
     }

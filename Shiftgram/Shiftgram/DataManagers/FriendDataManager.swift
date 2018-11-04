@@ -23,28 +23,35 @@ class FriendDataManager {
     
     public func fetchFriends(completion: @escaping () -> Void) {
         Alamofire.request(self.url + "/\(userId)", method: .get, parameters: nil, encoding: JSONEncoding.default).responseJSON {response in
-            if let result = response.result.value {
-                let items = result as! NSArray
-                for item in items {
-                    let value = item as! NSDictionary
-                    if FriendEntity().getFriends().count > 0 {
-                        for friend in FriendEntity().getFriends() {
-                            if friend.id != value["Id"] as! Int {
+            if let code = response.response?.statusCode {
+                print(code)
+                if code == self.OK_CODE {
+                    if let result = response.result.value {
+                        let items = result as! NSArray
+                        for item in items {
+                            let value = item as! NSDictionary
+                            if FriendEntity().getFriends().count > 0 {
+                                for friend in FriendEntity().getFriends() {
+                                    if friend.id != value["Id"] as! Int {
+                                        let friendEntity = FriendEntity()
+                                        let friendModel = FriendModel(id: value["Id"] as! Int, photo: value["PhotoUrl"] as! String,
+                                                                      username: value["Username"] as! String, phone: value["Phone"] as! String, language: value["Language"] as! String)
+                                        friendEntity.addFriend(friendModel: friendModel)
+                                    }
+                                }
+                            } else {
                                 let friendEntity = FriendEntity()
                                 let friendModel = FriendModel(id: value["Id"] as! Int, photo: value["PhotoUrl"] as! String,
                                                               username: value["Username"] as! String, phone: value["Phone"] as! String, language: value["Language"] as! String)
                                 friendEntity.addFriend(friendModel: friendModel)
                             }
                         }
-                    } else {
-                        let friendEntity = FriendEntity()
-                        let friendModel = FriendModel(id: value["Id"] as! Int, photo: value["PhotoUrl"] as! String,
-                                                      username: value["Username"] as! String, phone: value["Phone"] as! String, language: value["Language"] as! String)
-                        friendEntity.addFriend(friendModel: friendModel)
+                        
+                        completion()
                     }
+                } else {
+                    completion()
                 }
-                
-                completion()
             }
         }
     }

@@ -33,29 +33,23 @@ class PhoneVerifyViewController: UIViewController, UIPickerViewDelegate, UIPicke
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let codeVC: CodeVerifyViewController = segue.destination as! CodeVerifyViewController
-        codeVC.phone = self.codeLabel.text! + self.numberTextField.text!
+        if segue.identifier == "Register" {
+            let registerViewController = segue.destination as? ProfileViewController
+            registerViewController?.phone = codeLabel.text! + numberTextField.text!
+        }
     }
     
     @IBAction func btnNextPressed(_ sender: Any) {
-        self.activityIndicator.startLoading()
-        let userEntity = UserEntity()
-        let id = userEntity.getUserId()
-        let phoneVerify = PhoneVerify(id: Int(id), number: numberTextField.text!, code: codeLabel.text!)
+        //self.activityIndicator.startLoading()
         let phone = codeLabel.text! + numberTextField.text!
         
-        if !userEntity.isRegister() {
-            //let accountUpdate = AccountPhoneUpdate(id: Int(id), phone: phone, updateType: "PhoneUpdate")
-            //phoneViewModel.sendSMS(accountUpdate: accountUpdate, phoneVerify: phoneVerify) {
-                self.activityIndicator.stopLoading()
-                self.performSegue(withIdentifier: "Code", sender: self)
+        //self.phoneViewModel.isExistUser(phone: phone, completion: { (response) in
+            //if !response {
+                self.performSegue(withIdentifier: "Register", sender: self)
+            //} else {
+                //self.performSegue(withIdentifier: "Menu", sender: self)
             //}
-        } else {
-            //phoneViewModel.sendSMS(accountUpdate: nil, phoneVerify: phoneVerify) {
-                //self.activityIndicator.stopLoading()
-                self.performSegue(withIdentifier: "Code", sender: self)
-            //}
-        }
+        //})
     }
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {

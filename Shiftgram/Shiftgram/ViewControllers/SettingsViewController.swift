@@ -36,7 +36,7 @@ class SettingsViewController: UIViewController {
         self.userViewModel.getAccountSettings {response in
             let scope = self
             self.initialsLabel.text = response.initials
-            self.phoneLabel.text = response.phone
+            //self.phoneLabel.text = response.phone
             self.usernameLabel.text = response.username
             AwsHelper.downloadImage(path: response.photo) {data in
                 scope.profileImageView.image = UIImage(data: data as Data)

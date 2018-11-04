@@ -17,6 +17,15 @@ class UserDataManager {
         }
     }
     
+    public func getFriendLanguage(id: Int, completion: @escaping(String) -> Void) {
+        Alamofire.request(self.url + "/\(id)", method: .get, parameters: nil, encoding: JSONEncoding.default).responseJSON {response in
+            let result = response.result.value as! NSDictionary
+            let lang = result["Language"] as! String
+            
+            completion(lang)
+        }
+    }
+    
     public func getById(completion: @escaping (AccountSettings) -> Void) {
         let accountId = self.userEntity.getUserId()
         print(accountId)

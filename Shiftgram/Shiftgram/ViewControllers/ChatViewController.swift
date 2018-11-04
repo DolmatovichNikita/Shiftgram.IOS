@@ -4,15 +4,18 @@ import ROGoogleTranslate
 import AVFoundation
 import Speech
 import CallKit
+import MobileCoreServices
 
-class ChatViewController: JSQMessagesViewController, AVAudioRecorderDelegate, SFSpeechRecognizerDelegate {
+class ChatViewController: JSQMessagesViewController, AVAudioRecorderDelegate, SFSpeechRecognizerDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
+    public var titleConversation = String()
     public var conversationName = String()
     public var friendName = String()
     public var friendLanguage = String()
     private var messages = [JSQMessage]()
     private let userId = UserEntity().getUserId()
     private var language = (Locale.preferredLanguages.first?.parseLanguage())!
+    private let userViewModel = UserViewModel()
     
     var audioRecorder: AVAudioRecorder?
     private var timer = Timer()
@@ -40,10 +43,58 @@ class ChatViewController: JSQMessagesViewController, AVAudioRecorderDelegate, SF
         return button
     }()
     
+    lazy var leftBarButtonItem: UIButton = {
+        let button = UIButton(frame: CGRect.zero)
+        button.setImage(UIImage(named: "camera"), for: .normal)
+        button.imageView?.contentMode = .scaleAspectFit
+        let gestureRecgnizer = UITapGestureRecognizer(target: self, action: #selector (imagePressed(tapGestureRecognizer:)))
+        button.addGestureRecognizer(gestureRecgnizer)
+        return button
+    }()
+    
+    @objc private func imagePressed(tapGestureRecognizer: UITapGestureRecognizer) {
+        let choiceImageAlert = UIAlertController(title: "Select image from", message: "", preferredStyle: .actionSheet)
+        let cameraAction = UIAlertAction(title: "Camera", style: .default) { (action) in
+            if UIImagePickerController.isSourceTypeAvailable(.camera) {
+                let imagePicker = UIImagePickerController()
+                imagePicker.delegate = self
+                imagePicker.sourceType = .camera
+                imagePicker.allowsEditing = true
+                self.present(imagePicker, animated: true, completion: nil)
+            }
+        }
+        let cameraRollAction = UIAlertAction(title: "Camera Roll", style: .default) { (action) in
+            if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
+                let imagePicker = UIImagePickerController()
+                imagePicker.delegate = self
+                imagePicker.sourceType = .photoLibrary
+                imagePicker.allowsEditing = true
+                self.present(imagePicker, animated: true, completion: nil)
+            }
+        }
+        
+        choiceImageAlert.addAction(cameraAction)
+        choiceImageAlert.addAction(cameraRollAction)
+        self.present(choiceImageAlert, animated: true, completion: nil)
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
+            AwsHelper.uploadImage(image: image) { (value) in
+                let ref = Constants.refs.databaseRoot.child(self.conversationName).childByAutoId()
+                
+                let message = ["sender_id": String(UserEntity().getUserId()), "name": self.senderDisplayName, "photo": value] as [String : Any]
+                
+                ref.setValue(message)
+                self.dismiss(animated: true, completion: nil)
+            }
+        }
+    }
+    
     private func initChat() {
         senderId = String(userId)
         senderDisplayName = String(userId)
-        title = "Chat: \(senderDisplayName!)"
+        title = "Chat: \(self.friendName)"
         
         let query = Constants.refs.databaseRoot.child(self.conversationName).queryLimited(toLast: 10)
         
@@ -52,7 +103,18 @@ class ChatViewController: JSQMessagesViewController, AVAudioRecorderDelegate, SF
                 let id = data["sender_id"]
                 let name = data["name"]
                 let audioUrl = data["audio"]
-                if audioUrl != nil &&  !audioUrl!.isEmpty {
+                let photo = data["photo"]
+                let text = data["sender_id"] == String(UserEntity().getUserId()) ? data["ownText"] : data["transText"]
+                if photo != nil && !(photo?.isEmpty)! {
+                    AwsHelper.downloadImage(path: photo!, completion: { (data) in
+                        let image = UIImage(data: data as Data)
+                        let ph = JSQPhotoMediaItem(image: image!)
+                        let message = JSQMessage(senderId: id, displayName: name, media: ph)
+                        self?.messages.append(message!)
+                        self?.finishReceivingMessage()
+                    })
+                }
+                else if audioUrl != nil &&  !audioUrl!.isEmpty {
                     let text = data["sender_id"] == String(UserEntity().getUserId()) ? data["ownAudio"] : data["transAudio"]
                     
                     if !(text?.isEmpty)! && text != nil {
@@ -64,9 +126,9 @@ class ChatViewController: JSQMessagesViewController, AVAudioRecorderDelegate, SF
                             self?.finishReceivingMessage()
                         }
                     }
-                } else {
-                    let text = data["sender_id"] == String(UserEntity().getUserId()) ? data["ownText"] : data["transText"]
-    
+                }
+                else if !(text?.isEmpty)! && text != nil{
+                    
                     if !(text?.isEmpty)! && text != nil {
                         if let message = JSQMessage(senderId: id, displayName: name, text: text)
                         {
@@ -92,21 +154,35 @@ class ChatViewController: JSQMessagesViewController, AVAudioRecorderDelegate, SF
                 recognitionRequest?.endAudio()
                 self.deleteViewRecording()
                 if !self.speechText.isEmpty {
-                    let ref = Constants.refs.databaseRoot.child(self.conversationName).childByAutoId()
-                    let params = ROGoogleTranslateParams(source: language,
-                                                         target: self.friendLanguage,
-                                                         text:   speechText)
-                    let translator = ROGoogleTranslate()
-                    translator.apiKey = "AIzaSyA03pGAne7Bz9t8Y-ZeW0K-TVM15vEZYLQ"
-                    translator.translate(params: params) { (value) in
-                        let message = ["sender_id": self.senderId!, "name": self.senderDisplayName, "audio": self.speechText, "ownAudio": self.speechText,
-                                       "transAudio": value] as [String : Any]
-                        
-                        ref.setValue(message)
-                        self.speechText = ""
+                    let userDM = UserDataManager()
+                    let frId = (Int(self.conversationName)! / Int(self.userId))
+                    userDM.getFriendLanguage(id: frId) { (value) in
+                        let ref = Constants.refs.databaseRoot.child(self.conversationName).childByAutoId()
+                        if self.language == value {
+                            let message = ["sender_id": self.senderId!, "name": self.senderDisplayName, "audio": self.speechText, "ownAudio": self.speechText,
+                                           "transAudio": self.speechText] as [String : Any]
+                            
+                            ref.setValue(message)
+                            self.speechText = ""
+                            self.inputToolbar.contentView.rightBarButtonItem.isEnabled = true
+                        } else {
+                            let params = ROGoogleTranslateParams(source: self.language,
+                                                                 target: value,
+                                                                 text:   self.speechText)
+                            let translator = ROGoogleTranslate()
+                            translator.apiKey = "AIzaSyA03pGAne7Bz9t8Y-ZeW0K-TVM15vEZYLQ"
+                            translator.translate(params: params) { (value) in
+                                let message = ["sender_id": self.senderId!, "name": self.senderDisplayName, "audio": self.speechText, "ownAudio": self.speechText,
+                                               "transAudio": value] as [String : Any]
+                                
+                                ref.setValue(message)
+                                self.speechText = ""
+                            }
+                            
+                            self.finishSendingMessage()
+                            self.inputToolbar.contentView.rightBarButtonItem.isEnabled = true
+                        }
                     }
-                    
-                    self.finishSendingMessage()
                 }
                 self.inputToolbar.contentView.rightBarButtonItem.isEnabled = true
             }
@@ -118,13 +194,13 @@ class ChatViewController: JSQMessagesViewController, AVAudioRecorderDelegate, SF
         
         let videoCall = UIAlertAction(title: "Video", style: .default) { (_) in
             let ref = Constants.refs.databaseRoot.child(self.conversationName + "notification").childByAutoId()
-            let message = ["sender_id": self.senderId!, "name": self.senderDisplayName, "videoCall": "true"] as [String : Any]
+            let message = ["sender_id": self.senderId!, "name": self.titleConversation, "videoCall": "true"] as [String : Any]
             ref.setValue(message)
             self.performSegue(withIdentifier: "VideoChat", sender: self)
         }
         let voiceCall = UIAlertAction(title: "Voice", style: .default) { (_) in
             let ref = Constants.refs.databaseRoot.child(self.conversationName + "notification").childByAutoId()
-            let message = ["sender_id": self.senderId!, "name": self.senderDisplayName, "audioCall": "true"] as [String : Any]
+            let message = ["sender_id": self.senderId!, "name": self.titleConversation, "audioCall": "true"] as [String : Any]
             ref.setValue(message)
             let audioViewController = AudioViewController()
             audioViewController.name = self.friendName
@@ -261,7 +337,7 @@ extension ChatViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        inputToolbar.contentView.leftBarButtonItem = nil
+        inputToolbar.contentView.leftBarButtonItem = self.leftBarButtonItem
         inputToolbar?.contentView?.rightBarButtonItem = self.rightBarButtonItem
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "call"), style: .plain, target: self, action: #selector (pressCallButton))
         collectionView.collectionViewLayout.incomingAvatarViewSize = CGSize.zero
@@ -269,6 +345,11 @@ extension ChatViewController {
         self.initChat()
         speechRecognizer!.delegate = self
         SFSpeechRecognizer.requestAuthorization { (_) in}
+        let accountUpdate = AccountLanguageUpdate(id: Int(UserEntity().getUserId()), language: (Locale.preferredLanguages.first?.parseLanguage())!, updateType: "LanguageUpdate")
+        self.userViewModel.updateLanguage(accountUpdate: accountUpdate) { (_) in
+            self.userViewModel.updateLanguageFriend(completion: {
+            })
+        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -278,21 +359,33 @@ extension ChatViewController {
     
     override func didPressSend(_ button: UIButton!, withMessageText text: String!, senderId: String!, senderDisplayName: String!, date: Date!) {
         if text != nil && text != "" {
-            let ref = Constants.refs.databaseRoot.child(self.conversationName).childByAutoId()
-            
-            let params = ROGoogleTranslateParams(source: language,
-                                                 target: self.friendLanguage,
-                                                 text:   text)
-            let translator = ROGoogleTranslate()
-            translator.apiKey = "AIzaSyA03pGAne7Bz9t8Y-ZeW0K-TVM15vEZYLQ"
-            translator.translate(params: params) { (value) in
-                let message = ["sender_id": senderId, "name": senderDisplayName, "text": value, "ownText": text,
-                               "transText": value]
-                
-                ref.setValue(message)
+            let userDM = UserDataManager()
+            let frId = (Int(self.conversationName)! / Int(self.userId))
+            userDM.getFriendLanguage(id: frId) { (value) in
+                let ref = Constants.refs.databaseRoot.child(self.conversationName).childByAutoId()
+                print(self.language + " " + value)
+                if self.language == value {
+                    let message = ["sender_id": senderId, "name": senderDisplayName, "text": text, "ownText": text,
+                                   "transText": text]
+                    
+                    ref.setValue(message)
+                    self.finishSendingMessage()
+                } else {
+                    let params = ROGoogleTranslateParams(source: self.language,
+                                                         target: value,
+                                                         text:   text)
+                    let translator = ROGoogleTranslate()
+                    translator.apiKey = "AIzaSyA03pGAne7Bz9t8Y-ZeW0K-TVM15vEZYLQ"
+                    translator.translate(params: params) { (value) in
+                        let message = ["sender_id": senderId, "name": senderDisplayName, "text": value, "ownText": text,
+                                       "transText": value]
+                        
+                        ref.setValue(message)
+                    }
+                    self.finishSendingMessage()
+                    self.inputToolbar.contentView.rightBarButtonItem.isEnabled = true
+                }
             }
-            self.finishSendingMessage()
-            self.inputToolbar.contentView.rightBarButtonItem.isEnabled = true
         }
     }
     

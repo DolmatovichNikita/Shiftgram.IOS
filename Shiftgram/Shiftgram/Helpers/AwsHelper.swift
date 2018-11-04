@@ -111,4 +111,55 @@ class AwsHelper {
             return nil
         }
     }
+    
+    public static func uploadVideo(fileUrl: URL, completion: @escaping (String) -> Void) {
+        let uploadRequest = AWSS3TransferManagerUploadRequest()
+        uploadRequest?.body = fileUrl as URL
+        uploadRequest?.key = ProcessInfo.processInfo.globallyUniqueString + ".mov"
+        uploadRequest?.bucket = "shiftgramimage"
+        uploadRequest?.contentType = "movie/mov"
+        
+        uploadRequest?.uploadProgress = { (bytesSent, totalBytesSent, totalBytesExpectedToSend) -> Void in
+            
+        }
+        
+        let transferManager = AWSS3TransferManager.default()
+        transferManager.upload(uploadRequest!).continueWith(executor: AWSExecutor.mainThread(), block: { (task) in
+            if task.error != nil {
+                print(task.error.debugDescription)
+            } else {
+                DispatchQueue.main.async {
+                    completion((uploadRequest?.key)!)
+                }
+            }
+            return nil
+        })
+    }
+    
+    public static func downloadVideo(path: String , completion:@escaping (NSData) -> Void) {
+        let bucketName = "shiftgramimage"
+        let key = path
+        let transferManager = AWSS3TransferManager.default()
+        let downloadedFile = URL(fileURLWithPath: NSTemporaryDirectory()).appendingPathComponent("test.mov")
+        
+        if let downloadedRequest = AWSS3TransferManagerDownloadRequest(){
+            downloadedRequest.bucket = bucketName
+            downloadedRequest.key = key
+            downloadedRequest.downloadingFileURL = downloadedFile
+            
+            transferManager.download(downloadedRequest).continueWith { (task) -> Any? in
+                if let error = task.error {
+                    print(error)
+                } else {
+                    if let data = NSData(contentsOf: downloadedFile) {
+                        DispatchQueue.main.async {
+                            completion(data)
+                        }
+                    }
+                }
+                
+                return nil
+            }
+        }
+    }
 }

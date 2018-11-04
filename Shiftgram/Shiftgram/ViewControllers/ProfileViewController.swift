@@ -11,10 +11,12 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     @IBOutlet weak var segmentGender: UISegmentedControl!
     private let userViewModel = UserViewModel()
     public var phone = String()
+    //private var activityIndicator: ActivityIndicator!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.initControls()
+        //self.activityIndicator = ActivityIndicator(view: self.view)
     }
 
     override func didReceiveMemoryWarning() {
@@ -26,10 +28,12 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     }
     
     @IBAction func registerBtnPressed(_ sender: Any) {
+        //self.activityIndicator.startLoading()
         AwsHelper.uploadImage(image: self.profileImageView.image!) { response in
             let account = Account(firstName: self.firstNameTextField.text!, lastName: self.lastNameTextField.text!, bio: self.bioTextField.text!,
                                   username: self.usernameTextField.text!, photoUrl: response, gender: self.segmentGender.titleForSegment(at: self.segmentGender.selectedSegmentIndex)!, phone: self.phone)
             self.userViewModel.addAccount(account: account) {}
+            //self.activityIndicator.stopLoading()
             self.performSegue(withIdentifier: "RegisterToMenu", sender: self)
         }
     }

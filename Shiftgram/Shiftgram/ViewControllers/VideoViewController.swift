@@ -4,6 +4,7 @@ import Speech
 import Firebase
 import AVFoundation
 import ROGoogleTranslate
+import CallKit
 
 class VideoViewController: UIViewController{
 
@@ -15,7 +16,6 @@ class VideoViewController: UIViewController{
     private let videoAccessViewModel = VideoAccessViewModel()
     private let roomName = "Shiftgram"
     private let userId = String(UserEntity().getUserId())
-    private var indicator: ActivityIndicator?
     
     private var room: TVIRoom?
     private var camera: TVICameraCapturer?
@@ -39,8 +39,6 @@ class VideoViewController: UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.indicator = ActivityIndicator(view: self.view)
-        self.indicator!.startLoading()
         let disconnectGesture = UITapGestureRecognizer(target: self, action: #selector (tapGestureDisconnect(gesture:)))
         self.disconnectImageView.isUserInteractionEnabled = true
         self.disconnectImageView.addGestureRecognizer(disconnectGesture)
@@ -57,6 +55,8 @@ class VideoViewController: UIViewController{
     @objc private func tapGestureDisconnect(gesture: UITapGestureRecognizer) {
         Constants.refs.databaseRoot.child(self.conversationName + "video").removeValue()
         self.room!.disconnect()
+        let appDelegate = UIApplication.shared.delegate as? AppDelegate
+        appDelegate?.navigateToVideo()
     }
     
     @objc private func tapGestureRecroding(gesture: UITapGestureRecognizer) {
@@ -64,18 +64,22 @@ class VideoViewController: UIViewController{
         if audioEngine.isRunning {
             audioEngine.stop()
             recognitionRequest?.endAudio()
-            let ref = Constants.refs.databaseRoot.child(self.conversationName + "video").childByAutoId()
-            
-            let params = ROGoogleTranslateParams(source: self.language,
-                                                 target: self.friendLaguage,
-                                                 text:   self.speechText)
-            let translator = ROGoogleTranslate()
-            translator.apiKey = "AIzaSyA03pGAne7Bz9t8Y-ZeW0K-TVM15vEZYLQ"
-            translator.translate(params: params) { (value) in
-                let message = ["sender_id": user, "ownText": self.speechText, "transText": value]
+            let userDM = UserDataManager()
+            let frId = (Int(self.conversationName)! / Int(self.userId)!)
+            userDM.getFriendLanguage(id: frId) { (value) in
+                let ref = Constants.refs.databaseRoot.child(self.conversationName + "video").childByAutoId()
                 
-                ref.setValue(message)
-                self.speechText = ""
+                let params = ROGoogleTranslateParams(source: self.language,
+                                                     target: value,
+                                                     text:   self.speechText)
+                let translator = ROGoogleTranslate()
+                translator.apiKey = "AIzaSyA03pGAne7Bz9t8Y-ZeW0K-TVM15vEZYLQ"
+                translator.translate(params: params) { (value) in
+                    let message = ["sender_id": user, "ownText": self.speechText, "transText": value]
+                    
+                    ref.setValue(message)
+                    self.speechText = ""
+                }
             }
             self.recordingImageView.image = UIImage(named: "recording")
             self.recordingImageView.contentMode = .scaleAspectFit
@@ -166,36 +170,34 @@ class VideoViewController: UIViewController{
     }
     
     private func initConnection() {
-        let videoAccessModel = VideoAccessModel(name: String(UserEntity().getUserId()), room: self.roomName)
-        self.videoAccessViewModel.getToken(videoAccessModel: videoAccessModel) { (token) in
-            self.accessToken = token
+        
+        self.accessToken = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImN0eSI6InR3aWxpby1mcGE7dj0xIn0.eyJqdGkiOiJTSzkyYTU5YjFlMzE1OTNlODlhODk2ZTNiMzNjZDA2ZTllLTE1NDEzNDI0OTMiLCJpc3MiOiJTSzkyYTU5YjFlMzE1OTNlODlhODk2ZTNiMzNjZDA2ZTllIiwic3ViIjoiQUM4MmUzOWNmNzMzMjMxMjY0N2RiNDE5ODU2ODBjODMwOSIsImV4cCI6MTU0MTM0NjA5MywiZ3JhbnRzIjp7ImlkZW50aXR5IjoiZGFzZHNhMzQyIiwidmlkZW8iOnsicm9vbSI6IlNoaWZ0Z3JhbSJ9fX0.k5-M3lIaNEJjCjNbLOxw_N5MWCGgmiqONdm-a5-Ixe8"
+        
+        self.prepareLocalMedia()
+        
+        let connectOptions = TVIConnectOptions.init(token: self.accessToken!) { (builder) in
             
-            self.prepareLocalMedia()
+            if self.language == self.friendLaguage {
+                builder.audioTracks = self.localAudioTrack != nil ? [self.localAudioTrack!] : [TVILocalAudioTrack]()
+            }
+            builder.videoTracks = self.localVideoTrack != nil ? [self.localVideoTrack!] : [TVILocalVideoTrack]()
             
-            let connectOptions = TVIConnectOptions.init(token: self.accessToken!) { (builder) in
-                
-                if self.language == self.friendLaguage {
-                    builder.audioTracks = self.localAudioTrack != nil ? [self.localAudioTrack!] : [TVILocalAudioTrack]()
-                }
-                builder.videoTracks = self.localVideoTrack != nil ? [self.localVideoTrack!] : [TVILocalVideoTrack]()
-                
-                if let preferredAudioCodec = Settings.shared.audioCodec {
-                    builder.preferredAudioCodecs = [preferredAudioCodec]
-                }
-                
-                if let preferredVideoCodec = Settings.shared.videoCodec {
-                    builder.preferredVideoCodecs = [preferredVideoCodec]
-                }
-                
-                if let encodingParameters = Settings.shared.getEncodingParameters() {
-                    builder.encodingParameters = encodingParameters
-                }
-                
-                builder.roomName = self.roomName
+            if let preferredAudioCodec = Settings.shared.audioCodec {
+                builder.preferredAudioCodecs = [preferredAudioCodec]
             }
             
-            self.room = TwilioVideo.connect(with: connectOptions, delegate: self)
+            if let preferredVideoCodec = Settings.shared.videoCodec {
+                builder.preferredVideoCodecs = [preferredVideoCodec]
+            }
+            
+            if let encodingParameters = Settings.shared.getEncodingParameters() {
+                builder.encodingParameters = encodingParameters
+            }
+            
+            builder.roomName = "Shiftgram"
         }
+        
+        self.room = TwilioVideo.connect(with: connectOptions, delegate: self)
     }
     
     private func startPreview() {
@@ -343,7 +345,6 @@ extension VideoViewController : TVIRemoteParticipantDelegate {
         if (self.remoteParticipant == participant) {
             setupRemoteVideoView()
             videoTrack.addRenderer(self.remoteView!)
-            self.indicator!.stopLoading()
             self.loadingLabel.text = ""
         }
     }

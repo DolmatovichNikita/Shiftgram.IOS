@@ -9,7 +9,7 @@ class ContactViewModel {
     
     public func syncContacts(completion: @escaping ([FriendModel]) -> Void) {
         self.addContacts()
-        self.friendDataManager.fetchFriends {
+        self.friendDataManager.fetchFriends { 
             let friends = self.friendEntity.getFriends()
                 
             completion(friends)

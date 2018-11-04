@@ -13,6 +13,7 @@ class ContactViewController: UIViewController {
     private let userId = UserEntity().getUserId()
     private var currentConversationName = String()
     private var currentFriendLanguage = String()
+    private let userViewModel = UserViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,6 +22,12 @@ class ContactViewController: UIViewController {
         self.activityIndicator = ActivityIndicator(view: self.view)
         self.friends = FriendEntity().getFriends()
         self.contacttableView.reloadData()
+        let accountUpdate = AccountLanguageUpdate(id: Int(UserEntity().getUserId()), language: (Locale.preferredLanguages.first?.parseLanguage())!, updateType: "LanguageUpdate")
+        self.userViewModel.updateLanguage(accountUpdate: accountUpdate) { (_) in
+            self.userViewModel.updateLanguageFriend(completion: {
+                
+            })
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -62,8 +69,14 @@ extension ContactViewController: UITableViewDelegate, UITableViewDataSource {
         let friend = self.friends[indexPath.row]
         if !self.contactViewModel.isAddNewConversation(accountBId: friend.id) {
             ConversationEntity().addConversation(friendModel: friend)
+            let alert = UIAlertController(title: "Сообщение", message: "Беседа создана", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
         }
-        self.performSegue(withIdentifier: "ContactToChat", sender: self)
+        
+        let alert = UIAlertController(title: "Сообщение", message: "Беседа уже создана передйите в раздел сообщения", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
     }
 }
 

@@ -7,16 +7,32 @@ class ConversationViewController: UIViewController {
     private var conversationName: String!
     private var friendLanguage: String!
     private var friendName: String!
+    private let conversationTitle = String()
+    private let userViewModel = UserViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.conversationTableView.delegate = self
         self.conversationTableView.dataSource = self
         self.conversationTableView.reloadData()
+        let accountUpdate = AccountLanguageUpdate(id: Int(UserEntity().getUserId()), language: (Locale.preferredLanguages.first?.parseLanguage())!, updateType: "LanguageUpdate")
+        self.userViewModel.updateLanguage(accountUpdate: accountUpdate) { (_) in
+            self.userViewModel.updateLanguageFriend(completion: {
+                
+            })
+        }
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+    }
+    
+    @IBAction func btnsyncPressed(_ sender: Any) {
+        self.conversations = ConversationEntity().getConversations()
+        self.conversationTableView.reloadData()
+        let alert = UIAlertController(title: "Сообщение", message: "Беседы были обновлены", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -25,6 +41,7 @@ class ConversationViewController: UIViewController {
             chatViewController.conversationName = self.conversationName
             chatViewController.friendLanguage = self.friendLanguage
             chatViewController.friendName = self.friendName
+            chatViewController.titleConversation = self.friendName
         }
     }
 }
@@ -52,6 +69,11 @@ extension ConversationViewController: UITableViewDelegate, UITableViewDataSource
         self.conversationName = String(conversation.accountBId * userId)
         self.friendLanguage = FriendEntity().getFriendLanguage(id: Int(conversation.accountBId))
         self.friendName = conversation.name
+        let accountUpdate = AccountLanguageUpdate(id: Int(UserEntity().getUserId()), language: (Locale.preferredLanguages.first?.parseLanguage())!, updateType: "LanguageUpdate")
+        self.userViewModel.updateLanguage(accountUpdate: accountUpdate) { (_) in
+            self.userViewModel.updateLanguageFriend(completion: {
+            })
+        }
         self.performSegue(withIdentifier: "Chat", sender: self)
     }
 }

@@ -25,17 +25,11 @@ class AudioViewController: UIViewController {
         self.initControls()
         self.initChat()
         self.initAudioCalling()
-        //self.startRecording()
-        //self.timer = Timer.scheduledTimer(timeInterval: 5, target: self, selector: #selector (self.sendText), userInfo: nil, repeats: true)
     }
     
     @objc private func tapGestureRecroding(gesture: UITapGestureRecognizer) {
         Constants.refs.databaseRoot.child(self.conversationName + "audio").removeValue()
         Constants.refs.databaseRoot.child(self.conversationName + "audioCalling").removeValue()
-        //self.timer!.invalidate()
-        //self.timer = nil
-        //audioEngine.stop()
-        //recognitionRequest?.endAudio()
         let appDelegate = UIApplication.shared.delegate as? AppDelegate
         appDelegate?.navigateToVideo()
     }
@@ -43,28 +37,40 @@ class AudioViewController: UIViewController {
     @objc private func sendText(gesture: UITapGestureRecognizer) {
         let user = self.userId
         if audioEngine.isRunning {
-            print("Hi")
-            print(self.speechText)
             audioEngine.stop()
             recognitionRequest?.endAudio()
-            print(self.speechText)
-            let ref = Constants.refs.databaseRoot.child(self.conversationName + "audio").childByAutoId()
-            
-            let params = ROGoogleTranslateParams(source: self.language,
-                                                 target: self.friendLanguage,
-                                                 text:   self.speechText)
-            let translator = ROGoogleTranslate()
-            translator.apiKey = "AIzaSyA03pGAne7Bz9t8Y-ZeW0K-TVM15vEZYLQ"
-            translator.translate(params: params) { (value) in
-                if !value.isEmpty {
-                    let message = ["sender_id": user, "ownText": self.speechText, "transText": value]
+            let userDM = UserDataManager()
+            let frId = (Int(self.conversationName)! / Int(self.userId)!)
+            userDM.getFriendLanguage(id: frId) { (value) in
+                let ref = Constants.refs.databaseRoot.child(self.conversationName + "audio").childByAutoId()
                 
+                if value == self.language {
+                    let message = ["sender_id": user, "ownText": self.speechText, "transText": self.speechText]
+                    
                     ref.setValue(message)
                     self.speechText = ""
+                } else {
+                    let params = ROGoogleTranslateParams(source: self.language,
+                                                         target: value,
+                                                         text:   self.speechText)
+                    let translator = ROGoogleTranslate()
+                    translator.apiKey = "AIzaSyA03pGAne7Bz9t8Y-ZeW0K-TVM15vEZYLQ"
+                    translator.translate(params: params) { (value) in
+                        if !value.isEmpty {
+                            let message = ["sender_id": user, "ownText": self.speechText, "transText": value]
+                            
+                            ref.setValue(message)
+                            self.speechText = ""
+                        }
+                    }
                 }
             }
+            let button = self.view.viewWithTag(42) as! UIButton
+            button.setImage(UIImage(named: "recording"), for: .normal)
         } else {
             self.startRecording()
+            let button = self.view.viewWithTag(42) as! UIButton
+            button.setImage(UIImage(named: "inRecording"), for: .normal)
         }
     }
     
@@ -98,9 +104,10 @@ class AudioViewController: UIViewController {
         
         let muteButton = UIButton(frame: CGRect(x: 0, y: 0, width: 80, height: 80))
         muteButton.center = CGPoint(x: self.view.frame.width / 2 + 100, y: self.view.frame.height - 100)
-        muteButton.backgroundColor = UIColor.green
-        muteButton.setImage(UIImage(named: "callMicro"), for: .normal)
+        muteButton.backgroundColor = UIColor.white
+        muteButton.setImage(UIImage(named: "recording"), for: .normal)
         muteButton.layer.cornerRadius = 27
+        muteButton.tag = 42
         let tapGestureRecord = UITapGestureRecognizer(target: self, action: #selector(sendText(gesture:)))
         muteButton.addGestureRecognizer(tapGestureRecord)
         

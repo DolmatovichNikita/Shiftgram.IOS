@@ -10,12 +10,19 @@ class MenuViewController: UITabBarController {
     private var currentName = String()
     private var isAudio = String()
     private var isVideo = String()
+    private let userViewModel = UserViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.initAudioSession()
         self.initConversations()
         self.initAudioConversation()
+        let accountUpdate = AccountLanguageUpdate(id: Int(UserEntity().getUserId()), language: (Locale.preferredLanguages.first?.parseLanguage())!, updateType: "LanguageUpdate")
+        self.userViewModel.updateLanguage(accountUpdate: accountUpdate) { (_) in
+            self.userViewModel.updateLanguageFriend(completion: {
+                
+            })
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

@@ -106,6 +106,7 @@
                                 </state>
                                 <connections>
                                     <action selector="btnNextPressed:" destination="6ie-nN-s9B" eventType="touchUpInside" id="KCv-EO-J84"/>
+                                    <segue destination="qp0-CV-1PO" kind="show" identifier="Register" id="vWm-Aw-atP"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -135,7 +136,7 @@
                         <outlet property="codeLabel" destination="37r-TH-L8m" id="jfN-Vr-TLa"/>
                         <outlet property="numberTextField" destination="F1j-qO-qIx" id="FvV-2J-6Rh"/>
                         <outlet property="phonePicker" destination="19c-9f-Nx9" id="1TX-qM-rKF"/>
-                        <segue destination="KgR-51-ZDu" kind="show" identifier="Code" id="Gp5-EU-rZB"/>
+                        <segue destination="OiU-y0-a9u" kind="show" identifier="Menu" id="779-6L-ZZl"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UT9-mt-B9S" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -156,11 +157,7 @@
                                 <color key="barTintColor" white="1" alpha="0.014795590753424657" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <items>
                                     <navigationItem id="y4z-tH-UNI">
-                                        <barButtonItem key="leftBarButtonItem" title="Back" id="mAu-3g-6Sj">
-                                            <connections>
-                                                <segue destination="6ie-nN-s9B" kind="show" id="AyF-Th-YF1"/>
-                                            </connections>
-                                        </barButtonItem>
+                                        <barButtonItem key="leftBarButtonItem" title="Back" id="mAu-3g-6Sj"/>
                                         <barButtonItem key="rightBarButtonItem" title="Next" id="zSU-5s-Zsf">
                                             <connections>
                                                 <action selector="btnNextPressed:" destination="KgR-51-ZDu" id="djt-nY-Qx6"/>
@@ -206,13 +203,11 @@
                     <connections>
                         <outlet property="codeTextField" destination="Tfz-3E-fQf" id="mDO-og-enX"/>
                         <outlet property="phoneLabel" destination="NWg-Nm-LsX" id="m18-q0-nHD"/>
-                        <segue destination="OiU-y0-a9u" kind="show" identifier="Menu" id="xuS-rt-X2t"/>
-                        <segue destination="qp0-CV-1PO" kind="show" identifier="Register" id="L1K-iu-ngS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="v6s-kE-vES" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1727" y="596"/>
+            <point key="canvasLocation" x="1706" y="1273"/>
         </scene>
         <!--Chats-->
         <scene sceneID="ptC-lb-Egu">
@@ -223,11 +218,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <searchBar contentMode="redraw" searchBarStyle="minimal" placeholder="           Seacrh for messages or users" translatesAutoresizingMaskIntoConstraints="NO" id="2WB-ov-sJO">
-                                <rect key="frame" x="0.0" y="44" width="375" height="56"/>
+                                <rect key="frame" x="0.0" y="88" width="375" height="56"/>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="F4v-8K-1dB">
-                                <rect key="frame" x="0.0" y="100" width="375" height="678"/>
+                                <rect key="frame" x="0.0" y="144" width="375" height="585"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MessageCell" rowHeight="91" id="97Z-7F-Dkz" customClass="MessageTableViewCell" customModule="Shiftgram" customModuleProvider="target">
@@ -282,7 +277,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="9bw-Iq-cCb"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Chats" id="y8W-PJ-p2q"/>
+                    <navigationItem key="navigationItem" title="Chats" id="y8W-PJ-p2q">
+                        <barButtonItem key="leftBarButtonItem" title="Item" image="Sync" id="Egz-uL-tD5">
+                            <connections>
+                                <action selector="btnsyncPressed:" destination="j81-VI-SgQ" id="ZWE-jE-3KO"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="conversationTableView" destination="F4v-8K-1dB" id="9MT-Fc-3uS"/>
                         <segue destination="qb4-ws-otk" kind="show" identifier="Chat" id="Cxm-gc-DYr"/>
@@ -579,7 +580,6 @@
                     <tabBarItem key="tabBarItem" title="Contacts" image="contact" id="FRW-yL-OFX"/>
                     <connections>
                         <outlet property="contacttableView" destination="G8Y-yA-wh3" id="SBU-Er-WCu"/>
-                        <segue destination="j81-VI-SgQ" kind="show" identifier="ContactToChat" id="MNp-gb-ZfO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0pb-7D-RAk" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -835,9 +835,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="SYN-Kx-kXB"/>
-        <segue reference="7gg-Z7-64x"/>
+        <segue reference="779-6L-ZZl"/>
         <segue reference="GMq-ef-AHN"/>
-        <segue reference="MNp-gb-ZfO"/>
-        <segue reference="AyF-Th-YF1"/>
     </inferredMetricsTieBreakers>
 </document>

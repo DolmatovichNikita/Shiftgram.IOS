@@ -2,6 +2,7 @@ import UIKit
 import CoreData
 import AWSCognito
 import Firebase
+import CallKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -68,15 +69,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func applicationWillResignActive(_ application: UIApplication) {
+        
     }
 
     func applicationDidEnterBackground(_ application: UIApplication) {
+        self.initAudioSession()
+        self.initConversations()
     }
 
     func applicationWillEnterForeground(_ application: UIApplication) {
+        
     }
 
     func applicationDidBecomeActive(_ application: UIApplication) {
+        
     }
 
     func applicationWillTerminate(_ application: UIApplication) {
@@ -104,6 +110,81 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
     }
-
+    
+    private func initAudioSession() {
+        let audioSession = AVAudioSession.sharedInstance()
+        
+        do {
+            try audioSession.setCategory(AVAudioSessionCategoryPlayAndRecord)
+            try audioSession.setMode(AVAudioSessionModeMeasurement)
+            try audioSession.setActive(true, with: .notifyOthersOnDeactivation)
+        } catch {
+            print("audioSession properties weren't set because of an error.")
+        }
+    }
+    
+    private func initConversations() {
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Conversation")
+        var conversations = [Conversation]()
+        
+        do {
+            conversations = try self.persistentContainer.viewContext.fetch(request) as! [Conversation]
+        } catch {
+            print("Failed")
+        }
+        let request1 = NSFetchRequest<NSFetchRequestResult>(entityName: "User")
+        var userId: Int32 = 0
+        
+        do {
+            let users = try self.persistentContainer.viewContext.fetch(request1)
+            if users.count > 0 {
+                let user = users.first as! User
+                userId = user.id
+            }
+            
+        } catch {
+            print("Failed")
+        }
+        for conversation in conversations {
+            let conversationName = String(userId * conversation.accountBId)
+            let query = Constants.refs.databaseRoot.child(conversationName + "notification").queryLimited(toLast: 10)
+            
+            _ = query.observe(.childAdded, with: { snapshot in
+                if let data = snapshot.value as? [String: String] {
+                    let id = data["sender_id"]
+                    let name = data["name"]
+                    let video = data["videoCall"]
+                    
+                    if id != String(userId) {
+                        if video != nil && !(video?.isEmpty)! {
+                            self.incomingCall(senderName: name!)
+                        }
+                    }
+                }
+            })
+        }
+    }
+    
+    private func incomingCall(senderName: String) {
+        let provider = CXProvider(configuration: CXProviderConfiguration(localizedName: "Shiftgram"))
+        provider.setDelegate(self, queue: nil)
+        let update = CXCallUpdate()
+        update.remoteHandle = CXHandle(type: .generic, value: senderName)
+        provider.reportNewIncomingCall(with: UUID(), update: update, completion: { error in })
+    }
 }
 
+extension AppDelegate: CXProviderDelegate {
+    
+    func providerDidReset(_ provider: CXProvider) {
+        
+    }
+    
+    func provider(_ provider: CXProvider, perform action: CXAnswerCallAction) {
+        action.fulfill()
+    }
+    
+    func provider(_ provider: CXProvider, perform action: CXEndCallAction) {
+        action.fulfill()
+    }
+}
